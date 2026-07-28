@@ -1,0 +1,98 @@
+{
+  "locale": "en-us",
+  "_version": 25,
+  "uid": "blt2a6acf45012c79f3",
+  "ACL": {},
+  "_in_progress": false,
+  "article_content": [
+    {
+      "article_section": {
+        "heading": "Taxonomy Migration",
+        "_metadata": {
+          "uid": "cs367138aa9aef1a55"
+        },
+        "content": "<p>With the Taxonomy Migration utility, you can <strong>import the taxonomies</strong> and respective terms using a CSV file created using one of the following methods:</p><ul><li><a href=\"/docs/headless-cms/export-content-to-csv-file\">export-to-csv</a> plugin</li><li><a href=\"https://github.com/contentstack/cli/blob/v2.0.0-beta/packages/contentstack-migration/examples/taxonomies/test_taxonomies.csv\" target=\"_blank\">CSV template</a></li></ul><p>This step-by-step guide lets you use the Taxonomy Migration utility to perform the taxonomy migration operation on a stack.</p><h2>Prerequisites</h2><ul><li><a href=\"https://www.contentstack.com/login/\" target=\"_blank\">Contentstack account</a></li><li><a href=\"/docs/headless-cms/install-the-cli/\" target=\"_self\">CLI installed</a> and <a href=\"/docs/headless-cms/configure-regions-in-the-cli/\" target=\"_self\">configured</a> (version 1.11.0 and above)</li><li><a href=\"/docs/headless-cms/cli-authentication/\" target=\"_self\">CLI authenticated</a></li><li>CSV file (generated using the <a href=\"/docs/headless-cms/export-content-to-csv-file\">export-to-csv</a> plugin or a <a href=\"https://github.com/contentstack/cli/blob/v2.0.0-beta/packages/contentstack-migration/examples/taxonomies/test_taxonomies.csv\" target=\"_blank\">CSV template</a>)</li></ul><p class=\"note\"><strong>Note:</strong> If you are using a CSV template to generate the CSV file, the <span class=\"code\">Taxonomy Name</span> and <span class=\"code\">Term Level* Name</span> fields are mandatory.</p><p class=\"add-resource\"><strong>Additional Resource:</strong> Here is a <a href=\"https://github.com/contentstack/cli/blob/v2.0.0-beta/packages/contentstack-migration/examples/taxonomies/import-taxonomies.js\" target=\"_blank\">sample script</a> to import taxonomies into your stack. Preferably, use this sample script to try out the commands in this guide.</p><p><strong>Usage</strong></p><pre>csdx cm:stacks:migration --file-path &lt;value&gt; --config data-dir:&lt;value&gt; --stack-api-key &lt;value&gt;</pre><p><strong>Options</strong></p><ul><li><span class=\"code\">-k</span>, <span class=\"code\">--stack-api-key=stack-api-key</span>: Stack API key.</li><li><span class=\"code\">--config=config</span>: [Inline configuration] The key for receiving data-dir and delimiter. To provide the path of the CSV file in the data-dir, use <span class=\"code\">data-dir:&lt;value&gt;</span>. If you used a delimiter while exporting or manually creating taxonomies to CSV, use <span class=\"code\">{data-dir:&lt;value&gt;,delimiter:&lt;value&gt;}</span>.</li><li><span class=\"code\">--file-path=filepath</span>: Path where the taxonomy migration files are stored.<br /><p class=\"tip\"><strong>Tip:</strong> Preferably, use the sample <a href=\"https://github.com/contentstack/cli/blob/v2.0.0-beta/packages/contentstack-migration/examples/taxonomies/import-taxonomies.js\" target=\"_blank\">taxonomy migration script</a> to import taxonomies.</p></li></ul><p><strong>Example</strong></p><p>Without delimiter:</p><pre>csdx cm:stacks:migration -k b*******9ca0 --file-path \"../contentstack-migration/examples/taxonomies/import-taxonomies.js\" --config data-dir:'./data/Taxonomy Stack_taxonomies.csv'</pre><p class=\"note\"><strong>Note:</strong> For Windows OS, use \"<span class=\"code\">\\</span>\" instead of \"<span class=\"code\">/</span>\" for paths.</p><p>With delimiter (Mac OS):</p><pre>csdx cm:stacks:migration -k b*******9ca0 --file-path \"../contentstack-migration/examples/taxonomies/import-taxonomies.js\" --config {data-dir:'./data/Taxonomy Stack_taxonomies.csv',delimiter:'|'}</pre><p>With delimiter (Windows OS):</p><pre>csdx cm:stacks:migration -k b*********d4 --file-path \"C:\\Users\\v***h\\Desktop\\Contentstack\\CLI\\Taxonomy\\import-taxonomies.js\" --config data-dir:'C:\\Users\\v***h\\Desktop\\Contentstack\\CLI\\Taxonomy\\test_taxonomies.csv' delimiter:','</pre><h2>Steps for Execution</h2><p>Follow the steps below to run the taxonomy migration command:</p><ol><li>Provide the following flags in the <span class=\"code\">cm:stacks:migration</span> command to import taxonomy:<ul><li>File path that contains the taxonomy migration files.<br /><p class=\"note\"><strong>Note:</strong> Provide the file path of the downloaded <a href=\"https://github.com/contentstack/cli/blob/v2.0.0-beta/packages/contentstack-migration/examples/taxonomies/import-taxonomies.js\" target=\"_blank\">sample script</a>.</p></li><li>Stack API key</li><li>Config that contains the CSV file path and the delimiter<br /><p class=\"note\"><strong>Note:</strong> You must provide a delimiter in config only if you used a delimiter while exporting taxonomies to CSV or generating CSV file manually.</p></li></ul><pre>csdx cm:stacks:migration --stack-api-key &lt;value&gt; --file-path &lt;value&gt; --config {data-dir:&lt;value&gt;,delimiter:&lt;value&gt;}</pre><p class=\"note\"><strong>Note:</strong> For Windows OS, use '<span class=\"code\">,</span>' as the delimiter.</p></li><li>Run the command in your terminal.</li></ol><p>You have successfully migrated taxonomies from your CSV file to the provided stack.</p><p>Without delimiter:</p><p><img asset_uid=\"bltb0af67f7320aac70\" src=\"https://images.contentstack.io/v3/assets/blt2d43f51baca745a8/bltb0af67f7320aac70/65dd996a6c65d74fd187b2cc/CLI_Taxonomy_Migration_WithoutDelimiter_Stage.png\" alt=\"CLI_Taxonomy_Migration_WithoutDelimiter_Stage.png\" height=\"auto\"/></p><p>With delimiter (Windows OS):</p><p><img asset_uid=\"blte03fb309fa5a7c0c\" src=\"https://images.contentstack.io/v3/assets/blt2d43f51baca745a8/blte03fb309fa5a7c0c/65dc0ac4fcf7fe17b53c400c/CLI_New_Taxonomy_Delimiter_WindowsOS.png\" alt=\"CLI_New_Taxonomy_Delimiter_WindowsOS.png\" height=\"auto\"/></p><p>With delimiter (Mac OS):</p><p><img asset_uid=\"bltb090938e22ebe1f8\" src=\"https://images.contentstack.io/v3/assets/blt2d43f51baca745a8/bltb090938e22ebe1f8/65dd996a31aca131f07ee6b4/CLI_Taxonomy_Migration_WithDelimiter_Stage_MacOS.png\" alt=\"CLI_Taxonomy_Migration_WithDelimiter_Stage_MacOS.png\" height=\"auto\"/></p><h2>Troubleshoot</h2><p>If you are facing a <strong>Migration Unsuccessful</strong> or <strong>Module cannot be found</strong> error, please try one of the following troubleshooting methods:</p><ul><li><strong>Troubleshoot in your current terminal session</strong>:<ol><li><strong>Windows (CMD)</strong>:<pre>FOR /F \"usebackq tokens=*\" %i IN (`npm root -g @contentstack/cli`) DO SET NODE_PATH=%i/@contentstack/cli/node_modules</pre></li><li><strong>Windows (PowerShell)</strong>:<pre>foreach ($i in $(npm root -g @contentstack/cli)) { $env:NODE_PATH = \"$i/@contentstack/cli/node_modules\" }</pre></li><li><strong>Mac/Unix</strong>:<pre>export NODE_PATH=\"$(npm root -g @contentstack/cli)/@contentstack/cli/node_modules\"</pre></li></ol></li><li><strong>Troubleshoot in the entire session</strong>:<pre>npm link fast-csv</pre></li></ul>"
+      }
+    }
+  ],
+  "breadcrumb": [
+    {
+      "uid": "blt641003bf9368e112",
+      "_content_type_uid": "navigation"
+    },
+    {
+      "uid": "bltef82f5fd1a4eab6e",
+      "_content_type_uid": "navigation"
+    }
+  ],
+  "created_at": "2023-11-10T14:56:32.841Z",
+  "created_by": "blt3274538a64ad0ade",
+  "md_content": "",
+  "next_and_prev_links": {
+    "prev_link": {
+      "title": "",
+      "href": ""
+    },
+    "next_link": {
+      "title": "",
+      "href": ""
+    }
+  },
+  "related_articles": [
+    {
+      "referenced_articles": {
+        "heading": "",
+        "_metadata": {
+          "uid": "cs424ffde3138f1a81"
+        },
+        "articles": [
+          {
+            "uid": "blt4b0e34334bc3c979",
+            "_content_type_uid": "more_articles"
+          }
+        ]
+      }
+    }
+  ],
+  "seo": {
+    "title": "Taxonomy Migration | Contentstack",
+    "description": "Taxonomy Migration Contentstack CLI utility lets you perform the taxonomy migration operation on a stack.",
+    "image": null,
+    "robots": ""
+  },
+  "tags": [],
+  "title": "[Contentstack Command-line Interface (CLI)] - Taxonomy Migration",
+  "updated_at": "2026-07-20T16:28:45.836Z",
+  "updated_by": "blt4006a0e8ebe46293",
+  "url": "/headless-cms/taxonomy-migration",
+  "publish_details": [
+    {
+      "environment": "blt4a008c3cde35b0c2",
+      "locale": "en-us",
+      "time": "2026-07-20T18:55:27.091Z",
+      "user": "blte93d4119f79db761",
+      "version": 25
+    },
+    {
+      "environment": "blt92ab7d24e8c52483",
+      "locale": "en-us",
+      "time": "2026-07-20T18:55:27.091Z",
+      "user": "blte93d4119f79db761",
+      "version": 25
+    },
+    {
+      "environment": "bltfe8376c13fe85b9c",
+      "locale": "en-us",
+      "time": "2026-07-20T18:55:27.091Z",
+      "user": "blte93d4119f79db761",
+      "version": 25
+    },
+    {
+      "environment": "blt18d21c1c300e766f",
+      "locale": "en-us",
+      "time": "2026-04-10T07:28:48.671Z",
+      "user": "blt3cf27864e6b61df3",
+      "version": 21
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "uid": "blt267c4988aa1389a5",
+  "locale": "en-us",
+  "_version": 12,
+  "ACL": {},
+  "_in_progress": false,
+  "article_content": [
+    {
+      "article_section": {
+        "heading": "Configure Regions in the CLI | V2.x.x Beta",
+        "content": "<p>The <strong>config </strong>namespace contains all the commands that you will need to configure the CLI as per your requirements.</p><p>Contentstack currently supports the following regions:</p><table><thead><tr><th><strong>Cloud Provider</strong></th><th><strong>Region</strong></th><th><strong>Arguments</strong></th></tr></thead><tbody><tr><td>AWS</td><td>North America</td><td>AWS-NA</td></tr><tr><td>AWS</td><td>Europe</td><td>AWS-EU</td></tr><tr><td>AWS</td><td>Australia</td><td>AWS-AU</td></tr><tr><td>Azure</td><td>North America</td><td>Azure-NA</td></tr><tr><td>Azure</td><td>Europe</td><td>Azure-EU</td></tr><tr><td>Google Cloud Platform</td><td>North America</td><td>GCP-NA</td></tr><tr><td>Google Cloud Platform</td><td>Europe</td><td>GCP-EU</td></tr></tbody></table><p>Using the following set of commands you can configure the <a href=\"/docs/administration\" target=\"_self\">regions</a> in the CLI.</p><h2>Prerequisites</h2><ul><li><a href=\"https://www.contentstack.com/login\" target=\"_blank\">Contentstack account</a></li><li>CLI <a href=\"/docs/headless-cms/install-the-cli\" target=\"_self\">installed&nbsp;</a></li></ul><h2>Commands</h2><h3>Get region</h3><p>The <span class=\"code\">config:get:region</span><strong></strong>command will return the name of the region on which you are performing actions in Contentstack, via the CLI.</p><p><strong>Usage</strong></p><pre>csdx config:get:region</pre><h3>Set region</h3><p>The <span class=\"code\">config:set:region</span> command lets you select a region, from the available <a href=\"/docs/administration\" target=\"_self\">Contentstack regions</a>, to perform actions using the CLI.</p><p><strong>Usage</strong></p><pre>csdx config:set:region &lt;&lt;region&gt;&gt;</pre><p><strong>Arguments</strong></p><ul><li>Region: Specifies the region that you want to use while executing the CLI commands. Possible values are as follows:<ul><li><span class=\"code\"><strong>AWS-NA</strong></span> for AWS North America</li><li><span class=\"code\"><strong>AWS-EU</strong></span> for AWS Europe</li><li><span class=\"code\"><strong>AWS-AU</strong></span> for AWS Australia</li><li><span class=\"code\"><strong>AZURE-NA</strong></span> for Azure North America</li><li><span class=\"code\"><strong>AZURE-EU</strong></span> for Azure Europe</li><li><span class=\"code\"><strong>GCP-NA</strong></span> for Google North America</li><li><span class=\"code\"><strong>GCP-EU</strong></span> for Google Europe</li></ul></li></ul><p><strong>Example</strong></p><pre>csdx config:set:region AWS-NA</pre><pre>csdx config:set:region AWS-EU</pre><pre>csdx config:set:region AWS-AU</pre><pre>csdx config:set:region AZURE-NA</pre><pre>csdx config:set:region AZURE-EU</pre><pre>csdx config:set:region GCP-NA</pre><pre>csdx config:set:region GCP-EU</pre><h3>Set custom host and region</h3><p>By using the <span class=\"code\">config:set:region</span> command, you can also set a custom host for <a href=\"/docs/developers/apis/content-delivery-api\" target=\"_self\">Content Delivery</a>, <a href=\"/docs/developers/apis/content-management-api\" target=\"_self\">Content Management</a>, UI Host, <a href=\"/docs/developer-hub/about-developer-hub/\" target=\"_self\">Developer Hub</a>, <a href=\"/docs/launch/about-launch/\" target=\"_self\">Launch</a>, <a href=\"/docs/personalize/about-personalize\" target=\"_self\">Personalize,</a> and <a href=\"/docs/studio/about-studio\" target=\"_self\">Studio</a> APIs, and set a custom region name for the hosts.</p><p><strong>Usage</strong></p><pre>csdx config:set:region --cda &lt;&lt;custom_cda_host_url&gt;&gt; --cma &lt;&lt;custom_cma_host_url&gt;&gt; --ui-host &lt;&lt;custom_ui_host_url&gt;&gt; -n &lt;&lt;custom_region_name&gt;&gt;\n--developer-hub &lt;&lt;custom_developer_hub_url&gt;&gt; --launch &lt;&lt;custom_launch_url&gt;&gt; --personalize &lt;&lt;custom_personalize_url&gt;&gt;</pre><p><strong>Options</strong></p><table><thead><tr><th>Flag</th><th>Short Flag</th><th>Description</th></tr></thead><tbody><tr><td><span class=\"code\">--cda</span></td><td>-</td><td><p>Custom host to set for the Content Delivery API.</p><p>If this flag is used, the following flags are required: <span class=\"code\">--cma</span>, <span class=\"code\">--ui-host</span>, <span class=\"code\">--name</span></p></td></tr><tr><td><span class=\"code\">--cma</span></td><td>-</td><td><p>Custom host to set for the Content Management API.</p><p>If this flag is used, the following flags are required: <span class=\"code\">--cda</span>, <span class=\"code\">--ui-host</span>, <span class=\"code\">--name</span></p></td></tr><tr><td><span class=\"code\">--ui-host</span></td><td>-</td><td><p>Custom UI host to set for the CLI.</p><p>If this flag is used, the following flags are required: <span class=\"code\">--cda</span>, <span class=\"code\">--cma</span>, <span class=\"code\">--name</span></p></td></tr><tr><td><span class=\"code\">--name</span></td><td>-</td><td><p>Name for the region.</p><p>If this flag is used, the following flags are required: <span class=\"code\">--cda</span>, <span class=\"code\">--cma</span>, <span class=\"code\">--ui-host</span></p></td></tr><tr><td><span class=\"code\">--developer-hub</span></td><td>-</td><td>Custom host to set for the Developer Hub API.</td></tr><tr><td><span class=\"code\">--personalize</span></td><td>-</td><td>Custom host to set for the Personalize API.</td></tr><tr><td><span class=\"code\">--launch</span></td><td>-</td><td>Custom host to set for the Launch API.</td></tr><tr><td><span class=\"code\">--studio</span></td><td>-</td><td>Custom host to set for the Studio API.</td></tr><tr><td><span class=\"code\">--cs-assets</span></td><td>-</td><td>Custom host for Contentstack Assets API.</td></tr></tbody></table><p class=\"note\"><strong>Note</strong>: The CLI generates the Developer Hub, Launch, Studio and Personalize APIs by default unless their corresponding flags are passed.</p><p><strong>Example</strong></p><pre>csdx config:set:region --cda \"https://in-cdn.contentstack.com\" --cma \"https://in-api.contentstack.com\" --ui-host \"https://in-app.contentstack.com\" --developer-hub \"https://in-developerhub-api.contentstack.com\" --launch \"https://in-launch-api.contentstack.com\" --personalize \"https://in-personalize-api.contentstack.com\" -n \"India\"</pre>",
+        "_metadata": {
+          "uid": "cs619b8a8f886aa8c9"
+        }
+      }
+    }
+  ],
+  "breadcrumb": [
+    {
+      "uid": "blt641003bf9368e112",
+      "_content_type_uid": "navigation"
+    },
+    {
+      "uid": "bltef82f5fd1a4eab6e",
+      "_content_type_uid": "navigation"
+    }
+  ],
+  "created_at": "2026-02-04T07:52:01.173Z",
+  "created_by": "blt346b73255381ad74",
+  "md_content": "",
+  "next_and_prev_links": {
+    "prev_link": {
+      "title": "",
+      "href": ""
+    },
+    "next_link": {
+      "title": "",
+      "href": ""
+    }
+  },
+  "related_articles": [
+    {
+      "referenced_articles": {
+        "heading": "",
+        "_metadata": {
+          "uid": "cs039f41aeca1b3cdf"
+        },
+        "articles": [
+          {
+            "uid": "blt22aa65188c7d8092",
+            "_content_type_uid": "more_articles"
+          }
+        ]
+      }
+    }
+  ],
+  "seo": {
+    "title": "Configure Regions in the CLI | Contentstack",
+    "description": "Configure regions in Contentstack Command-line Interface to optimize your setup and streamline workflows across multiple data centers.",
+    "image": null,
+    "robots": ""
+  },
+  "tags": [],
+  "title": "[Contentstack Command-line Interface (CLI)] - Configure Regions in the CLI | Beta Commands",
+  "updated_at": "2026-07-22T11:44:56.044Z",
+  "updated_by": "blt4006a0e8ebe46293",
+  "url": "/headless-cms/configure-regions-in-the-cli/beta",
+  "publish_details": [
+    {
+      "environment": "blt4a008c3cde35b0c2",
+      "locale": "en-us",
+      "time": "2026-07-22T12:56:23.403Z",
+      "user": "blte93d4119f79db761",
+      "version": 12
+    },
+    {
+      "environment": "blt92ab7d24e8c52483",
+      "locale": "en-us",
+      "time": "2026-07-22T12:56:23.403Z",
+      "user": "blte93d4119f79db761",
+      "version": 12
+    },
+    {
+      "environment": "bltfe8376c13fe85b9c",
+      "locale": "en-us",
+      "time": "2026-07-22T12:56:23.403Z",
+      "user": "blte93d4119f79db761",
+      "version": 12
+    }
+  ]
+}

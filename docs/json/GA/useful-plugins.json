@@ -1,0 +1,83 @@
+{
+  "locale": "en-us",
+  "_version": 6,
+  "uid": "bltb4d51965b514f7c6",
+  "ACL": {},
+  "_in_progress": false,
+  "article_content": [
+    {
+      "article_section": {
+        "heading": "Useful Plugins",
+        "content": "<p>Here are some plugins developed using the Contentstack base class that you can use. These plugins are either created by the Contentstack team or the Contentstack community.</p><ul><li><a rel=\"noreferrer\" href=\"https://www.npmjs.com/package/contentstack-cli-tsgen\" target=\"_blank\">contentstack-cli-tsgen</a> - Generate TypeScript typings from the content types  </li></ul>",
+        "_metadata": {
+          "uid": "csb70a1cde914cf7ec"
+        }
+      }
+    }
+  ],
+  "breadcrumb": [
+    {
+      "uid": "blt641003bf9368e112",
+      "_content_type_uid": "navigation"
+    },
+    {
+      "uid": "bltef82f5fd1a4eab6e",
+      "_content_type_uid": "navigation"
+    }
+  ],
+  "created_at": "2022-12-17T08:41:23.138Z",
+  "created_by": "blta3007b105b17e5d8",
+  "md_content": "",
+  "next_and_prev_links": {
+    "next_link": {
+      "title": "",
+      "href": ""
+    },
+    "prev_link": {
+      "title": "",
+      "href": ""
+    }
+  },
+  "related_articles": [],
+  "seo": {
+    "title": "Useful Plugins",
+    "image": null,
+    "description": "Useful Plugins",
+    "robots": ""
+  },
+  "tags": [],
+  "title": "[Contentstack Command-line Interface (CLI)] - Useful Plugins",
+  "updated_at": "2026-06-23T11:00:28.188Z",
+  "updated_by": "blt4006a0e8ebe46293",
+  "url": "/headless-cms/useful-plugins",
+  "publish_details": [
+    {
+      "environment": "blt4a008c3cde35b0c2",
+      "locale": "en-us",
+      "time": "2026-07-06T09:42:17.707Z",
+      "user": "blt346b73255381ad74",
+      "version": 6
+    },
+    {
+      "environment": "blt92ab7d24e8c52483",
+      "locale": "en-us",
+      "time": "2026-07-06T09:42:17.707Z",
+      "user": "blt346b73255381ad74",
+      "version": 6
+    },
+    {
+      "environment": "bltfe8376c13fe85b9c",
+      "locale": "en-us",
+      "time": "2026-07-06T09:42:17.707Z",
+      "user": "blt346b73255381ad74",
+      "version": 6
+    },
+    {
+      "environment": "blt18d21c1c300e766f",
+      "locale": "en-us",
+      "time": "2026-04-10T07:28:57.245Z",
+      "user": "blt3cf27864e6b61df3",
+      "version": 4
+    }
+  ]
+}

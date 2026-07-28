@@ -1,0 +1,98 @@
+{
+  "_version": 14,
+  "locale": "en-us",
+  "uid": "bltc452d443530ac981",
+  "ACL": {},
+  "_in_progress": false,
+  "article_content": [
+    {
+      "article_section": {
+        "heading": "Import Content using the CLI | Old Commands",
+        "_metadata": {
+          "uid": "cs2da16ca86fda739f"
+        },
+        "content": "<p>After you have exported the content from the source stack, the next step is to import it into the destination stack. To do this, you can use the import command in several ways.</p><p class=\"note\"><strong>Note</strong>: Before you try the import commands, make sure you have unzipped the exported content from the folder that contains the exported content.</p><p>Content can be imported in a stack for the following modules:<br /></p><ul><li><a href=\"/docs/headless-cms/about-assets\" target=\"_self\">Assets</a></li><li><a href=\"/docs/headless-cms/about-languages\" target=\"_self\">Locales</a></li><li><a href=\"/docs/headless-cms/about-environments\" target=\"_self\">Environments</a></li><li><a href=\"/docs/developers/experience-extensions-overview\" target=\"_self\">Extensions</a></li><li><a href=\"/docs/headless-cms/about-webhooks\" target=\"_self\">Webhooks</a></li><li><a href=\"/docs/headless-cms/about-global-field\" target=\"_self\">Global Fields</a></li><li><a href=\"/docs/headless-cms/about-content-types\" target=\"_self\">Content Types</a></li><li><a href=\"/docs/headless-cms/about-entries\" target=\"_self\">Entries</a></li><li><a href=\"/docs/headless-cms/about-labels\" target=\"_self\">Labels</a></li><li><a href=\"/docs/headless-cms/about-workflows\" target=\"_self\">Workflow</a></li></ul><p class=\"note\"><strong>Note</strong>: The imported content, in the target stack, will be automatically published to the environment and locale in which it was previously published in the source stack. If any exported content wasn’t published on any environment, that particular content won’t get published to any environment after it is imported into the target stack.</p><h2>Prerequisites</h2><ul><li><a href=\"https://www.contentstack.com/login\" target=\"_self\">Contentstack account</a></li><li>CLI <a href=\"/docs/headless-cms/install-the-cli\" target=\"_self\">installed</a></li><li>A <a href=\"/docs/headless-cms/cli-authentication#add-token\" target=\"_self\">configured management token</a> (alias)&nbsp;or&nbsp;<a href=\"/docs/headless-cms/cli-authentication#login\" target=\"_self\">authtoken</a></li></ul><h2>Commands</h2><p>The <span class=\"code\"><strong>cm:import</strong></span> command lets you import content to your destination stack. Below we have listed down the ways in which you can use the <span class=\"code\">cm:import</span> command:</p><ul><li><a href=\"#import-content-using-management-token-and-parameters\" target=\"_self\">Import Content Using Management Token and Parameters</a></li><li><a href=\"#import-content-using-management-token-and-config-file\" target=\"_self\">Import Content Using Management Token and Config file</a></li><li><a href=\"#import-content-using-auth-token-and-parameters\" target=\"_self\">Import Content Using Auth Token and Parameters</a></li><li><a href=\"#import-content-using-auth-token-and-config-file\" target=\"_self\">Import Content Using Auth Token and Config file</a></li></ul><p>Let's discuss in detail how you can import content into your stack.</p><h3>Import Content Using Management Token and Parameters</h3><p>This command lets you import content using a management token. For ease, you can pass several parameters/options to this command at once.<br /></p><p><strong>Usage</strong></p><pre>csdx cm:import -a &lt;management_token_alias&gt;</pre><p>Alternatively, refer to the following command to add several parameters/options in a single line:</p><pre>csdx cm:import -a &lt;management_token_alias&gt; -d &lt;path_of_folder_where_content_is_stored&gt; </pre><p><strong>Options</strong></p><ul><li><span class=\"code\">-a</span>, <span class=\"code\">--management-token-alias=management-token-alias</span>: The management token of the destination stack to which you will import the content.</li><li><span class=\"code\">-d</span>, <span class=\"code\">--data=data</span>: The path or the location in your file system where the content, you intend to import, is stored. For example, <span class=\"code\">-d \"C:\\Users\\Name\\Desktop\\cli\\content\".</span></li><li><span class=\"code\">-B</span>, <span class=\"code\">--branch=branch</span>: The name of the branch where you want to import your content. If you don’t mention the branch name, then by default the content will be imported to the <strong>main </strong>branch.</li><li><span class=\"code\">-b</span>, <span class=\"code\">--backup-dir=backup-dir</span>:&nbsp;[optional] backup directory name when using specific module.</li><li><span class=\"code\">-m</span>, <span class=\"code\">--module=module</span>: (optional) Specify the module to import into the target stack. If not specified, the import command will import all the modules into the stack.&nbsp;The available modules are <em>assets, content-types, entries, environments, extensions, global-fields, labels, locales</em>,&nbsp;<em>webhooks, </em>and<em> workflows.</em></li></ul><p>After importing the first module, note the name of the backup folder that was created in the workspace or in the code editor’s CLI folder.</p><p class=\"note\"><strong>Note:</strong> The parent backup folder created after the first import can be used to save all the backups in a single folder as it gets updated after every import operation.</p><p>When importing modules using the import command, provide the backup flag (b) along with the backup folder name as follows:<br /></p><pre>csdx cm:import -a &lt;management_token_alias&gt; -d &lt;path_of_folder_where_content_is_stored&gt; -m &lt;module&gt; -b &lt;backup_dir&gt;</pre><p>Including the backup flag is essential when repeatedly using the single module <span class=\"code\">import</span> command. As these modules have inter-dependency, using the backup flag helps avoid any errors while importing.&nbsp;</p><p>For every module import operation, all the latest mapping files are added to a single mapper folder, and the dependent modules use the latest UIDs of the dependency for efficient mapping.</p><p><strong>Examples</strong></p><ul><li>To import all modules into a stack:<br /><pre>csdx cm:import -a mytoken  -d \"C:\\Users\\Name\\Desktop\\cli\\content\"</pre></li><li>To import all modules in a particular branch of your stack(For example:&nbsp;<strong>develop</strong>).<br /><pre>csdx cm:import -a mytoken -d \"C:\\Users\\Name\\Desktop\\cli\\content\" -B develop</pre></li><li>To import only locales into a stack:<br /><pre>csdx cm:import -a mytoken  -d \"C:\\Users\\Name\\Desktop\\cli\\content\" -m locales </pre>OR<br /><pre>csdx cm:import -a mytoken  -d \"C:\\Users\\Name\\Desktop\\cli\\content\" --module locales </pre></li><li>Including the backup flag to import only environments into a stack after your first module import.<br /><pre>csdx cm:import -a mytoken -d \"C:\\Users\\Name\\Desktop\\cli\\content\" -m environments -b _backup_123</pre>OR<br /><pre>csdx cm:import -a mytoken -d \"C:\\Users\\Name\\Desktop\\cli\\content\" --module environments -b _backup_123 </pre></li></ul><p class=\"note\"><strong>Note</strong>:&nbsp;When importing&nbsp; modules individually, make sure you follow this module sequence: <strong>locales &gt; environments &gt; assets &gt;&nbsp;extensions &gt; webhooks &gt; global-fields &gt; content-types &gt; workflows &gt;&nbsp;entries &gt;&nbsp;labels</strong>.&nbsp;&nbsp;For example, before importing entries, you must have had imported assets, environments, locales, extensions, webhooks, global-fields, content-types, and workflows.</p><h3>Import Content Using Management Token and Config file</h3><p>This command lets you import content to your stack by using a management token and a configuration file that contains the parameters/options and their associated value.</p><p>To get started with this command, download this <a rel=\"noreferrer\" href=\"https://github.com/contentstack/cli-plugins/tree/main/packages/contentstack-import/example_config\" target=\"_blank\">config file</a>, add values to this file, and note down the path where you have saved this file.</p><p>By doing so, you don’t need to separately provide parameters/options in the command.</p><p><strong>Usage</strong></p><pre> csdx cm:import -a &lt;management_token_alias&gt; -c &lt;config_file_path&gt; </pre><p><strong>Options</strong></p><ul><li><span class=\"code\">-a</span>, <span class=\"code\">--management-token-alias=management-token-alias</span>: The management token of the destination stack to which you will import the content.</li><li><span class=\"code\">-c</span>, <span class=\"code\">--config=config</span>: The path of the JSON file containing all the options for a single run. You can refer to this example <a rel=\"noreferrer\" href=\"https://github.com/contentstack/cli-plugins/tree/main/packages/contentstack-import/example_config\" target=\"_blank\">config file</a>.</li></ul><p><strong>Example</strong></p><ul><li>To import content using a config file:<br /><pre>csdx cm:import -a mytoken -c “C:/Users/Name/Desktop/cli/config.json”</pre></li></ul><h3>Import Content Using Auth Token and Parameters</h3><p>You can use this method to import content to your stack if you have logged in to the session using the <a href=\"https://www.contentstack.com/docs/headless-cms/cli-authentication/#login\" target=\"_self\">Login</a> command. Running the Login command generates an auth token, which is used in the command below.</p><p><strong>Usage</strong></p><pre>csdx cm:import -A</pre><p>Alternatively, refer to the below command for adding several parameters/options in a single line:</p><pre>csdx cm:import -A -s &lt;stack_ApiKey&gt; -d &lt;path_of_folder_where_content_is_stored&gt;</pre><p><strong>Options</strong></p><ul><li><span class=\"code\">-A</span>, <span class=\"code\">--auth-token</span>: To use the&nbsp;auth token of the current session. It is automatically generated and stored in the session after running the login command.</li><li><span class=\"code\">-s</span>, <span class=\"code\">--stack-uid=stack-uid</span>: The API key of the target stack.</li><li><span class=\"code\">-d</span>, <span class=\"code\">--data=data</span>: The path or the location in your file system where the content, you intend to import, is stored. For example, <span class=\"code\">-d \"C:\\Users\\Name\\Desktop\\cli\\content\".</span></li><li><span class=\"code\">-B</span>, <span class=\"code\">--branch=branch</span>: The name of the branch where you want to import your content. If you don’t mention the branch name, then by default the content will be imported to the <strong>main </strong>branch.</li><li><span class=\"code\">-b</span>, <span class=\"code\">--backup-dir=backup-dir</span>:&nbsp;[optional] backup directory name when using specific module.</li><li><span class=\"code\">-m</span>, <span class=\"code\">--module=module</span>: (optional) Specify the module to import into the target stack. If not specified, the import command will import all the modules into the stack.&nbsp;The available modules are <em>assets, content-types, entries, environments, extensions, global-fields, labels, locales</em>,&nbsp;<em>webhooks, </em>and<em> workflows</em>.</li></ul><p>After importing the first module, note the name of the backup folder that was created in the workspace or in the code editor’s CLI folder.</p><p class=\"note\"><strong>Note:</strong> The parent backup folder created after the first import can be used to save all the backups in a single folder as it gets updated after every import operation.</p><p>When importing modules using the import command, provide the backup flag (b) along with the backup folder name as follows:<br /></p><pre>csdx cm:import -A -s &lt;stack_ApiKey&gt; -d &lt;path_of_folder_where_content_is_stored&gt; -m &lt;module&gt; -b &lt;backup_dir&gt;</pre><p>Including the backup flag is essential when repeatedly using the single module <span class=\"code\">import</span> command. As these modules have inter-dependency, using the backup flag helps avoid any errors while importing.</p><p>For every module import operation, all the latest mapping files are added to a single mapper folder, and the dependent modules use the latest UIDs of the dependency for efficient mapping.<br /></p><p><strong>Examples</strong></p><ul><li>To import all modules into a stack:<br /><pre>csdx cm:import -A -s bltxxxxxx -d \"C:\\Users\\Name\\Desktop\\cli\\content\"</pre></li><li>To import all modules in a particular branch of your stack(For example:&nbsp;<strong>develop</strong>).<br /><pre>csdx cm:import -A -s bltxxxxxx -d \"C:\\Users\\Name\\Desktop\\cli\\content\" -B develop</pre></li><li>To import only locales into a stack:<br /><pre>csdx cm:import -A -s bltxxxxxx -d \"C:\\Users\\Name\\Desktop\\cli\\content\" -m locales </pre>OR<br /><pre>csdx cm:import -A -s bltxxxxxx -d \"C:\\Users\\Name\\Desktop\\cli\\content\" --module locales</pre></li><li>Including the backup flag to import only environments into a stack after your first module import.<br /><pre>csdx cm:import -A -s bltxxxxxx -d \"C:\\Users\\Name\\Desktop\\cli\\content\" -m environments -b _backup_123</pre>OR<br /><pre>csdx cm:import -A -s bltxxxxxx -d \"C:\\Users\\Name\\Desktop\\cli\\content\" --module environments -b _backup_123</pre></li></ul><p class=\"note\"><strong>Note</strong>: When importing modules individually, make sure you follow this module sequence: <strong>locales &gt; environments &gt; assets &gt; extensions &gt; webhooks &gt; global-fields &gt; content-types &gt; workflows &gt;&nbsp;entries &gt; labels</strong>. For example, before importing entries, you must have had imported assets, environments, locales, extensions, webhooks, global-fields, content-types, and workflows.</p><h3>Import Content Using Auth Token and Config file</h3><p>This command lets you import content to your stack by using auth token and a configuration file that contains the parameters/options and the associated value.</p><p>To get started with this command, download this <a rel=\"noreferrer\" href=\"https://github.com/contentstack/cli-plugins/tree/main/packages/contentstack-import/example_config\" target=\"_blank\">config file</a>, add values to this file, and note down the path where you have saved this file.</p><p>By doing so, you don’t need to separately provide parameters/options in the command.</p><p><strong>Usage</strong></p><pre>csdx cm:import -A -c &lt;config_file_path&gt; </pre><p><strong>Options</strong></p><ul><li><span class=\"code\">-A</span>, <span class=\"code\">--auth-token</span>: To use the&nbsp;auth token of the current session. It is automatically generated and stored in the session after running the login command.</li><li><span class=\"code\">-c</span>, <span class=\"code\">--config=config</span>: The path of the configuration JSON file containing all the options for a single run.&nbsp;You can refer to this example <a rel=\"noreferrer\" href=\"https://github.com/contentstack/cli-plugins/tree/main/packages/contentstack-import/example_config\" target=\"_blank\">config file</a>.</li></ul><p><strong>Example</strong></p><ul><li>To import content using a config file:<br /><pre>csdx cm:import -A -c “C:/Users/Name/Desktop/cli/config.json”</pre></li></ul><h2>Limitations</h2><ul><li>The import commands will import only the latest version of a published entry/asset.</li><li>While importing workflows from one stack to another, admins and workflow stage users are not included. Therefore, admins and stage users of your workflows will not be migrated to the new stack.</li><li>Currently, you cannot import content for the following modules:<ul><li><a href=\"/docs/headless-cms/about-stack-roles\" target=\"_self\">Roles</a></li><li><a href=\"/docs/headless-cms/about-stack-users\" target=\"_self\">Users</a></li><li><a href=\"/docs/headless-cms/about-releases\" target=\"_self\">Releases</a></li></ul></li></ul><p class=\"add-resource\"><strong>Additional Resources</strong>: Check out the <a href=\"/docs/headless-cms/export-content-using-the-cli\" target=\"_self\">Export Content</a> documentation to learn how you can export content from your stack using CLI.&nbsp;</p>"
+      }
+    }
+  ],
+  "breadcrumb": [
+    {
+      "uid": "blt641003bf9368e112",
+      "_content_type_uid": "navigation"
+    },
+    {
+      "uid": "bltef82f5fd1a4eab6e",
+      "_content_type_uid": "navigation"
+    }
+  ],
+  "created_at": "2022-12-17T08:41:25.520Z",
+  "created_by": "blta3007b105b17e5d8",
+  "md_content": "",
+  "next_and_prev_links": {
+    "next_link": {
+      "title": "",
+      "href": ""
+    },
+    "prev_link": {
+      "title": "",
+      "href": ""
+    }
+  },
+  "related_articles": [
+    {
+      "referenced_articles": {
+        "heading": "",
+        "_metadata": {
+          "uid": "csc92e43c2dfcdd40c"
+        },
+        "articles": [
+          {
+            "uid": "blt22aa65188c7d8092",
+            "_content_type_uid": "more_articles"
+          }
+        ]
+      }
+    }
+  ],
+  "seo": {
+    "title": "Import Content using the CLI | Old Commands | Contentstack",
+    "image": null,
+    "description": "Efficiently import content using Contentstack's CLI commands.",
+    "robots": ""
+  },
+  "tags": [],
+  "title": "[Contentstack Command-line Interface (CLI)] - Import Content using the CLI | Old Commands",
+  "updated_at": "2026-07-25T05:14:26.105Z",
+  "updated_by": "blt8e5689a3647afd22",
+  "url": "/headless-cms/import-content-using-the-cli/old-commands",
+  "publish_details": [
+    {
+      "environment": "blt4a008c3cde35b0c2",
+      "locale": "en-us",
+      "time": "2026-07-25T05:15:29.278Z",
+      "user": "blt8e5689a3647afd22",
+      "version": 14
+    },
+    {
+      "environment": "blt92ab7d24e8c52483",
+      "locale": "en-us",
+      "time": "2026-07-27T04:18:44.693Z",
+      "user": "blt346b73255381ad74",
+      "version": 14
+    },
+    {
+      "environment": "bltfe8376c13fe85b9c",
+      "locale": "en-us",
+      "time": "2026-07-27T04:18:44.693Z",
+      "user": "blt346b73255381ad74",
+      "version": 14
+    },
+    {
+      "environment": "blt18d21c1c300e766f",
+      "locale": "en-us",
+      "time": "2023-07-07T15:35:09.131Z",
+      "user": "blt3274538a64ad0ade",
+      "version": 3
+    }
+  ]
+}

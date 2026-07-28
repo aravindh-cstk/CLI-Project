@@ -1,0 +1,122 @@
+{
+  "_version": 49,
+  "locale": "en-us",
+  "uid": "bltbc6ad24437532c4f",
+  "ACL": {},
+  "_in_progress": false,
+  "article_content": [
+    {
+      "article_section": {
+        "heading": "Configure Regions in the CLI",
+        "_metadata": {
+          "uid": "csd31821ace5e70fc7"
+        },
+        "content": "<hr />\n<h2 id=\"overview\">Overview</h2>\n<p>The <strong>config</strong> namespace contains commands to configure the CLI. Contentstack supports multiple regions across different cloud providers. You can configure the CLI to use a specific region for all operations.</p>\n<p><strong>Supported Regions:</strong></p>\n<table>\n  <thead>\n    <tr>\n      <th>Cloud Provider</th>\n      <th>Region</th>\n      <th>Argument</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>AWS</td>\n      <td>North America</td>\n      <td><span class=\"code\">AWS-NA</span></td>\n    </tr>\n    <tr>\n      <td>AWS</td>\n      <td>Europe</td>\n      <td><span class=\"code\">AWS-EU</span></td>\n    </tr>\n    <tr>\n      <td>AWS</td>\n      <td>Australia</td>\n      <td><span class=\"code\">AWS-AU</span></td>\n    </tr>\n    <tr>\n      <td>Azure</td>\n      <td>North America</td>\n      <td><span class=\"code\">AZURE-NA</span></td>\n    </tr>\n    <tr>\n      <td>Azure</td>\n      <td>Europe</td>\n      <td><span class=\"code\">AZURE-EU</span></td>\n    </tr>\n    <tr>\n      <td>Google Cloud Platform</td>\n      <td>North America</td>\n      <td><span class=\"code\">GCP-NA</span></td>\n    </tr>\n    <tr>\n      <td>Google Cloud Platform</td>\n      <td>Europe</td>\n      <td><span class=\"code\">GCP-EU</span></td>\n    </tr>\n  </tbody>\n</table>\n<p>You can also configure custom hosts for different APIs and set a custom region name.</p>\n<hr />\n<h2 id=\"prerequisites\">Prerequisites</h2>\n<ul>\n  <li><a href=\"https://www.contentstack.com/login/\" target=\"_blank\">Contentstack account</a></li>\n  <li><strong>CLI Installed:</strong> Version 1.7.0 or above (see <a href=\"/docs/headless-cms/install-the-cli\">Install the CLI</a>)</li>\n</ul>\n<h2>What You Will Learn</h2>\n<ul>\n  <li>\n    <p>How to view the region the CLI is currently using.</p>\n  </li>\n  <li>\n    <p>How to set a predefined region for CLI operations.</p>\n  </li>\n  <li>\n    <p>How to select a region interactively.</p>\n  </li>\n  <li>\n    <p>How to configure a custom region with custom API hosts.</p>\n  </li>\n</ul>\n<hr />\n<h2 id=\"quick-start\">Quick Start</h2>\n<h3 id=\"get-current-region\">Get Current Region</h3><pre>csdx config:get:region\n</pre>\n<h3 id=\"set-region\">Set Region</h3><pre># Interactive selection\ncsdx config:set:region\n\n# Or specify region directly\ncsdx config:set:region AWS-NA\n</pre>\n<hr />\n<h2 id=\"get-region\">Get Region</h2>\n<p>Get the currently configured region.</p>\n<p><strong>Command:</strong> <span class=\"code\">csdx config:get:region</span></p>\n<p><strong>Usage:</strong></p><pre>csdx config:get:region\n</pre>\n<p><strong>Example:</strong></p><pre>csdx config:get:region\n# Output: AWS-NA\n</pre>\n<hr />\n<h2 id=\"set-region\">Set Region</h2>\n<p>Set the region for CLI operations. You can choose from predefined regions or configure custom hosts.</p>\n<p><strong>Command:</strong> <span class=\"code\">csdx config:set:region</span></p>\n<h3 id=\"set-predefined-region\">Set Predefined Region</h3>\n<p><strong>Usage:</strong></p><pre>csdx config:set:region &lt;region&gt;\n</pre>\n<p><strong>Available Regions:</strong></p>\n<ul>\n  <li><span class=\"code\">AWS-NA</span> - AWS North America</li>\n  <li><span class=\"code\">AWS-EU</span> - AWS Europe</li>\n  <li><span class=\"code\">AWS-AU</span> - AWS Australia</li>\n  <li><span class=\"code\">AZURE-NA</span> - Azure North America</li>\n  <li><span class=\"code\">AZURE-EU</span> - Azure Europe</li>\n  <li><span class=\"code\">GCP-NA</span> - Google Cloud Platform North America</li>\n  <li><span class=\"code\">GCP-EU</span> - Google Cloud Platform Europe</li>\n</ul>\n<p><strong>Examples:</strong></p><pre># Set AWS North America\ncsdx config:set:region AWS-NA\n\n# Set AWS Europe\ncsdx config:set:region AWS-EU\n\n# Set AWS Australia\ncsdx config:set:region AWS-AU\n\n# Set Azure North America\ncsdx config:set:region AZURE-NA\n\n# Set Azure Europe\ncsdx config:set:region AZURE-EU\n\n# Set GCP North America\ncsdx config:set:region GCP-NA\n\n# Set GCP Europe\ncsdx config:set:region GCP-EU\n</pre>\n<h3 id=\"interactive-region-selection\">Interactive Region Selection</h3>\n<p>Run the command without arguments to interactively select a region:</p><pre>csdx config:set:region\n</pre>\n<p>You'll be prompted to choose from available regions.</p>\n<hr />\n<h2 id=\"set-custom-host-and-region\">Set Custom Host and Region</h2>\n<p>Configure custom hosts for Content Delivery API (CDA), Content Management API (CMA), UI Host, Developer Hub, Launch, and Personalize APIs, and set a custom region name.</p>\n<p><strong>Command:</strong> <span class=\"code\">csdx config:set:region</span></p>\n<p><strong>Usage:</strong></p><pre>csdx config:set:region \\\n  --cda &lt;custom_cda_host_url&gt; \\\n  --cma &lt;custom_cma_host_url&gt; \\\n  --ui-host &lt;custom_ui_host_url&gt; \\\n  -n &lt;custom_region_name&gt; \\\n  [--developer-hub &lt;custom_developer_hub_url&gt;] \\\n  [--launch &lt;custom_launch_url&gt;] \\\n  [--personalize &lt;custom_personalize_url&gt;]\n</pre>\n<p><strong>Options:</strong></p>\n<table>\n  <thead>\n    <tr>\n      <th>Option</th>\n      <th>Short</th>\n      <th>Description</th>\n      <th>Required</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><span class=\"code\">--cda</span></td>\n      <td><span class=\"code\">-d</span></td>\n      <td>Custom host for Content Delivery API. If used, <span class=\"code\">--cma</span>, <span class=\"code\">--ui-host</span>, and <span class=\"code\">-n</span> are required</td>\n      <td>Conditional*</td>\n    </tr>\n    <tr>\n      <td><span class=\"code\">--cma</span></td>\n      <td><span class=\"code\">-m</span></td>\n      <td>Custom host for Content Management API. If used, <span class=\"code\">--cda</span>, <span class=\"code\">--ui-host</span>, and <span class=\"code\">-n</span> are required</td>\n      <td>Conditional*</td>\n    </tr>\n    <tr>\n      <td><span class=\"code\">--ui-host</span></td>\n      <td>&nbsp;</td>\n      <td>Custom UI host for CLI. If used, <span class=\"code\">--cda</span>, <span class=\"code\">--cma</span>, and <span class=\"code\">-n</span> are required</td>\n      <td>Conditional*</td>\n    </tr>\n    <tr>\n      <td><span class=\"code\">--name</span></td>\n      <td><span class=\"code\">-n</span></td>\n      <td>Name for the custom region. If used, <span class=\"code\">--cda</span>, <span class=\"code\">--cma</span>, and <span class=\"code\">--ui-host</span> are required</td>\n      <td>Conditional*</td>\n    </tr>\n    <tr>\n      <td><span class=\"code\">--developer-hub</span></td>\n      <td>&nbsp;</td>\n      <td>Custom host for Developer Hub API</td>\n      <td>No</td>\n    </tr>\n    <tr>\n      <td><span class=\"code\">--launch</span></td>\n      <td>&nbsp;</td>\n      <td>Custom host for Launch API</td>\n      <td>No</td>\n    </tr>\n    <tr>\n      <td><span class=\"code\">--personalize</span></td>\n      <td>&nbsp;</td>\n      <td>Custom host for Personalize Management API</td>\n      <td>No</td>\n    </tr>\n  </tbody>\n</table>\n<p>* If any of <span class=\"code\">--cda</span>, <span class=\"code\">--cma</span>, <span class=\"code\">--ui-host</span>, or <span class=\"code\">-n</span> is used, all four are required.</p>\n<p class=\"note\"><strong>Note:</strong> When configuring a custom region, the CLI automatically generates Developer Hub, Launch, Personalize, and Asset Management API hosts from the CMA URL.</p>\n<p><strong>Example:</strong></p><pre>csdx config:set:region \\\n  --cda \"https://in-cdn.contentstack.com\" \\\n  --cma \"https://in-api.contentstack.com\" \\\n  --ui-host \"https://in-app.contentstack.com\" \\\n  --developer-hub \"https://in-developerhub-api.contentstack.com\" \\\n  --launch \"https://in-launch-api.contentstack.com\" \\\n  --personalize \"https://in-personalize-api.contentstack.com\" \\\n  -n \"India\"\n</pre>\n<hr />\n<h2 id=\"developer-examples\">Developer Examples</h2>\n<h3 id=\"example-1-configure-region-for-different-environments\">Example 1: Configure Region for Different Environments</h3><pre># Development - AWS North America\ncsdx config:set:region AWS-NA\n\n# Staging - AWS Europe\ncsdx config:set:region AWS-EU\n\n# Production - Azure North America\ncsdx config:set:region AZURE-NA\n</pre>\n<h3 id=\"example-2-configure-custom-region\">Example 2: Configure Custom Region</h3><pre># Set custom region with all required hosts\ncsdx config:set:region \\\n  --cda \"https://custom-cdn.example.com\" \\\n  --cma \"https://custom-api.example.com\" \\\n  --ui-host \"https://custom-ui.example.com\" \\\n  -n \"Custom Region\"\n</pre>\n<h3 id=\"example-3-configure-custom-region-with-optional-apis\">Example 3: Configure Custom Region with Optional APIs</h3><pre># Set custom region with Developer Hub, Launch, and Personalize\ncsdx config:set:region \\\n  --cda \"https://custom-cdn.example.com\" \\\n  --cma \"https://custom-api.example.com\" \\\n  --ui-host \"https://custom-ui.example.com\" \\\n  --developer-hub \"https://custom-developerhub.example.com\" \\\n  --launch \"https://custom-launch.example.com\" \\\n  --personalize \"https://custom-personalize.example.com\" \\\n  -n \"Custom Region\"\n</pre>\n<h3 id=\"example-4-check-current-region\">Example 4: Check Current Region</h3><pre># Get current region\ncsdx config:get:region\n\n# Change region\ncsdx config:set:region AWS-EU\n\n# Verify change\ncsdx config:get:region\n</pre>\n<hr />\n<div class=\"add-resource\">\n  <p><strong>Additional Resource</strong></p>\n  <p>For more information, refer to the following documents:</p>\n  <ul>\n    <li><a href=\"/docs/headless-cms/install-the-cli\">Install the CLI</a></li>\n    <li><a href=\"/docs/headless-cms/cli-authentication\">CLI Authentication and Adding Tokens</a></li>\n    <li><a href=\"/docs/headless-cms/configure-rate-limits-in-the-cli\">Configure Rate Limits in the CLI</a></li>\n    <li><a href=\"/docs/administration/about-regions\">Contentstack Regions</a></li>\n  </ul>\n</div>"
+      }
+    }
+  ],
+  "breadcrumb": [
+    {
+      "uid": "blt641003bf9368e112",
+      "_content_type_uid": "navigation"
+    },
+    {
+      "uid": "bltef82f5fd1a4eab6e",
+      "_content_type_uid": "navigation"
+    }
+  ],
+  "created_at": "2022-12-17T08:41:25.328Z",
+  "created_by": "blta3007b105b17e5d8",
+  "disable_last_updated_view": false,
+  "enable_skill_level_categories": true,
+  "enable_time_to_read": true,
+  "md_content": "",
+  "next_and_prev_links": {
+    "next_link": {
+      "title": "",
+      "href": ""
+    },
+    "prev_link": {
+      "title": "",
+      "href": ""
+    }
+  },
+  "related_articles": [
+    {
+      "referenced_articles": {
+        "heading": "",
+        "_metadata": {
+          "uid": "cs5e2aa96d10a20be7"
+        },
+        "articles": [
+          {
+            "uid": "blt2ec56ba60befa16c",
+            "_content_type_uid": "more_articles"
+          }
+        ]
+      }
+    }
+  ],
+  "select_skill_level_categories": "Intermediate",
+  "seo": {
+    "title": "Configure Regions in the CLI | Contentstack",
+    "image": null,
+    "description": "Configure regions in Contentstack Command-line Interface to optimize your setup and streamline workflows across multiple data centers.",
+    "robots": ""
+  },
+  "tags": [],
+  "title": "[Contentstack Command-line Interface (CLI)] - Configure Regions in the CLI",
+  "updated_at": "2026-07-16T20:31:25.137Z",
+  "updated_by": "blt0115cfb095846676",
+  "url": "/headless-cms/configure-regions-in-the-cli",
+  "_version_name": {
+    "title": "CF Audit",
+    "updated_by": "blt0115cfb095846676",
+    "updated_at": "2026-07-16T20:32:02.264Z"
+  },
+  "publish_details": [
+    {
+      "environment": "blt4a008c3cde35b0c2",
+      "locale": "en-us",
+      "time": "2026-07-27T09:00:55.673Z",
+      "user": "blt0115cfb095846676",
+      "version": 49,
+      "version_name": {
+        "title": "CF Audit",
+        "updated_by": "blt0115cfb095846676",
+        "updated_at": "2026-07-16T20:32:02.264Z"
+      }
+    },
+    {
+      "environment": "blt92ab7d24e8c52483",
+      "locale": "en-us",
+      "time": "2026-07-27T09:00:55.673Z",
+      "user": "blt0115cfb095846676",
+      "version": 49,
+      "version_name": {
+        "title": "CF Audit",
+        "updated_by": "blt0115cfb095846676",
+        "updated_at": "2026-07-16T20:32:02.264Z"
+      }
+    },
+    {
+      "environment": "bltfe8376c13fe85b9c",
+      "locale": "en-us",
+      "time": "2026-07-27T09:00:55.673Z",
+      "user": "blt0115cfb095846676",
+      "version": 49,
+      "version_name": {
+        "title": "CF Audit",
+        "updated_by": "blt0115cfb095846676",
+        "updated_at": "2026-07-16T20:32:02.264Z"
+      }
+    },
+    {
+      "environment": "blt18d21c1c300e766f",
+      "locale": "en-us",
+      "time": "2026-04-10T07:28:47.045Z",
+      "user": "blt3cf27864e6b61df3",
+      "version": 42
+    }
+  ]
+}

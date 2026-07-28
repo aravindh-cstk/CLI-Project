@@ -1,0 +1,107 @@
+{
+  "_version": 17,
+  "locale": "en-us",
+  "uid": "bltc569502a4237c38f",
+  "ACL": {},
+  "_in_progress": false,
+  "article_content": [
+    {
+      "article_section": {
+        "heading": "Bootstrap Starter Apps | Old Commands",
+        "_metadata": {
+          "uid": "csa1c79c2342a915d9"
+        },
+        "content": "<p>The “Bootstrap” plugin in Contentstack CLI allows users to automate the process of project setup for <a href=\"/docs/headless-cms/nuxt\" target=\"_self\">starter apps</a>.</p><p>Using the CLI “Bootstrap” plugin developers can set up projects quickly and effectively. The plugin automates the whole procedure of stack creation and setting up the project.<br />Using this plugin, the content types, environments, entries, and assets required to run the starter apps get created in the stack you select or create.<br /></p><p>In this guide, we will discuss how to use this plugin and automate the process.</p><h2>Prerequisites</h2><ul><li><a href=\"https://www.contentstack.com/login\" target=\"_self\">Contentstack account</a></li><li><a rel=\"noreferrer\" href=\"https://nodejs.org/en/download/\" target=\"_blank\">Node.js version 16 or above</a></li><li>CLI installed on your machine: <span class=\"code\"><strong>npm install -g @contentstack/cli</strong></span></li></ul><h2>Steps for Execution</h2><ol><li><a href=\"#log-in-to-contentstack-cli-session\" target=\"_self\">Log in to Contentstack CLI session</a></li><li><a href=\"#use-the-bootstrap-command\" target=\"_self\">Use the Bootstrap command</a></li></ol><ol class=\"step-sec\"><li><h2>Log in to Contentstack CLI session</h2><p>If you haven't installed the Contentstack CLI yet, follow the steps mentioned in the <a href=\"/docs/headless-cms/install-the-cli\" target=\"_self\">CLI installation</a> guide and get it installed.</p><p>After you have successfully installed the CLI on your machine, you have to log in to the CLI session to run the ‘Bootstrap’ command.</p><p class=\"note\"><strong>Note</strong>: By default, this CLI session will work for the app hosted in the<strong> North America</strong> region. If you want to switch to <strong>Europe </strong>or <strong>Azure&nbsp;North America</strong> region, follow the steps mentioned in the <a href=\"/docs/headless-cms/configure-regions-in-the-cli#set-region\" target=\"_self\"><strong>Set Region</strong></a> command section.</p><p>Now, open your terminal (command prompt) and run the following command to log in to your Contentstack account:<br /></p><pre>csdx auth:login</pre><p>Provide your Contentstack account’s email and password to successfully log in to the CLI session.<br /></p><p class=\"add-resource\"><strong>Additional Resources</strong>: To learn more about the CLI login command, refer to the <a href=\"/docs/headless-cms/cli-authentication#login\" target=\"_self\"><strong>Login command&nbsp;</strong></a>section.</p></li><li><h2>Use the Bootstrap command</h2><p>After successfully logging in to Contentstack CLI, run the following command to initiate the procedure:</p><pre>csdx cm:bootstrap</pre><p>This command will prompt you to enter the following details:</p><ol><li>Technology</li><li>Path</li><li>Organization name</li><li>Stack preference</li></ol><p>Let's discuss these options in detail.</p><ol><li><strong>Technology</strong>: Select the starter app (the technology type, such as React, Next, and so on) that you want to clone from the GitHub repository, from the available options.<br />For our example let's select <strong>React JS</strong> app.<img alt=\"Select the starter app technology\" src=\"https://images.contentstack.io/v3/assets/blt23180bf2502c7444/blt1f7b8e4c628aa6cb/62b58c0e64a9600f86bb77c0/Select_the_starter_app_technology.png\" data-image=\"l1vtqsrwtzjd\"/></li><li><strong>Path</strong>: Once you have selected the app, provide the folder path to copy the app's source code.<br />According to your preference, provide the folder path by selecting the <strong>Other </strong>option or you can use the <strong>Current</strong> directory as a default option.<br />This will start cloning the selected app to the folder you provide.<img alt=\"Folder path to copy the source code\" src=\"https://images.contentstack.io/v3/assets/blt23180bf2502c7444/bltd2925f19f328565a/62b58c0d64a9600f86bb77bc/Folder_path_to_copy_the_source_code.png\" data-image=\"uqvn07qyb8z7\"/></li><li><strong>Organization name</strong>: Now, <strong>Select an Organization</strong> from the list of your organizations.<br />The cloned app content will be added to a stack in the organization you select.<img alt=\"Select an organization\" src=\"https://images.contentstack.io/v3/assets/blt23180bf2502c7444/bltd384cc10c107e997/62b58c0e919dfb0f9bf008c2/Select_an_organization.png\" data-image=\"f6cc9ex5hrc5\"/></li><li><strong>Stack preference</strong>: In the organization you picked above, select if you want to create a <strong>new stack </strong>or use an <strong>existing stack</strong> to import the content of the app.<br />For this example let's create a <strong>new stack</strong> in the organization we selected.<img alt=\"Stack preference for the starter app\" src=\"https://images.contentstack.io/v3/assets/blt23180bf2502c7444/bltb3d45ffff40185cd/62b58c0e4d83761026d9c2c6/Stack_preference_for_the_starter_app.png\" data-image=\"fzurdot5took\"/></li><li>Accordingly, add the <strong>Name of the Stack</strong> where you want to import the project content and click the <strong>Enter</strong> button to start importing the project to the stack.<img alt=\"Importing the project to a stack\" src=\"https://images.contentstack.io/v3/assets/blt23180bf2502c7444/blt165ada16fbd07ef0/62b58c0ef8ac3b0f97e1162b/Importing_the_project_to_a_stack.png\" data-image=\"ks0woutlfyyz\"/></li><li>On providing the above details, the plugin will add the project content including fields, and assets. It will also set up the environments, languages, and other settings for the selected app.</li></ol><p class=\"note\"><strong>Note</strong>:&nbsp;Imported content will be automatically published in the target stack.</p><p>This is how you can automate the process of project creation in Contentstack by using the Bootstrap command.</p><p>The alternate way of using the plugin is by providing the required parameters after the command in a single line as shown below:</p><pre>csdx cm:bootstrap -s &lt;starterapp&gt; -t &lt;optional github private repo token&gt; -a &lt;app name&gt; -d \"&lt;path or the location of the folder to clone the app&gt;\"</pre><p><strong>Options</strong>:</p><ul><li><span class=\"code\">-t</span>, <span class=\"code\">--accessToken=accessToken</span>: (optional) The token of your private repo to access the project.</li><li><span class=\"code\">-s</span>, <span class=\"code\">--appType=appType</span>: Sample or Starter app</li><li><span class=\"code\">-a</span>,&nbsp;<span class=\"code\">--appName=appName</span>: The app name of the starter app.<br />For eg. <strong>reactjs-starter</strong>, <strong>nextjs-starter</strong>, <strong>gatsby-starter</strong>, <strong>angular-starter</strong>, <strong>nuxt-starter</strong>.</li><li><span class=\"code\">-d</span>, <span class=\"code\">--directory=directory</span>: Specify the path or the location of the folder to clone the app.</li></ul><p><strong>Examples:</strong></p><ul><li>To select the app you want to&nbsp;clone, use this command:<pre>csdx cm:bootstrap -a &lt;app name&gt;</pre><p>For Eg. To clone content of a<strong> React JS </strong>app:</p><pre>csdx cm:bootstrap -a reactjs-starter</pre></li><li>This is an optional command to be used if you want to clone a project from a private GitHub repository.<p>Provide the token of the private repository.</p><pre>csdx cm:bootstrap -t &lt;github private repo token&gt;</pre></li><li>Use this command to provide the path to the location of the folder to clone the app:<pre>csdx cm:bootstrap -d \"&lt;The path or the location to clone the app&gt;\"</pre>For Eg.&nbsp;<pre>csdx cm:bootstrap -d \"C:\\Users\\Name\\Desktop\\cli\\content\"</pre></li></ul></li></ol><p>The above command will add the starter app’s (<strong>React JS</strong>) content to your stack as shown below:</p><p><img data-image=\"phij8oivu921\" src=\"https://images.contentstack.io/v3/assets/blt23180bf2502c7444/blt80928c2db849ad9e/6151c5ff64c8007a9bdecb26/image.png\" data-sys-asset-uid=\"blt80928c2db849ad9e\" alt=\"image.png\"/></p><h2>Run the Starter Apps</h2><p>You can easily run this starter app on your local machine by following the steps below:</p><ol class=\"step-sec\"><li><h3><strong>Build, Configure and Run the Website (Manual Process)</strong></h3><p>Download the website code&nbsp;from our <a rel=\"noreferrer\" href=\"https://codeload.github.com/contentstack/contentstack-react-starter-app/zip/refs/heads/master\" target=\"_blank\">GitHub repository</a>.</p><p>After downloading the website code, navigate to the root folder and <strong>create</strong> a configuration file named <strong>.env.development.</strong>,</p><p>Provide your stack credentials like <a href=\"/docs/headless-cms/view-stack-details\" target=\"_self\">API key</a>, <a href=\"/docs/headless-cms/about-delivery-tokens\" target=\"_self\">Delivery token</a>, and <a href=\"/docs/headless-cms/about-environments\" target=\"_self\">environment</a>:</p><pre>REACT_APP_CONTENTSTACK_API_KEY = &lt;api_key_of_your_stack&gt;\nREACT_APP_CONTENTSTACK_DELIVERY_TOKEN = &lt;delivery_token_of_the_environment&gt;\nREACT_APP_CONTENTSTACK_ENVIRONMENT = &lt;environment_name&gt;\nREACT_APP_CONTENTSTACK_LIVE_PREVIEW= true</pre><p class=\"note\"><strong>Note:</strong> By default, the Live Preview feature is disabled for this project. To enable it, set <span class=\"code\">REACT_APP_CONTENTSTACK_LIVE_PREVIEW= true</span>.</p><p>Now, fire up your terminal, point it to your project location, and run the following commands:</p><pre>npm install\nnpm start</pre>That’s it!<br />You can now view the website at <strong>http://localhost:3000</strong>.<br />Here's how your website's <strong>Home</strong> page will look after running on your localhost.&nbsp;<img data-image=\"6gonafegbspn\" src=\"https://images.contentstack.io/v3/assets/blt23180bf2502c7444/blt09f74db8c2a8c8dc/638712a175befa109d301774/Dashboard.jpg\" data-sys-asset-uid=\"blt09f74db8c2a8c8dc\" alt=\"Dashboard.jpg\"/></li><li><h3><strong>Deploy the Website</strong></h3><p>The easiest and the quickest way to deploy the React JS starter website on production is to use Vercel.<br />You need a <a rel=\"noreferrer\" href=\"https://vercel.com/signup\" target=\"_blank\">Vercel account</a> before you start deploying.</p><p class=\"note\"><strong>Note</strong>: During deployment, to use the European or Azure North American&nbsp;region, add an environment variable <strong>REACT_APP_CONTENTSTACK_REGION</strong> and set its value to <strong>eu</strong> or <strong>azure-na </strong>respectively<strong>.</strong></p></li></ol><p>The Bootstrap plugin supports the following starter apps.</p><p>Starter Apps</p><ul><li>React JS</li><li>Next JS</li><li>Gatsby</li><li>Angular</li><li>Nuxt JS</li></ul><p class=\"add-resource\"><strong>Additional Resource</strong>: To&nbsp;create and run a demo website, use the sample code and guide provided in the Contentstack starter apps <a href=\"/docs/headless-cms/nuxt\" target=\"_self\">documentation</a>.</p><p><strong>Limitations:</strong></p><ol><li>When importing content to an existing stack, make sure you don't add duplicate content types. If you try to add similar content types, you'll get an error.</li><li>If you want to create a new stack for storing content, make sure you have the “<a href=\"/docs/administration/about-administration-roles#organization-owner\" target=\"_self\">owner</a>” or “<a href=\"/docs/administration/about-administration-roles#organization-admin\" target=\"_self\">admin</a>” rights in that organization.</li></ol>"
+      }
+    }
+  ],
+  "breadcrumb": [
+    {
+      "uid": "blt641003bf9368e112",
+      "_content_type_uid": "navigation"
+    },
+    {
+      "uid": "bltef82f5fd1a4eab6e",
+      "_content_type_uid": "navigation"
+    }
+  ],
+  "created_at": "2022-12-17T08:41:23.388Z",
+  "created_by": "blta3007b105b17e5d8",
+  "disable_last_updated_view": false,
+  "enable_skill_level_categories": false,
+  "enable_time_to_read": false,
+  "md_content": "",
+  "next_and_prev_links": {
+    "next_link": {
+      "title": "",
+      "href": ""
+    },
+    "prev_link": {
+      "title": "",
+      "href": ""
+    }
+  },
+  "related_articles": [
+    {
+      "referenced_articles": {
+        "heading": "",
+        "_metadata": {
+          "uid": "cs2ca319155b7353cd"
+        },
+        "articles": [
+          {
+            "uid": "blt6c44b62949cb930a",
+            "_content_type_uid": "more_articles"
+          }
+        ]
+      }
+    }
+  ],
+  "select_skill_level_categories": null,
+  "seo": {
+    "title": "Bootstrap Starter Apps using the CLI | Old Commands | Contentstack Documentation",
+    "image": null,
+    "description": "Learn how to Bootstrap Starter Apps using the CLI",
+    "robots": ""
+  },
+  "tags": [],
+  "title": "[Contentstack Command-line Interface (CLI)] - Bootstrap Starter Apps | Old Commands",
+  "updated_at": "2026-07-24T11:32:42.119Z",
+  "updated_by": "blt4006a0e8ebe46293",
+  "url": "/headless-cms/bootstrap-starter-apps/old-commands",
+  "publish_details": [
+    {
+      "environment": "blt4a008c3cde35b0c2",
+      "locale": "en-us",
+      "time": "2026-07-24T11:50:43.153Z",
+      "user": "blte93d4119f79db761",
+      "version": 17
+    },
+    {
+      "environment": "blt92ab7d24e8c52483",
+      "locale": "en-us",
+      "time": "2026-07-24T11:50:43.153Z",
+      "user": "blte93d4119f79db761",
+      "version": 17
+    },
+    {
+      "environment": "bltfe8376c13fe85b9c",
+      "locale": "en-us",
+      "time": "2026-07-24T11:50:43.153Z",
+      "user": "blte93d4119f79db761",
+      "version": 17
+    },
+    {
+      "environment": "blt18d21c1c300e766f",
+      "locale": "en-us",
+      "time": "2023-08-02T10:18:12.683Z",
+      "user": "blt3274538a64ad0ade",
+      "version": 5,
+      "version_name": {
+        "title": "Code fix",
+        "updated_by": "blt3274538a64ad0ade",
+        "updated_at": "2023-08-02T10:05:34.530Z"
+      }
+    }
+  ]
+}

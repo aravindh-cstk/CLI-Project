@@ -1,0 +1,98 @@
+{
+  "_version": 9,
+  "locale": "en-us",
+  "uid": "blt8e8d75af4f2678b0",
+  "ACL": {},
+  "_in_progress": false,
+  "article_content": [
+    {
+      "article_section": {
+        "heading": "Migrate Content Between Stacks Using the CLI",
+        "_metadata": {
+          "uid": "csfbbb7f52619c680e"
+        },
+        "content": "<p>This document guides you through the process of migrating content from one Contentstack stack to another manually.</p><h2>Prerequisites</h2><ul><li><a href=\"https://www.contentstack.com/login/\" target=\"_blank\">Contentstack account</a></li><li>Contentstack CLI <a href=\"/docs/headless-cms/install-the-cli\" target=\"_self\">installed</a> and <a href=\"/docs/headless-cms/configure-regions-in-the-cli/\" target=\"_self\">configured</a></li><li>CLI <a href=\"/docs/headless-cms/cli-authentication#authentication\" target=\"_self\">authenticated</a></li><li>Access to both source and target stacks</li><li>An empty target stack</li></ul><h2>Steps for Execution</h2><p>To migrate all content from one stack to another quickly, follow the steps below:</p><ul><li><a href=\"/docs/headless-cms/export-content-using-the-cli\" target=\"_self\">Export</a> from source stack:<pre>csdx cm:stacks:export -k &lt;source_stack_api_key&gt; -d ./export --branch main</pre></li><li><a href=\"/docs/headless-cms/audit-plugin\" target=\"_self\">Audit</a> the exported content (recommended):<pre>csdx cm:stacks:audit -d ./export/main</pre><p class=\"note\"><strong>Note:</strong> The <a href=\"/docs/headless-cms/audit-plugin\" target=\"_self\">audit</a> process runs automatically during <a href=\"/docs/headless-cms/import-content-using-the-cli\" target=\"_self\">import</a> to validate and fix any issues.</p></li><li><a href=\"/docs/headless-cms/import-content-using-the-cli\" target=\"_self\">Import</a> to target stack:<pre>csdx cm:stacks:import -k &lt;target_stack_api_key&gt; -d ./export/main</pre></li></ul>"
+      }
+    }
+  ],
+  "breadcrumb": [
+    {
+      "uid": "blt641003bf9368e112",
+      "_content_type_uid": "navigation"
+    },
+    {
+      "uid": "bltef82f5fd1a4eab6e",
+      "_content_type_uid": "navigation"
+    }
+  ],
+  "created_at": "2025-12-08T12:23:55.627Z",
+  "created_by": "blt3274538a64ad0ade",
+  "md_content": "",
+  "next_and_prev_links": {
+    "prev_link": {
+      "title": "",
+      "href": ""
+    },
+    "next_link": {
+      "title": "",
+      "href": ""
+    }
+  },
+  "related_articles": [
+    {
+      "referenced_articles": {
+        "heading": "",
+        "_metadata": {
+          "uid": "cs1cb6b116bc81f317"
+        },
+        "articles": [
+          {
+            "uid": "blt90658b5d8ff2391a",
+            "_content_type_uid": "more_articles"
+          }
+        ]
+      }
+    }
+  ],
+  "seo": {
+    "title": "Migrate Content Between Stacks Using the CLI | Contentstack",
+    "description": "Learn how to manually migrate content between Contentstack stacks with step-by-step instructions.",
+    "image": null,
+    "robots": ""
+  },
+  "tags": [],
+  "title": "[Contentstack Command-line Interface (CLI)] - Migrate Content Between Stacks Using the CLI",
+  "updated_at": "2026-07-22T11:49:47.262Z",
+  "updated_by": "blt4006a0e8ebe46293",
+  "url": "/headless-cms/migrate-content-between-stacks-using-the-cli",
+  "publish_details": [
+    {
+      "environment": "blt4a008c3cde35b0c2",
+      "locale": "en-us",
+      "time": "2026-07-22T12:56:57.666Z",
+      "user": "blte93d4119f79db761",
+      "version": 9
+    },
+    {
+      "environment": "blt92ab7d24e8c52483",
+      "locale": "en-us",
+      "time": "2026-07-22T12:56:57.666Z",
+      "user": "blte93d4119f79db761",
+      "version": 9
+    },
+    {
+      "environment": "bltfe8376c13fe85b9c",
+      "locale": "en-us",
+      "time": "2026-07-22T12:56:57.666Z",
+      "user": "blte93d4119f79db761",
+      "version": 9
+    },
+    {
+      "environment": "blt18d21c1c300e766f",
+      "locale": "en-us",
+      "time": "2026-04-10T07:28:48.679Z",
+      "user": "blt3cf27864e6b61df3",
+      "version": 5
+    }
+  ]
+}

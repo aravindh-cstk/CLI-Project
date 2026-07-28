@@ -1,0 +1,98 @@
+{
+  "_version": 12,
+  "locale": "en-us",
+  "uid": "bltb2a9262996cb0033",
+  "ACL": {},
+  "_in_progress": false,
+  "article_content": [
+    {
+      "article_section": {
+        "heading": "Configure Regions in the CLI | Old Commands",
+        "_metadata": {
+          "uid": "cs360b81a222c154b0"
+        },
+        "content": "<p>The <strong>config </strong>namespace contains all the commands that you will need to configure the CLI as per your requirements.</p>\n<p>Contentstack currently supports three regions: <strong>North America</strong>, <strong>Europe</strong>,<strong> </strong>and Azure North America.</p>\n<p>By default, the CLI uses the North American region. Configuration changes are not required for North America region users.</p>\n<p>Using&nbsp;the following set of commands, you can configure the CLI to use other <a href=\"/docs/administration\" target=\"_self\">regions</a>.&nbsp;</p><h2>Prerequisites</h2><ul><li><a href=\"https://www.contentstack.com/login\" target=\"_self\">Contentstack account</a></li><li>CLI <a href=\"/docs/headless-cms/install-the-cli\" target=\"_self\">installed </a></li><li><a href=\"/docs/headless-cms/cli-authentication\" target=\"_self\">Authentication </a>to use CLI</li></ul><h2>Commands</h2><h3>Get region</h3>\n<p>The <span class=\"code\">config:get:region</span><strong>&nbsp;</strong>command will return the name of the region on which you are performing actions in Contentstack, via CLI.</p>\n<p><strong>Usage</strong></p>\n<pre>csdx config:get:region</pre><h3>Set region</h3>\n<p>The <span class=\"code\">config:set:region</span> command lets you select a region, from the available <a href=\"/docs/administration\" target=\"_self\">Contentstack regions</a>, to perform actions using CLI. </p>\n<p><strong>Usage</strong></p>\n<pre>csdx config:set:region &lt;Region&gt;</pre>\n<p><strong>Arguments</strong></p><ul><li>Region: Specifies the region that you want to use while executing the CLI commands. Possible values are as follows:<ul><li><span class=\"code\"><strong>EU</strong></span> for Europe </li><li><span class=\"code\"><strong>AZURE-NA</strong></span> for Azure North America</li><li><span class=\"code\"><strong>NA</strong> </span>for North America</li></ul></li></ul>\n<p><strong>Example</strong></p>\n<pre>csdx config:set:region EU</pre>\n<pre>csdx config:set:region AZURE-NA</pre><h3>Set custom host and region</h3>\n<p>By using the <span class=\"code\">config:set:region</span> command, you can also set a custom host for <a href=\"https://www.contentstack.com/docs/developers/apis/content-delivery-api/\" target=\"_self\">Content Delivery</a> and <a href=\"https://www.contentstack.com/docs/developers/apis/content-management-api/\" target=\"_self\">Content Management</a> APIs, and set a custom region name for the hosts. </p>\n<p><strong>Usage</strong></p>\n<pre>csdx config:set:region -d &lt;custom_cda_host_url&gt; -m &lt;custom_cma_host_url&gt; -n &lt;custom_region_name&gt;</pre>\n<p><strong>Options</strong><br></p><ul><li> <span class=\"code\">-d</span>, <span class=\"code\">--cda=cda</span>: Custom host to set for the Content Delivery API. If this option is used, then cma and name options are required.</li><li> <span class=\"code\">-m</span>, <span class=\"code\">--cma=cma</span>: Custom host to set for the Content Management API. If this option is used, then cda and name options are required.</li><li><span class=\"code\">-n</span>, <span class=\"code\">--name=name</span>: The name for the region. If this option is used, then cda and cma options are required</li></ul>\n<p><strong>Example</strong></p>\n<pre>csdx config:set:region -d \"https://in-cda.contentstack.com\" -m \"https://in-api.contentstack.com\" -n \"India\"</pre>"
+      }
+    }
+  ],
+  "breadcrumb": [
+    {
+      "uid": "blt641003bf9368e112",
+      "_content_type_uid": "navigation"
+    },
+    {
+      "uid": "bltef82f5fd1a4eab6e",
+      "_content_type_uid": "navigation"
+    }
+  ],
+  "created_at": "2022-12-17T08:41:24.321Z",
+  "created_by": "blta3007b105b17e5d8",
+  "md_content": "",
+  "next_and_prev_links": {
+    "next_link": {
+      "title": "",
+      "href": ""
+    },
+    "prev_link": {
+      "title": "",
+      "href": ""
+    }
+  },
+  "related_articles": [
+    {
+      "referenced_articles": {
+        "heading": "",
+        "_metadata": {
+          "uid": "cs86d9d4e2de4b4aa8"
+        },
+        "articles": [
+          {
+            "uid": "blt2ec56ba60befa16c",
+            "_content_type_uid": "more_articles"
+          }
+        ]
+      }
+    }
+  ],
+  "seo": {
+    "title": "Configure Regions in the CLI | Old Commands | Contenstack",
+    "image": null,
+    "description": "Optimize your Contentstack CLI setup with region configuration.",
+    "robots": ""
+  },
+  "tags": [],
+  "title": "[Contentstack Command-line Interface (CLI)] - Configure Regions in the CLI | Old Commands",
+  "updated_at": "2026-07-24T11:33:11.749Z",
+  "updated_by": "blt4006a0e8ebe46293",
+  "url": "/headless-cms/configure-regions-in-the-cli/old-commands",
+  "publish_details": [
+    {
+      "environment": "blt4a008c3cde35b0c2",
+      "locale": "en-us",
+      "time": "2026-07-24T11:50:43.046Z",
+      "user": "blte93d4119f79db761",
+      "version": 12
+    },
+    {
+      "environment": "blt92ab7d24e8c52483",
+      "locale": "en-us",
+      "time": "2026-07-24T11:50:43.046Z",
+      "user": "blte93d4119f79db761",
+      "version": 12
+    },
+    {
+      "environment": "bltfe8376c13fe85b9c",
+      "locale": "en-us",
+      "time": "2026-07-24T11:50:43.046Z",
+      "user": "blte93d4119f79db761",
+      "version": 12
+    },
+    {
+      "environment": "blt18d21c1c300e766f",
+      "locale": "en-us",
+      "time": "2023-07-07T16:29:48.843Z",
+      "user": "blt3274538a64ad0ade",
+      "version": 3
+    }
+  ]
+}

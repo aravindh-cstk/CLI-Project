@@ -1,0 +1,98 @@
+{
+  "_version": 55,
+  "uid": "blt64c4e01079d2e7c2",
+  "locale": "en-us",
+  "ACL": {},
+  "_in_progress": false,
+  "article_content": [
+    {
+      "article_section": {
+        "heading": "Export Content to CSV File Using the CLI",
+        "_metadata": {
+          "uid": "csa5ebba9537e9251a"
+        },
+        "content": "<p>The <span class=\"code\">cm:export-to-csv</span> command lets you export the following data into a CSV file using Contentstack CLI:</p>\n<ul>\n  <li><a href=\"/docs/headless-cms/about-entries\">Stack Entries</a></li>\n  <li><a href=\"/docs/administration/organization-users\" target=\"_self\">Organization users’ details</a></li>\n  <li><a href=\"/docs/administration/about-teams\" target=\"_self\">Organization teams' details</a></li>\n  <li><a href=\"/docs/headless-cms/about-taxonomy\" target=\"_self\">Taxonomy details</a></li>\n</ul>\n<p>You can use this to perform tasks such as creating content backups, analyzing data, and more.</p>\n<h2>Prerequisites</h2>\n<ul>\n  <li><a href=\"https://www.contentstack.com/login\" target=\"_self\">Contentstack account</a></li>\n  <li>Contentstack CLI <a href=\"/docs/headless-cms/install-the-cli\" target=\"_self\">installed</a> and <a href=\"/docs/headless-cms/configure-regions-in-the-cli/\" target=\"_self\">configured</a></li>\n  <li>CLI <a href=\"/docs/headless-cms/cli-authentication/\" target=\"_self\">authenticated</a></li>\n</ul>\n<p class=\"note\"><strong>Note:</strong> Only the Organization <a href=\"/docs/administration/about-administration-roles#organization-owner\" target=\"_self\">Owner</a>/<a href=\"/docs/administration/about-administration-roles#organization-admin\" target=\"_self\">Admin</a> has the permissions to export an organization’s user or teams’ data.</p>\n<h2>Commands</h2>\n<p>Contentstack CLI lets you export content from the source stack to a CSV file by running the following command in your terminal:</p><pre>csdx cm:export-to-csv</pre>\n<p>This command prompts the following options:</p>\n<ul>\n  <li><strong>Export entries of a stack to a CSV file</strong>: To export entries, you must have access to the stack.<br />You’ll be prompted to select the following:<ol>\n      <li><strong>Organization</strong> where your stack resides.</li>\n      <li><strong>Stack</strong> where the content type resides.</li>\n      <li><strong>Branch</strong> of the stack, if the organization is branch-enabled.</li>\n      <li><strong>Content type(s)</strong> to which the entries belong.</li>\n      <li><strong>Language</strong> of the entries to be exported.</li>\n    </ol>\n    <p>The CSV file gets generated in the following format:</p>\n    <p><span class=\"code\">&lt;stack_name&gt;_&lt;content_type&gt;_&lt;language&gt;_entries_exports.csv</span></p>\n    <p>You can also export entries to CSV using the <a href=\"/docs/headless-cms/about-management-tokens\" target=\"_blank\">Management Token</a> alias.</p>\n  </li>\n  <li><strong>Export organization users' data to a CSV file</strong>: To use this option, you must be an <a href=\"/docs/administration/about-administration-roles#organization-owner\" target=\"_self\">Organization Owner</a> or <a href=\"/docs/administration/about-administration-roles#organization-admin\" target=\"_self\">Organization Admin</a>. The command lists only the organization(s) for which you have either role.<p class=\"note\"><strong>Note:</strong> You must be logged in to the Contentstack app to export organization users.</p>\n    <p>When prompted, select the organization containing the user data you want to export. The CSV file is generated in the following format:</p>\n    <p><span class=\"code\">&lt;orgName&gt;_users_exports.csv</span></p>\n  </li>\n  <li><strong>Export organization teams’ data to a CSV file</strong>: Exports a selected organization’s teams data and generates <strong>three CSV files</strong> with the following details:<ul>\n      <li><strong>File 1:</strong> Contains a list of <strong>all teams</strong> in the selected organization.<p>The CSV file is generated in the following format:</p>\n        <p><span class=\"code\">&lt;org-name&gt;_teams_export.csv</span></p>\n      </li>\n      <li><strong>File 2:</strong>\n        <ul>\n          <li>Contains a list of <strong>all the users in a particular team</strong> if the&nbsp;<span class=\"code\">team-uid</span>&nbsp;flag is passed.<p>The CSV file is generated in the following format:</p>\n            <p><span class=\"code\">&lt;org-name&gt;_team_&lt;team-uid&gt;_User_Details_export.csv</span></p>\n          </li>\n          <li>Contains a list of <strong>all the users in all the teams</strong> if the&nbsp;<span class=\"code\">team-uid</span>&nbsp;flag is not passed.<p>The CSV file is generated in the following format:</p>\n            <p><span class=\"code\">&lt;org-name&gt;_team_User_Details_export.csv</span></p>\n          </li>\n        </ul>\n      </li>\n      <li><strong>File 3:</strong>\n        <ul>\n          <li>Contains a list of <strong>all the stack role details of a particular team</strong> if the&nbsp;<span class=\"code\">team-uid</span>&nbsp;flag is passed.<p>The CSV file is generated in the following format:</p>\n            <p><span class=\"code\">stack_role_mapping_&lt;team-uid&gt;.csv</span></p>\n          </li>\n          <li>Contains a list of <strong>all the stack role details of all the teams</strong> if the&nbsp;<span class=\"code\">team-uid</span>&nbsp;flag is not passed.<p>The CSV file is generated in the following format:</p>\n            <p><span class=\"code\">stack_role_mapping.csv</span></p>\n          </li>\n        </ul>\n      </li>\n    </ul>\n  </li>\n  <li><strong>Export taxonomies to a CSV file</strong>: Export taxonomies and related terms to CSV files.<br />When you choose this option, you are prompted to select the following:<ol>\n      <li>The organization where your stack resides.</li>\n      <li>The stack that contains the taxonomy you want to export.</li>\n    </ol>\n    <p>The CSV files are generated in the following formats:</p>\n    <p><span class=\"code\">&lt;stack-name&gt;_taxonomies.csv</span></p>\n    <p><span class=\"code\">&lt;stack-name&gt;_&lt;taxonomy-name&gt;_&lt;taxonomy-uid&gt;_terms.csv</span></p>\n  </li>\n  <li><strong>Exit</strong>: Stops the command from executing further.<br /></li>\n</ul>\n<p>Once you select any of the above options, a “data” folder is automatically created in your current working directory. The corresponding CSV files are stored within this folder.</p>\n<div>\n  <p>Alternatively, you can provide the required parameters after the command in a single line as shown below:</p><pre>csdx cm:export-to-csv -a &lt;alias_of_management_token&gt; -n &lt;name_of_the_stack&gt; --action &lt;&lt;entries_or_users_or_taxonomies&gt;&gt;  --org &lt;organization_UID&gt; --org-name &lt;name_of_the_organization&gt; --locale &lt;name_of_the_locale&gt; --content-type &lt;content_type_name&gt; --delimiter &lt;value&gt;</pre>\n</div><strong>Options</strong>:<br />\n<ul>\n  <li><span class=\"code\">-a</span>,<span class=\"code\">--alias=alias</span>: Alias of the management token.</li>\n  <li><span class=\"code\">-k</span>,<span class=\"code\">--stack-api-key=stack-api-key</span>: API key of the source stack.</li>\n  <li><span class=\"code\">-n</span>,<span class=\"code\">--stack-name=stack-name</span>: Name of the stack to be used in the CSV file name.</li>\n  <li><span class=\"code\">--action=action</span>: Option to export data. [options: entries|users|teams|taxonomies].</li>\n  <li><span class=\"code\">--taxonomy-uid=taxonomy-uid</span>: Provide the taxonomy UID of the related terms you want to export.</li>\n  <li><span class=\"code\">--delimiter=delimiter</span>: [default: ,] [optional] Provide a delimiter to separate individual data fields within the CSV file. For example: <span class=\"code\">cm:export-to-csv --delimiter '|'</span></li>\n  <li><span class=\"code\">--team-uid=team-uid</span>: Provide the UID of a specific team in an organization.</li>\n  <li><span class=\"code\">--org=org</span>: Provide the organization UID to clone org-level users.</li>\n  <li><span class=\"code\">--org-name=org-name</span>: Name of the organization to be used in the CSV file name.</li>\n  <li><span class=\"code\">--locale=locale</span>: Locale of the entries to be exported.</li>\n  <li><span class=\"code\">--content-type=content-type</span>: Content type of the entries to be exported.</li>\n  <li><span class=\"code\">--branch=branch-name</span>: Name of the branch from which entries will be exported.</li>\n  <li><span class=\"code\">--include-fallback</span>: Includes fallback locale data when exporting taxonomies. When enabled, if a taxonomy term does not exist in the specified locale, it falls back to the hierarchy defined in the branch settings.</li>\n  <li><span class=\"code\">--fallback-locale=fallback-locale</span>: Specify a fallback locale for taxonomy export. This locale will be used when a taxonomy term does not exist in the primary locale. Takes priority over branch fallback hierarchy when both are specified.</li>\n</ul>\n<p><strong>Examples</strong>:</p>\n<ul>\n  <li>Export entries to a CSV file:<br /><pre>csdx cm:export-to-csv --action &lt;entries&gt; --locale &lt;locale&gt; --alias &lt;management-token-alias&gt; --content-type &lt;content-type&gt; </pre>\n  </li>\n  <li>Export entries to a CSV file with a custom stack name:<br /><pre>csdx cm:export-to-csv --action &lt;entries&gt; --locale &lt;locale&gt; --alias &lt;management-token-alias&gt; --content-type &lt;content-type&gt; --stack-name &lt;stack-name&gt; </pre>\n  </li>\n  <li>Export organization users to a CSV file:<br /><pre>csdx cm:export-to-csv --action &lt;users&gt; --org &lt;org-uid&gt;</pre>\n  </li>\n  <li>Export organization users to a CSV file with a custom organization name:<br /><pre>csdx cm:export-to-csv --action &lt;users&gt; --org &lt;org-uid&gt; --org-name &lt;org-name&gt; </pre>\n  </li>\n  <li>Export all teams in an organization:<br /><pre>csdx cm:export-to-csv --action &lt;teams&gt; --org &lt;org-uid&gt;</pre>\n  </li>\n  <li>Export all the data for a specific team:<br /><pre>csdx cm:export-to-csv --action &lt;teams&gt; --team-uid &lt;team-uid&gt;</pre>\n  </li>\n  <li>Export all the data for a specific team of a given organization by providing the organization UID and name:<br /><pre>csdx cm:export-to-csv --action &lt;teams&gt; --org &lt;org-uid&gt; --org-name &lt;org-name&gt; --team-uid &lt;team-uid&gt;</pre>\n  </li>\n  <li>Export taxonomies and related terms to a CSV file by providing the taxonomy UID:<br /><pre>csdx cm:export-to-csv --action &lt;taxonomies&gt; --alias &lt;management-token-alias&gt; --taxonomy-uid &lt;taxonomy-uid&gt;</pre>\n  </li>\n  <li>Export taxonomies and respective terms to a CSV file:<br /><pre>csdx cm:export-to-csv --action &lt;taxonomies&gt; --alias &lt;management-token-alias&gt;</pre>\n  </li>\n  <li>Export taxonomies and respective terms to a CSV file with a delimiter:<br /><pre>csdx cm:export-to-csv --action &lt;taxonomies&gt; --alias &lt;management-token-alias&gt; --delimiter &lt;delimiter&gt;</pre>\n  </li>\n  <li>Export entries to a CSV file with branch name provided:<br /><pre>csdx cm:export-to-csv --action &lt;entries&gt; --locale &lt;locale&gt; --alias &lt;management-token-alias&gt; --content-type &lt;content-type&gt; --stack-name &lt;stack-name&gt; --branch &lt;branch-name&gt; </pre>\n  </li>\n  <li>Export taxonomies with a specific locale:<br /><pre>csdx cm:export-to-csv --action &lt;taxonomies&gt; --alias &lt;management-token-alias&gt; --locale &lt;locale&gt; </pre>\n  </li>\n  <li>Export taxonomies with a fallback locale support:<br /><pre>csdx cm:export-to-csv --action &lt;taxonomies&gt; --alias &lt;management-token-alias&gt; --locale &lt;locale&gt; --include-fallback</pre>\n  </li>\n  <li>Export taxonomies with a custom fallback locale:<br /><pre>csdx cm:export-to-csv --action &lt;taxonomies&gt; --alias &lt;management-token-alias&gt; --locale &lt;locale&gt; --include-fallback --fallback-locale &lt;fallback-locale&gt;</pre>\n  </li>\n</ul>"
+      }
+    }
+  ],
+  "breadcrumb": [
+    {
+      "uid": "blt641003bf9368e112",
+      "_content_type_uid": "navigation"
+    },
+    {
+      "uid": "bltef82f5fd1a4eab6e",
+      "_content_type_uid": "navigation"
+    }
+  ],
+  "created_at": "2022-12-17T08:41:26.506Z",
+  "created_by": "blta3007b105b17e5d8",
+  "md_content": "",
+  "next_and_prev_links": {
+    "next_link": {
+      "title": "",
+      "href": ""
+    },
+    "prev_link": {
+      "title": "",
+      "href": ""
+    }
+  },
+  "related_articles": [
+    {
+      "referenced_articles": {
+        "heading": "",
+        "_metadata": {
+          "uid": "cs42253b478386cbce"
+        },
+        "articles": [
+          {
+            "uid": "blt0d456863285185da",
+            "_content_type_uid": "more_articles"
+          }
+        ]
+      }
+    }
+  ],
+  "seo": {
+    "title": "Export Content to CSV File Using the CLI | Contentstack",
+    "image": null,
+    "description": "Export entries, users, teams, and taxonomies to CSV files using Contentstack CLI with detailed commands and flexible options.",
+    "robots": ""
+  },
+  "tags": [],
+  "title": "[Contentstack Command-line Interface (CLI)] - Export Content to CSV File Using the CLI",
+  "updated_at": "2026-07-22T11:50:25.966Z",
+  "updated_by": "blt4006a0e8ebe46293",
+  "url": "/headless-cms/export-content-to-csv-file",
+  "publish_details": [
+    {
+      "environment": "blt4a008c3cde35b0c2",
+      "locale": "en-us",
+      "time": "2026-07-22T12:56:44.094Z",
+      "user": "blte93d4119f79db761",
+      "version": 55
+    },
+    {
+      "environment": "blt92ab7d24e8c52483",
+      "locale": "en-us",
+      "time": "2026-07-22T12:56:44.094Z",
+      "user": "blte93d4119f79db761",
+      "version": 55
+    },
+    {
+      "environment": "bltfe8376c13fe85b9c",
+      "locale": "en-us",
+      "time": "2026-07-22T12:56:44.094Z",
+      "user": "blte93d4119f79db761",
+      "version": 55
+    },
+    {
+      "environment": "blt18d21c1c300e766f",
+      "locale": "en-us",
+      "time": "2026-04-10T07:28:47.132Z",
+      "user": "blt3cf27864e6b61df3",
+      "version": 51
+    }
+  ]
+}

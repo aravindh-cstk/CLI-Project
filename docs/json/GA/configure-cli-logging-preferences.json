@@ -1,0 +1,98 @@
+{
+  "locale": "en-us",
+  "_version": 7,
+  "uid": "blta33efb37c73c3bdf",
+  "ACL": {},
+  "_in_progress": false,
+  "article_content": [
+    {
+      "article_section": {
+        "heading": "Configure CLI Logging Preferences",
+        "_metadata": {
+          "uid": "cs3adcf3507bb52361"
+        },
+        "content": "<p>The <span class=\"code\">config</span> namespace in the Contentstack CLI provides commands to configure various settings, including logging preferences.</p><h2>Prerequisites</h2><ul><li><a href=\"https://www.contentstack.com/login/\" target=\"_blank\">Contentstack account</a></li><li>Contentstack CLI <a href=\"/docs/headless-cms/install-the-cli/\" target=\"_self\">installed</a></li></ul><h2>Commands</h2><h3>Set a Logging Configuration for the CLI</h3><p>The <span class=\"code\">config:set:log</span> command lets you configure the logging behavior of the Contentstack CLI. You can set the preferred log level and specify a file path for storing log outputs.</p><ul><li>If the <span class=\"code\">--level</span> flag is not provided, the CLI will prompt you to select a log level interactively.</li><li>If the <span class=\"code\">--path</span> flag is not specified, the CLI will prompt you to enter a file path for log storage.</li></ul><p><strong>Usage</strong></p><pre>csdx config:set:log [--level &lt;level&gt;] [--path &lt;path&gt;]</pre><p><strong>Options</strong></p><ul><li><span class=\"code\">--level=level</span>: Set the log level for the CLI. &lt;options: debug|info|warn|error&gt;</li><li><span class=\"code\">--path=path</span>: Specify the file path where logs should be saved.</li></ul><p><strong>Examples</strong></p><ul><li>Set log level to <span class=\"code\">debug</span><pre>csdx config:set:log --level debug</pre></li><li>Set log level to <span class=\"code\">info</span> and specify a log file path:<pre>csdx config:set:log --level info --path ./logs/app.log</pre></li></ul><h3>Get the Current Logging Configuration for the CLI</h3><p>The <span class=\"code\">config:get:log</span> command retrieves the current logging settings, including the log level and the file path where logs are stored. If no configuration is set, the CLI will indicate that no logging configuration is available.</p><p><strong>Usage</strong></p><pre>csdx config:get:log</pre>"
+      }
+    }
+  ],
+  "breadcrumb": [
+    {
+      "uid": "blt641003bf9368e112",
+      "_content_type_uid": "navigation"
+    },
+    {
+      "uid": "bltef82f5fd1a4eab6e",
+      "_content_type_uid": "navigation"
+    }
+  ],
+  "created_at": "2025-06-24T11:25:38.366Z",
+  "created_by": "blt3274538a64ad0ade",
+  "md_content": "",
+  "next_and_prev_links": {
+    "prev_link": {
+      "title": "",
+      "href": ""
+    },
+    "next_link": {
+      "title": "",
+      "href": ""
+    }
+  },
+  "related_articles": [
+    {
+      "referenced_articles": {
+        "heading": "",
+        "_metadata": {
+          "uid": "cs3afb73c1f17946d6"
+        },
+        "articles": [
+          {
+            "uid": "blt22aa65188c7d8092",
+            "_content_type_uid": "more_articles"
+          }
+        ]
+      }
+    }
+  ],
+  "seo": {
+    "title": "Configure CLI Logging Preferences | Contentstack",
+    "description": "Set and retrieve logging preferences in Contentstack CLI, including log level and file path configuration.",
+    "image": null,
+    "robots": ""
+  },
+  "tags": [],
+  "title": "[Contentstack Command-line Interface (CLI)] - Configure CLI Logging Preferences",
+  "updated_at": "2026-07-20T16:54:16.671Z",
+  "updated_by": "blt4006a0e8ebe46293",
+  "url": "/headless-cms/configure-cli-logging-preferences",
+  "publish_details": [
+    {
+      "environment": "blt4a008c3cde35b0c2",
+      "locale": "en-us",
+      "time": "2026-07-20T18:55:47.296Z",
+      "user": "blte93d4119f79db761",
+      "version": 7
+    },
+    {
+      "environment": "blt92ab7d24e8c52483",
+      "locale": "en-us",
+      "time": "2026-07-20T18:55:47.296Z",
+      "user": "blte93d4119f79db761",
+      "version": 7
+    },
+    {
+      "environment": "bltfe8376c13fe85b9c",
+      "locale": "en-us",
+      "time": "2026-07-20T18:55:47.296Z",
+      "user": "blte93d4119f79db761",
+      "version": 7
+    },
+    {
+      "environment": "blt18d21c1c300e766f",
+      "locale": "en-us",
+      "time": "2026-04-10T07:28:48.297Z",
+      "user": "blt3cf27864e6b61df3",
+      "version": 4
+    }
+  ]
+}
