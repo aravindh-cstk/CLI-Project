@@ -35,7 +35,7 @@ The primary working section. Contains setup steps, code examples, and configurat
 Sections that explain how something works internally (data flows, event protocols, hash mechanics, SDK internals). These come after the developer has a working setup. They are optional but valuable for debugging and deep understanding.
 
 **Troubleshooting**
-Each entry requires three elements: a symptom (what the developer sees), a root cause (why it happens), and a resolution (what to do). Symptom-only entries are not complete. Each troubleshooting entry should be independently understandable without reading sibling entries. Format each entry as the symptom stated as the heading, followed by a bolded `**Root Cause(s)**` label and a bolded `**Resolution**` label, in that order. Write `**Root Cause(s)**` as a single sentence when there is one cause, or as a bullet list when there are several genuinely distinct causes. Write `**Resolution**` as a single sentence or step when there is one fix, or as a numbered list when the fix involves multiple steps.
+Each entry requires three elements: a symptom (what the developer sees), a root cause (why it happens), and a resolution (what to do). Symptom-only entries are not complete. Each troubleshooting entry should be independently understandable without reading sibling entries. Format each entry as the symptom stated as the heading, followed by a bolded `**Root Cause**` or `**Root Causes**` label and a bolded `**Resolution**` label, in that order. Use `**Root Cause**` (singular) with a single sentence when there is one cause. Use `**Root Causes**` (plural) with a bullet list when there are several genuinely distinct causes. Write `**Resolution**` as a single sentence or step when there is one fix, or as a numbered list when the fix involves multiple steps.
 
 **Limitations**
 An optional section, placed after Troubleshooting and before Next Steps, listing what the tool does not detect, cover, or restore. Applies to any doc describing a scanning, validation, or detection tool. Omit if the tool has no known coverage gaps.
@@ -130,6 +130,12 @@ Every rule follows this format:
 **Rule:** Troubleshooting entries require a root cause and a resolution, not just a symptom.
 **Why:** A symptom-only entry tells the developer what is wrong but not why or how to fix it. It creates frustration rather than resolution.
 **Exception:** None. Every troubleshooting entry must be complete.
+
+---
+
+**Rule:** Label the root-cause element `**Root Cause**` (singular) when there is exactly one cause, or `**Root Causes**` (plural) with a bulleted list when there are several genuinely distinct causes.
+**Why:** A plural label over a single sentence implies causes the reader has not been told about. A singular label over a list that actually covers multiple independent triggers hides that there is more than one thing to check.
+**Exception:** None.
 
 ---
 
@@ -311,6 +317,18 @@ Every rule follows this format:
 
 ---
 
+**Rule:** Do not cite internal implementation details as justification for a claim: internal function or variable names, internal PR numbers or repo paths, or process attributions such as "as confirmed by engineering." State only the resulting user-facing behavior and status.
+**Why:** Internal identifiers and process attributions are meaningless to the reader, can leak unreleased or unstable implementation details, and go stale the moment the internal implementation changes, unlike the documented behavior.
+**Exception:** None for externally published docs. Internal-only engineering documentation, explicitly marked as such and never published externally, is not subject to this rule.
+
+---
+
+**Rule:** When a multi-fact paragraph is converted into a bulleted list under a bolded lead-in label, the label must name the specific grouping the bullets share, not a generic placeholder such as "Note," "Important," or "Important Points."
+**Why:** A generic label gives the reader no scan value and no way to judge relevance before reading the list. A specific label lets the reader decide whether the list matters to them.
+**Exception:** None.
+
+---
+
 ### C7: Duplication
 
 **Rule:** When two sections are near-identical, the second section references the first and adds only what is genuinely different.
@@ -430,3 +448,9 @@ This section applies to all doc types. Its rules are more specific than C3 (Lang
 **Rule:** A Feature Doc documenting a superseded version must not carry a full old-to-new flag/parameter mapping table when an equivalent mapping already exists in the current version's doc or a dedicated Migration Guide. Keep only a short note plus a link to that mapping.
 **Why:** A complete old-to-new mapping table is the "Type Mapping Reference" pattern reserved for Migration Guide docs (see Section Definitions and `migration-guide.md`). Duplicating it inside a Feature Doc creates two independently maintained copies of the same fact, and a Feature Doc is read by every visitor, not only the subset migrating between versions.
 **Exception:** If no current-version doc or Migration Guide exists yet to link to, a short table may remain inline, positioned after Troubleshooting rather than before it, until that canonical destination exists.
+
+---
+
+**Rule:** Flag or parameter reference tables must separate required-ness and caveats into their own columns (Flag, Required, Description, Notes) rather than folding purpose, requiredness, and constraints (exclusivity rules, edge cases, side effects) into a single Description column.
+**Why:** A Description column that mixes what a flag does with when it applies and what it conflicts with becomes too dense to scan. Separate Required and Notes columns let a reader check applicability and caveats without rereading a full paragraph per row.
+**Exception:** A table with only one or two flags and no caveats may use a simpler two-column Flag/Description format.
