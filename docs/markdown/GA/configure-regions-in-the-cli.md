@@ -1,6 +1,6 @@
 ---
 uid: "bltbc6ad24437532c4f"
-seo_title: "Configure Regions in the CLI | Contentstack"
+seo_title: "Configure Regions in the CLI | V1.x.x | Contentstack"
 seo_description: "Configure regions in Contentstack Command-line Interface to optimize your setup and streamline workflows across multiple data centers."
 ---
 
@@ -31,7 +31,7 @@ You can also configure custom hosts for different APIs and set a custom region n
 ## Prerequisites
 
 - [Contentstack account](https://www.contentstack.com/login/)
-- **CLI Installed:** Version 1.7.0 or above (see [Install the CLI](/docs/headless-cms/install-the-cli))
+- **CLI Installed:** Version 1.7.0 or above (see [Install the CLI](/docs/headless-cms/install-the-cli/v1))
 
 ## What You Will Learn
 
@@ -253,7 +253,7 @@ csdx config:get:region
 >
 > For more information, refer to the following documents:
 >
-> - [Install the CLI](/docs/headless-cms/install-the-cli)
-> - [CLI Authentication and Adding Tokens](/docs/headless-cms/cli-authentication)
-> - [Configure Rate Limits in the CLI](/docs/headless-cms/configure-rate-limits-in-the-cli)
+> - [Install the CLI](/docs/headless-cms/install-the-cli/v1)
+> - [CLI Authentication and Adding Tokens](/docs/headless-cms/cli-authentication/v1)
+> - [Configure Rate Limits in the CLI](/docs/headless-cms/configure-rate-limits-in-the-cli/v1)
 > - [Contentstack Regions](/docs/administration/about-regions)

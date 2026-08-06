@@ -1,6 +1,6 @@
 ---
 uid: "blt18f5edee45f9d6c2"
-seo_title: "Write a Custom CLI Command | Contentstack Documentation"
+seo_title: "Write a Custom CLI Command | V1.x.x | Contentstack Documentation"
 seo_description: "Write a Custom CLI Command"
 ---
 
@@ -46,7 +46,7 @@ To run the code, open your terminal, point it to the “\<\<plugin_name\>\>” d
 node bin/run hello
 ```
 
-Next, let’s set up this plugin within the **csdx** [namespace](/docs/headless-cms/install-the-cli#namespaces), by using the **plugins:link** command so that you don’t have to use the above command for running the plugin’s code.
+Next, let’s set up this plugin within the **csdx** [namespace](/docs/headless-cms/install-the-cli/v1#namespaces), by using the **plugins:link** command so that you don’t have to use the above command for running the plugin’s code.
 
 ## Set up the Plugin
 
@@ -80,7 +80,7 @@ This will successfully install the plugin and you can use this custom plugin to 
 
 ## Uninstall the Plugin
 
-If you have created or installed a plugin using [Contentstack CLI](/docs/headless-cms/install-the-cli), and want to uninstall/ remove that plugin, you can do it by using the **plugins:uninstall** command.
+If you have created or installed a plugin using [Contentstack CLI](/docs/headless-cms/install-the-cli/v1), and want to uninstall/ remove that plugin, you can do it by using the **plugins:uninstall** command.
 
 > **Note**: This command will not delete the plugin’s code folder.
 

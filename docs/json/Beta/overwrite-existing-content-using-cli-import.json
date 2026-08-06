@@ -55,16 +55,16 @@
     }
   ],
   "seo": {
-    "title": "Overwrite Existing Content using CLI Import | Contentstack",
+    "title": "Overwrite Existing Content using CLI Import | V2.x.x | Contentstack",
     "description": "Learn how to overwrite existing content using the CLI Import Overwrite feature.",
     "image": null,
     "robots": ""
   },
   "tags": [],
-  "title": "[Contentstack Command-line Interface (CLI)] - Overwrite Existing Content using CLI Import | Beta Commands",
+  "title": "[Contentstack Command-line Interface (CLI)] - Overwrite Existing Content using CLI Import | V2.x.x",
   "updated_at": "2026-07-22T11:51:27.928Z",
   "updated_by": "blt4006a0e8ebe46293",
-  "url": "/headless-cms/overwrite-existing-content-using-cli-import/beta",
+  "url": "/headless-cms/overwrite-existing-content-using-cli-import",
   "publish_details": [
     {
       "environment": "blt4a008c3cde35b0c2",

@@ -1,6 +1,6 @@
 ---
 uid: "bltb2a9262996cb0033"
-seo_title: "Configure Regions in the CLI | Old Commands | Contenstack"
+seo_title: "Configure Regions in the CLI | V0.x.x | Contentstack"
 seo_description: "Optimize your Contentstack CLI setup with region configuration."
 ---
 
@@ -17,8 +17,8 @@ Using the following set of commands, you can configure the CLI to use other [reg
 ## Prerequisites
 
 - [Contentstack account](https://www.contentstack.com/login)
-- CLI [installed](/docs/headless-cms/install-the-cli)
-- [Authentication](/docs/headless-cms/cli-authentication) to use CLI
+- CLI [installed](/docs/headless-cms/install-the-cli/v1)
+- [Authentication](/docs/headless-cms/cli-authentication/v0) to use CLI
 
 ## Commands
 

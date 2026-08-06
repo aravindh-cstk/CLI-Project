@@ -1,6 +1,6 @@
 ---
 uid: "blt372f35bf931194f0"
-seo_title: "CLI Authentication | Contentstack"
+seo_title: "CLI Authentication | V1.x.x | Contentstack"
 seo_description: "Authenticate securely and access Contentstack Command-line Interface using our updated developer guide for streamlined setup and usage."
 ---
 
@@ -8,13 +8,13 @@ seo_description: "Authenticate securely and access Contentstack Command-line Int
 
 To start using CLI commands, you must first **authenticate** yourself after installing the CLI and configuring the region. The Contentstack CLI Authentication feature allows you to securely log in or use tokens—such as [Management](/docs/headless-cms/about-management-tokens) or [Delivery tokens](/docs/headless-cms/about-delivery-tokens)—to perform content management tasks via the terminal.
 
-It supports login credentials, Two-Factor Authentication, and Single Sign-On (SSO). You can authenticate either by using the [login](/docs/headless-cms/cli-authentication#authentication) command or by adding a Management Token to the local config.
+It supports login credentials, Two-Factor Authentication, and Single Sign-On (SSO). You can authenticate either by using the [login](/docs/headless-cms/cli-authentication/v1#authentication) command or by adding a Management Token to the local config.
 
 ## Prerequisites
 
 - [Contentstack account](https://www.contentstack.com/login/)
-- CLI [installed](/docs/headless-cms/install-the-cli/)
-- [Set Region](/docs/headless-cms/configure-regions-in-the-cli#set-region)
+- CLI [installed](/docs/headless-cms/install-the-cli/v1)
+- [Set Region](/docs/headless-cms/configure-regions-in-the-cli/v1#set-region)
 
 ## Commands
 
@@ -26,7 +26,7 @@ The `auth:login` command lets you log in to Contentstack and save the login info
 
 > **Note:** The Contentstack CLI supports [Two-factor Authentication](/docs/administration/multi-factor-authentication) for enhanced security.
 
-Open the terminal and run the following command to log in with your Contentstack account credentials. Once you log in, you can use the Contentstack CLI commands such as [export](/docs/headless-cms/export-content-using-the-cli/), [import](/docs/headless-cms/import-content-using-the-cli/), [clone](/docs/headless-cms/cloning-a-stack/), [bulk publish and unpublish](/docs/headless-cms/bulk-publish-and-unpublish-content/), [seed](/docs/headless-cms/import-content-using-the-seed-command/), [bootstrap](/docs/headless-cms/bootstrap-starter-apps/), [migration](/docs/headless-cms/migrate-your-content-using-the-cli-migration-command/), etc.
+Open the terminal and run the following command to log in with your Contentstack account credentials. Once you log in, you can use the Contentstack CLI commands such as [export](/docs/headless-cms/export-content-using-the-cli/v1), [import](/docs/headless-cms/import-content-using-the-cli/v1), [clone](/docs/headless-cms/cli-cloning-a-stack/v1), [bulk publish and unpublish](/docs/headless-cms/cli-bulk-publish-and-unpublish-content/v1), [seed](/docs/headless-cms/cli-import-content-using-the-seed-command/v1), [bootstrap](/docs/headless-cms/cli-bootstrap-starter-apps/v1), [migration](/docs/headless-cms/migrate-your-content-using-the-cli-migration-command/v1), etc.
 
 **Usage**
 
@@ -228,5 +228,5 @@ csdx auth:tokens
 
 ## Next Steps
 
-- [Export](/docs/headless-cms/export-content-using-the-cli) and [import](/docs/headless-cms/import-content-using-the-cli) content
-- [Publish entries/assets in bulk](/docs/headless-cms/bulk-publish-and-unpublish-content)
+- [Export](/docs/headless-cms/export-content-using-the-cli/v1) and [import](/docs/headless-cms/import-content-using-the-cli/v1) content
+- [Publish entries/assets in bulk](/docs/headless-cms/cli-bulk-publish-and-unpublish-content/v1)

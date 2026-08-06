@@ -1,12 +1,12 @@
 ---
 uid: "blt4f27fd89adf6b6c1"
-seo_title: "Create Custom CLI Plugins for Contentstack | Contentstack"
+seo_title: "Create Custom CLI Plugins for Contentstack | V1.x.x | Contentstack"
 seo_description: "Learn how to build, test, and publish custom CLI plugins for Contentstack using oclif. Covers setup, development workflow, and best practices."
 ---
 
 # Create Custom CLI Plugins for Contentstack
 
-This guide explains how to develop an external plugin for [Contentstack CLI](https://www.contentstack.com/docs/headless-cms/install-the-cli), including requirements, project structure, best practices, testing, publishing steps, and key internal behaviors to consider.
+This guide explains how to develop an external plugin for [Contentstack CLI](https://www.contentstack.com/docs/headless-cms/install-the-cli/v1), including requirements, project structure, best practices, testing, publishing steps, and key internal behaviors to consider.
 
 ## Introduction
 
@@ -25,7 +25,7 @@ These plugins offer the following capabilities:
 - [Node.js version 22.x and above](https://nodejs.org/en/download/)
 - [Contentstack account](https://www.contentstack.com/login/)
 - Familiarity with the oclif CLI framework (recommended)
-- Contentstack CLI [installed](/docs/headless-cms/install-the-cli)
+- Contentstack CLI [installed](/docs/headless-cms/install-the-cli/v1)
 
 ## Plugin Structure
 
@@ -227,19 +227,19 @@ npm test
 
 To simulate the end-user experience, follow these steps to test your published plugin:
 
-1. [**Install the Contentstack CLI globally**](/docs/headless-cms/install-the-cli):
+1. [**Install the Contentstack CLI globally**](/docs/headless-cms/install-the-cli/v1):
 
    ```
    npm i -g @contentstack/cli
    ```
 
-2. [**Set the region**](/docs/headless-cms/configure-regions-in-the-cli#set-region):
+2. [**Set the region**](/docs/headless-cms/configure-regions-in-the-cli/v1#set-region):
 
    ```
    csdx config:set:region <region-name>
    ```
 
-3. [**Authenticate**](/docs/headless-cms/cli-authentication#authentication):
+3. [**Authenticate**](/docs/headless-cms/cli-authentication/v1#authentication):
 
    ```
    csdx login
@@ -297,13 +297,13 @@ Test your plugin during development:
 
 Core plugins handle region and authentication automatically. Before using any command, ensure the user has configured the region and completed authentication.
 
-1. [**Set the region**](/docs/headless-cms/configure-regions-in-the-cli#set-region):
+1. [**Set the region**](/docs/headless-cms/configure-regions-in-the-cli/v1#set-region):
 
    ```
    csdx config:set:region <region-name>
    ```
 
-2. [**Authenticate**](/docs/headless-cms/cli-authentication#authentication):
+2. [**Authenticate**](/docs/headless-cms/cli-authentication/v1#authentication):
 
    ```
    csdx login

@@ -1,6 +1,6 @@
 ---
 uid: "bltc7a1129f3ee45ffd"
-seo_title: "Configure Rate Limits in the CLI | Contentstack"
+seo_title: "Configure Rate Limits in the CLI | V2.x.x | Contentstack"
 seo_description: "Learn to configure and manage Contentstack CLI rate limits. Try the beta commands to adjust bulkLimit and utilization for optimized bulk publishing."
 ---
 
@@ -17,8 +17,8 @@ By following these instructions, you can effectively control the number of reque
 ## Prerequisites
 
 - [Contentstack account](https://www.contentstack.com/login/)
-- [CLI installed](/docs/headless-cms/install-the-cli/) and [configured](/docs/headless-cms/configure-regions-in-the-cli/) (version 1.25.0 and above)
-- [CLI authenticated](/docs/headless-cms/cli-authentication/)
+- [CLI installed](/docs/headless-cms/install-the-cli/v1) and [configured](/docs/headless-cms/configure-regions-in-the-cli) (version 1.25.0 and above)
+- [CLI authenticated](/docs/headless-cms/cli-authentication)
 
 ## Commands
 

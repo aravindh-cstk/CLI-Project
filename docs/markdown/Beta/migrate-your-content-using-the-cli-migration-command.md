@@ -1,6 +1,6 @@
 ---
 uid: "blt992979390532a894"
-seo_title: "Migrate your Content using the CLI Migration Command | Contentstack"
+seo_title: "Migrate your Content using the CLI Migration Command | V2.x.x | Contentstack"
 seo_description: "Migrate content effortlessly using Contentstack’s new Command-line Interface migration command to simplify and speed up content transfer."
 ---
 
@@ -25,7 +25,7 @@ Now let us understand how to migrate content from one stack to another using the
 ## Prerequisites
 
 - [Contentstack account](https://www.contentstack.com/login)
-- CLI [installed](/docs/headless-cms/install-the-cli) on your machine
+- CLI [installed](/docs/headless-cms/install-the-cli/v1) on your machine
 
 ## Steps for Execution
 
@@ -34,7 +34,7 @@ Now let us understand how to migrate content from one stack to another using the
 
 ## Login to the Contentstack CLI session
 
-Firstly you should have the Contentstack CLI installed on your system. In case you haven't yet installed the Contentstack CLI, please follow the steps in the [CLI installation](/docs/headless-cms/install-the-cli) guide.
+Firstly you should have the Contentstack CLI installed on your system. In case you haven't yet installed the Contentstack CLI, please follow the steps in the [CLI installation](/docs/headless-cms/install-the-cli/v1) guide.
 
 After installing the CLI on your machine, log in to the CLI session to run the `migration` command.
 

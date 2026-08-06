@@ -1,6 +1,6 @@
 ---
 uid: "blt74918691c8a465c1"
-seo_title: "CLI Limitations | Contentstack"
+seo_title: "CLI Limitations | V1.x.x | Contentstack"
 seo_description: "Understand Contentstack CLI limitations, supported environments, and workarounds for import/export, authentication, OS support, and more."
 ---
 
@@ -289,7 +289,7 @@ csdx auth:login
 csdx cm:stacks:export -k <stack-api-key> --data-dir ./export
 ```
 
-**Related Documentation:** [CLI for CS Assets](/docs/headless-cms/cli-for-cs-assets#how-management-tokens-affect-export)
+**Related Documentation:** [CLI for CS Assets](/docs/headless-cms/cli-for-cs-assets/v1#how-management-tokens-affect-export)
 
 **Version Information:** All versions
 
@@ -451,25 +451,6 @@ csdx cm:stacks:export -k <stack-api-key> --data-dir ./export
 
 ---
 
-### Asset Publishing Is Skipped When Asset Scanning Is Active
-
-**Limitation:** During `cm:stacks:import`, assets are not published in the same run when asset scanning applies. This happens either because `--skip-assets-publish` was passed explicitly, or because the org plan has asset scanning enabled, which sets the same flag automatically. Org-plan auto-detection of asset scanning is rolling out and is not yet active for every org plan.
-
-**Impact:** Assets are imported but remain unpublished until a separate publish step runs after scanning completes.
-
-**Workaround:** See [Asset Scan In-Queue Assets Are Not Retried](#asset-scan-in-queue-assets-are-not-retried) for the wait-and-republish steps, since the same retry behavior applies here.
-
-**Related Commands:**
-
-- `csdx cm:stacks:import --skip-assets-publish`
-- `csdx cm:assets:publish --backup-dir`
-
-**Version Information:** All versions with asset scanning enabled
-
-**Tags:** asset scanning, import, skip-assets-publish, backup-dir
-
----
-
 ### Complex Dependencies Not Fully Automated
 
 **Limitation:** Some modules with complex dependencies may require manual intervention
@@ -534,6 +515,27 @@ csdx cm:stacks:export -k <stack-api-key> --data-dir ./export
 **Version Information:** All versions
 
 **Tags:** import-setup, branch, directory structure
+
+---
+
+### Asset Publishing Is Skipped When Asset Scanning Is Active
+
+**Limitation:** During `cm:stacks:import`, assets are not published in the same run when asset scanning applies. This happens either because `--skip-assets-publish` was passed explicitly, or because the org plan has asset scanning enabled, which sets the same flag automatically. Org-plan auto-detection of asset scanning is rolling out and is not yet active for every org plan.
+
+**Impact:** Assets are imported but remain unpublished until a separate publish step runs after scanning completes.
+
+**Workaround:** See [Asset Scan In-Queue Assets Are Not Retried](#asset-scan-in-queue-assets-are-not-retried) for the wait-and-republish steps, since the same retry behavior applies here.
+
+**Related Commands:**
+
+- `csdx cm:stacks:import --skip-assets-publish`
+- `csdx cm:assets:publish --backup-dir`
+
+**Related Documentation:** [Asset Scanning in CLI](/docs/headless-cms/asset-scanning-in-cli)
+
+**Version Information:** All versions with asset scanning enabled
+
+**Tags:** asset scanning, import, skip-assets-publish, backup-dir
 
 ---
 
@@ -718,9 +720,13 @@ csdx cm:stacks:export -k <stack-api-key> --data-dir ./export
 
 - `csdx cm:assets:publish --backup-dir`
 
+**Related Documentation:** [Asset Scanning in CLI](/docs/headless-cms/asset-scanning-in-cli)
+
 **Version Information:** All versions with asset scanning enabled
 
 **Tags:** asset scanning, bulk publish, quarantine, in-queue
+
+---
 
 ---
 
@@ -728,7 +734,7 @@ csdx cm:stacks:export -k <stack-api-key> --data-dir ./export
 
 ### cs-assets space-based assets are not cloned
 
-**Limitation:** The `csdx cm:stacks:clone` command does not export or import cs-assets space-based assets. Clone internally runs export then import, but neither step activates cs-assets mode. The `spaces/` directory is never written, and any existing cs-assets spaces on the source branch are silently skipped.
+**Limitation:** The `csdx cm:stacks:clone` command does not export or import cs-assets space-based assets. Clone internally runs export then import, but neither step activates cs-assets mode — the `spaces/` directory is never written, and any existing cs-assets spaces on the source branch are silently skipped.
 
 **Impact:** If the source stack uses cs-assets, the cloned stack will not contain the `spaces/` directory or any cs-assets data. Only the legacy `assets/` structure is cloned.
 
@@ -745,7 +751,7 @@ csdx cm:stacks:import -k <target-api-key> --data-dir ./export
 - `csdx cm:stacks:export`
 - `csdx cm:stacks:import`
 
-**Related Documentation:** [CLI for CS Assets](/docs/headless-cms/cli-for-cs-assets)
+**Related Documentation:** [CLI for CS Assets](/docs/headless-cms/cli-for-cs-assets/v1)
 
 **Version Information:** All versions
 

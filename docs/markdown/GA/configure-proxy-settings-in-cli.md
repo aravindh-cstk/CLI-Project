@@ -1,6 +1,6 @@
 ---
 uid: "bltd66941065e0c9244"
-seo_title: "Configure Proxy Settings in CLI | Contentstack"
+seo_title: "Configure Proxy Settings in CLI | V1.x.x | Contentstack"
 seo_description: "Configure HTTP or HTTPS proxy settings in the Contentstack CLI using global config or environment variables to ensure reliable API access behind firewalls."
 ---
 
@@ -28,7 +28,7 @@ This guide provides step-by-step instructions on how to configure and manage pro
 ## Prerequisites
 
 - **Contentstack CLI installed and configured**
-  - CLI version **1.55.0** or above (see [Install the CLI](/docs/headless-cms/install-the-cli))
+  - CLI version **1.55.0** or above (see [Install the CLI](/docs/headless-cms/install-the-cli/v1))
 
 - **Proxy server details**
   - Proxy host

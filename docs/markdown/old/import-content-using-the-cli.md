@@ -1,6 +1,6 @@
 ---
 uid: "bltc452d443530ac981"
-seo_title: "Import Content using the CLI | Old Commands | Contentstack"
+seo_title: "Import Content using the CLI | V0.x.x | Contentstack"
 seo_description: "Efficiently import content using Contentstack's CLI commands."
 ---
 
@@ -28,8 +28,8 @@ Content can be imported in a stack for the following modules:
 ## Prerequisites
 
 - [Contentstack account](https://www.contentstack.com/login)
-- CLI [installed](/docs/headless-cms/install-the-cli)
-- A [configured management token](/docs/headless-cms/cli-authentication#add-token) (alias) or [authtoken](/docs/headless-cms/cli-authentication#login)
+- CLI [installed](/docs/headless-cms/install-the-cli/v1)
+- A [configured management token](/docs/headless-cms/cli-authentication/v0#add-token) (alias) or [authtoken](/docs/headless-cms/cli-authentication/v0#login)
 
 ## Commands
 
@@ -149,7 +149,7 @@ By doing so, you don’t need to separately provide parameters/options in the co
 
 ### Import Content Using Auth Token and Parameters
 
-You can use this method to import content to your stack if you have logged in to the session using the [Login](https://www.contentstack.com/docs/headless-cms/cli-authentication/#login) command. Running the Login command generates an auth token, which is used in the command below.
+You can use this method to import content to your stack if you have logged in to the session using the [Login](https://www.contentstack.com/docs/headless-cms/cli-authentication/v0#login) command. Running the Login command generates an auth token, which is used in the command below.
 
 **Usage**
 
@@ -264,4 +264,4 @@ csdx cm:import -A -c <config_file_path>
   - [Users](/docs/headless-cms/about-stack-users)
   - [Releases](/docs/headless-cms/about-releases)
 
-> **Additional Resources**: Check out the [Export Content](/docs/headless-cms/export-content-using-the-cli) documentation to learn how you can export content from your stack using CLI.
+> **Additional Resources**: Check out the [Export Content](/docs/headless-cms/export-content-using-the-cli/v0) documentation to learn how you can export content from your stack using CLI.

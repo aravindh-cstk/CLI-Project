@@ -1,6 +1,6 @@
 ---
 uid: "blt1637a00d696b0fe4"
-seo_title: "Configure Multi-Factor Authentication (MFA) Secret Using CLI | Contentstack"
+seo_title: "Configure Multi-Factor Authentication (MFA) Secret Using CLI | V1.x.x | Contentstack"
 seo_description: "Learn to set or remove your Multi-Factor Authentication (MFA) secret using Contentstack CLI for enhanced security and seamless MFA management."
 ---
 
@@ -11,7 +11,7 @@ To use [Multi-Factor Authentication (MFA)](/docs/administration/multi-factor-aut
 ## Prerequisites
 
 - [Contentstack account](https://www.contentstack.com/login/)
-- [CLI installed](/docs/headless-cms/install-the-cli/)
+- [CLI installed](/docs/headless-cms/install-the-cli/v1)
 - [MFA enabled](/docs/administration/multi-factor-authentication#enable-mfa)
 - A copy of MFA secret
 

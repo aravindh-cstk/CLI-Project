@@ -1,6 +1,6 @@
 ---
 uid: "blt1ee86e6419f390f8"
-seo_title: "Import Content Using the CLI | Contentstack"
+seo_title: "Import Content Using the CLI | V1.x.x | Contentstack"
 seo_description: "Import content efficiently with Contentstack’s latest Command-line Interface commands to streamline data onboarding and content setup."
 ---
 
@@ -15,10 +15,10 @@ This guide explains how to use the `cm:stacks:import` command by logging in to C
 Before importing content, ensure you have:
 
 - [Contentstack account](https://www.contentstack.com/login)
-- Contentstack CLI [installed](/docs/headless-cms/install-the-cli)
-- CLI [authenticated](/docs/headless-cms/cli-authentication)
-- [Configured management token](/docs/headless-cms/cli-authentication#add-management-token) *(optional, but recommended for CI/CD)*
-- [Exported content](/docs/headless-cms/export-content-using-the-cli) extracted (unzipped) in a local folder
+- Contentstack CLI [installed](/docs/headless-cms/install-the-cli/v1)
+- CLI [authenticated](/docs/headless-cms/cli-authentication/v1)
+- [Configured management token](/docs/headless-cms/cli-authentication/v1#add-management-token) *(optional, but recommended for CI/CD)*
+- [Exported content](/docs/headless-cms/export-content-using-the-cli/v1) extracted (unzipped) in a local folder
 
 ## Quick Start
 
@@ -229,7 +229,9 @@ csdx cm:stacks:import -a production --data-dir ./export --module entries
 
 #### Using Backup Directory
 
-The `--backup-dir` flag is essential when repeatedly using the single module import command. Due to module inter-dependencies, the backup flag helps avoid import errors. This section also covers the automatic asset publishing skip that occurs on stacks with asset scanning enabled.
+The `--backup-dir` flag is essential when repeatedly using the single module import command. Due to module inter-dependencies, the backup flag helps avoid import errors.
+
+> **Note:** Asset scanning is rolling out as an org-plan feature. Once it is active for a stack's org plan, `--skip-assets-publish` is set automatically during import, in addition to being settable explicitly with the flag itself. When this happens, imported assets are not published, and a reminder is printed at the end of the import pointing to `csdx cm:assets:publish --backup-dir <BACKUP_DIR> --stack-api-key <STACK_API_KEY>` to publish them once scanning completes.
 
 **First Import (Creates Backup):**
 
@@ -246,8 +248,6 @@ csdx cm:stacks:import -a production --data-dir ./export --module content-types -
 ```
 
 > **Note:** The parent backup folder created during the initial import can be reused for subsequent module imports. To ensure a smooth import process, always provide this backup folder when importing modules individually.
-
-Asset scanning is rolling out as an org-plan feature. Once it is active for a stack's org plan, `--skip-assets-publish` is set automatically during import, in addition to being settable explicitly with the flag itself. When this happens, imported assets are not published, and a reminder is printed at the end of the import pointing to `csdx cm:assets:publish --backup-dir <BACKUP_DIR> --stack-api-key <STACK_API_KEY>` to publish them once scanning completes. See [Import with Publishing Options](#import-with-publishing-options) for the explicit flag.
 
 #### Import with Overwrite
 
@@ -283,7 +283,7 @@ csdx cm:stacks:import -a production --data-dir ./export --skip-entries-publish
 csdx cm:stacks:import -a production --data-dir ./export --skip-assets-publish --skip-entries-publish
 ```
 
-`--skip-assets-publish` can also be set automatically rather than passed explicitly when asset scanning is active for a stack's org plan. See [Using Backup Directory](#using-backup-directory) for details and the post-scan publish command.
+> **Note:** `--skip-assets-publish` can also be set automatically rather than passed explicitly when asset scanning is active for a stack's org plan. See Using Backup Directory above for details and the post-scan publish command.
 
 #### Import Marketplace Apps
 
@@ -461,7 +461,7 @@ csdx cm:stacks:import -a production -c "C:\Users\Username\Desktop\config.json"
 
 ## Import Content Using Management Token
 
-You can import content to your stack using a [management token](/docs/headless-cms/cli-authentication#add-management-token). This is the recommended approach for CI/CD environments.
+You can import content to your stack using a [management token](/docs/headless-cms/cli-authentication/v1#add-management-token). This is the recommended approach for CI/CD environments.
 
 ### Basic Usage
 
@@ -558,7 +558,7 @@ The Overwrite feature in the import command enhances the import process by allow
 csdx cm:stacks:import -a production --data-dir ./export --module content-types --replace-existing
 ```
 
-Learn more in the [Overwrite Existing Content using CLI Import](/docs/headless-cms/overwrite-existing-content-using-cli-import) guide.
+Learn more in the [Overwrite Existing Content using CLI Import](/docs/headless-cms/overwrite-existing-content-using-cli-import/v1) guide.
 
 ## Toggle Between Console Logs and Progress Manager View
 
@@ -692,7 +692,7 @@ csdx cm:stacks:import -a production -c ./high-performance-config.json
 
 ## Limitations
 
-For comprehensive information about import limitations, see the [CLI Limitations Guide](/docs/headless-cms/cli-limitations#import-module-limitations).
+For comprehensive information about import limitations, see the [CLI Limitations Guide](/docs/headless-cms/cli-limitations/v1#import-module-limitations).
 
 ## Troubleshooting
 
@@ -706,7 +706,8 @@ For best practices on import workflows, see the CLI Best Practices Guide.
 
 After successful import:
 
-- [Export content](/docs/headless-cms/export-content-using-the-cli)
+- [Export content](/docs/headless-cms/export-content-using-the-cli/v1)
 - Clone a stack
-- [Migrate content](/docs/headless-cms/migrate-content-between-stacks-using-the-cli)
-- [Overwrite existing content](/docs/headless-cms/overwrite-existing-content-using-cli-import)
+- [Migrate content](/docs/headless-cms/migrate-content-between-stacks-using-the-cli/v1)
+- [Overwrite existing content](/docs/headless-cms/overwrite-existing-content-using-cli-import/v1)
+- [Asset Scanning in CLI](/docs/headless-cms/asset-scanning-in-cli): asset-scan gating behavior during import, including the automatic `--skip-assets-publish` trigger and the post-scan publish command.

@@ -1,6 +1,6 @@
 ---
 uid: "blt878916ff618af5c2"
-seo_title: "Export Content Using the CLI | Contentstack"
+seo_title: "Export Content Using the CLI | V1.x.x | Contentstack"
 seo_description: "Export content efficiently with Contentstack’s latest Command-line Interface commands to simplify data migration and content backup."
 ---
 
@@ -15,9 +15,9 @@ This guide explains how to use the `cm:stacks:export` command by logging in to C
 Before exporting content, ensure you have:
 
 - [Contentstack account](https://www.contentstack.com/login/)
-- Contentstack CLI [installed](/docs/headless-cms/install-the-cli)
-- CLI [authenticated](/docs/headless-cms/cli-authentication)
-- [Configured management token](/docs/headless-cms/cli-authentication#add-management-token) *(optional, but recommended for CI/CD)*
+- Contentstack CLI [installed](/docs/headless-cms/install-the-cli/v1)
+- CLI [authenticated](/docs/headless-cms/cli-authentication/v1)
+- [Configured management token](/docs/headless-cms/cli-authentication/v1#add-management-token) *(optional, but recommended for CI/CD)*
 
 ## Quick Start
 
@@ -368,7 +368,7 @@ csdx cm:stacks:export -a production -c "C:\Users\Username\Desktop\config.json"
 
 ## Export Content Using Management Token
 
-You can export content from your stack using a [management token](/docs/headless-cms/cli-authentication#add-management-token). This is the recommended approach for CI/CD environments.
+You can export content from your stack using a [management token](/docs/headless-cms/cli-authentication/v1#add-management-token). This is the recommended approach for CI/CD environments.
 
 ### Basic Usage
 
@@ -587,7 +587,7 @@ After export, your directory structure will look like this:
 
 ## Limitations
 
-For comprehensive information about export limitations, see the [CLI Limitations Guide](/docs/headless-cms/cli-limitations#export-module-limitations).
+For comprehensive information about export limitations, see the [CLI Limitations Guide](/docs/headless-cms/cli-limitations/v1#export-module-limitations).
 
 ## Troubleshooting
 
@@ -601,6 +601,6 @@ For best practices on export workflows, see the CLI Best Practices Guide.
 
 After successful export:
 
-- [Import content](/docs/headless-cms/import-content-using-the-cli)
+- [Import content](/docs/headless-cms/import-content-using-the-cli/v1)
 - Clone a stack
-- [Migrate content](/docs/headless-cms/migrate-content-between-stacks-using-the-cli)
+- [Migrate content](/docs/headless-cms/migrate-content-between-stacks-using-the-cli/v1)

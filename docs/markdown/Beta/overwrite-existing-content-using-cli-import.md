@@ -1,6 +1,6 @@
 ---
 uid: "bltd28635508877b2ec"
-seo_title: "Overwrite Existing Content using CLI Import | Contentstack"
+seo_title: "Overwrite Existing Content using CLI Import | V2.x.x | Contentstack"
 seo_description: "Learn how to overwrite existing content using the CLI Import Overwrite feature."
 ---
 

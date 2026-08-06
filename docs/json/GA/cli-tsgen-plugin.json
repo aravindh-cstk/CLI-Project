@@ -1,0 +1,98 @@
+{
+  "_version": 32,
+  "locale": "en-us",
+  "uid": "bltcc14ad6c062c9a82",
+  "ACL": {},
+  "_in_progress": false,
+  "article_content": [
+    {
+      "article_section": {
+        "heading": "Generate Typescript Typings with TSGen Plugin",
+        "_metadata": {
+          "uid": "cs257048024e269026"
+        },
+        "content": "<p>The Contentstack CLI TSGen plugin generates TypeScript typings from REST API and GraphQL queries. The type file containing the TypeScript typings assists developers in working with content types, global fields, and GraphQL queries in TypeScript.</p><p>With the TSGen plugin, you can annotate interfaces and fields with comments from the JSDoc library. Additionally, the TSGen plugin allows you to add prefixes to interfaces.</p><p class=\"note\"><strong>Note:</strong> The Contentstack CLI uses the <a href=\"/docs/developers/apis/graphql-content-delivery-api/#introspection\">introspection query</a> to generate a GraphQL schema.</p><p>This step-by-step guide lets you install and use the tsgen plugin in the CLI.</p><h2>Prerequisites</h2><ul><li><a href=\"https://www.contentstack.com/login/\" target=\"_blank\">Contentstack account</a></li><li><a href=\"/docs/headless-cms/install-the-cli/v1\">CLI installed</a> (version 1.1.0 and above)</li><li><a href=\"/docs/headless-cms/create-a-delivery-token/\">Delivery token</a></li></ul><h2>Steps for execution</h2><ol><li>Install the TSGen plugin using the following command:<pre>csdx plugins:install contentstack-cli-tsgen</pre></li><li>Add the delivery token as an alias to the CLI using the following command:<pre>csdx auth:tokens:add --delivery</pre><p class=\"note\"><strong>Note:</strong> Skip this step if you already have a delivery token as an alias.</p></li></ol><h2>Usage</h2><pre>csdx tsgen</pre><h2>Options</h2><ul><li><span class=\"code\">-a</span>, <span class=\"code\">--token-alias=token-alias</span>: (mandatory) Delivery token alias.</li><li><span class=\"code\">-d</span>, <span class=\"code\">--[no-]doc</span>: (optional) Includes documentation comments. By default, this flag is enabled.</li><li><span class=\"code\">-o</span>, <span class=\"code\">--output=output</span>: (mandatory) The full output path.</li><li><span class=\"code\">-p</span>, <span class=\"code\">--prefix=prefix</span>: (optional) Interface prefix, e.g., \"I\".</li><li><span class=\"code\">--api-type=api-type</span>: [default: rest] (optional) The API type to generate type definitions. &lt;options: rest|graphql&gt;</li><li><span class=\"code\">--branch=branch</span>: (optional) The name of the branch to be used.</li><li><span class=\"code\">--include-system-fields</span>: Includes system fields in generated types.</li><li><span class=\"code\">--namespace=namespace</span>: (optional) The namespace for the GraphQL API type to organize the generated types.</li><li><span class=\"code\">--include-editable-tags</span>: (optional) Includes editable tags in typings.</li><li><span class=\"code\">--include-referenced-entry</span>: (optional) Includes the <span class=\"code\">ReferencedEntry</span> interface in generated types. Use this option to add a generic interface for handling referenced entries when the exact content type is unknown or when a flexible reference type is needed.</li></ul><h2>Examples</h2><ol><li>To generate a type file with a delivery token alias and output file path:<pre>csdx tsgen -a \"delivery token alias\" -o \"contentstack/generated.d.ts\"</pre></li><li>To generate a type file with a delivery token alias and output file path for a branch named&nbsp;<span class=\"code\">develop</span>:<pre>csdx tsgen -a \"delivery token alias\" -o \"contentstack/generated.d.ts\" --branch \"develop\"</pre></li><li>To generate a type file with a prefix:<pre>csdx tsgen -a \"delivery token alias\" -o \"contentstack/generated.d.ts\" -p \"I\"</pre></li><li>To generate a type file excluding documentation comments:<pre>csdx tsgen -a \"delivery token alias\" -o \"contentstack/generated.d.ts\" --no-doc</pre></li><li>To generate a type file with the&nbsp;<span class=\"code\">graphql</span>&nbsp;API type:<pre>csdx tsgen -a \"delivery token alias\" -o \"contentstack/generated.d.ts\" --api-type graphql</pre></li><li>To generate a type file with the&nbsp;<span class=\"code\">graphql</span>&nbsp;API type and GraphQL as the namespace:<pre>csdx tsgen -a \"delivery token alias\" -o \"contentstack/generated.d.ts\" --api-type graphql --namespace \"GraphQL\"</pre></li><li>To generate a type file with editable tags:<pre>csdx tsgen -a \"delivery token alias\" -o \"contentstack/generated.d.ts\" --include-editable-tags</pre></li><li>To generate a type file with&nbsp;<span class=\"code\">ReferencedEntry</span>&nbsp;interface:<pre>csdx tsgen -a \"delivery token alias\" -o \"contentstack/generated.d.ts\" --include-referenced-entry</pre></li><li>To generate typings with full Entry support:<pre>csdx tsgen -a \"delivery token alias\" -o \"contentstack/generated.d.ts\" --include-system-fields --include-referenced-entry</pre></li></ol><p class=\"note\"><strong>Note:</strong> Together, these two flags enable <strong>full, accurate Entry typings</strong>, ensuring that relationships, system metadata, and dynamic references are all represented correctly in the generated TypeScript definitions.</p><h2>Supported Contentstack Fields</h2><ul><li><a href=\"/docs/headless-cms/number\">Number</a></li><li><a href=\"/docs/headless-cms/title/\">Title</a></li><li><a href=\"/docs/headless-cms/date/\">Date</a></li><li><a href=\"/docs/headless-cms/boolean/\">Boolean</a></li><li><a href=\"/docs/headless-cms/single-line-textbox/\">Single Select w/ String and Number Types</a></li><li><a href=\"/docs/headless-cms/multi-line-textbox/\">Multiple Select w/ String and Number Types</a></li><li><a href=\"/docs/headless-cms/modular-blocks/\">Modular Block</a></li><li><a href=\"/docs/headless-cms/about-global-field/\">Global Field</a> (CLI supports <a href=\"/docs/headless-cms/about-global-field#nested-global-fields\">Nested Global Fields</a> from v1.42.0)</li><li><a href=\"/docs/headless-cms/group/\">Group</a></li><li><a href=\"/docs/headless-cms/link/\">Link</a></li><li><a href=\"/docs/headless-cms/file/\">File</a></li><li><a href=\"/docs/headless-cms/reference/\">Reference</a></li><li><a href=\"/docs/headless-cms/about-taxonomy\">Taxonomy</a></li></ul><h2>Supported Field Options</h2><ul><li><a href=\"/docs/headless-cms/mandatory\">Mandatory</a></li><li><a href=\"/docs/headless-cms/multiple\">Multiple</a></li><li><a href=\"/docs/headless-cms/minimum-and-maximum-limit\">Multiple Max Limit</a></li><li>Description (used in JSDoc comment)</li></ul><p class=\"add-resource\"><strong>Additional Resource:</strong> For a major TSGen version upgrade, refer to the <a href=\"https://github.com/contentstack/contentstack-cli-tsgen/blob/master/MIGRATION.md\" target=\"_blank\">Migration.md</a> file in the GitHub repository.</p>"
+      }
+    }
+  ],
+  "breadcrumb": [
+    {
+      "uid": "blt641003bf9368e112",
+      "_content_type_uid": "navigation"
+    },
+    {
+      "uid": "bltef82f5fd1a4eab6e",
+      "_content_type_uid": "navigation"
+    }
+  ],
+  "created_at": "2023-02-02T13:42:11.931Z",
+  "created_by": "blt3274538a64ad0ade",
+  "md_content": "",
+  "next_and_prev_links": {
+    "prev_link": {
+      "title": "",
+      "href": ""
+    },
+    "next_link": {
+      "title": "",
+      "href": ""
+    }
+  },
+  "related_articles": [
+    {
+      "referenced_articles": {
+        "heading": "",
+        "_metadata": {
+          "uid": "cs634e6c6bf51d0e9e"
+        },
+        "articles": [
+          {
+            "uid": "blt4b0e34334bc3c979",
+            "_content_type_uid": "more_articles"
+          }
+        ]
+      }
+    }
+  ],
+  "seo": {
+    "title": "Generate Typescript Typings with TSGen Plugin | V1.x.x | Contentstack",
+    "description": "The tsgen plugin is a Contentstack CLI plugin that generates TypeScript typings from content types. This step-by-step guide lets you install and use the tsgen plugin in CLI.",
+    "image": null,
+    "robots": ""
+  },
+  "tags": [],
+  "title": "[Contentstack Command-line Interface (CLI)] - Generate Typescript Typings with TSGen Plugin | V1.x.x",
+  "updated_at": "2026-07-22T11:46:29.111Z",
+  "updated_by": "blt4006a0e8ebe46293",
+  "url": "/headless-cms/cli-tsgen-plugin/v1",
+  "publish_details": [
+    {
+      "environment": "blt4a008c3cde35b0c2",
+      "locale": "en-us",
+      "time": "2026-07-22T12:57:18.446Z",
+      "user": "blte93d4119f79db761",
+      "version": 32
+    },
+    {
+      "environment": "blt92ab7d24e8c52483",
+      "locale": "en-us",
+      "time": "2026-07-22T12:57:18.446Z",
+      "user": "blte93d4119f79db761",
+      "version": 32
+    },
+    {
+      "environment": "bltfe8376c13fe85b9c",
+      "locale": "en-us",
+      "time": "2026-07-22T12:57:18.446Z",
+      "user": "blte93d4119f79db761",
+      "version": 32
+    },
+    {
+      "environment": "blt18d21c1c300e766f",
+      "locale": "en-us",
+      "time": "2026-04-10T07:28:48.647Z",
+      "user": "blt3cf27864e6b61df3",
+      "version": 28
+    }
+  ]
+}

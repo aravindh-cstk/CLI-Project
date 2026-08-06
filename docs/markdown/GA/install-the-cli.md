@@ -1,6 +1,6 @@
 ---
 uid: "blt0756f65e7c6f9eed"
-seo_title: "Install the CLI | Contentstack"
+seo_title: "Install the CLI | V1.x.x | Contentstack"
 seo_description: "Install and update the Contentstack CLI on macOS, Windows, and Linux with this step-by-step guide for cross-platform setup."
 ---
 
@@ -75,8 +75,8 @@ Namespace is used to categorize commands as per their functionality or purpose.
 
 The following namespaces exist within the `csdx` command:
 
-- `auth`: To perform [authentication-related](/docs/headless-cms/cli-authentication) activities.
-- `cm`: To perform content management activities such as [bulk publish, bulk unpublish](/docs/headless-cms/bulk-publish-and-unpublish-content), [import](/docs/headless-cms/import-content-using-the-cli), [export](/docs/headless-cms/export-content-using-the-cli), [export-to-csv](/docs/headless-cms/export-content-to-csv-file/), [branches](/docs/headless-cms/compare-and-merge-branches-using-the-cli/), and [migration](/docs/headless-cms/migrate-your-content-using-the-cli-migration-command/) content.
+- `auth`: To perform [authentication-related](/docs/headless-cms/cli-authentication/v1) activities.
+- `cm`: To perform content management activities such as [bulk publish, bulk unpublish](/docs/headless-cms/cli-bulk-publish-and-unpublish-content/v1), [import](/docs/headless-cms/import-content-using-the-cli/v1), [export](/docs/headless-cms/export-content-using-the-cli/v1), [export-to-csv](/docs/headless-cms/cli-export-content-to-csv-file/v1), [branches](/docs/headless-cms/compare-and-merge-branches-using-the-cli/v1), and [migration](/docs/headless-cms/migrate-your-content-using-the-cli-migration-command/v1) content.
 - `help`: To list useful commands in the CLI.
 - `launch`: To perform [Launch](/docs/launch/about-launch/) related operations.
 - `plugins`: To list the installed plugins.
@@ -87,55 +87,55 @@ The following namespaces exist within the `csdx` command:
 Here are the commands within each namespace:
 
 - **auth**
-  - [csdx auth:login](/docs/headless-cms/cli-authentication#login)
-  - [csdx auth:logout](/docs/headless-cms/cli-authentication#logout)
-  - [csdx auth:tokens](/docs/headless-cms/cli-authentication#list-all-tokens)
-  - [csdx auth:whoami](/docs/headless-cms/cli-authentication#display-username-of-a-session)
+  - [csdx auth:login](/docs/headless-cms/cli-authentication/v1#login)
+  - [csdx auth:logout](/docs/headless-cms/cli-authentication/v1#logout)
+  - [csdx auth:tokens](/docs/headless-cms/cli-authentication/v1#list-all-tokens)
+  - [csdx auth:whoami](/docs/headless-cms/cli-authentication/v1#display-username-of-a-session)
 
 - **cm**
-  - [cm:assets:publish](/docs/headless-cms/bulk-publish-and-unpublish-content#bulk-publish-all-assets)
-  - [cm:assets:unpublish](/docs/headless-cms/bulk-publish-and-unpublish-content#bulk-unpublish-entries-assets)
-  - [cm:branches:create](/docs/headless-cms/compare-and-merge-branches-using-the-cli#create-a-branch)
-  - [cm:branches:delete](/docs/headless-cms/compare-and-merge-branches-using-the-cli#delete-a-branch)
-  - [cm:branches:diff](/docs/headless-cms/compare-and-merge-branches-using-the-cli#steps-to-compare-branches)
-  - [cm:branches:merge](/docs/headless-cms/compare-and-merge-branches-using-the-cli#steps-to-merge-branches)
-  - [cm:bulk-publish](/docs/headless-cms/bulk-publish-and-unpublish-content)
-  - [cm:bulk-publish:cross-publish](/docs/headless-cms/bulk-publish-and-unpublish-content#bulk-publish-entries-assets-from-one-environment-to-another)
-  - [cm:entries:migrate-html-rte](/docs/headless-cms/migrate-content-from-html-rte-to-json-rte)
-  - [cm:entries:publish](/docs/headless-cms/bulk-publish-and-unpublish-content#bulk-publish-all-entries)
-  - [cm:entries:publish-modified](/docs/headless-cms/bulk-publish-and-unpublish-content#bulk-publish-edited-entries)
-  - [cm:entries:publish-non-localized-fields](/docs/headless-cms/bulk-publish-and-unpublish-content#bulk-publish-entries-after-non-localized-field-is-updated)
-  - [cm:entries:publish-only-unpublished](/docs/headless-cms/bulk-publish-and-unpublish-content#bulk-publish-draft-entries)
-  - [cm:entries:unpublish](/docs/headless-cms/bulk-publish-and-unpublish-content#bulk-unpublish-entries-assets)
-  - [cm:entries:update-and-publish](/docs/headless-cms/bulk-publish-and-unpublish-content#bulk-publish-all-entries-after-adding-a-new-field-in-the-content-type)
-  - [cm:stacks:export](/docs/headless-cms/export-content-using-the-cli)
-  - [cm:export-to-csv](/docs/headless-cms/export-content-to-csv-file/)
-  - [cm:stacks:import](/docs/headless-cms/import-content-using-the-cli)
-  - [cm:stacks:clone](/docs/headless-cms/cloning-a-stack#use-the-stacks-clone-command)
-  - [cm:stacks:migration](/docs/headless-cms/migrate-your-content-using-the-cli-migration-command)
-  - [cm:stacks:seed](/docs/headless-cms/import-content-using-the-seed-command#run-the-seed-command-using-the-management-token)
-  - [cm:stacks:publish-configure](/docs/headless-cms/bulk-publish-and-unpublish-content#build-the-configuration-file)
-  - [cm:stacks:publish-revert](/docs/headless-cms/bulk-publish-and-unpublish-content#restore-unpublish-entries-published)
-  - [cm:stacks:audit](/docs/headless-cms/audit-plugin#issue-identification-in-references)
-  - [cm:stacks:audit:fix](/docs/headless-cms/audit-plugin#issue-resolution-in-references)
+  - [cm:assets:publish](/docs/headless-cms/cli-bulk-publish-and-unpublish-content/v1#bulk-publish-all-assets)
+  - [cm:assets:unpublish](/docs/headless-cms/cli-bulk-publish-and-unpublish-content/v1#bulk-unpublish-entries-assets)
+  - [cm:branches:create](/docs/headless-cms/compare-and-merge-branches-using-the-cli/v1#create-a-branch)
+  - [cm:branches:delete](/docs/headless-cms/compare-and-merge-branches-using-the-cli/v1#delete-a-branch)
+  - [cm:branches:diff](/docs/headless-cms/compare-and-merge-branches-using-the-cli/v1#steps-to-compare-branches)
+  - [cm:branches:merge](/docs/headless-cms/compare-and-merge-branches-using-the-cli/v1#steps-to-merge-branches)
+  - [cm:bulk-publish](/docs/headless-cms/cli-bulk-publish-and-unpublish-content/v1)
+  - [cm:bulk-publish:cross-publish](/docs/headless-cms/cli-bulk-publish-and-unpublish-content/v1#bulk-publish-entries-assets-from-one-environment-to-another)
+  - [cm:entries:migrate-html-rte](/docs/headless-cms/cli-migrate-content-from-html-rte-to-json-rte/v1)
+  - [cm:entries:publish](/docs/headless-cms/cli-bulk-publish-and-unpublish-content/v1#bulk-publish-all-entries)
+  - [cm:entries:publish-modified](/docs/headless-cms/cli-bulk-publish-and-unpublish-content/v1#bulk-publish-edited-entries)
+  - [cm:entries:publish-non-localized-fields](/docs/headless-cms/cli-bulk-publish-and-unpublish-content/v1#bulk-publish-entries-after-non-localized-field-is-updated)
+  - [cm:entries:publish-only-unpublished](/docs/headless-cms/cli-bulk-publish-and-unpublish-content/v1#bulk-publish-draft-entries)
+  - [cm:entries:unpublish](/docs/headless-cms/cli-bulk-publish-and-unpublish-content/v1#bulk-unpublish-entries-assets)
+  - [cm:entries:update-and-publish](/docs/headless-cms/cli-bulk-publish-and-unpublish-content/v1#bulk-publish-all-entries-after-adding-a-new-field-in-the-content-type)
+  - [cm:stacks:export](/docs/headless-cms/export-content-using-the-cli/v1)
+  - [cm:export-to-csv](/docs/headless-cms/cli-export-content-to-csv-file/v1)
+  - [cm:stacks:import](/docs/headless-cms/import-content-using-the-cli/v1)
+  - [cm:stacks:clone](/docs/headless-cms/cli-cloning-a-stack/v1#use-the-stacks-clone-command)
+  - [cm:stacks:migration](/docs/headless-cms/migrate-your-content-using-the-cli-migration-command/v1)
+  - [cm:stacks:seed](/docs/headless-cms/cli-import-content-using-the-seed-command/v1#run-the-seed-command-using-the-management-token)
+  - [cm:stacks:publish-configure](/docs/headless-cms/cli-bulk-publish-and-unpublish-content/v1#build-the-configuration-file)
+  - [cm:stacks:publish-revert](/docs/headless-cms/cli-bulk-publish-and-unpublish-content/v1#restore-unpublish-entries-published)
+  - [cm:stacks:audit](/docs/headless-cms/cli-audit-plugin/v1#issue-identification-in-references)
+  - [cm:stacks:audit:fix](/docs/headless-cms/cli-audit-plugin/v1#issue-resolution-in-references)
 
 - **launch**
-  - [csdx launch](/docs/headless-cms/cli-for-launch/#steps-for-execution)
-  - [csdx launch:logs](/docs/headless-cms/cli-for-launch/#logs)
-  - [csdx launch:functions](/docs/headless-cms/cli-for-launch/#functions)
-  - [csdx launch:deployments](/docs/headless-cms/cli-for-launch/#deployments)
-  - [csdx launch:environments](/docs/headless-cms/cli-for-launch/#environments)
-  - [csdx launch:open](/docs/headless-cms/cli-for-launch/#open)
+  - [csdx launch](/docs/headless-cms/cli-for-launch/v1#steps-for-execution)
+  - [csdx launch:logs](/docs/headless-cms/cli-for-launch/v1#logs)
+  - [csdx launch:functions](/docs/headless-cms/cli-for-launch/v1#functions)
+  - [csdx launch:deployments](/docs/headless-cms/cli-for-launch/v1#deployments)
+  - [csdx launch:environments](/docs/headless-cms/cli-for-launch/v1#environments)
+  - [csdx launch:open](/docs/headless-cms/cli-for-launch/v1#open)
 
 - **config**
-  - [config:get:region](/docs/headless-cms/configure-regions-in-the-cli#get-region)
-  - [config:get:base-branch](/docs/headless-cms/compare-and-merge-branches-using-the-cli#get)
-  - [config:get:early-access-header](/docs/headless-cms/configure-early-access-program-in-the-cli#get-early-access-header)
-  - [config:set:region](/docs/headless-cms/configure-regions-in-the-cli#set-region)
-  - [config:set:base-branch](/docs/headless-cms/compare-and-merge-branches-using-the-cli#set)
-  - [config:set:early-access-header](/docs/headless-cms/configure-early-access-program-in-the-cli#set-early-access-header)
-  - [config:remove:base-branch](/docs/headless-cms/compare-and-merge-branches-using-the-cli#remove)
-  - [config:remove:early-access-header](/docs/headless-cms/configure-early-access-program-in-the-cli#remove-early-access-header)
+  - [config:get:region](/docs/headless-cms/configure-regions-in-the-cli/v1#get-region)
+  - [config:get:base-branch](/docs/headless-cms/compare-and-merge-branches-using-the-cli/v1#get)
+  - [config:get:early-access-header](/docs/headless-cms/configure-early-access-program-in-the-cli/v1#get-early-access-header)
+  - [config:set:region](/docs/headless-cms/configure-regions-in-the-cli/v1#set-region)
+  - [config:set:base-branch](/docs/headless-cms/compare-and-merge-branches-using-the-cli/v1#set)
+  - [config:set:early-access-header](/docs/headless-cms/configure-early-access-program-in-the-cli/v1#set-early-access-header)
+  - [config:remove:base-branch](/docs/headless-cms/compare-and-merge-branches-using-the-cli/v1#remove)
+  - [config:remove:early-access-header](/docs/headless-cms/configure-early-access-program-in-the-cli/v1#remove-early-access-header)
 
 Refer the section below to check the CLI version on your machine and update it to use the latest version.
 
@@ -165,4 +165,4 @@ npm update -g @contentstack/cli
 
 ## Next Step
 
-- [CLI Authentication and Adding Tokens](/docs/headless-cms/cli-authentication)
+- [CLI Authentication and Adding Tokens](/docs/headless-cms/cli-authentication/v1)

@@ -11,7 +11,7 @@
         "_metadata": {
           "uid": "csfbbb7f52619c680e"
         },
-        "content": "<p>This document guides you through the process of migrating content from one Contentstack stack to another manually.</p><h2>Prerequisites</h2><ul><li><a href=\"https://www.contentstack.com/login/\" target=\"_blank\">Contentstack account</a></li><li>Contentstack CLI <a href=\"/docs/headless-cms/install-the-cli\" target=\"_self\">installed</a> and <a href=\"/docs/headless-cms/configure-regions-in-the-cli/\" target=\"_self\">configured</a></li><li>CLI <a href=\"/docs/headless-cms/cli-authentication#authentication\" target=\"_self\">authenticated</a></li><li>Access to both source and target stacks</li><li>An empty target stack</li></ul><h2>Steps for Execution</h2><p>To migrate all content from one stack to another quickly, follow the steps below:</p><ul><li><a href=\"/docs/headless-cms/export-content-using-the-cli\" target=\"_self\">Export</a> from source stack:<pre>csdx cm:stacks:export -k &lt;source_stack_api_key&gt; -d ./export --branch main</pre></li><li><a href=\"/docs/headless-cms/audit-plugin\" target=\"_self\">Audit</a> the exported content (recommended):<pre>csdx cm:stacks:audit -d ./export/main</pre><p class=\"note\"><strong>Note:</strong> The <a href=\"/docs/headless-cms/audit-plugin\" target=\"_self\">audit</a> process runs automatically during <a href=\"/docs/headless-cms/import-content-using-the-cli\" target=\"_self\">import</a> to validate and fix any issues.</p></li><li><a href=\"/docs/headless-cms/import-content-using-the-cli\" target=\"_self\">Import</a> to target stack:<pre>csdx cm:stacks:import -k &lt;target_stack_api_key&gt; -d ./export/main</pre></li></ul>"
+        "content": "<p>This document guides you through the process of migrating content from one Contentstack stack to another manually.</p><h2>Prerequisites</h2><ul><li><a href=\"https://www.contentstack.com/login/\" target=\"_blank\">Contentstack account</a></li><li>Contentstack CLI <a href=\"/docs/headless-cms/install-the-cli/v1\" target=\"_self\">installed</a> and <a href=\"/docs/headless-cms/configure-regions-in-the-cli/v1\" target=\"_self\">configured</a></li><li>CLI <a href=\"/docs/headless-cms/cli-authentication/v1#authentication\" target=\"_self\">authenticated</a></li><li>Access to both source and target stacks</li><li>An empty target stack</li></ul><h2>Steps for Execution</h2><p>To migrate all content from one stack to another quickly, follow the steps below:</p><ul><li><a href=\"/docs/headless-cms/export-content-using-the-cli/v1\" target=\"_self\">Export</a> from source stack:<pre>csdx cm:stacks:export -k &lt;source_stack_api_key&gt; -d ./export --branch main</pre></li><li><a href=\"/docs/headless-cms/cli-audit-plugin/v1\" target=\"_self\">Audit</a> the exported content (recommended):<pre>csdx cm:stacks:audit -d ./export/main</pre><p class=\"note\"><strong>Note:</strong> The <a href=\"/docs/headless-cms/cli-audit-plugin/v1\" target=\"_self\">audit</a> process runs automatically during <a href=\"/docs/headless-cms/import-content-using-the-cli/v1\" target=\"_self\">import</a> to validate and fix any issues.</p></li><li><a href=\"/docs/headless-cms/import-content-using-the-cli/v1\" target=\"_self\">Import</a> to target stack:<pre>csdx cm:stacks:import -k &lt;target_stack_api_key&gt; -d ./export/main</pre></li></ul>"
       }
     }
   ],
@@ -55,16 +55,16 @@
     }
   ],
   "seo": {
-    "title": "Migrate Content Between Stacks Using the CLI | Contentstack",
+    "title": "Migrate Content Between Stacks Using the CLI | V1.x.x | Contentstack",
     "description": "Learn how to manually migrate content between Contentstack stacks with step-by-step instructions.",
     "image": null,
     "robots": ""
   },
   "tags": [],
-  "title": "[Contentstack Command-line Interface (CLI)] - Migrate Content Between Stacks Using the CLI",
+  "title": "[Contentstack Command-line Interface (CLI)] - Migrate Content Between Stacks Using the CLI | V1.x.x",
   "updated_at": "2026-07-22T11:49:47.262Z",
   "updated_by": "blt4006a0e8ebe46293",
-  "url": "/headless-cms/migrate-content-between-stacks-using-the-cli",
+  "url": "/headless-cms/migrate-content-between-stacks-using-the-cli/v1",
   "publish_details": [
     {
       "environment": "blt4a008c3cde35b0c2",

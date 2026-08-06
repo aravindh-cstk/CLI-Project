@@ -1,6 +1,6 @@
 ---
 uid: "bltcfd09427012100cd"
-seo_title: "Apps CLI Plugin | Contentstack"
+seo_title: "Apps CLI Plugin | V1.x.x | Contentstack"
 seo_description: "The Contentstack Apps Command-line Interface plugin lets you perform CRUD operations on your Developer Hub apps for your stack."
 ---
 
@@ -13,8 +13,8 @@ This step-by-step guide lets you install and use the Apps CLI plugin in CLI.
 ## Prerequisites
 
 - [Contentstack account](https://www.contentstack.com/login/)
-- [CLI installed](/docs/headless-cms/install-the-cli/) and [configured](/docs/headless-cms/configure-regions-in-the-cli/) (version 1.7.11 and above)
-- [CLI authenticated](/docs/headless-cms/cli-authentication/)
+- [CLI installed](/docs/headless-cms/install-the-cli/v1) and [configured](/docs/headless-cms/configure-regions-in-the-cli/v1) (version 1.7.11 and above)
+- [CLI authenticated](/docs/headless-cms/cli-authentication/v1)
 
 ## Install the Apps CLI Plugin
 

@@ -1,6 +1,6 @@
 ---
 uid: "blte46be17c7b0eacde"
-seo_title: "CLI-Supported Features for Export, Import, and Clone Operations | Contentstack"
+seo_title: "CLI-Supported Features for Export, Import, and Clone Operations | V1.x.x | Contentstack"
 seo_description: "Explore the CLI-supported features for export, import, and clone operations including Marketplace app handling, module imports, error management, and Personalize project support."
 ---
 
@@ -10,7 +10,7 @@ seo_description: "Explore the CLI-supported features for export, import, and clo
 
 ## Overview
 
-Contentstack CLI offers support for [export](/docs/headless-cms/export-content-using-the-cli), [import](/docs/headless-cms/import-content-using-the-cli), and clone operations, including Marketplace apps, module-wise imports, error handling, and Personalize project integration.
+Contentstack CLI offers support for [export](/docs/headless-cms/export-content-using-the-cli/v1), [import](/docs/headless-cms/import-content-using-the-cli/v1), and clone operations, including Marketplace apps, module-wise imports, error handling, and Personalize project integration.
 
 This guide outlines these features to help you manage content migration operations with flexibility and control.
 
@@ -47,7 +47,7 @@ You can export/import public and private Marketplace apps into a stack using CLI
 
 ### Prerequisites
 
-- **Logged In:** CLI authenticated (see [CLI Authentication and Adding Tokens](/docs/headless-cms/cli-authentication))
+- **Logged In:** CLI authenticated (see [CLI Authentication and Adding Tokens](/docs/headless-cms/cli-authentication/v1))
 - **Permissions:** Owner or Admin rights to export Marketplace apps
 - **Marketplace Apps Support:** Enabled in the destination organization
 
@@ -172,7 +172,7 @@ csdx cm:stacks:import \
 
 ### Personalize and Entry Variants Limitation
 
-**Important:** The `-a <alias>` flag (management token) skips Personalize modules as they require an [auth token for import](/docs/headless-cms/import-content-using-the-cli#import-content-using-management-token) and cannot be imported using a management token.
+**Important:** The `-a <alias>` flag (management token) skips Personalize modules as they require an [auth token for import](/docs/headless-cms/import-content-using-the-cli/v1#import-content-using-management-token) and cannot be imported using a management token.
 
 **Workaround:**
 
@@ -207,7 +207,7 @@ When both conditions are met, the CLI activates CS Assets mode automatically and
 csdx cm:stacks:export -k <stack-api-key> --data-dir ./export
 ```
 
-> **Note:** Use `csdx auth:login` for CS Assets export. When using a management token, the CLI cannot read branch settings, so linked workspaces are never populated and CS Assets mode never activates. The export falls back to legacy asset export. See [Management Token Behavior](/docs/headless-cms/cli-for-cs-assets#management-token-behavior).
+> **Note:** Use `csdx auth:login` for CS Assets export. When using a management token, the CLI cannot read branch settings, so linked workspaces are never populated and CS Assets mode never activates. The export falls back to legacy asset export. See [Management Token Behavior](/docs/headless-cms/cli-for-cs-assets/v1#management-token-behavior).
 
 ### How CS Assets differs from legacy asset export
 
@@ -228,9 +228,9 @@ CS Assets import works with all authentication methods, including management tok
 csdx cm:stacks:import -k <stack-api-key> --data-dir ./export
 ```
 
-The import command detects CS Assets mode when **both** the `spaces/` directory and the `am_v2` key in `stack/settings.json` are present in the export directory. No additional flags are required. See [How CS Assets import is detected](/docs/headless-cms/cli-for-cs-assets#how-cs-assets-import-is-detected).
+The import command detects CS Assets mode when **both** the `spaces/` directory and the `am_v2` key in `stack/settings.json` are present in the export directory. No additional flags are required. See [How CS Assets import is detected](/docs/headless-cms/cli-for-cs-assets/v1#how-cs-assets-import-is-detected).
 
-For full details on CS Assets export and import behavior, see [CLI for CS Assets](/docs/headless-cms/cli-for-cs-assets).
+For full details on CS Assets export and import behavior, see [CLI for CS Assets](/docs/headless-cms/cli-for-cs-assets/v1).
 
 ---
 
@@ -331,7 +331,7 @@ For more best practices, see the CLI Best Practices Guide.
 
 ## Limitations
 
-For detailed limitations, see the [CLI Limitations Guide](/docs/headless-cms/cli-limitations).
+For detailed limitations, see the [CLI Limitations Guide](/docs/headless-cms/cli-limitations/v1).
 
 **Key Limitations:**
 
@@ -344,10 +344,10 @@ For detailed limitations, see the [CLI Limitations Guide](/docs/headless-cms/cli
 
 ## Related Documentation
 
-- [Export Content Using the CLI](/docs/headless-cms/export-content-using-the-cli)
-- [Import Content Using the CLI](/docs/headless-cms/import-content-using-the-cli#import-content-using-management-token)
+- [Export Content Using the CLI](/docs/headless-cms/export-content-using-the-cli/v1)
+- [Import Content Using the CLI](/docs/headless-cms/import-content-using-the-cli/v1#import-content-using-management-token)
 - Cloning a Stack
-- [Overwrite Existing Content Using CLI Import](/docs/headless-cms/overwrite-existing-content-using-cli-import)
+- [Overwrite Existing Content Using CLI Import](/docs/headless-cms/overwrite-existing-content-using-cli-import/v1)
 - CLI Troubleshooting Guide
-- [CLI Limitations Guide](/docs/headless-cms/cli-limitations)
+- [CLI Limitations Guide](/docs/headless-cms/cli-limitations/v1)
 - CLI Best Practices Guide

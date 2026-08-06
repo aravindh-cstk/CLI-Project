@@ -10,21 +10,26 @@ The customer asked whether Contentstack supports exporting a custom filtered vie
 
 1. Install the plugin:
 
+```
 csdx plugins:install @contentstack/cli-cm-export-query
+```
 
-2. Verify the installation:
+1. Verify the installation:
 
+```
 csdx plugins
+```
 
-3. Run a query-based export, filtering by content type. For example, to export only the Blog and Author content types:
+1. Run a query-based export, filtering by content type. For example, to export only the Blog and Author content types:
 
-csdx cm:stacks:export-query -a <alias> --query '{"modules":{"content-types":{"title":{"$in":["Blog","Author"]}}}}'
+```
+csdx cm:stacks:export-query -a  --query '{"modules":{"content-types":{"title":{"$in":["Blog","Author"]}}}}'
+```
 
 A query can also be stored in a JSON file and passed with `--query ./my-query.json`. The query uses Content Delivery API-style operators, such as `$in`, `$regex`, and `$gte`.
 
-4. Use `--skip-references` or `--skip-dependencies` if the automatic export of referenced content types or dependencies (global fields, extensions, taxonomies, marketplace apps) needs to be limited.
-
-5. If the requirement is to filter which entries within a content type are exported (not just which content types), or to filter assets by folder, export the full content type or asset set and apply the filter to the exported data afterward, since neither of those is supported by the query.
+1. Use `--skip-references` or `--skip-dependencies` if the automatic export of referenced content types or dependencies (global fields, extensions, taxonomies, marketplace apps) needs to be limited.
+2. If the requirement is to filter which entries within a content type are exported (not just which content types), or to filter assets by folder, export the full content type or asset set and apply the filter to the exported data afterward, since neither of those is supported by the query.
 
 The `cm:stacks:export-query` command from the Query Export Plugin is the supported way to export a filtered set of content types instead of the entire stack, with dependencies and references handled automatically. Its documented limitation is that only content-type-level queries are supported, so entry-level filtering within a content type and asset-folder-level filtering still require exporting fully and filtering the result afterward.
 

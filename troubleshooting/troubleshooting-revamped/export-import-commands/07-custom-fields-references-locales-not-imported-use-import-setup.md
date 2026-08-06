@@ -15,16 +15,23 @@ When you run `cm:stacks:import` without `--backup-dir`, the CLI creates a fresh,
 
 1. Run the setup command first to create the backup directory that the main import will read and write UID mappings into:
 
-csdx cm:stacks:import-setup -k <stack_api_key> -d ./export/main --module entries
+csdx cm:stacks:import-setup -k  -d ./export/main --module entries
 
-2. Then run the import using that backup directory and the replace option, so the mappings persist across runs instead of resetting:
+1. Then run the import using that backup directory and the replace option, so the mappings persist across runs instead of resetting:
 
-csdx cm:stacks:import -k <stack_api_key> -d ./export/main --backup-dir ./_backup_123 --replace-existing --module entries
+csdx cm:stacks:import -k  -d ./export/main --backup-dir ./_backup_123 --replace-existing --module entries
 
-3. Import any Marketplace Apps used by custom fields, and do this before importing the content types or entries that depend on them, so their UID mapping already exists in the backup folder when those content types and entries are imported:
+1. Import any Marketplace Apps used by custom fields, and do this before importing the content types or entries that depend on them, so their UID mapping already exists in the backup folder when those content types and entries are imported:
 
-csdx cm:stacks:import -k <stack_api_key> -d ./export/main --backup-dir ./_backup_123 --module marketplace-apps
+csdx cm:stacks:import -k  -d ./export/main --backup-dir ./_backup_123 --module marketplace-apps
 
-Running `cm:stacks:import-setup` before the main import, and always pointing `cm:stacks:import` at the same `--backup-dir`, gives every module a persistent place to read and write its UID mappings, which is what actually resolves custom field population and cross-module references. It does not, by itself, change how localized entries are created. If localized entries still appear as separate full entries instead of localized versions of the original, confirm that the master-locale entry for each source entry finished importing and was mapped before the CLI processed other locales, since import order between locales affects this. If the custom field itself is missing from the exported content type or global field data (for example, because the field was added directly in the destination stack after the export was taken), no combination of `import-setup` or `--backup-dir` resolves that. Confirm the field exists in the export data before troubleshooting the import step further. (Reference-linking issues specific to one content type in this case required additional investigation. See the following article on reference UID mismatches.)
+**Key points for reliable import:**
+
+- **Always run** `cm:stacks:import-setup` **first and use the same** `--backup-dir` on every `cm:stacks:import` run. This maintains consistent UID mappings, ensuring custom fields are populated and cross-module references resolve properly.
+- **Localized entries:** Import order matters. If localized entries show up as full entries instead of proper localizations, check that the master-locale entry finished importing and was mapped before other locales were processed.
+- **Missing custom fields:** If a custom field is absent from the exported content type/global field data (e.g., added after export), no combination of `import-setup` or `--backup-dir` will restore it. Make sure the field exists in your export data before troubleshooting the import.
+- **Reference issues:** Problems with references that affect only specific content types may need deeper investigation (see related articles on reference UID mismatches).
+
+Skim checklist: run setup and import in order, reuse your backup directory, verify master-locale order for localizations, and confirm your export contains all needed fields.
 
 *Source ticket: Case 53894*

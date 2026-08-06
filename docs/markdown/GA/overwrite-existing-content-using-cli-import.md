@@ -1,6 +1,6 @@
 ---
 uid: "blt3a999013669bda40"
-seo_title: "Overwrite Existing Content using CLI Import | Contentstack"
+seo_title: "Overwrite Existing Content using CLI Import | V1.x.x | Contentstack"
 seo_description: "Learn how to overwrite existing content using the CLI Import Overwrite feature."
 ---
 
@@ -66,7 +66,7 @@ The `cm:stacks:import-setup` command is designed to simplify the import process 
 
 > **Note:**
 >
-> - Before using the `import-setup` command, make sure you have successfully [exported](/docs/headless-cms/export-content-using-the-cli) and unzipped the exported content located within the corresponding folder.
+> - Before using the `import-setup` command, make sure you have successfully [exported](/docs/headless-cms/export-content-using-the-cli/v1) and unzipped the exported content located within the corresponding folder.
 > - After using the `import-setup` command, a **backup directory will be generated** with the required mapper files. This **directory’s path** will be provided in the import command’s `--backup-dir` flag during the overwrite operation.
 
 **Usage**

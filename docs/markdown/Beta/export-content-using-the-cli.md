@@ -1,6 +1,6 @@
 ---
 uid: "blt2fe395869b399af0"
-seo_title: "Export Content Using the CLI | Contentstack"
+seo_title: "Export Content Using the CLI | V2.x.x | Contentstack"
 seo_description: "Export content efficiently with Contentstack’s latest Command-line Interface commands to simplify data migration and content backup."
 ---
 
@@ -13,7 +13,7 @@ This guide explains how to use the `cm:stacks:export` command by logging in to t
 ## Prerequisites
 
 - [Contentstack account](https://www.contentstack.com/login/)
-- Contentstack CLI [installed](/docs/headless-cms/install-the-cli/)
+- Contentstack CLI [installed](/docs/headless-cms/install-the-cli/v1)
 - CLI [authenticated](/docs/headless-cms/cli-authentication#login)
 - [Configured management token](/docs/headless-cms/cli-authentication#add-management-token) (alias) *(optional)*
 
@@ -260,4 +260,4 @@ ENTRIES:
   - [Users](/docs/headless-cms/about-stack-users/)
   - [Releases](/docs/headless-cms/about-releases/)
 
-**Additional Resource:** Learn more about the CLI-supported export operations in the [CLI-Supported Features for Export, Import, and Clone Operations](/docs/headless-cms/cli-supported-features-for-export-import-and-clone-operations) document.
+**Additional Resource:** Learn more about the CLI-supported export operations in the [CLI-Supported Features for Export, Import, and Clone Operations](/docs/headless-cms/cli-supported-features-for-export-import-and-clone-operations/v1) document.

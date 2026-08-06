@@ -1,6 +1,6 @@
 ---
 uid: "blt85d9deae08de968d"
-seo_title: "Contentstack CLI Bulk | Contentstack"
+seo_title: "Contentstack CLI Bulk | V2.x.x | Contentstack"
 seo_description: "Run bulk publish and bulk unpublish operations with the Contentstack CLI for entries and assets across environments and locales at scale with built-in retries."
 ---
 
@@ -110,10 +110,10 @@ csdx cm:stacks:bulk-entries [OPTIONS]
 | `--include-variants` | Includes entry variants (alternate versions of a base entry) in the bulk operation. By default, only base entries are processed. | `false` |
 | **Filter values:** |  |  |
 
-- `draft`: Entries that have never been published
-- `modified`: Entries updated since the last publish
-- `unpublished`: Entries that were published earlier but are currently unpublished
-- `non-localized`: Entries where non-localized fields have been updated in the master locale, requiring localized entries to be republished
+- `draft` — Entries that have never been published
+- `modified` — Entries updated since the last publish
+- `unpublished` — Entries that were published earlier but are currently unpublished
+- `non-localized` — Entries where non-localized fields have been updated in the master locale, requiring localized entries to be republished
 
 #### General Options
 
@@ -279,20 +279,6 @@ Same as bulk entries (see above).
 | `--dry-run` | Preview the publish plan without making any API calls. Default: `false`. Only takes effect when combined with `--data-dir`. It has no effect on the default live-folder-scan publish or unpublish flow. | `--dry-run` |
 
 On stacks where asset scanning applies, `cm:stacks:bulk-assets` prints an "Asset Scan Status" dashboard before publishing. The dashboard reports the total assets found, how many are clean and will publish, how many are still scanning (skipped), and how many are quarantined (skipped). In the `--data-dir` flow, it also reports assets skipped locally for missing publish details and assets skipped for having no mapped UID. If no assets are publishable after this filtering, the command prints a warning and exits without publishing anything.
-
-The following is an illustrative example of the dashboard output, not a captured terminal session:
-
-```
-Asset Scan Status
-──────────────────────────────────────────
-Total assets found                    120
-──────────────────────────────────────────
-Clean (will publish)                  100
-Still scanning (skipped)               15
-Quarantined (skipped)                   5
-──────────────────────────────────────────
-Will publish                          100
-```
 
 #### Examples
 
@@ -1039,6 +1025,12 @@ csdx auth:tokens:add \
 - `--retry-failed` on `cm:stacks:bulk-assets` rebuilds its item list from the failed-operation log only. It does not recheck asset scan status before retrying, so an asset that entered quarantine after the original run can still be retried.
 - The retry mechanism for assets still in the scan queue only checks scan status once per command invocation. See [Assets stay in "still scanning" status with no automatic retry](#assets-stay-in-still-scanning-status-with-no-automatic-retry) for details and the workaround.
 - In the `--data-dir` publish flow, a missing `assets.json` in the data directory stops the command with an error. A missing `mapper/assets/uid-mapping.json` or `environments/environments.json` only logs a warning and the command continues with degraded behavior (all assets skipped, or environment names shown as raw UIDs).
+
+## Next Steps
+
+- [Asset Scanning in CLI](/docs/headless-cms/asset-scanning-in-cli): full reference for asset-scan gating behavior, the scan status dashboard, and troubleshooting for `cm:stacks:bulk-assets`.
+
+---
 
 ## Best Practices
 

@@ -1,6 +1,6 @@
 ---
 uid: "bltff3041eae16be17d"
-seo_title: "CLI for Launch | Contentstack"
+seo_title: "CLI for Launch | V1.x.x | Contentstack"
 seo_description: "Use Contentstack CLI for Launch: Step-by-step guide to deploy & manage your JAMstack sites. Learn to create projects, view logs & more!"
 ---
 
@@ -16,9 +16,9 @@ This step-by-step guide discusses how you can perform different operations in La
 
 - [Contentstack account](https://www.contentstack.com/login/)
 
-- [CLI installed](/docs/headless-cms/install-the-cli/) and [configured](/docs/headless-cms/configure-regions-in-the-cli/) for AWS (version 1.6.0 and above), Azure (version 1.23.0 and above), or GCP (version 1.31.0 and above)
+- [CLI installed](/docs/headless-cms/install-the-cli/v1) and [configured](/docs/headless-cms/configure-regions-in-the-cli/v1) for AWS (version 1.6.0 and above), Azure (version 1.23.0 and above), or GCP (version 1.31.0 and above)
 
-- [CLI authenticated](/docs/headless-cms/cli-authentication/) (the cli-launch plugin supports only login-based authentication)
+- [CLI authenticated](/docs/headless-cms/cli-authentication/v1) (the cli-launch plugin supports only login-based authentication)
 
 - Access to Launch for your organization
 
@@ -122,7 +122,7 @@ csdx launch
 
 **Options**
 
-- `-a, --alias=alias_token`: \[optional\] Alias (name) for the [delivery token](/docs/headless-cms/cli-authentication#token-management).
+- `-a, --alias=alias_token`: \[optional\] Alias (name) for the [delivery token](/docs/headless-cms/cli-authentication/v1#token-management).
 - `-d, --data-dir=data-dir`: \[optional\] Current working directory.
 - `-c, --config=config`: \[optional\] Path to the local '.cs-launch.json' file.
 - `--type=type`: \[optional\] Type of adapters. \<options: GitHub|FileUpload\>
@@ -317,13 +317,13 @@ The Launch CLI can be utilized within CI environments to trigger redeployments f
 
 Use the following steps to trigger a redeployment using the Launch CLI within your CI environment:
 
-- [**Set Region**](/docs/headless-cms/configure-regions-in-the-cli#set-region)
+- [**Set Region**](/docs/headless-cms/configure-regions-in-the-cli/v1#set-region)
 
   Configure the CLI to use the appropriate region.
 
   **Example:** `csdx config:set:region NA`
 
-- [**Authenticate**](/docs/headless-cms/cli-authentication#login) **with Launch CLI**
+- [**Authenticate**](/docs/headless-cms/cli-authentication/v1#login) **with Launch CLI**
 
   Use the `csdx auth:login` command to log in.
 

@@ -59,16 +59,16 @@
   ],
   "select_skill_level_categories": null,
   "seo": {
-    "title": "Contentstack CLI Bulk | Contentstack",
+    "title": "Contentstack CLI Bulk | V1.x.x | Contentstack",
     "description": "Run bulk publish and bulk unpublish operations with the Contentstack CLI for entries and assets across environments and locales at scale with built-in retries.",
     "robots": "",
     "image": null
   },
   "tags": [],
-  "title": "[Contentstack Command-line Interface (CLI)] - Bulk Operations in CLI",
+  "title": "[Contentstack Command-line Interface (CLI)] - Bulk Operations in CLI | V1.x.x",
   "updated_at": "2026-07-27T06:56:17.155Z",
   "updated_by": "blt346b73255381ad74",
-  "url": "/headless-cms/bulk-operations-in-cli",
+  "url": "/headless-cms/bulk-operations-in-cli/v1",
   "publish_details": [
     {
       "environment": "blt4a008c3cde35b0c2",

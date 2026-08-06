@@ -1,6 +1,6 @@
 ---
 uid: "bltdb5ced1cd5ecc104"
-seo_title: "Configure Rate Limits in the CLI | Contentstack"
+seo_title: "Configure Rate Limits in the CLI | V1.x.x | Contentstack"
 seo_description: "Configure Contentstack CLI rate limits with csdx config:set:rate-limit. Manage bulkLimit, set utilization, and get or remove settings for bulk publishing control."
 ---
 
@@ -12,13 +12,13 @@ This guide provides step-by-step instructions on how to configure and manage rat
 
 By following these instructions, you can effectively control the number of requests made to the Contentstack API within a specified timeframe, ensuring optimal performance and preventing any disruptions due to exceeding rate limits.
 
-> **Warning:** The CLI supports rate limit configuration only for the `bulkLimit` parameter, which is [used in bulk publish commands](/docs/headless-cms/configure-rate-limits-in-the-cli#using-rate-limits-for-enhanced-bulk-publishing-control) to control requests.
+> **Warning:** The CLI supports rate limit configuration only for the `bulkLimit` parameter, which is [used in bulk publish commands](/docs/headless-cms/configure-rate-limits-in-the-cli/v1#using-rate-limits-for-enhanced-bulk-publishing-control) to control requests.
 
 ## Prerequisites
 
 - [Contentstack account](https://www.contentstack.com/login/)
-- [CLI installed](/docs/headless-cms/install-the-cli/) and [configured](/docs/headless-cms/configure-regions-in-the-cli/) (version 1.25.0 and above)
-- [CLI authenticated](/docs/headless-cms/cli-authentication/)
+- [CLI installed](/docs/headless-cms/install-the-cli/v1) and [configured](/docs/headless-cms/configure-regions-in-the-cli/v1) (version 1.25.0 and above)
+- [CLI authenticated](/docs/headless-cms/cli-authentication/v1)
 
 ## Commands
 

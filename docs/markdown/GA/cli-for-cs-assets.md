@@ -1,6 +1,6 @@
 ---
 uid: "blt642ce07c5edd5f56"
-seo_title: ""
+seo_title: "CLI for CS Assets | V1.x.x | Contentstack"
 seo_description: ""
 ---
 
@@ -45,7 +45,7 @@ Select an authentication method based on your operation:
 
 ### Mandatory
 
-- **CS Assets URL configured for your region:** Your Contentstack administrator must add a CS Assets URL to the region configuration. See [Configure Regions in the CLI](/docs/headless-cms/configure-regions-in-the-cli):
+- **CS Assets URL configured for your region:** Your Contentstack administrator must add a CS Assets URL to the region configuration. See [Configure Regions in the CLI](/docs/headless-cms/configure-regions-in-the-cli/v1):
 
   ```
   csdx config:set:region \
@@ -257,7 +257,7 @@ If the key is missing, the source export ran as a legacy asset export. Re-run th
 
 ## Next Steps
 
-- [Export Content Using the CLI](/docs/headless-cms/export-content-using-the-cli): Full reference for all flags and options available with `csdx cm:stacks:export`, including module filtering and branch targeting.
-- [Import Content Using the CLI](/docs/headless-cms/import-content-using-the-cli): Full reference for all flags and options available with `csdx cm:stacks:import`, including `--backup-dir` and module-level controls.
-- [Configure Regions in the CLI](/docs/headless-cms/configure-regions-in-the-cli): Reference for all `csdx config:set:region` flags, including `--cs-assets` for enabling CS Assets mode in a region.
-- [CLI-Supported Features for Export, Import, and Clone Operations](/docs/headless-cms/cli-supported-features-for-export-import-and-clone-operations): Matrix of which content types and asset features are supported across CLI versions.
+- [Export Content Using the CLI](/docs/headless-cms/export-content-using-the-cli/v1): Full reference for all flags and options available with `csdx cm:stacks:export`, including module filtering and branch targeting.
+- [Import Content Using the CLI](/docs/headless-cms/import-content-using-the-cli/v1): Full reference for all flags and options available with `csdx cm:stacks:import`, including `--backup-dir` and module-level controls.
+- [Configure Regions in the CLI](/docs/headless-cms/configure-regions-in-the-cli/v1): Reference for all `csdx config:set:region` flags, including `--cs-assets` for enabling CS Assets mode in a region.
+- [CLI-Supported Features for Export, Import, and Clone Operations](/docs/headless-cms/cli-supported-features-for-export-import-and-clone-operations/v1): Matrix of which content types and asset features are supported across CLI versions.

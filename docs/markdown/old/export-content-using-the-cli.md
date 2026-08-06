@@ -1,6 +1,6 @@
 ---
 uid: "blt88f14f6af9eca1d9"
-seo_title: "Export Content using the CLI | Old Commands | Contentstack"
+seo_title: "Export Content using the CLI | V0.x.x | Contentstack"
 seo_description: "Efficiently export content using Contentstack's CLI commands."
 ---
 
@@ -24,8 +24,8 @@ You can export the following modules from a stack:
 ## Prerequisites
 
 - [Contentstack account](https://www.contentstack.com/login)
-- CLI [installed](/docs/headless-cms/install-the-cli)
-- A [configured management token](/docs/headless-cms/cli-authentication#add-token) (alias) or [authtoken](/docs/headless-cms/cli-authentication#login)
+- CLI [installed](/docs/headless-cms/install-the-cli/v1)
+- A [configured management token](/docs/headless-cms/cli-authentication/v0#add-token) (alias) or [authtoken](/docs/headless-cms/cli-authentication/v0#login)
 
 ## Commands
 
@@ -134,7 +134,7 @@ csdx cm:export -a <management_token_alias> -c <config_file_path>
 
 ### Export Content Using Auth Token and Parameters
 
-You can use this method to export content to your stack if you have logged in to the session using the [Login](https://www.contentstack.com/docs/headless-cms/cli-authentication/#login) command. Running the Login command generates an auth token, which is used in the command below.
+You can use this method to export content to your stack if you have logged in to the session using the [Login](https://www.contentstack.com/docs/headless-cms/cli-authentication/v0#login) command. Running the Login command generates an auth token, which is used in the command below.
 
 > **Tip**: To store the exported content efficiently, create a folder named “content” in your system and note its path.
 
@@ -254,5 +254,5 @@ csdx cm:export -A -c <config_file_path>
 
 ## Next Steps
 
-- [Import the content in the stack](/docs/developers/cli/import-content-using-the-cli)
-- [Audit Plugin](/docs/headless-cms/audit-plugin/)
+- [Import the content in the stack](/docs/headless-cms/import-content-using-the-cli/v0)
+- [Audit Plugin](/docs/headless-cms/cli-audit-plugin/v1)

@@ -1,0 +1,44 @@
+S.No,CLI Doc,URL,0.x.x.,1.x.x,2.x.x
+1,Apps CLI Plugin,https://www.contentstack.com/docs/headless-cms/apps-cli-plugin,,Yes,
+2,Audit Plugin,https://www.contentstack.com/docs/headless-cms/audit-plugin,,Yes,Yes
+3,Bootstrap Starter Apps,https://www.contentstack.com/docs/headless-cms/bootstrap-starter-apps,Yes,Yes,Yes
+4,Branches,https://www.contentstack.com/docs/headless-cms/branches-migration-use-cases,Yes,Yes,
+5,Bulk Operations in CLI,https://www.contentstack.com/docs/headless-cms/bulk-operations-in-cli,,Yes,Yes
+6,Bulk Publish and Unpublish Content,https://www.contentstack.com/docs/headless-cms/bulk-publish-and-unpublish-content,Yes,Yes,
+7,Change Master Locale,https://www.contentstack.com/docs/headless-cms/change-master-locale,,Yes,
+8,CLI Authentication and Adding Tokens,https://www.contentstack.com/docs/headless-cms/cli-authentication,Yes,Yes,Yes
+9,CLI for CS Assets,https://www.contentstack.com/docs/headless-cms/cli-for-cs-assets,,Yes,
+10,CLI for Launch,https://www.contentstack.com/docs/headless-cms/cli-for-launch,,Yes,
+11,CLI Limitations,https://www.contentstack.com/docs/headless-cms/cli-limitations,,Yes,
+12,"CLI-Supported Features for Export, Import, and Clone Operations",https://www.contentstack.com/docs/headless-cms/cli-supported-features-for-export-import-and-clone-operations,,Yes,
+13,Cloning a Stack,https://www.contentstack.com/docs/headless-cms/cloning-a-stack,Yes,Yes,Yes
+14,Compare and Merge Branches Using the CLI,https://www.contentstack.com/docs/headless-cms/compare-and-merge-branches-using-the-cli,,Yes,Yes
+15,Configure CLI Logging Preferences,https://www.contentstack.com/docs/headless-cms/configure-cli-logging-preferences,,Yes,Yes
+16,Configure Early Access in the CLI,https://www.contentstack.com/docs/headless-cms/configure-early-access-program-in-the-cli,,Yes,Yes
+17,Configure MFA Secret Using CLI,https://www.contentstack.com/docs/headless-cms/configure-mfa-secret-using-cli,,Yes,
+18,Configure Proxy Settings in CLI,https://www.contentstack.com/docs/headless-cms/configure-proxy-settings-in-cli,,Yes,
+19,Configure Rate Limits in the CLI,https://www.contentstack.com/docs/headless-cms/configure-rate-limits-in-the-cli,,Yes,Yes
+20,Configure Regions in the CLI,https://www.contentstack.com/docs/headless-cms/configure-regions-in-the-cli,Yes,Yes,Yes
+21,Content Type Plugin,https://www.contentstack.com/docs/headless-cms/cli-content-type-plugin,,Yes,Yes
+22,Contentstack CLI Configuration Reference,https://www.contentstack.com/docs/headless-cms/contentstack-cli-configuration-reference,,Yes,
+23,Create Custom CLI Commands,https://www.contentstack.com/docs/headless-cms/create-custom-cli-commands,,Yes,
+24,Create Custom CLI Plugins for Contentstack,https://www.contentstack.com/docs/headless-cms/create-custom-cli-plugins,,Yes,
+25,Entry Migration,https://www.contentstack.com/docs/headless-cms/entry-migration,,Yes,
+26,Export Content to CSV File Using the CLI,https://www.contentstack.com/docs/headless-cms/export-content-to-csv-file,Yes,Yes,Yes
+27,Export Content Using the CLI,https://www.contentstack.com/docs/headless-cms/export-content-using-the-cli,Yes,Yes,Yes
+28,Generate Typescript Typings with TSGen Plugin,https://www.contentstack.com/docs/headless-cms/tsgen-plugin,,Yes,
+29,Import Content Using the CLI,https://www.contentstack.com/docs/headless-cms/import-content-using-the-cli,Yes,Yes,Yes
+30,Import Content Using the Seed Command,https://www.contentstack.com/docs/headless-cms/import-content-using-the-seed-command,Yes,Yes,Yes
+31,Install the CLI,https://www.contentstack.com/docs/headless-cms/install-the-cli,,Yes,
+32,Migrate and Overwrite Content in the Same Stack,https://www.contentstack.com/docs/headless-cms/migrate-and-overwrite-content-in-the-same-stack,,Yes,
+33,Migrate Content Between Stacks Using the CLI,https://www.contentstack.com/docs/headless-cms/migrate-content-between-stacks-using-the-cli,,Yes,
+34,Migrate Content from HTML RTE to JSON RTE using CLI,https://www.contentstack.com/docs/headless-cms/migrate-content-from-html-rte-to-json-rte,Yes,Yes,
+35,Migrate Selected Content Using the Query Export Plugin,https://www.contentstack.com/docs/headless-cms/migrate-selected-content-types-using-the-query-export-plugin,,Yes,
+36,Migrate your Content using the CLI Migration Command,https://www.contentstack.com/docs/headless-cms/migrate-your-content-using-the-cli-migration-command,Yes,Yes,Yes
+37,Overwrite Existing Content using CLI Import,https://www.contentstack.com/docs/headless-cms/overwrite-existing-content-using-cli-import,,Yes,Yes
+38,Query-based Export,https://www.contentstack.com/docs/headless-cms/query-based-export,,Yes,
+39,Regex Validate Plugin,https://www.contentstack.com/docs/headless-cms/cli-regex-validate-plugin,,Yes,Yes
+40,Taxonomy Migration,https://www.contentstack.com/docs/headless-cms/taxonomy-migration,,Yes,
+41,Uninstall CLI Plugins,https://www.contentstack.com/docs/headless-cms/uninstall-cli-plugins,,Yes,
+42,"Update Missing Reference UIDs for Entries, Assets, and Extensions",https://www.contentstack.com/docs/headless-cms/update-missing-reference-uids,,Yes,
+43,Useful Plugins,https://www.contentstack.com/docs/headless-cms/useful-plugins,,Yes,

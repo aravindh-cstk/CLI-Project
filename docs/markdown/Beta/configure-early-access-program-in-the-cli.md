@@ -1,6 +1,6 @@
 ---
 uid: "blt275d7d8eb02308f3"
-seo_title: "Configure Early Access in the CLI | Contentstack"
+seo_title: "Configure Early Access in the CLI | V2.x.x | Contentstack"
 seo_description: "Learn how to configure and use the Early Access header in Contentstack Command-line Interface with this clear, step-by-step setup guide."
 ---
 
@@ -15,8 +15,8 @@ This step-by-step guide lets you configure and use the Early Access header in th
 ## Prerequisites
 
 - [Contentstack account](https://www.contentstack.com/login/)
-- [CLI installed](/docs/headless-cms/install-the-cli/) and [configured](/docs/headless-cms/configure-regions-in-the-cli/) (version 1.12.1 and above)
-- [CLI authenticated](/docs/headless-cms/cli-authentication/)
+- [CLI installed](/docs/headless-cms/install-the-cli/v1) and [configured](/docs/headless-cms/configure-regions-in-the-cli) (version 1.12.1 and above)
+- [CLI authenticated](/docs/headless-cms/cli-authentication)
 
 ## Commands
 

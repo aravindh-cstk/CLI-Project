@@ -8,7 +8,7 @@
     {
       "article_section": {
         "heading": "Uninstall CLI Plugins",
-        "content": "<p>If you have created or installed a plugin using <a href=\"/docs/headless-cms/install-the-cli\">Contentstack CLI</a>, and want to uninstall/ remove that plugin, you can do it by using the <strong>plugins:uninstall </strong>command. </p>\n<p class=\"note\"><strong>Note</strong>: This command will not delete the plugin’s code folder. </p>\n<p>To do this, run the following commands in your terminal:<br></p><ol><li>Get a list of plugins you have installed:<br><pre>csdx plugins</pre></li><li><strong></strong>From the available plugins listed in the terminal, uninstall it by passing its name in the command below:<br><pre>csdx plugins:uninstall &lt;&lt;plugin_name&gt;&gt;</pre></li></ol>",
+        "content": "<p>If you have created or installed a plugin using <a href=\"/docs/headless-cms/install-the-cli/v1\">Contentstack CLI</a>, and want to uninstall/ remove that plugin, you can do it by using the <strong>plugins:uninstall </strong>command. </p>\n<p class=\"note\"><strong>Note</strong>: This command will not delete the plugin’s code folder. </p>\n<p>To do this, run the following commands in your terminal:<br></p><ol><li>Get a list of plugins you have installed:<br><pre>csdx plugins</pre></li><li><strong></strong>From the available plugins listed in the terminal, uninstall it by passing its name in the command below:<br><pre>csdx plugins:uninstall &lt;&lt;plugin_name&gt;&gt;</pre></li></ol>",
         "_metadata": {
           "uid": "csc5b4a1702fc77ced"
         }
@@ -40,16 +40,16 @@
   },
   "related_articles": [],
   "seo": {
-    "title": "Uninstall CLI Plugins | Contentstack Documentation",
+    "title": "Uninstall CLI Plugins | V1.x.x | Contentstack Documentation",
     "image": null,
     "description": "Steps to uninstall a CLI plugin",
     "robots": ""
   },
   "tags": [],
-  "title": "[Contentstack Command-line Interface (CLI)] - Uninstall CLI Plugins",
+  "title": "[Contentstack Command-line Interface (CLI)] - Uninstall CLI Plugins | V1.x.x",
   "updated_at": "2026-07-20T16:54:21.324Z",
   "updated_by": "blt4006a0e8ebe46293",
-  "url": "/headless-cms/uninstall-cli-plugins",
+  "url": "/headless-cms/uninstall-cli-plugins/v1",
   "publish_details": [
     {
       "environment": "blt4a008c3cde35b0c2",

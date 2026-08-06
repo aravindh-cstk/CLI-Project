@@ -19,6 +19,14 @@ import urllib.parse
 import urllib.request
 from collections import Counter
 
+from add_untracked_cli_docs import UNTRACKED
+from cli_url_map import bucket_and_slug as shared_bucket_and_slug
+
+# CLI docs that match neither scoping signal: the Content Type Plugin and Regex
+# Validate Plugin families sit outside the CLI breadcrumb and use the older
+# "[Command Line Interface] - " title prefix. Scoped in by uid instead.
+EXTRA_CLI_UIDS = set(UNTRACKED)
+
 REGION_HOST = "https://api.contentstack.io"
 CONTENT_TYPE = "docs_article"
 CLI_NAV_UID = "bltef82f5fd1a4eab6e"          # navigation entry: Command-line Interface (CLI)
@@ -29,7 +37,9 @@ TITLE_PREFIX = "[Contentstack Command-line Interface (CLI)]"
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT_DIR = os.path.join(ROOT, "docs", "json")
 BUCKETS = ("GA", "Beta", "old")
-EXPECTED = {"GA": 41, "Beta": 16, "old": 12}
+# Includes the Content Type Plugin and Regex Validate Plugin families, which sit
+# outside the CLI breadcrumb and are pulled in via EXTRA_CLI_UIDS.
+EXPECTED = {"GA": 43, "Beta": 18, "old": 12}
 
 
 def load_env():
@@ -103,6 +113,8 @@ def prod_record(entry):
 
 
 def in_cli_scope(entry):
+    if entry.get("uid") in EXTRA_CLI_UIDS:
+        return True
     breadcrumb = entry.get("breadcrumb") or []
     if any(ref.get("uid") == CLI_NAV_UID for ref in breadcrumb):
         return True
@@ -110,16 +122,18 @@ def in_cli_scope(entry):
 
 
 def bucket_and_slug(url):
-    """GA keeps its own slug. Beta and old are named after the parent topic slug."""
-    segments = [seg for seg in (url or "").strip("/").split("/") if seg]
-    if not segments:
-        return None, None
-    last = segments[-1]
-    if last == "old-commands":
-        return "old", segments[-2]
-    if last == "beta":
-        return "Beta", segments[-2]
-    return "GA", last
+    """Derive (bucket, slug) from a docs_article url.
+
+    After the V0/V1/V2 URL restructure the version lives in a /v0 or /v1 segment
+    and the V2 doc owns the bare URL, so the shared helper in cli_url_map handles
+    both the new and the old (/beta, /old-commands) spellings. It returns None for
+    the bucket on a bare URL because that form is ambiguous across the two schemes,
+    which after the restructure means V2.
+    """
+    bucket, slug = shared_bucket_and_slug(url)
+    if bucket is None and slug is not None:
+        bucket = "Beta"
+    return bucket, slug
 
 
 def main():

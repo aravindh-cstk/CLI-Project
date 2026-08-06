@@ -4,7 +4,22 @@ After a CLI export/import, reference fields inside a specific content type's ent
 
 **Root cause**
 
-A reference UID mismatch is the right general diagnosis. `cm:stacks:import` resolves entry references in two passes. It first creates each entry and records the mapping from the old (source) UID to the new (destination) UID in your `--backup-dir` folder. In a second pass, the CLI rewrites every entry's reference fields by looking up each referenced UID in that same mapping. If a referenced entry's old UID is not present in the mapping at the time this second pass runs, the CLI cannot resolve it, and the reference field is left pointing at a UID that does not exist in the destination stack, which is exactly the "carousel entries imported, but the reference did not link" symptom. The most common reason the mapping is missing for one content type specifically: the referenced content type's entries were imported in a separate `cm:stacks:import` run that used a different (or no) `--backup-dir`, so its UID mapping never landed in the same mapping file the parent entries' update pass reads, or some of the referenced entries failed to import and were logged as failures instead of being added to the mapping. If the parent and carousel content types were imported into different branches, or the carousel entries were later deleted and recreated in the destination stack outside the CLI, the mapping file will point to destination UIDs that no longer exist, producing the same symptom even though the mapping itself was never actually mismatched.
+A reference UID mismatch is the correct diagnosis here.
+
+Here's how `cm:stacks:import` works in terms of resolving references:
+
+- **Two-pass process:** The CLI imports entries in two passes. In the first pass, it creates each entry and records the mapping from the old (source) UID to the new (destination) UID in your `--backup-dir` folder.
+- **Updating references:** In the second pass, it tries to rewrite all reference fields in every entry, looking up each referenced UID in that same mapping file.
+- **Missing mappings:** If a referenced entry's old UID is *not* present in the mapping when the second pass runs, the CLI cannot resolve it. The result: the reference field is left pointing at a UID that doesn't exist in the destination stack. This causes the exact symptom where carousel entries appear to be successfully imported, but the reference field in the parent entries is not linked.
+
+**Common causes of a missing mapping for one content type:**
+- The referenced content type’s entries were imported during a separate `cm:stacks:import` run, but with a different (or no) `--backup-dir`, so their UID mapping didn’t make it into the mapping file the parent entries' update pass reads.
+- Some referenced entries failed to import and were logged as failures, so they never got added to the mapping.
+
+**Other cases that can cause symptoms:**
+- Parent and carousel content types were imported into different branches.
+- Carousel entries were later deleted and recreated in the destination stack (outside of the CLI).
+- In these cases, even if the mapping file exists, it may point to destination UIDs that no longer exist, so the references still fail, even without a true mapping mismatch.
 
 For this exact situation, once the referenced entries, assets, or extensions already exist in the destination stack but their UIDs were not updated in the referring entries, Contentstack provides a documented migration script that updates those missing reference UIDs without requiring a full re-import.
 

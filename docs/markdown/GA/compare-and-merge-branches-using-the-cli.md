@@ -1,6 +1,6 @@
 ---
 uid: "blt12dd3cd4c0194061"
-seo_title: "Compare and Merge Branches Using the CLI | Contentstack"
+seo_title: "Compare and Merge Branches Using the CLI | V1.x.x | Contentstack"
 seo_description: "Learn to create, update, delete, compare, and merge branches using the Contentstack Command-line Interface with this step-by-step guide."
 ---
 
@@ -16,9 +16,9 @@ This step-by-step guides you on how to create, update, delete, compare, and merg
 
 - [Contentstack account](https://www.contentstack.com/login/)
 
-- [CLI installed](/docs/headless-cms/install-the-cli/) and configured (version 1.7.0 and above)
+- [CLI installed](/docs/headless-cms/install-the-cli/v1) and configured (version 1.7.0 and above)
 
-- [CLI authenticated](/docs/headless-cms/cli-authentication/)
+- [CLI authenticated](/docs/headless-cms/cli-authentication/v1)
 
 - [Branches](/docs/headless-cms/about-branches/) enabled for your organization.
 
@@ -519,7 +519,7 @@ Follow the steps below to merge two branches:
 
    4. If you choose **Execute Merge and Generate Content Migration Scripts** or **Export Summary and Generate Content Migration Scripts** from the above step, follow the steps in step 7.
 
-With this, the merge operation is completed, and the [Entry Migration](/docs/headless-cms/entry-migration/) files generated are placed in the “YYYYMMDDHHMMSS_bltxxx” folder under `merge_scripts` folder in the current working directory.
+With this, the merge operation is completed, and the [Entry Migration](/docs/headless-cms/cli-entry-migration/v1) files generated are placed in the “YYYYMMDDHHMMSS_bltxxx” folder under `merge_scripts` folder in the current working directory.
 
 **Usage**
 

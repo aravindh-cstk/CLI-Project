@@ -1,6 +1,6 @@
 ---
 uid: "blt2a4723e44d15237a"
-seo_title: "Contentstack CLI Bulk | Contentstack"
+seo_title: "Contentstack CLI Bulk | V1.x.x | Contentstack"
 seo_description: "Run bulk publish and bulk unpublish operations with the Contentstack CLI for entries and assets across environments and locales at scale with built-in retries."
 ---
 

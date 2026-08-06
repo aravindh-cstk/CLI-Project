@@ -1,6 +1,6 @@
 ---
 uid: "blta33efb37c73c3bdf"
-seo_title: "Configure CLI Logging Preferences | Contentstack"
+seo_title: "Configure CLI Logging Preferences | V1.x.x | Contentstack"
 seo_description: "Set and retrieve logging preferences in Contentstack CLI, including log level and file path configuration."
 ---
 
@@ -11,7 +11,7 @@ The `config` namespace in the Contentstack CLI provides commands to configure va
 ## Prerequisites
 
 - [Contentstack account](https://www.contentstack.com/login/)
-- Contentstack CLI [installed](/docs/headless-cms/install-the-cli/)
+- Contentstack CLI [installed](/docs/headless-cms/install-the-cli/v1)
 
 ## Commands
 

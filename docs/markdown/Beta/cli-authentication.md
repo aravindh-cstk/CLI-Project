@@ -1,6 +1,6 @@
 ---
 uid: "blt4617ed0b5e1c23f4"
-seo_title: "CLI Authentication | Contentstack"
+seo_title: "CLI Authentication | V2.x.x | Contentstack"
 seo_description: "Authenticate securely and access Contentstack Command-line Interface using our updated developer guide for streamlined setup and usage."
 ---
 
@@ -13,7 +13,7 @@ It supports login credentials, Two-Factor Authentication, and Single Sign-On (SS
 ## Prerequisites
 
 - [Contentstack account](https://www.contentstack.com/login/)
-- CLI [installed](/docs/headless-cms/install-the-cli/)
+- CLI [installed](/docs/headless-cms/install-the-cli/v1)
 - [Set Region](/docs/headless-cms/configure-regions-in-the-cli#set-region)
 
 ## Commands
@@ -26,7 +26,7 @@ The `auth:login` command lets you log in to Contentstack and save the login info
 
 > **Note:** The Contentstack CLI supports [Two-factor Authentication](/docs/administration/multi-factor-authentication) for enhanced security.
 
-Open the terminal and run the following command to log in with your Contentstack account credentials. Once you log in, you can use the Contentstack CLI commands such as [export](/docs/headless-cms/export-content-using-the-cli/), [import](/docs/headless-cms/import-content-using-the-cli/), [clone](/docs/headless-cms/cloning-a-stack/), [bulk publish and unpublish](/docs/headless-cms/bulk-publish-and-unpublish-content/), [seed](/docs/headless-cms/import-content-using-the-seed-command/), [bootstrap](/docs/headless-cms/bootstrap-starter-apps/), [migration](/docs/headless-cms/migrate-your-content-using-the-cli-migration-command/), etc.
+Open the terminal and run the following command to log in with your Contentstack account credentials. Once you log in, you can use the Contentstack CLI commands such as [export](/docs/headless-cms/export-content-using-the-cli), [import](/docs/headless-cms/import-content-using-the-cli), [clone](/docs/headless-cms/cli-cloning-a-stack), [bulk publish and unpublish](/docs/headless-cms/cli-bulk-publish-and-unpublish-content/v1), [seed](/docs/headless-cms/cli-import-content-using-the-seed-command), [bootstrap](/docs/headless-cms/cli-bootstrap-starter-apps), [migration](/docs/headless-cms/migrate-your-content-using-the-cli-migration-command), etc.
 
 **Usage**
 
@@ -246,4 +246,4 @@ csdx tokens
 ## Next Steps
 
 - [Export](/docs/headless-cms/export-content-using-the-cli) and [import](/docs/headless-cms/import-content-using-the-cli) content
-- [Publish entries/assets in bulk](/docs/headless-cms/bulk-publish-and-unpublish-content)
+- [Publish entries/assets in bulk](/docs/headless-cms/cli-bulk-publish-and-unpublish-content/v1)

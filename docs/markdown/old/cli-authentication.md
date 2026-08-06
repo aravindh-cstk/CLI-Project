@@ -1,12 +1,12 @@
 ---
 uid: "bltb29a84507c788306"
-seo_title: "CLI Authentication | Old Commands | Contentstack"
+seo_title: "CLI Authentication | V0.x.x | Contentstack"
 seo_description: "Securely authenticate and access Contentstack's CLI with our comprehensive developer documentation."
 ---
 
 # CLI Authentication and Adding Tokens | Old Commands
 
-After installing the CLI in your system and before using the commands, you need to authenticate yourself either by using the [Login](/docs/headless-cms/cli-authentication) command or by adding the Management token within the CLI session.
+After installing the CLI in your system and before using the commands, you need to authenticate yourself either by using the [Login](/docs/headless-cms/cli-authentication/v0) command or by adding the Management token within the CLI session.
 
 > **Note**: Even though we support using delivery token for bulk publishing and unpublishing entries/assets, we recommend using management token in CLI session for efficient usability.
 
@@ -20,7 +20,7 @@ In the following table, we have listed the necessity of `auth:login` and `auth:t
 ## Prerequisites
 
 - [Contentstack account](https://app.contentstack.com/#!/login)
-- CLI [installed](/docs/headless-cms/install-the-cli) on your machine
+- CLI [installed](/docs/headless-cms/install-the-cli/v1) on your machine
 
 ## Commands
 
@@ -64,7 +64,7 @@ After successful login, the authtoken will be generated automatically which you 
 
 > **Note:**
 >
-> - Contentstack currently supports three regions: **North America**, **Europe** and **Azure North America**. If you want to use a specific endpoint, other than **NA**, refer to the [Set Region](/docs/headless-cms/configure-regions-in-the-cli#set-region) command.
+> - Contentstack currently supports three regions: **North America**, **Europe** and **Azure North America**. If you want to use a specific endpoint, other than **NA**, refer to the [Set Region](/docs/headless-cms/configure-regions-in-the-cli/v0#set-region) command.
 > - Contentstack CLI now supports [Two-factor Authentication](/docs/administration/multi-factor-authentication), which ensures additional security to your Contentstack account.
 
 ### Logout
@@ -233,9 +233,9 @@ The `csdx auth:whoami` command returns the username (email address) of the user 
 csdx auth:whoami
 ```
 
-> **Additional Resources**: Contentstack supports three regions: North America, Europe, and Azure North America. Refer to the [configuration](/docs/headless-cms/configure-regions-in-the-cli) guide if you want to use a particular region, other than North America (NA).
+> **Additional Resources**: Contentstack supports three regions: North America, Europe, and Azure North America. Refer to the [configuration](/docs/headless-cms/configure-regions-in-the-cli/v0) guide if you want to use a particular region, other than North America (NA).
 
 ## Next Steps
 
-- [Export](/docs/headless-cms/export-content-using-the-cli) and [import](/docs/headless-cms/import-content-using-the-cli) content
-- [Publish entries/ assets in bulk](/docs/headless-cms/bulk-publish-and-unpublish-content)
+- [Export](/docs/headless-cms/export-content-using-the-cli/v0) and [import](/docs/headless-cms/import-content-using-the-cli/v0) content
+- [Publish entries/ assets in bulk](/docs/headless-cms/cli-bulk-publish-and-unpublish-content/v0)

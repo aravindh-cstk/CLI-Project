@@ -1,6 +1,6 @@
 ---
 uid: "blt267c4988aa1389a5"
-seo_title: "Configure Regions in the CLI | Contentstack"
+seo_title: "Configure Regions in the CLI | V2.x.x | Contentstack"
 seo_description: "Configure regions in Contentstack Command-line Interface to optimize your setup and streamline workflows across multiple data centers."
 ---
 
@@ -25,7 +25,7 @@ Using the following set of commands you can configure the [regions](/docs/admini
 ## Prerequisites
 
 - [Contentstack account](https://www.contentstack.com/login)
-- CLI [installed](/docs/headless-cms/install-the-cli)
+- CLI [installed](/docs/headless-cms/install-the-cli/v1)
 
 ## Commands
 

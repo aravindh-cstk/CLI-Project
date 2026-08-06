@@ -1,6 +1,6 @@
 ---
 uid: "bltc7c58ab7c7d76974"
-seo_title: "Contentstack CLI Configuration Reference | Contentstack"
+seo_title: "Contentstack CLI Configuration Reference | V1.x.x | Contentstack"
 seo_description: "Configure Contentstack CLI export, import, audit, and migration with clear precedence rules, env vars, and module overrides for automation in CI/CD pipelines."
 ---
 
@@ -293,7 +293,7 @@ In this example:
 | `modules.cs-assets.downloadAssetsConcurrency` | `number` | `5` | Number of asset files downloaded in parallel during export. |
 | `modules.cs-assets.securedAssets` | `boolean` | `false` | Add auth token to asset download URLs. Required when [secured assets](/docs/administration) are enabled. |
 
-> **Note:** If CS Assets is not active, the CLI ignores these options. They apply only when your region has CS Assets enabled and the branch has linked workspaces. See [CLI for CS Assets](/docs/developers/cli/cli-for-cs-assets).
+> **Note:** If CS Assets is not active, the CLI ignores these options. They apply only when your region has CS Assets enabled and the branch has linked workspaces. See [CLI for CS Assets](/docs/headless-cms/cli-for-cs-assets/v1).
 
 **Entries Module**
 
@@ -617,7 +617,7 @@ In this example:
 | `modules.cs-assets.uploadAssetsConcurrency` | `number` | `2` | Number of asset files uploaded in parallel during import. |
 | `modules.cs-assets.importFoldersConcurrency` | `number` | `1` | Number of folder creation operations run in parallel during import. |
 
-> **Note:** If CS Assets is not active, the CLI ignores these options. They apply only when the content directory contains a `spaces/` directory exported using CS Assets mode. See [CLI for CS Assets](/docs/developers/cli/cli-for-cs-assets).
+> **Note:** If CS Assets is not active, the CLI ignores these options. They apply only when the content directory contains a `spaces/` directory exported using CS Assets mode. See [CLI for CS Assets](/docs/headless-cms/cli-for-cs-assets/v1).
 
 **Content Types Module**
 
