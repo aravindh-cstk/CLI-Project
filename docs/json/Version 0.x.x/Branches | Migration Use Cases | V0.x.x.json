@@ -1,0 +1,91 @@
+{
+  "title": "[Contentstack Command-line Interface (CLI)] - Branches | Migration Use Cases | V0.x.x",
+  "url": "/headless-cms/cli-branches-migration-use-cases/v0",
+  "locale": "en-us",
+  "ACL": {},
+  "breadcrumb": [
+    {
+      "uid": "blt641003bf9368e112",
+      "_content_type_uid": "navigation"
+    },
+    {
+      "uid": "bltef82f5fd1a4eab6e",
+      "_content_type_uid": "navigation"
+    }
+  ],
+  "article_content": [
+    {
+      "article_section": {
+        "heading": "Branches | Migration Use Cases",
+        "_metadata": {
+          "uid": "cs5b829c0f738ca1ce"
+        },
+        "content": "<p>The branches feature in Contentstack allows you&nbsp;to create multiple copies of your stack. You can add numerous branches of your stack and migrate your content to these branches. </p><p><a href=\"/docs/headless-cms/about-branches\" target=\"_self\">Branches</a> primarily help you sync between your code and content model without making significant changes to the code. <br/></p><p>Using the Contentstack CLI's Migration plugin, you can migrate your content from one branch to another using a<strong> migration script</strong>.</p><p class=\"note\"><strong>Note:&nbsp;</strong>Currently the <strong>branches</strong>&nbsp;<strong>merge feature</strong> is <strong>not supported</strong>, but you can use the <strong>existing scripts </strong>to perform the same function.&nbsp;Here, are some<strong>&nbsp;</strong><a rel=\"noreferrer\" href=\"https://github.com/contentstack/cli-plugins/tree/main/packages/contentstack-migration/examples\" target=\"_blank\"><strong>sample scripts</strong></a> you can use to perform the&nbsp;branch merge action.</p><p class=\"add-resource\"><strong>Additional Resource</strong>: We recommend you to refer to our extensive guide on <a href=\"/docs/headless-cms/migrate-content-between-stacks-using-the-cli/v1\" target=\"_self\">migration plugin and how to write a migration script </a>for your content or refer our&nbsp;<a rel=\"noreferrer\" href=\"https://github.com/contentstack/cli-plugins/tree/main/packages/contentstack-migration/examples\" target=\"_blank\">GitHub </a>page.</p><p>In this guide, let's look at different possible use case scenarios where you can use the CLI migration plugin to migrate your content from one branch to another by writing a migration script. </p><p>Here are a few possible scenarios where you can use the migration plugin to migrate your content.</p><ol><li><a href=\"#rename-or-remove-a-field-in-your-content-type\" target=\"_self\">Rename or Remove a Field in your Content Type</a></li><li><a href=\"#update-content-models\" target=\"_self\">Update Content Models</a></li></ol><p>Let's understand each use case in detail. </p><p class=\"note\"><strong>Note</strong>: We assume you are well versed with the migration script and migration plugin. If not, read our detailed documentation on how to <a href=\"/docs/headless-cms/migrate-content-between-stacks-using-the-cli/v1#get-started-with-the-migration-script\" target=\"_self\">get started with the migration script</a> and <a href=\"/docs/headless-cms/migrate-content-between-stacks-using-the-cli/v1\" target=\"_self\">use the migration plugin</a> to migrate your content.</p><h2>Rename or Remove a Field in your Content Type</h2><p>Consider a scenario where you want to apply a minor change to your content type. In this example, let's understand how to rename/remove a field in your content type using branches.</p><p>To do this, follow the steps given below:</p><ol><li>Create a develop branch from your main (production) branch for your stack to store the updated content.<br/></li><li>Now, add the following tasks in your migration script to perform the respective operations:<br/><ol><li>Begin by adding a task to create a new field with the latest (updated) field name in your content type.</li><li>Write tasks to add the data and update the entries with the newly created field.<p class=\"warning\"><strong>Warning</strong>: We recommend you to keep the existing fields and optionally delete the old fields after your latest changes are published live. This will help you easily rollback, in case the new changes are not as expected.</p><p class=\"add-resource\"><strong>Additional Resource</strong>: We recommend, you check some example scripts on our <a rel=\"noreferrer\" href=\"https://github.com/contentstack/cli-plugins/tree/main/packages/contentstack-migration/examples\" target=\"_blank\">GitHub page</a>. This will help you get started with the tasks mentioned above.</p></li><li>Now, check your script, finalize the content and add a <a rel=\"noreferrer\" href=\"https://github.com/contentstack/cli-plugins/blob/main/packages/contentstack-migration/examples/02-publishing-entries.js\" target=\"_blank\">task to publish </a>it.<br/></li></ol></li><li>You can move to your UI and make appropriate changes to the UI. Make other suitable changes at your end and start using the newly created field.<br/></li><li>Content editors can verify the changes and content managers can confirm the changes on the develop (test) branch.<br/> </li><li>Use the migration plugin command given below to apply your changes to the main branch.<pre>csdx cm:migration -A -n &lt;file_path&gt; -k &lt;api_key&gt; -b &lt;branch_name&gt;</pre></li></ol><p class=\"note\"><strong>Note</strong>: Make sure, while running the script, it should point to the target branch.</p><p>While deploying, remember to deploy the migration script first and then deploy the UI.</p><p><img data-image=\"t777m9qlxz7f\" src=\"https://images.contentstack.io/v3/assets/blt23180bf2502c7444/bltb51352a6cc656abe/618a967cb23afd5860107a6a/image.png\" data-sys-asset-uid=\"bltb51352a6cc656abe\" alt=\"image.png\"/></p><h2>Update Content Models</h2><p>This is a complex use case where you want to make some significant changes to your stack. While revamping your website's content models or restructuring your application, you have to include some major updates to your stack.&nbsp;</p><p>Consider an example where you want to update the content models of your stack. Let's see the steps involved in executing this example using branches:</p><ol><li>Begin by creating a branch from the main (production) branch of your stack, where the new models will be stored.<br/></li><li>Then, update the migration script and write custom tasks to modify the existing content models according to the new changes.<br/>Add the following tasks to your migration script to perform the respective operations:<br/><ol><li>Begin by creating tasks to update the content models.</li><li>Add tasks to update the entries according to the new content models by adding your data to these entries. </li><li>Once all the changes are done, add a<a rel=\"noreferrer\" href=\"https://github.com/contentstack/cli-plugins/blob/main/packages/contentstack-migration/examples/02-publishing-entries.js\" target=\"_blank\"> task to your migration script to publish</a>&nbsp;the changes.<p class=\"add-resource\"><strong>Additional Resource</strong>: We recommend you check some <a rel=\"noreferrer\" href=\"https://github.com/contentstack/cli-plugins/tree/main/packages/contentstack-migration/examples\" target=\"_blank\">example scripts</a> on our GitHub page. This will help you get started with the tasks mentioned above.</p></li></ol></li><li>Now you can move to the UI and make appropriate changes. You can also make other suitable changes at your end.<br/> </li><li>After applying the changes, content editors can verify the changes and content managers can confirm the changes on the develop (test) branch.<br/></li><li>Use the following migration plugin command to migrate your content to the newly created release branch.<pre>csdx cm:migration -A -n &lt;file_path&gt; -k &lt;api_key&gt; -b &lt;branch_name&gt;</pre><p class=\"note\"><strong>Note</strong>: Make sure, while running the script, it should point to the target branch.<br/></p></li><li>Finally, you can deploy all the changes on your production branch. This can be done in the following two ways:<br/><ul><li><strong>Use an Alias for Release</strong>:  This is an efficient way to apply new changes to your existing content. To use this method, create a production alias that points to the release branch.<p class=\"add-resource\"><strong>Additional Resource</strong>: Read our detailed guide on <a href=\"/docs/headless-cms/about-branches#work-with-aliases\" target=\"_self\">how to use aliases</a> in content branching.</p><p class=\"note\"><strong>Note</strong>: By using an alias for release, you can eliminate the risk of data loss. In case of any errors, it will by default rollback to the old code/branch.</p></li><li><strong>Merge All your Changes with the Main Branch</strong>: You can easily merge your content from the release branch to the main branch. This can help you merge data with the main branch and apply the&nbsp;changes.</li></ul><p class=\"note\"><strong>Note</strong>: We recommend you to use this method only if your changes are minimal and can be easily merged with the main branch. </p></li><li>While deploying, remember to deploy the migration script first and then deploy the UI.<br/></li><li>If your changes are working properly after deployment, you can merge them into your main branch. This will help you to keep a single original branch.<br/><img data-image=\"v10oe3hie7lt\" src=\"https://images.contentstack.io/v3/assets/blt23180bf2502c7444/blt11e3ede5971ccc10/618a96bd953e1e65040092f6/image.png\" data-sys-asset-uid=\"blt11e3ede5971ccc10\" alt=\"image.png\"/></li></ol><p class=\"add-resource\"><strong>Additional Resource</strong>: We highly recommend you to check our <a rel=\"noreferrer\" href=\"https://github.com/contentstack/cli-plugins/tree/main/packages/contentstack-migration/examples\" target=\"_blank\">GitHub</a> page for more information on <a rel=\"noreferrer\" href=\"https://github.com/contentstack/cli-plugins/blob/main/packages/contentstack-migration/docs/api-reference.md\" target=\"_blank\">migration script creation, use cases, </a>and <a rel=\"noreferrer\" href=\"https://github.com/contentstack/cli-plugins/tree/main/packages/contentstack-migration/examples\" target=\"_blank\">advanced examples</a>.</p>"
+      }
+    }
+  ],
+  "related_articles": [
+    {
+      "referenced_articles": {
+        "heading": "",
+        "_metadata": {
+          "uid": "csc52b322df887c6b5"
+        },
+        "articles": [
+          {
+            "uid": "bltb411289b9db47f55",
+            "_content_type_uid": "more_articles"
+          }
+        ]
+      }
+    }
+  ],
+  "next_and_prev_links": {
+    "next_link": {
+      "title": "",
+      "href": ""
+    },
+    "prev_link": {
+      "title": "",
+      "href": ""
+    }
+  },
+  "seo": {
+    "title": "Branches | Migration Use Cases | V0.x.x | Contentstack",
+    "image": null,
+    "description": "Branches | Migration Use Cases",
+    "robots": ""
+  },
+  "tags": [],
+  "uid": "bltb8dd8dab38ffc4c1",
+  "created_by": "blta3007b105b17e5d8",
+  "updated_by": "blt8e5689a3647afd22",
+  "created_at": "2022-12-17T08:41:24.878Z",
+  "updated_at": "2026-08-05T12:47:34.721Z",
+  "_version": 13,
+  "_in_progress": false,
+  "md_content": "",
+  "publish_details": [
+    {
+      "environment": "blt4a008c3cde35b0c2",
+      "locale": "en-us",
+      "time": "2026-08-05T12:47:35.747Z",
+      "user": "blt8e5689a3647afd22",
+      "version": 13
+    },
+    {
+      "environment": "blt92ab7d24e8c52483",
+      "locale": "en-us",
+      "time": "2026-08-05T12:47:35.747Z",
+      "user": "blt8e5689a3647afd22",
+      "version": 13
+    },
+    {
+      "environment": "bltfe8376c13fe85b9c",
+      "locale": "en-us",
+      "time": "2026-08-13T09:55:58.391Z",
+      "user": "blt346b73255381ad74",
+      "version": 13
+    }
+  ]
+}

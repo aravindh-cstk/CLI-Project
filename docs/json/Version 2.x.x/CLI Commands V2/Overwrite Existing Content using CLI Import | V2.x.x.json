@@ -1,0 +1,91 @@
+{
+  "title": "[Contentstack Command-line Interface (CLI)] - Overwrite Existing Content using CLI Import | V2.x.x",
+  "url": "/headless-cms/overwrite-existing-content-using-cli-import",
+  "breadcrumb": [
+    {
+      "uid": "blt641003bf9368e112",
+      "_content_type_uid": "navigation"
+    },
+    {
+      "uid": "bltef82f5fd1a4eab6e",
+      "_content_type_uid": "navigation"
+    }
+  ],
+  "article_content": [
+    {
+      "article_section": {
+        "heading": "Overwrite Existing Content using CLI Import",
+        "content": "<p>The Import Overwrite feature in Contentstack CLI facilitates seamless stack-to-stack migration by enabling updates to existing content and adding new entries for unmatched content during imports. This ensures that the import process continues smoothly, even if an imported module already exists in the target stack, effectively preventing import failures.</p><p>By providing the ability to overwrite content, this feature streamlines content migration and eliminates the need for manual adjustments, saving time and effort during the import process.</p><p><strong>Supported Modules</strong></p><ul><li><a href=\"/docs/developer-hub/about-ui-locations\" target=\"_self\">Extensions</a></li><li><a href=\"/docs/headless-cms/global\" target=\"_self\">Global Fields</a></li><li><a href=\"/docs/headless-cms/about-content-types\" target=\"_self\">Content Types</a></li><li><a href=\"/docs/headless-cms/about-entries\" target=\"_self\">Entries</a></li></ul><p><strong>Usage</strong></p><pre>csdx cm:stacks:import --replace-existing --backup-dir &lt;backup-dir-path&gt; -k &lt;value&gt; --data-dir &lt;content-dir-path&gt;</pre><p><strong>Options</strong></p><ul><li><span class=\"code\">-d, --data-dir=data-dir</span>: Path to the directory containing exported content.</li><li><span class=\"code\">-k, --stack-api-key=stack-api-key</span>: API key of the target stack where the content will be imported.</li><li><span class=\"code\">-b, branch=branch</span>: [optional] Branch name of the target stack.</li><li><span class=\"code\">-a, alias=alias</span>: [optional] Alias (name) for the management token.</li><li><span class=\"code\">--replace-existing</span>: Replaces the existing module in the target stack.</li><li><span class=\"code\">--skip-existing</span>: Skips the <em>module exists</em> warning messages.</li><li><span class=\"code\">--backup-dir=backup-dir</span>: Path to the backup directory.</li><li><span class=\"code\">--module=module</span>: [optional] Specify the module to import into the target stack. If not specified, the import command will import all the modules into the stack. The available modules are <em>content-types, entries, environments, extensions, marketplace-apps, global-fields, labels, locales, webhooks, workflows, custom-roles,</em> and <em>taxonomies</em>.</li></ul><h2>Steps for Execution</h2><p>Follow the steps below to perform the overwrite operation on your target stack:</p><ol><li>Update the source stack modules that support the overwrite feature.</li><li>Export the content of your source stack using the CLI export command.</li><li>Import the content to your target stack using the CLI import command with the&nbsp;<span class=\"code\">--replace-existing</span>&nbsp;flag.<ol><li>Import all modules (It will replace modules which are supported by the Overwrite feature).<pre>csdx cm:stacks:import --replace-existing --backup-dir &lt;backup-dir-path&gt; -k &lt;value&gt; --data-dir &lt;content-dir-path&gt;</pre></li><li><a href=\"#overwrite-specific-modules\" target=\"_self\">Overwrite specific modules</a> using the <span class=\"code\">import-setup</span> command.</li></ol></li></ol><h3>Overwrite Specific Modules</h3><p>The Import Setup command is an enhancement to the Import Overwrite feature, designed to address the challenges of dependency handling during imports. Updating specific modules—such as entries—often requires importing all dependent modules (e.g., extensions, assets) first, making the process more complex and time-consuming.</p><p>To resolve this, Contentstack CLI introduces the <span class=\"code\">cm:stacks:import-setup</span> pre-command, which:</p><ul><li>Generates essential mappers to streamline the import process.</li><li>Creates a backup folder tailored to user-defined requirements.</li></ul><p>By using these mappers with the import command, users can perform targeted imports without importing all dependencies. This enhancement simplifies dependency handling, providing greater flexibility and efficiency when using the Import Overwrite feature.</p><p>The <span class=\"code\">cm:stacks:import-setup</span> command is designed to simplify the import process by creating necessary mappers and backups for selected modules.</p><div class=\"note\"><strong>Note:</strong><ul><li>Before using the <span class=\"code\">import-setup</span> command, make sure you have successfully <a href=\"/docs/headless-cms/export-content-using-the-cli\" target=\"_self\">exported</a> and unzipped the exported content located within the corresponding folder.</li><li>After using the <span class=\"code\">import-setup</span> command, a <strong>backup directory will be generated</strong> with the required mapper files. This <strong>directory’s path</strong> will be provided in the import command’s <span class=\"code\">--backup-dir</span> flag during the overwrite operation.</li></ul></div><p><strong>Usage</strong></p><pre>cm:stacks:import-setup --module module-name1 module-name2 --data-dir &lt;exported-content-dir&gt; -k &lt;target-stack-api-key&gt; --branch &lt;branch&gt;</pre><p><strong>Options</strong></p><table><thead><tr><th>Flag</th><th>Short Flag</th><th>Description</th></tr></thead><tbody><tr><td><span class=\"code\">--stack-api-key</span></td><td><span class=\"code\">-k</span></td><td>API key of the target stack where the content will be imported.</td></tr><tr><td><span class=\"code\">--data-dir</span></td><td>-</td><td>The path or location in your file system where the content to be imported is stored.&nbsp;</td></tr><tr><td><span class=\"code\">--alias</span></td><td><span class=\"code\">-a</span></td><td>[Optional] Alias (name) of the management token for the destination stack.</td></tr><tr><td><span class=\"code\">--module</span></td><td>-</td><td>[Optional] Specify the module(s) to import into the target stack.<p>Supported values: <span class=\"code\">global-fields</span>, <span class=\"code\">content-types</span>, <span class=\"code\">entries</span></p></td></tr><tr><td><span class=\"code\">--branch</span></td><td><span class=\"code\"></span></td><td>[Optional] Name of the branch where you want to import your content.</td></tr><tr><td><span class=\"code\">--branch-alias</span></td><td>-</td><td>[Optional] Alias of the target stack branch where you want to import your content.</td></tr><tr><td><span class=\"code\">--config</span></td><td><span class=\"code\">-c</span></td><td>[optional] Path of the configuration JSON file.</td></tr><tr><td><span class=\"code\">--backup-dir</span></td><td>-</td><td>[optional] Backup directory name when using a specific module.</td></tr><tr><td><span class=\"code\">--import-webhook-status</span></td><td>-</td><td>(optional) Status of the import webhook (disable / current).</td></tr><tr><td><span class=\"code\">--yes</span></td><td><span class=\"code\">-y</span></td><td>[optional] Force override all Marketplace prompts.</td></tr><tr><td><span class=\"code\">--replace-existing</span></td><td>-</td><td>Replaces the existing module in the target stack.</td></tr><tr><td><span class=\"code\">--skip-existing</span></td><td>-</td><td>Skips the module exists warning messages.</td></tr><tr><td><span class=\"code\">--personalize-project-name</span></td><td>-</td><td>(optional) Unique name for the Personalize project.</td></tr><tr><td><span class=\"code\">--skip-audit</span></td><td>-</td><td>Skips the audit fix during an import operation.</td></tr><tr><td><span class=\"code\">--exclude-global-modules</span></td><td>-</td><td>Excludes branch-independent modules from the import operation.</td></tr><tr><td><span class=\"code\">--skip-assets-publish</span></td><td>-</td><td>Skips asset publishing during the import process.</td></tr><tr><td><span class=\"code\">--skip-entries-publish</span></td><td>-</td><td>Skips entry publishing during the import process.</td></tr><tr><td><span class=\"code\">--skip-taxonomy-publish</span></td><td>-</td><td>Skips taxonomy publishing during the import process.</td></tr></tbody></table><p><strong>Examples</strong></p><ol><li>Import to update only the global fields in the target stack:<ol><li><pre>csdx cm:stacks:import-setup --module global-fields --data-dir &lt;exported-content-dir&gt; -k &lt;target-stack-api-key&gt;</pre></li><li><pre>csdx cm:stacks:import --replace-existing --backup-dir &lt;backup-dir-path-generated-by-import-setup&gt; -k &lt;value&gt; --data-dir &lt;content-dir-path&gt; --module global-fields</pre></li></ol></li><li>Import to update only the content types in the target stack:<ol><li><pre>csdx cm:stacks:import-setup --module content-types --data-dir &lt;exported-content-dir&gt; -k &lt;target-stack-api-key&gt;</pre></li><li><pre>csdx cm:stacks:import --replace-existing --backup-dir &lt;backup-dir-path-generated-by-import-setup&gt; -k &lt;value&gt; --data-dir &lt;content-dir-path&gt; --module content-types</pre></li></ol></li><li>Import to update both global fields and content types in the target stack:<ol><li><pre>csdx cm:stacks:import-setup --module global-fields content-types --data-dir &lt;exported-content-dir&gt; -k &lt;target-stack-api-key&gt;</pre></li><li><pre>csdx cm:stacks:import --replace-existing --backup-dir &lt;backup-dir-path-generated-by-import-setup&gt; -k &lt;value&gt; --data-dir &lt;content-dir-path&gt; --module global-fields</pre></li><li><pre>csdx cm:stacks:import --replace-existing --backup-dir &lt;backup-dir-path-generated-by-import-setup&gt; -k &lt;value&gt; --data-dir &lt;content-dir-path&gt; --module content-types</pre></li></ol></li><li>Import to update only the entries in the target stack:<ol><li><pre>csdx cm:stacks:import-setup --module entries --data-dir &lt;exported-content-dir&gt; -k &lt;target-stack-api-key&gt;</pre></li><li><pre>csdx cm:stacks:import --replace-existing --backup-dir &lt;backup-dir-path-generated-by-import-setup&gt; -k &lt;value&gt; --data-dir &lt;content-dir-path&gt; --module entries</pre></li></ol></li><li>Import to update both content types and entries in the target stack:<ol><li><pre>csdx cm:stacks:import-setup --module content-types entries content-types --data-dir &lt;exported-content-dir&gt; -k &lt;target-stack-api-key&gt;</pre></li><li><pre>csdx cm:stacks:import --replace-existing --backup-dir &lt;backup-dir-path-generated-by-import-setup&gt; -k &lt;value&gt; --data-dir &lt;content-dir-path&gt; --module content-types</pre></li><li><pre>csdx cm:stacks:import --replace-existing --backup-dir &lt;backup-dir-path-generated-by-import-setup&gt; -k &lt;value&gt; --data-dir &lt;content-dir-path&gt; --module entries</pre></li></ol></li></ol><h2>Migration Scenarios</h2><p>The overwrite feature is a highly versatile tool designed to support various migration scenarios. It simplifies content management and updates while minimizing dependency issues. Here are the key migration use cases:</p><ul><li><strong>From One Stack to Another:</strong> Seamlessly migrate content from one stack to another while ensuring proper mapping and updates.</li><li><strong>Import into the Same Stack:</strong> Update or overwrite existing content within the same stack to streamline workflows and eliminate redundancies.</li><li><strong>From One Branch to Another:</strong> Transfer content between branches of the same stack, enabling smooth collaboration and environment-specific changes.</li><li><strong>Import into the Same Branch:</strong> Refine or overwrite content within a single branch to efficiently implement updates or roll out changes.</li></ul><p>This flexibility enables users to adapt the CLI to specific migration requirements, improving efficiency and reducing manual effort.</p><h2>Limitations</h2><p>Here are the primary limitations to consider when leveraging the overwrite feature, despite its significant simplification of the migration process:</p><ul><li><strong>Dependency on Properly Structured Exported Content</strong>: The process requires access to properly formatted exported content before running the command.</li><li><strong>Asset Duplication</strong>: Duplicate assets in the target stack are uploaded to a new folder, which can lead to redundancy. A resolution is under development.</li><li><strong>Limited Module Support</strong>: Currently, the <span class=\"code\">import-setup</span> command supports only content types, entries, global fields, and extensions. Modules with complex dependencies are not yet included.</li><li><strong>Manual Overwrite Steps</strong>: Overwriting certain modules requires manual intervention due to the absence of an automated overwrite command.</li><li><strong>Processing Large Data Sets</strong>: Migration of extensive content or assets may be time-consuming and requires accuracy verification.</li><li><strong>Handling Complex Relationships</strong>: Additional manual effort may be necessary to map deeply nested or interdependent modules correctly.</li></ul>",
+        "_metadata": {
+          "uid": "csc96a965e60a4d0e0"
+        }
+      }
+    }
+  ],
+  "related_articles": [
+    {
+      "referenced_articles": {
+        "heading": "",
+        "_metadata": {
+          "uid": "csc53945d9065f955f"
+        },
+        "articles": [
+          {
+            "uid": "blt22aa65188c7d8092",
+            "_content_type_uid": "more_articles"
+          }
+        ]
+      }
+    }
+  ],
+  "next_and_prev_links": {
+    "prev_link": {
+      "title": "",
+      "href": ""
+    },
+    "next_link": {
+      "title": "",
+      "href": ""
+    }
+  },
+  "seo": {
+    "title": "Overwrite Existing Content using CLI Import | V2.x.x | Contentstack",
+    "description": "Learn how to overwrite existing content using the CLI Import Overwrite feature.",
+    "image": null,
+    "robots": ""
+  },
+  "tags": [],
+  "locale": "en-us",
+  "uid": "bltd28635508877b2ec",
+  "created_by": "blt346b73255381ad74",
+  "updated_by": "blt8e5689a3647afd22",
+  "created_at": "2026-02-04T13:18:45.977Z",
+  "updated_at": "2026-08-06T19:26:50.691Z",
+  "ACL": {},
+  "_version": 14,
+  "_in_progress": false,
+  "md_content": "",
+  "publish_details": [
+    {
+      "environment": "blt4a008c3cde35b0c2",
+      "locale": "en-us",
+      "time": "2026-08-13T09:57:38.522Z",
+      "user": "blt346b73255381ad74",
+      "version": 14
+    },
+    {
+      "environment": "blt92ab7d24e8c52483",
+      "locale": "en-us",
+      "time": "2026-08-13T09:57:38.522Z",
+      "user": "blt346b73255381ad74",
+      "version": 14
+    },
+    {
+      "environment": "bltfe8376c13fe85b9c",
+      "locale": "en-us",
+      "time": "2026-08-13T09:57:38.522Z",
+      "user": "blt346b73255381ad74",
+      "version": 14
+    }
+  ]
+}

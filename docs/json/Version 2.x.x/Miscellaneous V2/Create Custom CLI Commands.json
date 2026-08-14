@@ -1,0 +1,98 @@
+{
+  "title": "[Contentstack Command-line Interface (CLI)] - Create Custom CLI Commands",
+  "url": "/headless-cms/create-custom-cli-commands",
+  "locale": "en-us",
+  "ACL": {},
+  "breadcrumb": [
+    {
+      "uid": "blt641003bf9368e112",
+      "_content_type_uid": "navigation"
+    },
+    {
+      "uid": "bltef82f5fd1a4eab6e",
+      "_content_type_uid": "navigation"
+    }
+  ],
+  "article_content": [
+    {
+      "article_section": {
+        "heading": "Create Custom CLI Commands",
+        "_metadata": {
+          "uid": "csc7b3e6457f0a01ee"
+        },
+        "content": "<p>Contentstack allows developers to write plugins and add custom commands to the CLI. You can then install and use these plugins as required. In this guide, we will learn how to write a custom CLI plugin.</p><h2>Prerequisites</h2><ul><li><a href=\"https://www.contentstack.com/login\">Contentstack account</a></li><li><a rel=\"noreferrer\" href=\"https://nodejs.org/en/download/\" target=\"_blank\">Node.js version 16 or above</a></li><li>CLI installed on your machine: <strong>npm</strong><strong> install -g @contentstack/cli</strong></li></ul><h2>Use the “plugins:create” command</h2>\n<p>To get started with the custom plugin creation process, open your terminal (command prompt), and run the command given below:</p>\n<pre>csdx plugins:create</pre>\n<p>This will prompt you to provide the following details:</p><ul><li>Name for your custom plugin, for example, “myplugin”.</li><li>Few lines of <em>optional </em>description for this custom plugin.</li><li>Version of this plugin, for example, “v1.” By default, the initial format will be “0.0.0”.</li><li>Name of the license for this plugin. By default, it’s “MIT”.</li><li>Owner’s name of GitHub repository.</li><li>Name of the GitHub repository.</li><li>Preference to use Typescript - Yes/ No.</li><li>Preference to use ESLint - Yes/ No.</li><li>Preference to use Mocha - Yes/ No.</li></ul>\n<p>After you provide these details, it will generate a plugin boilerplate (initial code of the plugin). You will find a <strong>hello.ts </strong>(if you choose “Yes” for Typescript) or <strong>hello.js </strong>(if you choose “No” for Typescript) file in your working directory. This file contains the basic code required for plugin development. </p>\n<p>You can tailor this code as per your requirements.</p><h2>Run the Code</h2>\n<p>To run the code, open your terminal, point it to the “&lt;&lt;plugin_name&gt;&gt;” directory (path of your plugin) created above, and run the command given below:</p>\n<pre>node bin/run hello</pre>\n<p>Next, let’s set up this plugin within the <strong>csdx </strong><a href=\"/docs/headless-cms/install-the-cli#namespaces\">namespace</a>, by using the <strong>plugins:link </strong>command so that you don’t have to use the above command for running the plugin’s code.</p><h2>Set up the Plugin</h2>\n<p>When you develop the plugin locally, you can use the <strong>plugins:link</strong> command for setting up the plugin. To do this, open your terminal, point it to the “&lt;&lt;plugin_name&gt;&gt;” directory, and run the command given below:</p>\n<pre>csdx plugins:link</pre>\n<p>You can validate this setup by running this command: </p>\n<pre>csdx hello</pre>\n<p>After running this command, you’ll see your plugin’s output in the terminal.<br></p>\n<h2>Register and Install&nbsp;the Plugin</h2>\n<p>You can register a new plugin command and use it as per your requirements.</p>\n<p>To register a new plugin command first publish your plugin package on npm.</p>\n<p>Once your plugin is published, run the following command:</p>\n<pre>csdx plugins: install</pre>\n<p>This will successfully install the plugin and you can use this custom plugin to execute your tasks.</p>\n<h2>Uninstall the Plugin</h2>\n<p>If you have created or installed a plugin using <a href=\"/docs/headless-cms/install-the-cli\">Contentstack CLI</a>, and want to uninstall/ remove that plugin, you can do it by using the <strong>plugins:uninstall </strong>command. </p>\n<p class=\"note\"><strong>Note</strong>: This command will not delete the plugin’s code folder. </p>\n<p>To do this, run the following commands in your terminal:<br></p><ol><li>Get a list of plugins you have installed:<br><pre>csdx plugins</pre></li><li><strong></strong>From the available plugins listed in the terminal, uninstall it by passing its name in the command below:<br><pre>csdx plugins:uninstall &lt;&lt;plugin_name&gt;&gt;</pre></li></ol>\n<p>This will uninstall/ remove the plugin.</p>"
+      }
+    }
+  ],
+  "related_articles": [
+    {
+      "referenced_articles": {
+        "heading": "",
+        "_metadata": {
+          "uid": "cs2568b926b164523f"
+        },
+        "articles": [
+          {
+            "uid": "blt2ec56ba60befa16c",
+            "_content_type_uid": "more_articles"
+          }
+        ]
+      }
+    }
+  ],
+  "next_and_prev_links": {
+    "next_link": {
+      "title": "",
+      "href": ""
+    },
+    "prev_link": {
+      "title": "",
+      "href": ""
+    }
+  },
+  "seo": {
+    "title": "Write a Custom CLI Command | Contentstack Documentation",
+    "image": null,
+    "description": "Write a Custom CLI Command",
+    "robots": ""
+  },
+  "tags": [],
+  "uid": "blt18f5edee45f9d6c2",
+  "created_by": "blta3007b105b17e5d8",
+  "updated_by": "blt8e5689a3647afd22",
+  "created_at": "2022-12-17T08:41:23.916Z",
+  "updated_at": "2026-08-06T19:27:49.353Z",
+  "_version": 11,
+  "_in_progress": false,
+  "md_content": "",
+  "publish_details": [
+    {
+      "environment": "blt4a008c3cde35b0c2",
+      "locale": "en-us",
+      "time": "2026-08-13T09:57:38.037Z",
+      "user": "blt346b73255381ad74",
+      "version": 11
+    },
+    {
+      "environment": "blt92ab7d24e8c52483",
+      "locale": "en-us",
+      "time": "2026-08-13T09:57:38.037Z",
+      "user": "blt346b73255381ad74",
+      "version": 11
+    },
+    {
+      "environment": "bltfe8376c13fe85b9c",
+      "locale": "en-us",
+      "time": "2026-08-13T09:57:38.037Z",
+      "user": "blt346b73255381ad74",
+      "version": 11
+    },
+    {
+      "environment": "blt18d21c1c300e766f",
+      "locale": "en-us",
+      "time": "2026-04-10T07:28:57.284Z",
+      "user": "blt3cf27864e6b61df3",
+      "version": 6
+    }
+  ]
+}

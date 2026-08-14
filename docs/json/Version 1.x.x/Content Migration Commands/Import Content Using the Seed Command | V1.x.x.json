@@ -1,0 +1,98 @@
+{
+  "title": "[Contentstack Command-line Interface (CLI)] - Import Content Using the Seed Command | V1.x.x",
+  "url": "/headless-cms/cli-import-content-using-the-seed-command/v1",
+  "locale": "en-us",
+  "ACL": {},
+  "breadcrumb": [
+    {
+      "uid": "blt641003bf9368e112",
+      "_content_type_uid": "navigation"
+    },
+    {
+      "uid": "bltef82f5fd1a4eab6e",
+      "_content_type_uid": "navigation"
+    }
+  ],
+  "article_content": [
+    {
+      "article_section": {
+        "heading": "Import Content Using the Seed Command",
+        "_metadata": {
+          "uid": "cs20f985a6ef8c4d4b"
+        },
+        "content": "<p>The <span class=\"code\">seed</span> command in the Contentstack CLI allows you to import content into your stack from GitHub repositories. It helps you migrate content with minimal steps and setup.</p>\n<p>You can import content into your stack from the following sources:</p>\n<ul>\n  <li><strong>Contentstack’s GitHub Organization</strong>: We provide sample content that you can import directly into your stack using the <span class=\"code\">seed</span> command. Learn how to <a href=\"#import-from-contentstack-s-github-organization\" target=\"_self\">import from Contentstack’s GitHub organization</a>.</li>\n  <li><strong>Non-Contentstack GitHub Repository</strong>: You can also import stack content from any public GitHub repository owned by an individual or organization. Learn how to <a href=\"#import-from-a-non-contentstack-github-repository\" target=\"_self\">import from a non-Contentstack GitHub repository</a>.</li>\n</ul>\n<h2>Prerequisites</h2>\n<ul>\n  <li><a href=\"https://www.contentstack.com/login\" target=\"_blank\">Contentstack account</a></li>\n  <li>Contentstack CLI <a href=\"/docs/headless-cms/install-the-cli/v1\" target=\"_self\">installed</a> and <a href=\"/docs/headless-cms/configure-regions-in-the-cli/v1\" target=\"_self\">configured</a></li>\n  <li>CLI <a href=\"/docs/headless-cms/cli-authentication/v1\" target=\"_self\">authenticated</a></li>\n  <li><a href=\"https://github.com/\" target=\"_blank\">GitHub</a> access and working knowledge</li>\n</ul>\n<h2>Commands</h2>\n<p>To use the <span class=\"code\">seed</span> command, choose one of the following options to import content into your stack.</p>\n<ul>\n  <li><a href=\"#import-from-contentstack-s-github-organization\" target=\"_self\">Import from Contentstack’s GitHub Organization</a></li>\n  <li><a href=\"#import-from-a-non-contentstack-github-repository\" target=\"_self\">Import from a Non-Contentstack GitHub Repository</a></li>\n</ul>\n<p class=\"note\"><strong>Note</strong>: To upload your stack’s content to a GitHub repository for others to import, refer to the steps in the <a href=\"#upload-stack-s-content-on-github\" target=\"_self\">Upload Stack's Content on GitHub</a> section.</p>\n<h3>Import from Contentstack’s GitHub Organization</h3>\n<p>You can import content directly from Contentstack’s GitHub organization using the CLI. To begin, run the following command in your terminal:</p><pre>csdx cm:stacks:seed</pre>\n<p>After running the command, you’ll be prompted to complete the following steps:</p>\n<ul>\n  <li><strong>Stack to import</strong>: Select a stack from the list of available source stacks.</li>\n  <li><strong>Organization name</strong>: From the list of organizations you have access to, select the one where your source stack is located or where you want to create a new stack.<p class=\"note\"><strong>Note</strong>: You must be an <a href=\"/docs/administration/about-administration-roles/#organization-owner\">owner</a> or <a href=\"/docs/administration/about-administration-roles/#organization-admin\">admin</a> of the selected organization.</p>\n  </li>\n  <li><strong>Stack preference</strong>: You’ll be prompted to choose one of the following options.<ul>\n      <li><strong>Create a new stack</strong>: Enter a name, and the CLI will begin the stack creation process.</li>\n      <li><strong>Use an existing stack</strong>: Select a destination stack from the list of stacks you have access to within the selected organization. If the selected stack contains existing content, the CLI will prompt you to confirm before continuing.<p class=\"add-resource\"><strong>Additional resource</strong>: Refer to the <a href=\"/docs/headless-cms/types-of-roles\">Stack Roles</a> documentation to learn more about permissions.</p>\n      </li>\n    </ul>\n  </li>\n</ul>\n<p class=\"tip\"><strong>Tip:</strong> To minimize errors, we recommend creating a new destination stack. If importing content into an existing stack, ensure that it is empty.</p>\n<p>The content will be imported into the selected destination stack.</p>\n<h3>Import from a Non-Contentstack GitHub Repository</h3>\n<p>You can import content from your GitHub repository into your stack using this option. Before doing so, ensure your GitHub repository contains the content. To upload content, follow the steps in the <a href=\"#upload-stack-s-content-on-github\">Upload Stack’s Content on GitHub</a> section.</p>\n<p class=\"note\"><strong>Note</strong>: The GitHub repository must be public.</p>\n<p>To import content, run the following <span class=\"code\">seed</span> command:</p><pre>csdx cm:stacks:seed --repo “&lt;account/repository&gt;”</pre>\n<p>After running this command, you’ll be prompted to select an organization and a stack, as described in the <a href=\"#import-from-contentstack-s-github-organization\">Import from Contentstack’s GitHub Organization</a> section.</p>\n<p>Alternatively, you can run the command with all required parameters in a single line.</p>\n<p><strong>Options:</strong></p>\n<ul>\n  <li><span class=\"code\">-r</span>, <span class=\"code\">--repo=repo</span>: GitHub organization name or GitHub user name/repository name.</li>\n  <li><span class=\"code\">-k</span>, <span class=\"code\">--stack-api-key=stack-api-key</span>: Provide the stack API key to seed content to.</li>\n  <li><span class=\"code\">-o</span>, <span class=\"code\">--org=org</span>: Provide the organization UID to create a new stack.<br /></li>\n  <li><span class=\"code\">-n</span>, <span class=\"code\">--stack-name=stack-name</span>: Provide the name of the new stack that must be created.</li>\n  <li><span class=\"code\">-a</span>, <span class=\"code\">--alias=alias</span>: Alias of the management token.</li>\n  <li><span class=\"code\">-s</span>, <span class=\"code\">--stack=stack</span>: Provide the stack UID to seed content.</li>\n  <li><span class=\"code\">-y</span>, <span class=\"code\">--yes=yes</span>: [Optional] Skip the stack confirmation.</li>\n</ul>\n<p><strong>Examples</strong>:</p>\n<ul>\n  <li>To import content from the \"blog\" repository in the \"Stackcontent\" organization, run:<pre>csdx cm:stacks:seed --repo \"Stackcontent/blog\"</pre>\n  </li>\n  <li>To import content from a personal GitHub repository, replace the organization name with your GitHub username:<pre>csdx cm:stacks:seed --repo \"username/blog\"</pre>\n  </li>\n  <li>\n    <p>To import content into a specific stack, run:</p><pre>csdx cm:stacks:seed --repo \"&lt;account/repository&gt;\" -k \"&lt;stack-api-key&gt;\"\n</pre>\n  </li>\n  <li>\n    <p>To create a new stack in your organization and import content, use:</p><pre>csdx cm:stacks:seed --repo \"&lt;account/repository&gt;\" --org \"&lt;org-uid&gt;\" -n \"&lt;stack-name&gt;\"</pre>\n    <p>This command creates a new stack in your organization and imports the content into it.</p>\n  </li>\n</ul>\n<h2>Upload Stack’s Content on GitHub</h2>\n<p>Before uploading your stack’s content to GitHub, export it using the following steps.</p>\n<ol>\n  <li>Create a public repository in this format: <span class=\"code\">stack-&lt;name&gt;</span>. For example, <span class=\"code\">stack-exportdata</span>, <span class=\"code\">stack-gatsby-website</span>, etc.</li>\n  <li>On your local machine, create a folder named “stack”.</li>\n  <li>Open your terminal and log in to the CLI:<pre>csdx auth:login</pre>This command prompts you to provide your Contentstack account credentials.</li>\n  <li>After successful login, export your stack’s content to the&nbsp;<span class=\"code\">stack</span>&nbsp;folder:<pre>csdx cm:stacks:export -k &lt;stack_ApiKey&gt; -d “&lt;path_to_store_content&gt;”</pre>\n    <p class=\"note\"><strong>Note</strong>: If the management token is not specified, the <span class=\"code\">export</span> command uses <strong>Auth token</strong> by default.</p>This command exports your stack’s content and saves it to the&nbsp;<span class=\"code\">stack</span>&nbsp;folder.\n  </li>\n  <li>Open Git Bash and follow <a rel=\"noreferrer\" href=\"https://docs.github.com/en/github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line\" target=\"_blank\">GitHub’s documentation</a> to upload the&nbsp;<span class=\"code\">stack</span>&nbsp;folder to your repository.<p class=\"add-resource\"><strong>Additional Resource:</strong> Refer to this <a rel=\"noreferrer\" href=\"https://github.com/contentstack/stack-starter-app\" target=\"_blank\">sample repository</a> in Contentstack's GitHub organization to learn the folder structure for uploading content.</p>\n    <p class=\"note\"><strong>Note:&nbsp;</strong>To avoid the following error, create a GitHub release before importing content.<br /><span class=\"code\">Error: Unable to find a release for '&lt;account&gt;/&lt;repository&gt;'</span></p>\n  </li>\n</ol>\n<p>Now any user can import your stack’s content to their stack by performing the steps mentioned in the <a href=\"#import-from-a-non-contentstack-github-repository\" target=\"_self\">Import from a Non-Contentstack GitHub Repository</a> section.</p>\n<h2>Points to Remember</h2>\n<ul>\n  <li>To import content into an existing destination stack, ensure you have permission to create content in that stack.</li>\n  <li>To create a new stack for storing content, you must have “<a href=\"/docs/administration/about-administration-roles#organization-owner\">owner</a>” or “<a href=\"/docs/administration/about-administration-roles#organization-admin\">admin</a>” rights in that organization.</li>\n</ul>"
+      }
+    }
+  ],
+  "related_articles": [
+    {
+      "referenced_articles": {
+        "heading": "",
+        "_metadata": {
+          "uid": "cs5472ce599926d74e"
+        },
+        "articles": [
+          {
+            "uid": "blt0d456863285185da",
+            "_content_type_uid": "more_articles"
+          }
+        ]
+      }
+    }
+  ],
+  "next_and_prev_links": {
+    "next_link": {
+      "title": "",
+      "href": ""
+    },
+    "prev_link": {
+      "title": "",
+      "href": ""
+    }
+  },
+  "seo": {
+    "title": "Import Content Using the Seed Command | V1.x.x | Contentstack",
+    "image": null,
+    "description": "Learn how to import content to your stack using the seed command in CLI from GitHub repositories or Contentstack’s organization.",
+    "robots": ""
+  },
+  "tags": [],
+  "uid": "bltd980d5d1a241b442",
+  "created_by": "blta3007b105b17e5d8",
+  "updated_by": "blt8e5689a3647afd22",
+  "created_at": "2022-12-17T08:41:27.899Z",
+  "updated_at": "2026-08-05T12:50:54.757Z",
+  "_version": 35,
+  "_in_progress": false,
+  "md_content": "",
+  "publish_details": [
+    {
+      "environment": "blt4a008c3cde35b0c2",
+      "locale": "en-us",
+      "time": "2026-08-05T12:50:55.818Z",
+      "user": "blt8e5689a3647afd22",
+      "version": 35
+    },
+    {
+      "environment": "blt92ab7d24e8c52483",
+      "locale": "en-us",
+      "time": "2026-08-05T12:50:55.818Z",
+      "user": "blt8e5689a3647afd22",
+      "version": 35
+    },
+    {
+      "environment": "bltfe8376c13fe85b9c",
+      "locale": "en-us",
+      "time": "2026-08-13T09:55:59.677Z",
+      "user": "blt346b73255381ad74",
+      "version": 35
+    },
+    {
+      "environment": "blt18d21c1c300e766f",
+      "locale": "en-us",
+      "time": "2026-04-10T07:28:47.140Z",
+      "user": "blt3cf27864e6b61df3",
+      "version": 30
+    }
+  ]
+}

@@ -1,892 +1,1009 @@
 {
   "stack_api_key": "blt2d43f51baca745a8",
   "content_type": "docs_article",
-  "environment": "production",
-  "environment_uid": "bltfe8376c13fe85b9c",
   "locale": "en-us",
-  "cli_navigation_uid": "bltef82f5fd1a4eab6e",
-  "total": 73,
-  "counts": {
-    "GA": 43,
-    "Beta": 18,
-    "old": 12
-  },
+  "cli_root_uid": "bltd697fa2bc1e38b53",
+  "total": 92,
   "entries": [
     {
-      "url": "/headless-cms/apps-cli-plugin/v1",
-      "uid": "bltcfd09427012100cd",
-      "title": "[Contentstack Command-line Interface (CLI)] - Apps CLI Plugin | V1.x.x",
-      "bucket": "GA",
-      "slug": "apps-cli-plugin",
-      "production_version": 30,
-      "latest_version": 30,
-      "published_at": "2026-07-22T12:57:18.900Z",
-      "json": "GA/apps-cli-plugin.json",
-      "markdown": "GA/apps-cli-plugin.md"
+      "uid": "blt91a20a3ff7b6e05d",
+      "title": "[Contentstack Command-line Interface (CLI)] - Install the CLI | V2.x.x",
+      "folder": [
+        "Version 2.x.x",
+        "Get Started with CLI V2"
+      ],
+      "url": "/headless-cms/install-the-cli",
+      "json": "Version 2.x.x/Get Started with CLI V2/Install the CLI | V2.x.x.json",
+      "markdown": "Version 2.x.x/Get Started with CLI V2/Install the CLI | V2.x.x.md"
     },
     {
-      "url": "/headless-cms/bulk-operations-in-cli",
-      "uid": "blt85d9deae08de968d",
-      "title": "[Contentstack Command-line Interface (CLI)] - Bulk Operations in CLI | V2.x.x",
-      "bucket": "Beta",
-      "slug": "bulk-operations-in-cli",
-      "production_version": 6,
-      "latest_version": 7,
-      "published_at": "2026-07-27T06:56:55.567Z",
-      "json": "Beta/bulk-operations-in-cli.json",
-      "markdown": "Beta/bulk-operations-in-cli.md"
-    },
-    {
-      "url": "/headless-cms/bulk-operations-in-cli/v1",
-      "uid": "blt2a4723e44d15237a",
-      "title": "[Contentstack Command-line Interface (CLI)] - Bulk Operations in CLI | V1.x.x",
-      "bucket": "GA",
-      "slug": "bulk-operations-in-cli",
-      "production_version": 37,
-      "latest_version": 38,
-      "published_at": "2026-07-27T06:56:24.150Z",
-      "json": "GA/bulk-operations-in-cli.json",
-      "markdown": "GA/bulk-operations-in-cli.md"
-    },
-    {
-      "url": "/headless-cms/cli-audit-plugin",
-      "uid": "bltf6e6f0af0665ce7f",
-      "title": "[Contentstack Command-line Interface (CLI)] - Audit Plugin | V2.x.x",
-      "bucket": "Beta",
-      "slug": "cli-audit-plugin",
-      "production_version": 18,
-      "latest_version": 18,
-      "published_at": "2026-07-22T12:57:30.500Z",
-      "json": "Beta/cli-audit-plugin.json",
-      "markdown": "Beta/cli-audit-plugin.md"
-    },
-    {
-      "url": "/headless-cms/cli-audit-plugin/v1",
-      "uid": "blt5bf8ffa6d7788728",
-      "title": "[Contentstack Command-line Interface (CLI)] - Audit Plugin | V1.x.x",
-      "bucket": "GA",
-      "slug": "cli-audit-plugin",
-      "production_version": 45,
-      "latest_version": 45,
-      "published_at": "2026-07-22T12:56:41.755Z",
-      "json": "GA/cli-audit-plugin.json",
-      "markdown": "GA/cli-audit-plugin.md"
-    },
-    {
-      "url": "/headless-cms/cli-authentication",
-      "uid": "blt4617ed0b5e1c23f4",
-      "title": "[Contentstack Command-line Interface (CLI)] - CLI Authentication and Adding Tokens | V2.x.x",
-      "bucket": "Beta",
-      "slug": "cli-authentication",
-      "production_version": 11,
-      "latest_version": 11,
-      "published_at": "2026-07-22T12:56:34.748Z",
-      "json": "Beta/cli-authentication.json",
-      "markdown": "Beta/cli-authentication.md"
-    },
-    {
-      "url": "/headless-cms/cli-authentication/v0",
-      "uid": "bltb29a84507c788306",
-      "title": "[Contentstack Command-line Interface (CLI)] - CLI Authentication and Adding Tokens | V0.x.x",
-      "bucket": "old",
-      "slug": "cli-authentication",
-      "production_version": 13,
-      "latest_version": 13,
-      "published_at": "2026-07-24T11:57:42.911Z",
-      "json": "old/cli-authentication.json",
-      "markdown": "old/cli-authentication.md"
-    },
-    {
-      "url": "/headless-cms/cli-authentication/v1",
-      "uid": "blt372f35bf931194f0",
-      "title": "[Contentstack Command-line Interface (CLI)] - CLI Authentication and Adding Tokens | V1.x.x",
-      "bucket": "GA",
-      "slug": "cli-authentication",
-      "production_version": 43,
-      "latest_version": 43,
-      "published_at": "2026-07-22T12:56:29.998Z",
-      "json": "GA/cli-authentication.json",
-      "markdown": "GA/cli-authentication.md"
-    },
-    {
-      "url": "/headless-cms/cli-bootstrap-starter-apps",
-      "uid": "bltc0036c8ffee6ddd5",
-      "title": "[Contentstack Command-line Interface (CLI)] - Bootstrap Starter Apps | V2.x.x",
-      "bucket": "Beta",
-      "slug": "cli-bootstrap-starter-apps",
-      "production_version": 12,
-      "latest_version": 12,
-      "published_at": "2026-07-23T09:50:12.299Z",
-      "json": "Beta/cli-bootstrap-starter-apps.json",
-      "markdown": "Beta/cli-bootstrap-starter-apps.md"
-    },
-    {
-      "url": "/headless-cms/cli-bootstrap-starter-apps/v0",
-      "uid": "bltc569502a4237c38f",
-      "title": "[Contentstack Command-line Interface (CLI)] - Bootstrap Starter Apps | V0.x.x",
-      "bucket": "old",
-      "slug": "cli-bootstrap-starter-apps",
-      "production_version": 17,
-      "latest_version": 17,
-      "published_at": "2026-07-24T11:50:43.153Z",
-      "json": "old/cli-bootstrap-starter-apps.json",
-      "markdown": "old/cli-bootstrap-starter-apps.md"
-    },
-    {
-      "url": "/headless-cms/cli-bootstrap-starter-apps/v1",
-      "uid": "blt9da47fd57e3fd92e",
-      "title": "[Contentstack Command-line Interface (CLI)] - Bootstrap Starter Apps | V1.x.x",
-      "bucket": "GA",
-      "slug": "cli-bootstrap-starter-apps",
-      "production_version": 82,
-      "latest_version": 82,
-      "published_at": "2026-07-23T09:50:30.694Z",
-      "json": "GA/cli-bootstrap-starter-apps.json",
-      "markdown": "GA/cli-bootstrap-starter-apps.md"
-    },
-    {
-      "url": "/headless-cms/cli-branches-migration-use-cases/v0",
-      "uid": "bltb8dd8dab38ffc4c1",
-      "title": "[Contentstack Command-line Interface (CLI)] - Branches | Migration Use Cases | V0.x.x",
-      "bucket": "old",
-      "slug": "cli-branches-migration-use-cases",
-      "production_version": 11,
-      "latest_version": 11,
-      "published_at": "2026-07-27T04:18:44.662Z",
-      "json": "old/cli-branches-migration-use-cases.json",
-      "markdown": "old/cli-branches-migration-use-cases.md"
-    },
-    {
-      "url": "/headless-cms/cli-branches-migration-use-cases/v1",
-      "uid": "bltd48fe0ffb5cf8b08",
-      "title": "[Contentstack Command-line Interface (CLI)] - Branches | Migration Use Cases | V1.x.x",
-      "bucket": "GA",
-      "slug": "cli-branches-migration-use-cases",
-      "production_version": 10,
-      "latest_version": 10,
-      "published_at": "2026-07-22T12:57:20.804Z",
-      "json": "GA/cli-branches-migration-use-cases.json",
-      "markdown": "GA/cli-branches-migration-use-cases.md"
-    },
-    {
-      "url": "/headless-cms/cli-bulk-publish-and-unpublish-content/v0",
-      "uid": "blt7cd9c7438ee7322e",
-      "title": "[Contentstack Command-line Interface (CLI)] - Bulk Publish and Unpublish Content | V0.x.x",
-      "bucket": "old",
-      "slug": "cli-bulk-publish-and-unpublish-content",
-      "production_version": 17,
-      "latest_version": 17,
-      "published_at": "2026-07-24T11:50:42.891Z",
-      "json": "old/cli-bulk-publish-and-unpublish-content.json",
-      "markdown": "old/cli-bulk-publish-and-unpublish-content.md"
-    },
-    {
-      "url": "/headless-cms/cli-bulk-publish-and-unpublish-content/v1",
-      "uid": "blt804647818d4181f9",
-      "title": "[Contentstack Command-line Interface (CLI)] - Bulk Publish and Unpublish Content | V1.x.x",
-      "bucket": "GA",
-      "slug": "cli-bulk-publish-and-unpublish-content",
-      "production_version": 35,
-      "latest_version": 35,
-      "published_at": "2026-07-22T12:56:53.225Z",
-      "json": "GA/cli-bulk-publish-and-unpublish-content.json",
-      "markdown": "GA/cli-bulk-publish-and-unpublish-content.md"
-    },
-    {
-      "url": "/headless-cms/cli-change-master-locale/v1",
-      "uid": "blt278785a9d6da5074",
-      "title": "[Contentstack Command-line Interface (CLI)] - Change Master Locale | V1.x.x",
-      "bucket": "GA",
-      "slug": "cli-change-master-locale",
-      "production_version": 14,
-      "latest_version": 14,
-      "published_at": "2026-07-22T12:56:23.733Z",
-      "json": "GA/cli-change-master-locale.json",
-      "markdown": "GA/cli-change-master-locale.md"
-    },
-    {
-      "url": "/headless-cms/cli-cloning-a-stack",
-      "uid": "bltb61fca77fed848a6",
-      "title": "[Contentstack Command-line Interface (CLI)] - Cloning a Stack | V2.x.x",
-      "bucket": "Beta",
-      "slug": "cli-cloning-a-stack",
-      "production_version": 11,
-      "latest_version": 11,
-      "published_at": "2026-07-22T12:57:09.543Z",
-      "json": "Beta/cli-cloning-a-stack.json",
-      "markdown": "Beta/cli-cloning-a-stack.md"
-    },
-    {
-      "url": "/headless-cms/cli-cloning-a-stack/v0",
-      "uid": "bltee9040b2a40f7437",
-      "title": "[Contentstack Command-line Interface (CLI)] - Cloning a Stack | V0.x.x",
-      "bucket": "old",
-      "slug": "cli-cloning-a-stack",
-      "production_version": 13,
-      "latest_version": 13,
-      "published_at": "2026-07-24T11:50:43.263Z",
-      "json": "old/cli-cloning-a-stack.json",
-      "markdown": "old/cli-cloning-a-stack.md"
-    },
-    {
-      "url": "/headless-cms/cli-cloning-a-stack/v1",
-      "uid": "bltf1f565bcdf7e63cd",
-      "title": "[Contentstack Command-line Interface (CLI)] - Cloning a Stack | V1.x.x",
-      "bucket": "GA",
-      "slug": "cli-cloning-a-stack",
-      "production_version": 39,
-      "latest_version": 39,
-      "published_at": "2026-07-22T12:57:28.050Z",
-      "json": "GA/cli-cloning-a-stack.json",
-      "markdown": "GA/cli-cloning-a-stack.md"
-    },
-    {
-      "url": "/headless-cms/cli-content-type-plugin",
-      "uid": "blt8012fa025c919ece",
-      "title": "[Command Line Interface] - Content Type Plugin | V2.x.x",
-      "bucket": "Beta",
-      "slug": "cli-content-type-plugin",
-      "production_version": 3,
-      "latest_version": 4,
-      "published_at": "2026-08-05T06:13:42.049Z",
-      "json": "Beta/cli-content-type-plugin.json",
-      "markdown": "Beta/cli-content-type-plugin.md"
-    },
-    {
-      "url": "/headless-cms/cli-content-type-plugin/v1",
-      "uid": "bltb2268be653f55338",
-      "title": "[Command Line Interface] - Content Type Plugin | V1.x.x",
-      "bucket": "GA",
-      "slug": "cli-content-type-plugin",
-      "production_version": 6,
-      "latest_version": 6,
-      "published_at": "2026-07-27T15:31:32.028Z",
-      "json": "GA/cli-content-type-plugin.json",
-      "markdown": "GA/cli-content-type-plugin.md"
-    },
-    {
-      "url": "/headless-cms/cli-entry-migration/v1",
-      "uid": "blt844ebc9ef2c5bf61",
-      "title": "[Contentstack Command-line Interface (CLI)] - Entry Migration | V1.x.x",
-      "bucket": "GA",
-      "slug": "cli-entry-migration",
-      "production_version": 25,
-      "latest_version": 25,
-      "published_at": "2026-07-20T18:55:42.406Z",
-      "json": "GA/cli-entry-migration.json",
-      "markdown": "GA/cli-entry-migration.md"
-    },
-    {
-      "url": "/headless-cms/cli-export-content-to-csv-file",
-      "uid": "blt25e29bfc7ef93e50",
-      "title": "[Contentstack Command-line Interface (CLI)] - Export Content to CSV File Using the CLI | V2.x.x",
-      "bucket": "Beta",
-      "slug": "cli-export-content-to-csv-file",
-      "production_version": 11,
-      "latest_version": 11,
-      "published_at": "2026-07-22T12:56:23.219Z",
-      "json": "Beta/cli-export-content-to-csv-file.json",
-      "markdown": "Beta/cli-export-content-to-csv-file.md"
-    },
-    {
-      "url": "/headless-cms/cli-export-content-to-csv-file/v0",
-      "uid": "blt0a21fe8af5279f9d",
-      "title": "[Contentstack Command-line Interface (CLI)] - Export Content to .CSV File | V0.x.x",
-      "bucket": "old",
-      "slug": "cli-export-content-to-csv-file",
-      "production_version": 12,
-      "latest_version": 12,
-      "published_at": "2026-07-24T11:50:42.756Z",
-      "json": "old/cli-export-content-to-csv-file.json",
-      "markdown": "old/cli-export-content-to-csv-file.md"
-    },
-    {
-      "url": "/headless-cms/cli-export-content-to-csv-file/v1",
-      "uid": "blt64c4e01079d2e7c2",
-      "title": "[Contentstack Command-line Interface (CLI)] - Export Content to CSV File Using the CLI | V1.x.x",
-      "bucket": "GA",
-      "slug": "cli-export-content-to-csv-file",
-      "production_version": 55,
-      "latest_version": 55,
-      "published_at": "2026-07-22T12:56:44.094Z",
-      "json": "GA/cli-export-content-to-csv-file.json",
-      "markdown": "GA/cli-export-content-to-csv-file.md"
-    },
-    {
-      "url": "/headless-cms/cli-for-cs-assets/v1",
-      "uid": "blt642ce07c5edd5f56",
-      "title": "[Contentstack Command-line Interface (CLI)] - CLI for CS Assets | V1.x.x",
-      "bucket": "GA",
-      "slug": "cli-for-cs-assets",
-      "production_version": 12,
-      "latest_version": 12,
-      "published_at": "2026-07-22T12:56:42.775Z",
-      "json": "GA/cli-for-cs-assets.json",
-      "markdown": "GA/cli-for-cs-assets.md"
-    },
-    {
-      "url": "/headless-cms/cli-for-launch/v1",
-      "uid": "bltff3041eae16be17d",
-      "title": "[Contentstack Command-line Interface (CLI)] - CLI for Launch | V1.x.x",
-      "bucket": "GA",
-      "slug": "cli-for-launch",
-      "production_version": 77,
-      "latest_version": 77,
-      "published_at": "2026-07-24T04:10:21.747Z",
-      "json": "GA/cli-for-launch.json",
-      "markdown": "GA/cli-for-launch.md"
-    },
-    {
-      "url": "/headless-cms/cli-import-content-using-the-seed-command",
-      "uid": "blt9f703f1d6c0405d9",
-      "title": "[Contentstack Command-line Interface (CLI)] - Import Content Using the Seed Command | V2.x.x",
-      "bucket": "Beta",
-      "slug": "cli-import-content-using-the-seed-command",
-      "production_version": 12,
-      "latest_version": 12,
-      "published_at": "2026-07-22T12:57:03.311Z",
-      "json": "Beta/cli-import-content-using-the-seed-command.json",
-      "markdown": "Beta/cli-import-content-using-the-seed-command.md"
-    },
-    {
-      "url": "/headless-cms/cli-import-content-using-the-seed-command/v0",
-      "uid": "blt78f6b7d84156806f",
-      "title": "[Contentstack Command-line Interface (CLI)] - Import Content using the Seed Command | V0.x.x",
-      "bucket": "old",
-      "slug": "cli-import-content-using-the-seed-command",
-      "production_version": 13,
-      "latest_version": 13,
-      "published_at": "2026-07-24T11:50:42.811Z",
-      "json": "old/cli-import-content-using-the-seed-command.json",
-      "markdown": "old/cli-import-content-using-the-seed-command.md"
-    },
-    {
-      "url": "/headless-cms/cli-import-content-using-the-seed-command/v1",
-      "uid": "bltd980d5d1a241b442",
-      "title": "[Contentstack Command-line Interface (CLI)] - Import Content Using the Seed Command | V1.x.x",
-      "bucket": "GA",
-      "slug": "cli-import-content-using-the-seed-command",
-      "production_version": 34,
-      "latest_version": 34,
-      "published_at": "2026-07-22T12:57:21.475Z",
-      "json": "GA/cli-import-content-using-the-seed-command.json",
-      "markdown": "GA/cli-import-content-using-the-seed-command.md"
-    },
-    {
-      "url": "/headless-cms/cli-limitations/v1",
-      "uid": "blt74918691c8a465c1",
-      "title": "[Contentstack Command-line Interface (CLI)] - CLI Limitations | V1.x.x",
-      "bucket": "GA",
-      "slug": "cli-limitations",
-      "production_version": 26,
-      "latest_version": 26,
-      "published_at": "2026-07-08T10:54:15.113Z",
-      "json": "GA/cli-limitations.json",
-      "markdown": "GA/cli-limitations.md"
-    },
-    {
-      "url": "/headless-cms/cli-migrate-and-overwrite-content-in-the-same-stack/v1",
-      "uid": "blt229455bbe1e19fa9",
-      "title": "[Contentstack Command-line Interface (CLI)] - Migrate and Overwrite Content in the Same Stack | V1.x.x",
-      "bucket": "GA",
-      "slug": "cli-migrate-and-overwrite-content-in-the-same-stack",
-      "production_version": 10,
-      "latest_version": 10,
-      "published_at": "2026-07-22T12:56:21.307Z",
-      "json": "GA/cli-migrate-and-overwrite-content-in-the-same-stack.json",
-      "markdown": "GA/cli-migrate-and-overwrite-content-in-the-same-stack.md"
-    },
-    {
-      "url": "/headless-cms/cli-migrate-content-from-html-rte-to-json-rte/v0",
-      "uid": "bltcddcfb50d44a61db",
-      "title": "[Contentstack Command-line Interface (CLI)] - Migrate Content from HTML RTE to JSON RTE | V0.x.x",
-      "bucket": "old",
-      "slug": "cli-migrate-content-from-html-rte-to-json-rte",
-      "production_version": 21,
-      "latest_version": 21,
-      "published_at": "2026-07-24T11:50:43.210Z",
-      "json": "old/cli-migrate-content-from-html-rte-to-json-rte.json",
-      "markdown": "old/cli-migrate-content-from-html-rte-to-json-rte.md"
-    },
-    {
-      "url": "/headless-cms/cli-migrate-content-from-html-rte-to-json-rte/v1",
-      "uid": "bltd423e81420316dfd",
-      "title": "[CLI] - Migrate Content from HTML RTE to JSON RTE using CLI | V1.x.x",
-      "bucket": "GA",
-      "slug": "cli-migrate-content-from-html-rte-to-json-rte",
-      "production_version": 53,
-      "latest_version": 53,
-      "published_at": "2026-07-22T12:57:20.712Z",
-      "json": "GA/cli-migrate-content-from-html-rte-to-json-rte.json",
-      "markdown": "GA/cli-migrate-content-from-html-rte-to-json-rte.md"
-    },
-    {
-      "url": "/headless-cms/cli-migrate-selected-content-types-using-the-query-export-plugin/v1",
-      "uid": "blt3168251b46327602",
-      "title": "[Contentstack Command-line Interface (CLI)] - Migrate Selected Content Using the Query Export Plugin | V1.x.x",
-      "bucket": "GA",
-      "slug": "cli-migrate-selected-content-types-using-the-query-export-plugin",
-      "production_version": 5,
-      "latest_version": 6,
-      "published_at": "2026-06-17T09:18:22.723Z",
-      "json": "GA/cli-migrate-selected-content-types-using-the-query-export-plugin.json",
-      "markdown": "GA/cli-migrate-selected-content-types-using-the-query-export-plugin.md"
-    },
-    {
-      "url": "/headless-cms/cli-query-based-export/v1",
-      "uid": "blt7b3284729d3494f0",
-      "title": "[Contentstack Command-line Interface (CLI)] - Query-based Export | V1.x.x",
-      "bucket": "GA",
-      "slug": "cli-query-based-export",
-      "production_version": 27,
-      "latest_version": 27,
-      "published_at": "2026-07-22T12:56:51.244Z",
-      "json": "GA/cli-query-based-export.json",
-      "markdown": "GA/cli-query-based-export.md"
-    },
-    {
-      "url": "/headless-cms/cli-regex-validate-plugin",
-      "uid": "blt50c45d9983b508a7",
-      "title": "[Command Line Interface] - Regex Validate Plugin | V2.x.x",
-      "bucket": "Beta",
-      "slug": "cli-regex-validate-plugin",
-      "production_version": 1,
-      "latest_version": 2,
-      "published_at": "2026-07-27T15:31:31.991Z",
-      "json": "Beta/cli-regex-validate-plugin.json",
-      "markdown": "Beta/cli-regex-validate-plugin.md"
-    },
-    {
-      "url": "/headless-cms/cli-regex-validate-plugin/v1",
-      "uid": "blt33b42b2ce32f4cb4",
-      "title": "[Command Line Interface] - Regex Validate Plugin | V1.x.x",
-      "bucket": "GA",
-      "slug": "cli-regex-validate-plugin",
-      "production_version": 8,
-      "latest_version": 8,
-      "published_at": "2026-07-27T15:31:31.967Z",
-      "json": "GA/cli-regex-validate-plugin.json",
-      "markdown": "GA/cli-regex-validate-plugin.md"
-    },
-    {
-      "url": "/headless-cms/cli-supported-features-for-export-import-and-clone-operations/v1",
-      "uid": "blte46be17c7b0eacde",
-      "title": "[Contentstack Command-line Interface (CLI)] - CLI-Supported Features for Export, Import, and Clone Operations | V1.x.x",
-      "bucket": "GA",
-      "slug": "cli-supported-features-for-export-import-and-clone-operations",
-      "production_version": 23,
-      "latest_version": 23,
-      "published_at": "2026-07-22T12:57:23.831Z",
-      "json": "GA/cli-supported-features-for-export-import-and-clone-operations.json",
-      "markdown": "GA/cli-supported-features-for-export-import-and-clone-operations.md"
-    },
-    {
-      "url": "/headless-cms/cli-taxonomy-migration/v1",
-      "uid": "blt2a6acf45012c79f3",
-      "title": "[Contentstack Command-line Interface (CLI)] - Taxonomy Migration | V1.x.x",
-      "bucket": "GA",
-      "slug": "cli-taxonomy-migration",
-      "production_version": 25,
-      "latest_version": 25,
-      "published_at": "2026-07-20T18:55:27.091Z",
-      "json": "GA/cli-taxonomy-migration.json",
-      "markdown": "GA/cli-taxonomy-migration.md"
-    },
-    {
-      "url": "/headless-cms/cli-tsgen-plugin/v1",
-      "uid": "bltcc14ad6c062c9a82",
-      "title": "[Contentstack Command-line Interface (CLI)] - Generate Typescript Typings with TSGen Plugin | V1.x.x",
-      "bucket": "GA",
-      "slug": "cli-tsgen-plugin",
-      "production_version": 32,
-      "latest_version": 32,
-      "published_at": "2026-07-22T12:57:18.446Z",
-      "json": "GA/cli-tsgen-plugin.json",
-      "markdown": "GA/cli-tsgen-plugin.md"
-    },
-    {
-      "url": "/headless-cms/cli-update-missing-reference-uids/v1",
-      "uid": "blt3afca0a8bf912f83",
-      "title": "[Contentstack Command-line Interface (CLI)] - Update Missing Reference UIDs for Entries, Assets, and Extensions | V1.x.x",
-      "bucket": "GA",
-      "slug": "cli-update-missing-reference-uids",
-      "production_version": 8,
-      "latest_version": 8,
-      "published_at": "2026-07-22T12:56:31.190Z",
-      "json": "GA/cli-update-missing-reference-uids.json",
-      "markdown": "GA/cli-update-missing-reference-uids.md"
-    },
-    {
-      "url": "/headless-cms/cli-useful-plugins/v1",
-      "uid": "bltb4d51965b514f7c6",
-      "title": "[Contentstack Command-line Interface (CLI)] - Useful Plugins | V1.x.x",
-      "bucket": "GA",
-      "slug": "cli-useful-plugins",
-      "production_version": 6,
-      "latest_version": 6,
-      "published_at": "2026-07-06T09:42:17.707Z",
-      "json": "GA/cli-useful-plugins.json",
-      "markdown": "GA/cli-useful-plugins.md"
-    },
-    {
-      "url": "/headless-cms/compare-and-merge-branches-using-the-cli",
-      "uid": "blt1f5e428e3a8d3734",
-      "title": "[Contentstack Command-line Interface (CLI)] - Compare and Merge Branches Using the CLI | V2.x.x",
-      "bucket": "Beta",
-      "slug": "compare-and-merge-branches-using-the-cli",
-      "production_version": 11,
-      "latest_version": 11,
-      "published_at": "2026-07-22T12:56:20.706Z",
-      "json": "Beta/compare-and-merge-branches-using-the-cli.json",
-      "markdown": "Beta/compare-and-merge-branches-using-the-cli.md"
-    },
-    {
-      "url": "/headless-cms/compare-and-merge-branches-using-the-cli/v1",
-      "uid": "blt12dd3cd4c0194061",
-      "title": "[Contentstack Command-line Interface (CLI)] - Compare and Merge Branches Using the CLI | V1.x.x",
-      "bucket": "GA",
-      "slug": "compare-and-merge-branches-using-the-cli",
-      "production_version": 56,
-      "latest_version": 56,
-      "published_at": "2026-07-22T12:56:16.564Z",
-      "json": "GA/compare-and-merge-branches-using-the-cli.json",
-      "markdown": "GA/compare-and-merge-branches-using-the-cli.md"
-    },
-    {
-      "url": "/headless-cms/configure-cli-logging-preferences",
-      "uid": "blt66365ee2f36e0315",
-      "title": "[Contentstack Command-line Interface (CLI)] - Configure CLI Logging Preferences | V2.x.x",
-      "bucket": "Beta",
-      "slug": "configure-cli-logging-preferences",
-      "production_version": 12,
-      "latest_version": 12,
-      "published_at": "2026-07-21T06:14:26.386Z",
-      "json": "Beta/configure-cli-logging-preferences.json",
-      "markdown": "Beta/configure-cli-logging-preferences.md"
-    },
-    {
-      "url": "/headless-cms/configure-cli-logging-preferences/v1",
-      "uid": "blta33efb37c73c3bdf",
-      "title": "[Contentstack Command-line Interface (CLI)] - Configure CLI Logging Preferences | V1.x.x",
-      "bucket": "GA",
-      "slug": "configure-cli-logging-preferences",
-      "production_version": 7,
-      "latest_version": 7,
-      "published_at": "2026-07-20T18:55:47.296Z",
-      "json": "GA/configure-cli-logging-preferences.json",
-      "markdown": "GA/configure-cli-logging-preferences.md"
-    },
-    {
-      "url": "/headless-cms/configure-early-access-program-in-the-cli",
-      "uid": "blt275d7d8eb02308f3",
-      "title": "[Contentstack Command-line Interface (CLI)] - Configure Early Access in the CLI | V2.x.x",
-      "bucket": "Beta",
-      "slug": "configure-early-access-program-in-the-cli",
-      "production_version": 9,
-      "latest_version": 9,
-      "published_at": "2026-07-21T06:14:19.440Z",
-      "json": "Beta/configure-early-access-program-in-the-cli.json",
-      "markdown": "Beta/configure-early-access-program-in-the-cli.md"
-    },
-    {
-      "url": "/headless-cms/configure-early-access-program-in-the-cli/v1",
-      "uid": "blt923027e7deb9851a",
-      "title": "[Contentstack Command-line Interface (CLI)] - Configure Early Access in the CLI | V1.x.x",
-      "bucket": "GA",
-      "slug": "configure-early-access-program-in-the-cli",
-      "production_version": 9,
-      "latest_version": 9,
-      "published_at": "2026-07-20T18:55:44.717Z",
-      "json": "GA/configure-early-access-program-in-the-cli.json",
-      "markdown": "GA/configure-early-access-program-in-the-cli.md"
-    },
-    {
-      "url": "/headless-cms/configure-mfa-secret-using-cli/v1",
-      "uid": "blt1637a00d696b0fe4",
-      "title": "[Contentstack Command-line Interface (CLI)] - Configure MFA Secret Using CLI | V1.x.x",
-      "bucket": "GA",
-      "slug": "configure-mfa-secret-using-cli",
-      "production_version": 8,
-      "latest_version": 8,
-      "published_at": "2026-07-20T18:55:24.272Z",
-      "json": "GA/configure-mfa-secret-using-cli.json",
-      "markdown": "GA/configure-mfa-secret-using-cli.md"
-    },
-    {
-      "url": "/headless-cms/configure-proxy-settings-in-cli/v1",
-      "uid": "bltd66941065e0c9244",
-      "title": "[Contentstack Command-line Interface (CLI)] - Configure Proxy Settings in CLI | V1.x.x",
-      "bucket": "GA",
-      "slug": "configure-proxy-settings-in-cli",
-      "production_version": 21,
-      "latest_version": 21,
-      "published_at": "2026-07-20T18:55:54.583Z",
-      "json": "GA/configure-proxy-settings-in-cli.json",
-      "markdown": "GA/configure-proxy-settings-in-cli.md"
-    },
-    {
-      "url": "/headless-cms/configure-rate-limits-in-the-cli",
-      "uid": "bltc7a1129f3ee45ffd",
-      "title": "[Contentstack Command-line Interface (CLI)] - Configure Rate Limits in the CLI | V2.x.x",
-      "bucket": "Beta",
-      "slug": "configure-rate-limits-in-the-cli",
-      "production_version": 10,
-      "latest_version": 10,
-      "published_at": "2026-07-20T18:55:52.161Z",
-      "json": "Beta/configure-rate-limits-in-the-cli.json",
-      "markdown": "Beta/configure-rate-limits-in-the-cli.md"
-    },
-    {
-      "url": "/headless-cms/configure-rate-limits-in-the-cli/v1",
-      "uid": "bltdb5ced1cd5ecc104",
-      "title": "[Contentstack Command-line Interface (CLI)] - Configure Rate Limits in the CLI | V1.x.x",
-      "bucket": "GA",
-      "slug": "configure-rate-limits-in-the-cli",
-      "production_version": 13,
-      "latest_version": 13,
-      "published_at": "2026-07-20T18:55:54.994Z",
-      "json": "GA/configure-rate-limits-in-the-cli.json",
-      "markdown": "GA/configure-rate-limits-in-the-cli.md"
-    },
-    {
-      "url": "/headless-cms/configure-regions-in-the-cli",
       "uid": "blt267c4988aa1389a5",
       "title": "[Contentstack Command-line Interface (CLI)] - Configure Regions in the CLI | V2.x.x",
-      "bucket": "Beta",
-      "slug": "configure-regions-in-the-cli",
-      "production_version": 12,
-      "latest_version": 12,
-      "published_at": "2026-07-22T12:56:23.403Z",
-      "json": "Beta/configure-regions-in-the-cli.json",
-      "markdown": "Beta/configure-regions-in-the-cli.md"
+      "folder": [
+        "Version 2.x.x",
+        "Get Started with CLI V2"
+      ],
+      "url": "/headless-cms/configure-regions-in-the-cli",
+      "json": "Version 2.x.x/Get Started with CLI V2/Configure Regions in the CLI | V2.x.x.json",
+      "markdown": "Version 2.x.x/Get Started with CLI V2/Configure Regions in the CLI | V2.x.x.md"
     },
     {
-      "url": "/headless-cms/configure-regions-in-the-cli/v0",
-      "uid": "bltb2a9262996cb0033",
-      "title": "[Contentstack Command-line Interface (CLI)] - Configure Regions in the CLI | V0.x.x",
-      "bucket": "old",
-      "slug": "configure-regions-in-the-cli",
-      "production_version": 12,
-      "latest_version": 12,
-      "published_at": "2026-07-24T11:50:43.046Z",
-      "json": "old/configure-regions-in-the-cli.json",
-      "markdown": "old/configure-regions-in-the-cli.md"
+      "uid": "blt4617ed0b5e1c23f4",
+      "title": "[Contentstack Command-line Interface (CLI)] - CLI Authentication and Adding Tokens | V2.x.x",
+      "folder": [
+        "Version 2.x.x",
+        "Get Started with CLI V2"
+      ],
+      "url": "/headless-cms/cli-authentication",
+      "json": "Version 2.x.x/Get Started with CLI V2/CLI Authentication and Adding Tokens | V2.x.x.json",
+      "markdown": "Version 2.x.x/Get Started with CLI V2/CLI Authentication and Adding Tokens | V2.x.x.md"
     },
     {
-      "url": "/headless-cms/configure-regions-in-the-cli/v1",
-      "uid": "bltbc6ad24437532c4f",
-      "title": "[Contentstack Command-line Interface (CLI)] - Configure Regions in the CLI | V1.x.x",
-      "bucket": "GA",
-      "slug": "configure-regions-in-the-cli",
-      "production_version": 49,
-      "latest_version": 49,
-      "published_at": "2026-07-27T09:00:55.673Z",
-      "json": "GA/configure-regions-in-the-cli.json",
-      "markdown": "GA/configure-regions-in-the-cli.md"
+      "uid": "blt05c442f72f396864",
+      "title": "[Contentstack Command-line Interface (CLI)] - Migrate from Contentstack CLI V1 to V2 | V2.x.x",
+      "folder": [
+        "Version 2.x.x",
+        "Get Started with CLI V2"
+      ],
+      "url": "/headless-cms/cli-v1-to-v2-migration-guide",
+      "json": "Version 2.x.x/Get Started with CLI V2/Migrate from Contentstack CLI V1 to V2 | V2.x.x.json",
+      "markdown": "Version 2.x.x/Get Started with CLI V2/Migrate from Contentstack CLI V1 to V2 | V2.x.x.md"
     },
     {
-      "url": "/headless-cms/contentstack-cli-configuration-reference/v1",
-      "uid": "bltc7c58ab7c7d76974",
-      "title": "[Contentstack Command-line Interface (CLI)] - Contentstack CLI Configuration Reference | V1.x.x",
-      "bucket": "GA",
-      "slug": "contentstack-cli-configuration-reference",
-      "production_version": 42,
-      "latest_version": 43,
-      "published_at": "2026-07-24T12:08:32.320Z",
-      "json": "GA/contentstack-cli-configuration-reference.json",
-      "markdown": "GA/contentstack-cli-configuration-reference.md"
-    },
-    {
-      "url": "/headless-cms/create-custom-cli-commands/v1",
-      "uid": "blt18f5edee45f9d6c2",
-      "title": "[Contentstack Command-line Interface (CLI)] - Create Custom CLI Commands | V1.x.x",
-      "bucket": "GA",
-      "slug": "create-custom-cli-commands",
-      "production_version": 9,
-      "latest_version": 9,
-      "published_at": "2026-07-20T18:55:24.461Z",
-      "json": "GA/create-custom-cli-commands.json",
-      "markdown": "GA/create-custom-cli-commands.md"
-    },
-    {
-      "url": "/headless-cms/create-custom-cli-plugins/v1",
-      "uid": "blt4f27fd89adf6b6c1",
-      "title": "[Contentstack Command-line Interface (CLI)] - Create Custom CLI Plugins for Contentstack | V1.x.x",
-      "bucket": "GA",
-      "slug": "create-custom-cli-plugins",
-      "production_version": 18,
-      "latest_version": 18,
-      "published_at": "2026-07-20T18:55:33.374Z",
-      "json": "GA/create-custom-cli-plugins.json",
-      "markdown": "GA/create-custom-cli-plugins.md"
-    },
-    {
-      "url": "/headless-cms/export-content-using-the-cli",
       "uid": "blt2fe395869b399af0",
       "title": "[Contentstack Command-line Interface (CLI)] - Export Content Using the CLI | V2.x.x",
-      "bucket": "Beta",
-      "slug": "export-content-using-the-cli",
-      "production_version": 20,
-      "latest_version": 20,
-      "published_at": "2026-07-22T12:56:27.685Z",
-      "json": "Beta/export-content-using-the-cli.json",
-      "markdown": "Beta/export-content-using-the-cli.md"
+      "folder": [
+        "Version 2.x.x",
+        "CLI Commands V2"
+      ],
+      "url": "/headless-cms/export-content-using-the-cli",
+      "json": "Version 2.x.x/CLI Commands V2/Export Content Using the CLI | V2.x.x.json",
+      "markdown": "Version 2.x.x/CLI Commands V2/Export Content Using the CLI | V2.x.x.md"
     },
     {
-      "url": "/headless-cms/export-content-using-the-cli/v0",
-      "uid": "blt88f14f6af9eca1d9",
-      "title": "[Contentstack Command-line Interface (CLI)] - Export Content using the CLI | V0.x.x",
-      "bucket": "old",
-      "slug": "export-content-using-the-cli",
-      "production_version": 20,
-      "latest_version": 20,
-      "published_at": "2026-07-27T04:18:44.629Z",
-      "json": "old/export-content-using-the-cli.json",
-      "markdown": "old/export-content-using-the-cli.md"
-    },
-    {
-      "url": "/headless-cms/export-content-using-the-cli/v1",
-      "uid": "blt878916ff618af5c2",
-      "title": "[Contentstack Command-line Interface (CLI)] - Export Content Using the CLI | V1.x.x",
-      "bucket": "GA",
-      "slug": "export-content-using-the-cli",
-      "production_version": 94,
-      "latest_version": 94,
-      "published_at": "2026-07-24T12:08:33.371Z",
-      "json": "GA/export-content-using-the-cli.json",
-      "markdown": "GA/export-content-using-the-cli.md"
-    },
-    {
-      "url": "/headless-cms/import-content-using-the-cli",
       "uid": "blt1215a1f9bbcc9900",
       "title": "[Contentstack Command-line Interface (CLI)] - Import Content Using the CLI | V2.x.x",
-      "bucket": "Beta",
-      "slug": "import-content-using-the-cli",
-      "production_version": 14,
-      "latest_version": 14,
-      "published_at": "2026-07-22T12:56:16.371Z",
-      "json": "Beta/import-content-using-the-cli.json",
-      "markdown": "Beta/import-content-using-the-cli.md"
+      "folder": [
+        "Version 2.x.x",
+        "CLI Commands V2"
+      ],
+      "url": "/headless-cms/import-content-using-the-cli",
+      "json": "Version 2.x.x/CLI Commands V2/Import Content Using the CLI | V2.x.x.json",
+      "markdown": "Version 2.x.x/CLI Commands V2/Import Content Using the CLI | V2.x.x.md"
     },
     {
-      "url": "/headless-cms/import-content-using-the-cli/v0",
-      "uid": "bltc452d443530ac981",
-      "title": "[Contentstack Command-line Interface (CLI)] - Import Content using the CLI | V0.x.x",
-      "bucket": "old",
-      "slug": "import-content-using-the-cli",
-      "production_version": 14,
-      "latest_version": 14,
-      "published_at": "2026-07-27T04:18:44.693Z",
-      "json": "old/import-content-using-the-cli.json",
-      "markdown": "old/import-content-using-the-cli.md"
+      "uid": "blt5ea38dadb4d99b6c",
+      "title": "[Contentstack Command-line Interface (CLI)] - CLI-Supported Features for Export, Import, and Clone Operations | V2.x.x",
+      "folder": [
+        "Version 2.x.x",
+        "CLI Commands V2"
+      ],
+      "url": "/headless-cms/cli-supported-features-for-export-import-and-clone-operations",
+      "json": "Version 2.x.x/CLI Commands V2/CLI-Supported Features for Export, Import, and Clone Operations | V2.x.x.json",
+      "markdown": "Version 2.x.x/CLI Commands V2/CLI-Supported Features for Export, Import, and Clone Operations | V2.x.x.md"
     },
     {
-      "url": "/headless-cms/import-content-using-the-cli/v1",
-      "uid": "blt1ee86e6419f390f8",
-      "title": "[Contentstack Command-line Interface (CLI)] - Import Content Using the CLI | V1.x.x",
-      "bucket": "GA",
-      "slug": "import-content-using-the-cli",
-      "production_version": 119,
-      "latest_version": 119,
-      "published_at": "2026-07-20T20:45:31.438Z",
-      "json": "GA/import-content-using-the-cli.json",
-      "markdown": "GA/import-content-using-the-cli.md"
-    },
-    {
-      "url": "/headless-cms/install-the-cli/v1",
-      "uid": "blt0756f65e7c6f9eed",
-      "title": "[Contentstack Command-line Interface (CLI)] - Install the CLI | V1.x.x",
-      "bucket": "GA",
-      "slug": "install-the-cli",
-      "production_version": 38,
-      "latest_version": 38,
-      "published_at": "2026-07-22T12:56:13.452Z",
-      "json": "GA/install-the-cli.json",
-      "markdown": "GA/install-the-cli.md"
-    },
-    {
-      "url": "/headless-cms/migrate-content-between-stacks-using-the-cli/v1",
-      "uid": "blt8e8d75af4f2678b0",
-      "title": "[Contentstack Command-line Interface (CLI)] - Migrate Content Between Stacks Using the CLI | V1.x.x",
-      "bucket": "GA",
-      "slug": "migrate-content-between-stacks-using-the-cli",
-      "production_version": 9,
-      "latest_version": 9,
-      "published_at": "2026-07-22T12:56:57.666Z",
-      "json": "GA/migrate-content-between-stacks-using-the-cli.json",
-      "markdown": "GA/migrate-content-between-stacks-using-the-cli.md"
-    },
-    {
-      "url": "/headless-cms/migrate-your-content-using-the-cli-migration-command",
-      "uid": "blt992979390532a894",
-      "title": "[Contentstack Command-line Interface (CLI)] - Migrate your Content using the CLI Migration Command | V2.x.x",
-      "bucket": "Beta",
-      "slug": "migrate-your-content-using-the-cli-migration-command",
-      "production_version": 10,
-      "latest_version": 10,
-      "published_at": "2026-07-21T06:14:31.755Z",
-      "json": "Beta/migrate-your-content-using-the-cli-migration-command.json",
-      "markdown": "Beta/migrate-your-content-using-the-cli-migration-command.md"
-    },
-    {
-      "url": "/headless-cms/migrate-your-content-using-the-cli-migration-command/v0",
-      "uid": "bltce91c490961bf924",
-      "title": "[Contentstack Command-line Interface (CLI)] - Migrate your Content using the CLI Migration Command | V0.x.x",
-      "bucket": "old",
-      "slug": "migrate-your-content-using-the-cli-migration-command",
-      "production_version": 16,
-      "latest_version": 16,
-      "published_at": "2026-07-27T04:18:44.782Z",
-      "json": "old/migrate-your-content-using-the-cli-migration-command.json",
-      "markdown": "old/migrate-your-content-using-the-cli-migration-command.md"
-    },
-    {
-      "url": "/headless-cms/migrate-your-content-using-the-cli-migration-command/v1",
-      "uid": "blt563cc44829432a89",
-      "title": "[Contentstack Command-line Interface (CLI)] - Migrate your Content using the CLI Migration Command | V1.x.x",
-      "bucket": "GA",
-      "slug": "migrate-your-content-using-the-cli-migration-command",
-      "production_version": 27,
-      "latest_version": 27,
-      "published_at": "2026-07-21T06:14:24.473Z",
-      "json": "GA/migrate-your-content-using-the-cli-migration-command.json",
-      "markdown": "GA/migrate-your-content-using-the-cli-migration-command.md"
-    },
-    {
-      "url": "/headless-cms/overwrite-existing-content-using-cli-import",
       "uid": "bltd28635508877b2ec",
       "title": "[Contentstack Command-line Interface (CLI)] - Overwrite Existing Content using CLI Import | V2.x.x",
-      "bucket": "Beta",
-      "slug": "overwrite-existing-content-using-cli-import",
-      "production_version": 11,
-      "latest_version": 11,
-      "published_at": "2026-07-22T12:57:20.437Z",
-      "json": "Beta/overwrite-existing-content-using-cli-import.json",
-      "markdown": "Beta/overwrite-existing-content-using-cli-import.md"
+      "folder": [
+        "Version 2.x.x",
+        "CLI Commands V2"
+      ],
+      "url": "/headless-cms/overwrite-existing-content-using-cli-import",
+      "json": "Version 2.x.x/CLI Commands V2/Overwrite Existing Content using CLI Import | V2.x.x.json",
+      "markdown": "Version 2.x.x/CLI Commands V2/Overwrite Existing Content using CLI Import | V2.x.x.md"
     },
     {
-      "url": "/headless-cms/overwrite-existing-content-using-cli-import/v1",
+      "uid": "bltb61fca77fed848a6",
+      "title": "[Contentstack Command-line Interface (CLI)] - Cloning a Stack | V2.x.x",
+      "folder": [
+        "Version 2.x.x",
+        "CLI Commands V2"
+      ],
+      "url": "/headless-cms/cli-cloning-a-stack",
+      "json": "Version 2.x.x/CLI Commands V2/Cloning a Stack | V2.x.x.json",
+      "markdown": "Version 2.x.x/CLI Commands V2/Cloning a Stack | V2.x.x.md"
+    },
+    {
+      "uid": "blt85d9deae08de968d",
+      "title": "[Contentstack Command-line Interface (CLI)] - Bulk Operations in CLI | V2.x.x",
+      "folder": [
+        "Version 2.x.x",
+        "CLI Commands V2"
+      ],
+      "url": "/headless-cms/bulk-operations-in-cli",
+      "json": "Version 2.x.x/CLI Commands V2/Bulk Operations in CLI | V2.x.x.json",
+      "markdown": "Version 2.x.x/CLI Commands V2/Bulk Operations in CLI | V2.x.x.md"
+    },
+    {
+      "uid": "blt2d8bdf2eef3c2aa7",
+      "title": "[Contentstack Command-line Interface (CLI)] - CLI for Launch | V2.x.x",
+      "folder": [
+        "Version 2.x.x",
+        "CLI Commands V2"
+      ],
+      "url": "/headless-cms/cli-for-launch",
+      "json": "Version 2.x.x/CLI Commands V2/CLI for Launch | V2.x.x.json",
+      "markdown": "Version 2.x.x/CLI Commands V2/CLI for Launch | V2.x.x.md"
+    },
+    {
+      "uid": "blt1f5e428e3a8d3734",
+      "title": "[Contentstack Command-line Interface (CLI)] - Compare and Merge Branches Using the CLI | V2.x.x",
+      "folder": [
+        "Version 2.x.x",
+        "CLI Commands V2"
+      ],
+      "url": "/headless-cms/compare-and-merge-branches-using-the-cli",
+      "json": "Version 2.x.x/CLI Commands V2/Compare and Merge Branches Using the CLI | V2.x.x.json",
+      "markdown": "Version 2.x.x/CLI Commands V2/Compare and Merge Branches Using the CLI | V2.x.x.md"
+    },
+    {
+      "uid": "blt275d7d8eb02308f3",
+      "title": "[Contentstack Command-line Interface (CLI)] - Configure Early Access in the CLI | V2.x.x",
+      "folder": [
+        "Version 2.x.x",
+        "CLI Commands V2"
+      ],
+      "url": "/headless-cms/configure-early-access-program-in-the-cli",
+      "json": "Version 2.x.x/CLI Commands V2/Configure Early Access in the CLI | V2.x.x.json",
+      "markdown": "Version 2.x.x/CLI Commands V2/Configure Early Access in the CLI | V2.x.x.md"
+    },
+    {
+      "uid": "bltf6e6f0af0665ce7f",
+      "title": "[Contentstack Command-line Interface (CLI)] - Audit Plugin | V2.x.x",
+      "folder": [
+        "Version 2.x.x",
+        "CLI Commands V2"
+      ],
+      "url": "/headless-cms/cli-audit-plugin",
+      "json": "Version 2.x.x/CLI Commands V2/Audit Plugin | V2.x.x.json",
+      "markdown": "Version 2.x.x/CLI Commands V2/Audit Plugin | V2.x.x.md"
+    },
+    {
+      "uid": "blt7b3284729d3494f0",
+      "title": "[Contentstack Command-line Interface (CLI)] - Query-based Export",
+      "folder": [
+        "Version 2.x.x",
+        "CLI Commands V2"
+      ],
+      "url": "/headless-cms/cli-query-based-export",
+      "json": "Version 2.x.x/CLI Commands V2/Query-based Export.json",
+      "markdown": "Version 2.x.x/CLI Commands V2/Query-based Export.md"
+    },
+    {
+      "uid": "blt000db18e26fa0aee",
+      "title": "[Contentstack Command-line Interface (CLI)] - Configure Proxy Settings in CLI | V2.x.x",
+      "folder": [
+        "Version 2.x.x",
+        "CLI Commands V2"
+      ],
+      "url": "/headless-cms/configure-proxy-settings-in-cli",
+      "json": "Version 2.x.x/CLI Commands V2/Configure Proxy Settings in CLI | V2.x.x.json",
+      "markdown": "Version 2.x.x/CLI Commands V2/Configure Proxy Settings in CLI | V2.x.x.md"
+    },
+    {
+      "uid": "blt8012fa025c919ece",
+      "title": "[Contentstack Command-line Interface (CLI)] - Content Type Plugin | V2.x.x",
+      "folder": [
+        "Version 2.x.x",
+        "CLI Commands V2"
+      ],
+      "url": "/headless-cms/cli-content-type-plugin",
+      "json": "Version 2.x.x/CLI Commands V2/Content Type Plugin | V2.x.x.json",
+      "markdown": "Version 2.x.x/CLI Commands V2/Content Type Plugin | V2.x.x.md"
+    },
+    {
+      "uid": "blt50c45d9983b508a7",
+      "title": "[Contentstack Command-line Interface (CLI)] - Regex Validate Plugin | V2.x.x",
+      "folder": [
+        "Version 2.x.x",
+        "CLI Commands V2"
+      ],
+      "url": "/headless-cms/cli-regex-validate-plugin",
+      "json": "Version 2.x.x/CLI Commands V2/Regex Validate Plugin | V2.x.x.json",
+      "markdown": "Version 2.x.x/CLI Commands V2/Regex Validate Plugin | V2.x.x.md"
+    },
+    {
+      "uid": "blt66365ee2f36e0315",
+      "title": "[Contentstack Command-line Interface (CLI)] - Configure CLI Logging Preferences | V2.x.x",
+      "folder": [
+        "Version 2.x.x",
+        "CLI Commands V2"
+      ],
+      "url": "/headless-cms/configure-cli-logging-preferences",
+      "json": "Version 2.x.x/CLI Commands V2/Configure CLI Logging Preferences | V2.x.x.json",
+      "markdown": "Version 2.x.x/CLI Commands V2/Configure CLI Logging Preferences | V2.x.x.md"
+    },
+    {
+      "uid": "blt25e29bfc7ef93e50",
+      "title": "[Contentstack Command-line Interface (CLI)] - Export Content to CSV File Using the CLI | V2.x.x",
+      "folder": [
+        "Version 2.x.x",
+        "Content Migration Commands V2"
+      ],
+      "url": "/headless-cms/cli-export-content-to-csv-file",
+      "json": "Version 2.x.x/Content Migration Commands V2/Export Content to CSV File Using the CLI | V2.x.x.json",
+      "markdown": "Version 2.x.x/Content Migration Commands V2/Export Content to CSV File Using the CLI | V2.x.x.md"
+    },
+    {
+      "uid": "blt9f703f1d6c0405d9",
+      "title": "[Contentstack Command-line Interface (CLI)] - Import Content Using the Seed Command | V2.x.x",
+      "folder": [
+        "Version 2.x.x",
+        "Content Migration Commands V2"
+      ],
+      "url": "/headless-cms/cli-import-content-using-the-seed-command",
+      "json": "Version 2.x.x/Content Migration Commands V2/Import Content Using the Seed Command | V2.x.x.json",
+      "markdown": "Version 2.x.x/Content Migration Commands V2/Import Content Using the Seed Command | V2.x.x.md"
+    },
+    {
+      "uid": "blt992979390532a894",
+      "title": "[Contentstack Command-line Interface (CLI)] - Migrate your Content using the CLI Migration Command | V2.x.x",
+      "folder": [
+        "Version 2.x.x",
+        "Content Migration Commands V2"
+      ],
+      "url": "/headless-cms/migrate-your-content-using-the-cli-migration-command",
+      "json": "Version 2.x.x/Content Migration Commands V2/Migrate your Content using the CLI Migration Command | V2.x.x.json",
+      "markdown": "Version 2.x.x/Content Migration Commands V2/Migrate your Content using the CLI Migration Command | V2.x.x.md"
+    },
+    {
+      "uid": "blt278785a9d6da5074",
+      "title": "[Contentstack Command-line Interface (CLI)] - Change Master Locale",
+      "folder": [
+        "Version 2.x.x",
+        "CLI Advanced Operations V2"
+      ],
+      "url": "/headless-cms/cli-change-master-locale",
+      "json": "Version 2.x.x/CLI Advanced Operations V2/Change Master Locale.json",
+      "markdown": "Version 2.x.x/CLI Advanced Operations V2/Change Master Locale.md"
+    },
+    {
+      "uid": "bltba55204ebbb83bf9",
+      "title": "[Contentstack Command-line Interface (CLI)] - Generate Typescript Typings with TSGen Plugin | V2.x.x",
+      "folder": [
+        "Version 2.x.x",
+        "CLI Advanced Operations V2"
+      ],
+      "url": "/headless-cms/cli-tsgen-plugin",
+      "json": "Version 2.x.x/CLI Advanced Operations V2/Generate Typescript Typings with TSGen Plugin | V2.x.x.json",
+      "markdown": "Version 2.x.x/CLI Advanced Operations V2/Generate Typescript Typings with TSGen Plugin | V2.x.x.md"
+    },
+    {
+      "uid": "blt66d5de60ef6a5cf1",
+      "title": "[Contentstack Command-line Interface (CLI)] - Apps CLI Plugin | V2.x.x",
+      "folder": [
+        "Version 2.x.x",
+        "CLI Advanced Operations V2"
+      ],
+      "url": "/headless-cms/apps-cli-plugin",
+      "json": "Version 2.x.x/CLI Advanced Operations V2/Apps CLI Plugin | V2.x.x.json",
+      "markdown": "Version 2.x.x/CLI Advanced Operations V2/Apps CLI Plugin | V2.x.x.md"
+    },
+    {
+      "uid": "blt53db6e60c7fc27a8",
+      "title": "[Contentstack Command-line Interface (CLI)] - Entry Migration | V2.x.x",
+      "folder": [
+        "Version 2.x.x",
+        "CLI Advanced Operations V2"
+      ],
+      "url": "/headless-cms/cli-entry-migration",
+      "json": "Version 2.x.x/CLI Advanced Operations V2/Entry Migration | V2.x.x.json",
+      "markdown": "Version 2.x.x/CLI Advanced Operations V2/Entry Migration | V2.x.x.md"
+    },
+    {
+      "uid": "blt3afca0a8bf912f83",
+      "title": "[Contentstack Command-line Interface (CLI)] - Update Missing Reference UIDs for Entries, Assets, and Extensions",
+      "folder": [
+        "Version 2.x.x",
+        "CLI Advanced Operations V2"
+      ],
+      "url": "/headless-cms/cli-update-missing-reference-uids",
+      "json": "Version 2.x.x/CLI Advanced Operations V2/Update Missing Reference UIDs for Entries, Assets, and Extensions.json",
+      "markdown": "Version 2.x.x/CLI Advanced Operations V2/Update Missing Reference UIDs for Entries, Assets, and Extensions.md"
+    },
+    {
+      "uid": "blt642ce07c5edd5f56",
+      "title": "[Contentstack Command-line Interface (CLI)] - CLI for CS Assets | V2.x.x",
+      "folder": [
+        "Version 2.x.x",
+        "CLI Advanced Operations V2"
+      ],
+      "url": "/headless-cms/cli-for-cs-assets",
+      "json": "Version 2.x.x/CLI Advanced Operations V2/CLI for CS Assets | V2.x.x.json",
+      "markdown": "Version 2.x.x/CLI Advanced Operations V2/CLI for CS Assets | V2.x.x.md"
+    },
+    {
+      "uid": "blt24a7546077dbb2e0",
+      "title": "[Contentstack Command-line Interface (CLI)] - Configure MFA Secret Using CLI | V2.x.x",
+      "folder": [
+        "Version 2.x.x",
+        "CLI Advanced Operations V2"
+      ],
+      "url": "/headless-cms/configure-mfa-secret-using-cli",
+      "json": "Version 2.x.x/CLI Advanced Operations V2/Configure MFA Secret Using CLI | V2.x.x.json",
+      "markdown": "Version 2.x.x/CLI Advanced Operations V2/Configure MFA Secret Using CLI | V2.x.x.md"
+    },
+    {
+      "uid": "blt8cddf6452fd82024",
+      "title": "[Contentstack Command-line Interface (CLI)] - Migrate Content Between Stacks Using the CLI | V2.x.x",
+      "folder": [
+        "Version 2.x.x",
+        "CLI Migration Use Cases V2"
+      ],
+      "url": "/headless-cms/migrate-content-between-stacks-using-the-cli",
+      "json": "Version 2.x.x/CLI Migration Use Cases V2/Migrate Content Between Stacks Using the CLI | V2.x.x.json",
+      "markdown": "Version 2.x.x/CLI Migration Use Cases V2/Migrate Content Between Stacks Using the CLI | V2.x.x.md"
+    },
+    {
+      "uid": "blt3168251b46327602",
+      "title": "[Contentstack Command-line Interface (CLI)] - Migrate Selected Content Using the Query Export Plugin",
+      "folder": [
+        "Version 2.x.x",
+        "CLI Migration Use Cases V2"
+      ],
+      "url": "/headless-cms/cli-migrate-selected-content-types-using-the-query-export-plugin",
+      "json": "Version 2.x.x/CLI Migration Use Cases V2/Migrate Selected Content Using the Query Export Plugin.json",
+      "markdown": "Version 2.x.x/CLI Migration Use Cases V2/Migrate Selected Content Using the Query Export Plugin.md"
+    },
+    {
+      "uid": "blt449b48a8ef6980a4",
+      "title": "[Contentstack Command-line Interface (CLI)] - Migrate and Overwrite Content in the Same Stack | V2.x.x",
+      "folder": [
+        "Version 2.x.x",
+        "CLI Migration Use Cases V2"
+      ],
+      "url": "/headless-cms/cli-migrate-and-overwrite-content-in-the-same-stack",
+      "json": "Version 2.x.x/CLI Migration Use Cases V2/Migrate and Overwrite Content in the Same Stack | V2.x.x.json",
+      "markdown": "Version 2.x.x/CLI Migration Use Cases V2/Migrate and Overwrite Content in the Same Stack | V2.x.x.md"
+    },
+    {
+      "uid": "blt6702caeefc36568f",
+      "title": "[Contentstack Command-line Interface (CLI)] - Branches | Migration Use Cases | V2.x.x",
+      "folder": [
+        "Version 2.x.x",
+        "CLI Migration Use Cases V2"
+      ],
+      "url": "/headless-cms/cli-branches-migration-use-cases",
+      "json": "Version 2.x.x/CLI Migration Use Cases V2/Branches | Migration Use Cases | V2.x.x.json",
+      "markdown": "Version 2.x.x/CLI Migration Use Cases V2/Branches | Migration Use Cases | V2.x.x.md"
+    },
+    {
+      "uid": "bltc7c58ab7c7d76974",
+      "title": "[Contentstack Command-line Interface (CLI)] - Contentstack CLI Configuration Reference",
+      "folder": [
+        "Version 2.x.x",
+        "Miscellaneous V2"
+      ],
+      "url": "/headless-cms/contentstack-cli-configuration-reference",
+      "json": "Version 2.x.x/Miscellaneous V2/Contentstack CLI Configuration Reference.json",
+      "markdown": "Version 2.x.x/Miscellaneous V2/Contentstack CLI Configuration Reference.md"
+    },
+    {
+      "uid": "bltc0036c8ffee6ddd5",
+      "title": "[Contentstack Command-line Interface (CLI)] - Bootstrap Starter Apps | V2.x.x",
+      "folder": [
+        "Version 2.x.x",
+        "Miscellaneous V2"
+      ],
+      "url": "/headless-cms/cli-bootstrap-starter-apps",
+      "json": "Version 2.x.x/Miscellaneous V2/Bootstrap Starter Apps | V2.x.x.json",
+      "markdown": "Version 2.x.x/Miscellaneous V2/Bootstrap Starter Apps | V2.x.x.md"
+    },
+    {
+      "uid": "bltc7a1129f3ee45ffd",
+      "title": "[Contentstack Command-line Interface (CLI)] - Configure Rate Limits in the CLI | V2.x.x",
+      "folder": [
+        "Version 2.x.x",
+        "Miscellaneous V2"
+      ],
+      "url": "/headless-cms/configure-rate-limits-in-the-cli",
+      "json": "Version 2.x.x/Miscellaneous V2/Configure Rate Limits in the CLI | V2.x.x.json",
+      "markdown": "Version 2.x.x/Miscellaneous V2/Configure Rate Limits in the CLI | V2.x.x.md"
+    },
+    {
+      "uid": "blt18f5edee45f9d6c2",
+      "title": "[Contentstack Command-line Interface (CLI)] - Create Custom CLI Commands",
+      "folder": [
+        "Version 2.x.x",
+        "Miscellaneous V2"
+      ],
+      "url": "/headless-cms/create-custom-cli-commands",
+      "json": "Version 2.x.x/Miscellaneous V2/Create Custom CLI Commands.json",
+      "markdown": "Version 2.x.x/Miscellaneous V2/Create Custom CLI Commands.md"
+    },
+    {
+      "uid": "blt553b89ec322a6199",
+      "title": "[Contentstack Command-line Interface (CLI)] - Uninstall CLI Plugins",
+      "folder": [
+        "Version 2.x.x",
+        "Miscellaneous V2"
+      ],
+      "url": "/headless-cms/uninstall-cli-plugins",
+      "json": "Version 2.x.x/Miscellaneous V2/Uninstall CLI Plugins.json",
+      "markdown": "Version 2.x.x/Miscellaneous V2/Uninstall CLI Plugins.md"
+    },
+    {
+      "uid": "bltb4d51965b514f7c6",
+      "title": "[Contentstack Command-line Interface (CLI)] - Useful Plugins",
+      "folder": [
+        "Version 2.x.x",
+        "Miscellaneous V2"
+      ],
+      "url": "/headless-cms/cli-useful-plugins",
+      "json": "Version 2.x.x/Miscellaneous V2/Useful Plugins.json",
+      "markdown": "Version 2.x.x/Miscellaneous V2/Useful Plugins.md"
+    },
+    {
+      "uid": "blt64294e11f81fe300",
+      "title": "[Contentstack Command-line Interface (CLI)] - Create Custom CLI Plugins for Contentstack | V2.x.x",
+      "folder": [
+        "Version 2.x.x",
+        "Miscellaneous V2"
+      ],
+      "url": "/headless-cms/create-custom-cli-plugins",
+      "json": "Version 2.x.x/Miscellaneous V2/Create Custom CLI Plugins for Contentstack | V2.x.x.json",
+      "markdown": "Version 2.x.x/Miscellaneous V2/Create Custom CLI Plugins for Contentstack | V2.x.x.md"
+    },
+    {
+      "uid": "blt0756f65e7c6f9eed",
+      "title": "[Contentstack Command-line Interface (CLI)] - Install the CLI | V1.x.x",
+      "folder": [
+        "Version 1.x.x",
+        "Get Started with CLI"
+      ],
+      "url": "/headless-cms/install-the-cli/v1",
+      "json": "Version 1.x.x/Get Started with CLI/Install the CLI | V1.x.x.json",
+      "markdown": "Version 1.x.x/Get Started with CLI/Install the CLI | V1.x.x.md"
+    },
+    {
+      "uid": "bltbc6ad24437532c4f",
+      "title": "[Contentstack Command-line Interface (CLI)] - Configure Regions in the CLI | V1.x.x",
+      "folder": [
+        "Version 1.x.x",
+        "Get Started with CLI"
+      ],
+      "url": "/headless-cms/configure-regions-in-the-cli/v1",
+      "json": "Version 1.x.x/Get Started with CLI/Configure Regions in the CLI | V1.x.x.json",
+      "markdown": "Version 1.x.x/Get Started with CLI/Configure Regions in the CLI | V1.x.x.md"
+    },
+    {
+      "uid": "blt372f35bf931194f0",
+      "title": "[Contentstack Command-line Interface (CLI)] - CLI Authentication and Adding Tokens | V1.x.x",
+      "folder": [
+        "Version 1.x.x",
+        "Get Started with CLI"
+      ],
+      "url": "/headless-cms/cli-authentication/v1",
+      "json": "Version 1.x.x/Get Started with CLI/CLI Authentication and Adding Tokens | V1.x.x.json",
+      "markdown": "Version 1.x.x/Get Started with CLI/CLI Authentication and Adding Tokens | V1.x.x.md"
+    },
+    {
+      "uid": "blt878916ff618af5c2",
+      "title": "[Contentstack Command-line Interface (CLI)] - Export Content Using the CLI | V1.x.x",
+      "folder": [
+        "Version 1.x.x",
+        "CLI Commands"
+      ],
+      "url": "/headless-cms/export-content-using-the-cli/v1",
+      "json": "Version 1.x.x/CLI Commands/Export Content Using the CLI | V1.x.x.json",
+      "markdown": "Version 1.x.x/CLI Commands/Export Content Using the CLI | V1.x.x.md"
+    },
+    {
+      "uid": "blt1ee86e6419f390f8",
+      "title": "[Contentstack Command-line Interface (CLI)] - Import Content Using the CLI | V1.x.x",
+      "folder": [
+        "Version 1.x.x",
+        "CLI Commands"
+      ],
+      "url": "/headless-cms/import-content-using-the-cli/v1",
+      "json": "Version 1.x.x/CLI Commands/Import Content Using the CLI | V1.x.x.json",
+      "markdown": "Version 1.x.x/CLI Commands/Import Content Using the CLI | V1.x.x.md"
+    },
+    {
+      "uid": "blte46be17c7b0eacde",
+      "title": "[Contentstack Command-line Interface (CLI)] - CLI-Supported Features for Export, Import, and Clone Operations | V1.x.x",
+      "folder": [
+        "Version 1.x.x",
+        "CLI Commands"
+      ],
+      "url": "/headless-cms/cli-supported-features-for-export-import-and-clone-operations/v1",
+      "json": "Version 1.x.x/CLI Commands/CLI-Supported Features for Export, Import, and Clone Operations | V1.x.x.json",
+      "markdown": "Version 1.x.x/CLI Commands/CLI-Supported Features for Export, Import, and Clone Operations | V1.x.x.md"
+    },
+    {
       "uid": "blt3a999013669bda40",
       "title": "[Contentstack Command-line Interface (CLI)] - Overwrite Existing Content using CLI Import | V1.x.x",
-      "bucket": "GA",
-      "slug": "overwrite-existing-content-using-cli-import",
-      "production_version": 13,
-      "latest_version": 13,
-      "published_at": "2026-07-22T12:56:31.098Z",
-      "json": "GA/overwrite-existing-content-using-cli-import.json",
-      "markdown": "GA/overwrite-existing-content-using-cli-import.md"
+      "folder": [
+        "Version 1.x.x",
+        "CLI Commands"
+      ],
+      "url": "/headless-cms/overwrite-existing-content-using-cli-import/v1",
+      "json": "Version 1.x.x/CLI Commands/Overwrite Existing Content using CLI Import | V1.x.x.json",
+      "markdown": "Version 1.x.x/CLI Commands/Overwrite Existing Content using CLI Import | V1.x.x.md"
     },
     {
-      "url": "/headless-cms/uninstall-cli-plugins/v1",
+      "uid": "bltf1f565bcdf7e63cd",
+      "title": "[Contentstack Command-line Interface (CLI)] - Cloning a Stack | V1.x.x",
+      "folder": [
+        "Version 1.x.x",
+        "CLI Commands"
+      ],
+      "url": "/headless-cms/cli-cloning-a-stack/v1",
+      "json": "Version 1.x.x/CLI Commands/Cloning a Stack | V1.x.x.json",
+      "markdown": "Version 1.x.x/CLI Commands/Cloning a Stack | V1.x.x.md"
+    },
+    {
+      "uid": "blt804647818d4181f9",
+      "title": "[Contentstack Command-line Interface (CLI)] - Bulk Publish and Unpublish Content | V1.x.x",
+      "folder": [
+        "Version 1.x.x",
+        "CLI Commands"
+      ],
+      "url": "/headless-cms/cli-bulk-publish-and-unpublish-content/v1",
+      "json": "Version 1.x.x/CLI Commands/Bulk Publish and Unpublish Content | V1.x.x.json",
+      "markdown": "Version 1.x.x/CLI Commands/Bulk Publish and Unpublish Content | V1.x.x.md"
+    },
+    {
+      "uid": "bltff3041eae16be17d",
+      "title": "[Contentstack Command-line Interface (CLI)] - CLI for Launch | V1.x.x",
+      "folder": [
+        "Version 1.x.x",
+        "CLI Commands"
+      ],
+      "url": "/headless-cms/cli-for-launch/v1",
+      "json": "Version 1.x.x/CLI Commands/CLI for Launch | V1.x.x.json",
+      "markdown": "Version 1.x.x/CLI Commands/CLI for Launch | V1.x.x.md"
+    },
+    {
+      "uid": "blt12dd3cd4c0194061",
+      "title": "[Contentstack Command-line Interface (CLI)] - Compare and Merge Branches Using the CLI | V1.x.x",
+      "folder": [
+        "Version 1.x.x",
+        "CLI Commands"
+      ],
+      "url": "/headless-cms/compare-and-merge-branches-using-the-cli/v1",
+      "json": "Version 1.x.x/CLI Commands/Compare and Merge Branches Using the CLI | V1.x.x.json",
+      "markdown": "Version 1.x.x/CLI Commands/Compare and Merge Branches Using the CLI | V1.x.x.md"
+    },
+    {
+      "uid": "blt923027e7deb9851a",
+      "title": "[Contentstack Command-line Interface (CLI)] - Configure Early Access in the CLI | V1.x.x",
+      "folder": [
+        "Version 1.x.x",
+        "CLI Commands"
+      ],
+      "url": "/headless-cms/configure-early-access-program-in-the-cli/v1",
+      "json": "Version 1.x.x/CLI Commands/Configure Early Access in the CLI | V1.x.x.json",
+      "markdown": "Version 1.x.x/CLI Commands/Configure Early Access in the CLI | V1.x.x.md"
+    },
+    {
+      "uid": "bltdb5ced1cd5ecc104",
+      "title": "[Contentstack Command-line Interface (CLI)] - Configure Rate Limits in the CLI | V1.x.x",
+      "folder": [
+        "Version 1.x.x",
+        "CLI Commands"
+      ],
+      "url": "/headless-cms/configure-rate-limits-in-the-cli/v1",
+      "json": "Version 1.x.x/CLI Commands/Configure Rate Limits in the CLI | V1.x.x.json",
+      "markdown": "Version 1.x.x/CLI Commands/Configure Rate Limits in the CLI | V1.x.x.md"
+    },
+    {
+      "uid": "blta33efb37c73c3bdf",
+      "title": "[Contentstack Command-line Interface (CLI)] - Configure CLI Logging Preferences | V1.x.x",
+      "folder": [
+        "Version 1.x.x",
+        "CLI Commands"
+      ],
+      "url": "/headless-cms/configure-cli-logging-preferences/v1",
+      "json": "Version 1.x.x/CLI Commands/Configure CLI Logging Preferences | V1.x.x.json",
+      "markdown": "Version 1.x.x/CLI Commands/Configure CLI Logging Preferences | V1.x.x.md"
+    },
+    {
+      "uid": "blt5bf8ffa6d7788728",
+      "title": "[Contentstack Command-line Interface (CLI)] - Audit Plugin | V1.x.x",
+      "folder": [
+        "Version 1.x.x",
+        "CLI Commands"
+      ],
+      "url": "/headless-cms/cli-audit-plugin/v1",
+      "json": "Version 1.x.x/CLI Commands/Audit Plugin | V1.x.x.json",
+      "markdown": "Version 1.x.x/CLI Commands/Audit Plugin | V1.x.x.md"
+    },
+    {
+      "uid": "blt7b3284729d3494f0",
+      "title": "[Contentstack Command-line Interface (CLI)] - Query-based Export",
+      "folder": [
+        "Version 1.x.x",
+        "CLI Commands"
+      ],
+      "url": "/headless-cms/cli-query-based-export",
+      "json": "Version 1.x.x/CLI Commands/Query-based Export.json",
+      "markdown": "Version 1.x.x/CLI Commands/Query-based Export.md"
+    },
+    {
+      "uid": "bltd66941065e0c9244",
+      "title": "[Contentstack Command-line Interface (CLI)] - Configure Proxy Settings in CLI | V1.x.x",
+      "folder": [
+        "Version 1.x.x",
+        "CLI Commands"
+      ],
+      "url": "/headless-cms/configure-proxy-settings-in-cli/v1",
+      "json": "Version 1.x.x/CLI Commands/Configure Proxy Settings in CLI | V1.x.x.json",
+      "markdown": "Version 1.x.x/CLI Commands/Configure Proxy Settings in CLI | V1.x.x.md"
+    },
+    {
+      "uid": "bltb2268be653f55338",
+      "title": "[Command Line Interface] - Content Type Plugin | V1.x.x",
+      "folder": [
+        "Version 1.x.x",
+        "CLI Commands"
+      ],
+      "url": "/headless-cms/cli-content-type-plugin/v1",
+      "json": "Version 1.x.x/CLI Commands/Content Type Plugin | V1.x.x.json",
+      "markdown": "Version 1.x.x/CLI Commands/Content Type Plugin | V1.x.x.md"
+    },
+    {
+      "uid": "blt33b42b2ce32f4cb4",
+      "title": "[Command Line Interface] - Regex Validate Plugin | V1.x.x",
+      "folder": [
+        "Version 1.x.x",
+        "CLI Commands"
+      ],
+      "url": "/headless-cms/cli-regex-validate-plugin/v1",
+      "json": "Version 1.x.x/CLI Commands/Regex Validate Plugin | V1.x.x.json",
+      "markdown": "Version 1.x.x/CLI Commands/Regex Validate Plugin | V1.x.x.md"
+    },
+    {
+      "uid": "blt64c4e01079d2e7c2",
+      "title": "[Contentstack Command-line Interface (CLI)] - Export Content to CSV File Using the CLI | V1.x.x",
+      "folder": [
+        "Version 1.x.x",
+        "Content Migration Commands"
+      ],
+      "url": "/headless-cms/cli-export-content-to-csv-file/v1",
+      "json": "Version 1.x.x/Content Migration Commands/Export Content to CSV File Using the CLI | V1.x.x.json",
+      "markdown": "Version 1.x.x/Content Migration Commands/Export Content to CSV File Using the CLI | V1.x.x.md"
+    },
+    {
+      "uid": "bltd980d5d1a241b442",
+      "title": "[Contentstack Command-line Interface (CLI)] - Import Content Using the Seed Command | V1.x.x",
+      "folder": [
+        "Version 1.x.x",
+        "Content Migration Commands"
+      ],
+      "url": "/headless-cms/cli-import-content-using-the-seed-command/v1",
+      "json": "Version 1.x.x/Content Migration Commands/Import Content Using the Seed Command | V1.x.x.json",
+      "markdown": "Version 1.x.x/Content Migration Commands/Import Content Using the Seed Command | V1.x.x.md"
+    },
+    {
+      "uid": "blt563cc44829432a89",
+      "title": "[Contentstack Command-line Interface (CLI)] - Migrate your Content using the CLI Migration Command | V1.x.x",
+      "folder": [
+        "Version 1.x.x",
+        "Content Migration Commands"
+      ],
+      "url": "/headless-cms/migrate-your-content-using-the-cli-migration-command/v1",
+      "json": "Version 1.x.x/Content Migration Commands/Migrate your Content using the CLI Migration Command | V1.x.x.json",
+      "markdown": "Version 1.x.x/Content Migration Commands/Migrate your Content using the CLI Migration Command | V1.x.x.md"
+    },
+    {
+      "uid": "blt278785a9d6da5074",
+      "title": "[Contentstack Command-line Interface (CLI)] - Change Master Locale",
+      "folder": [
+        "Version 1.x.x",
+        "CLI Advanced Operations"
+      ],
+      "url": "/headless-cms/cli-change-master-locale",
+      "json": "Version 1.x.x/CLI Advanced Operations/Change Master Locale.json",
+      "markdown": "Version 1.x.x/CLI Advanced Operations/Change Master Locale.md"
+    },
+    {
+      "uid": "bltcc14ad6c062c9a82",
+      "title": "[Contentstack Command-line Interface (CLI)] - Generate Typescript Typings with TSGen Plugin | V1.x.x",
+      "folder": [
+        "Version 1.x.x",
+        "CLI Advanced Operations"
+      ],
+      "url": "/headless-cms/cli-tsgen-plugin/v1",
+      "json": "Version 1.x.x/CLI Advanced Operations/Generate Typescript Typings with TSGen Plugin | V1.x.x.json",
+      "markdown": "Version 1.x.x/CLI Advanced Operations/Generate Typescript Typings with TSGen Plugin | V1.x.x.md"
+    },
+    {
+      "uid": "bltcfd09427012100cd",
+      "title": "[Contentstack Command-line Interface (CLI)] - Apps CLI Plugin | V1.x.x",
+      "folder": [
+        "Version 1.x.x",
+        "CLI Advanced Operations"
+      ],
+      "url": "/headless-cms/apps-cli-plugin/v1",
+      "json": "Version 1.x.x/CLI Advanced Operations/Apps CLI Plugin | V1.x.x.json",
+      "markdown": "Version 1.x.x/CLI Advanced Operations/Apps CLI Plugin | V1.x.x.md"
+    },
+    {
+      "uid": "blt844ebc9ef2c5bf61",
+      "title": "[Contentstack Command-line Interface (CLI)] - Entry Migration | V1.x.x",
+      "folder": [
+        "Version 1.x.x",
+        "CLI Advanced Operations"
+      ],
+      "url": "/headless-cms/cli-entry-migration/v1",
+      "json": "Version 1.x.x/CLI Advanced Operations/Entry Migration | V1.x.x.json",
+      "markdown": "Version 1.x.x/CLI Advanced Operations/Entry Migration | V1.x.x.md"
+    },
+    {
+      "uid": "blt3afca0a8bf912f83",
+      "title": "[Contentstack Command-line Interface (CLI)] - Update Missing Reference UIDs for Entries, Assets, and Extensions",
+      "folder": [
+        "Version 1.x.x",
+        "CLI Advanced Operations"
+      ],
+      "url": "/headless-cms/cli-update-missing-reference-uids",
+      "json": "Version 1.x.x/CLI Advanced Operations/Update Missing Reference UIDs for Entries, Assets, and Extensions.json",
+      "markdown": "Version 1.x.x/CLI Advanced Operations/Update Missing Reference UIDs for Entries, Assets, and Extensions.md"
+    },
+    {
+      "uid": "blt2a4723e44d15237a",
+      "title": "[Contentstack Command-line Interface (CLI)] - Bulk Operations in CLI | V1.x.x",
+      "folder": [
+        "Version 1.x.x",
+        "CLI Advanced Operations"
+      ],
+      "url": "/headless-cms/bulk-operations-in-cli/v1",
+      "json": "Version 1.x.x/CLI Advanced Operations/Bulk Operations in CLI | V1.x.x.json",
+      "markdown": "Version 1.x.x/CLI Advanced Operations/Bulk Operations in CLI | V1.x.x.md"
+    },
+    {
+      "uid": "blt1637a00d696b0fe4",
+      "title": "[Contentstack Command-line Interface (CLI)] - Configure MFA Secret Using CLI | V1.x.x",
+      "folder": [
+        "Version 1.x.x",
+        "CLI Advanced Operations"
+      ],
+      "url": "/headless-cms/configure-mfa-secret-using-cli/v1",
+      "json": "Version 1.x.x/CLI Advanced Operations/Configure MFA Secret Using CLI | V1.x.x.json",
+      "markdown": "Version 1.x.x/CLI Advanced Operations/Configure MFA Secret Using CLI | V1.x.x.md"
+    },
+    {
+      "uid": "blt8e8d75af4f2678b0",
+      "title": "[Contentstack Command-line Interface (CLI)] - Migrate Content Between Stacks Using the CLI | V1.x.x",
+      "folder": [
+        "Version 1.x.x",
+        "Migration Use Cases"
+      ],
+      "url": "/headless-cms/migrate-content-between-stacks-using-the-cli/v1",
+      "json": "Version 1.x.x/Migration Use Cases/Migrate Content Between Stacks Using the CLI | V1.x.x.json",
+      "markdown": "Version 1.x.x/Migration Use Cases/Migrate Content Between Stacks Using the CLI | V1.x.x.md"
+    },
+    {
+      "uid": "blt3168251b46327602",
+      "title": "[Contentstack Command-line Interface (CLI)] - Migrate Selected Content Using the Query Export Plugin",
+      "folder": [
+        "Version 1.x.x",
+        "Migration Use Cases"
+      ],
+      "url": "/headless-cms/cli-migrate-selected-content-types-using-the-query-export-plugin",
+      "json": "Version 1.x.x/Migration Use Cases/Migrate Selected Content Using the Query Export Plugin.json",
+      "markdown": "Version 1.x.x/Migration Use Cases/Migrate Selected Content Using the Query Export Plugin.md"
+    },
+    {
+      "uid": "blt229455bbe1e19fa9",
+      "title": "[Contentstack Command-line Interface (CLI)] - Migrate and Overwrite Content in the Same Stack | V1.x.x",
+      "folder": [
+        "Version 1.x.x",
+        "Migration Use Cases"
+      ],
+      "url": "/headless-cms/cli-migrate-and-overwrite-content-in-the-same-stack/v1",
+      "json": "Version 1.x.x/Migration Use Cases/Migrate and Overwrite Content in the Same Stack | V1.x.x.json",
+      "markdown": "Version 1.x.x/Migration Use Cases/Migrate and Overwrite Content in the Same Stack | V1.x.x.md"
+    },
+    {
+      "uid": "bltd48fe0ffb5cf8b08",
+      "title": "[Contentstack Command-line Interface (CLI)] - Branches | Migration Use Cases | V1.x.x",
+      "folder": [
+        "Version 1.x.x",
+        "Migration Use Cases"
+      ],
+      "url": "/headless-cms/cli-branches-migration-use-cases/v1",
+      "json": "Version 1.x.x/Migration Use Cases/Branches | Migration Use Cases | V1.x.x.json",
+      "markdown": "Version 1.x.x/Migration Use Cases/Branches | Migration Use Cases | V1.x.x.md"
+    },
+    {
+      "uid": "bltc7c58ab7c7d76974",
+      "title": "[Contentstack Command-line Interface (CLI)] - Contentstack CLI Configuration Reference",
+      "folder": [
+        "Version 1.x.x",
+        "Miscellaneous"
+      ],
+      "url": "/headless-cms/contentstack-cli-configuration-reference",
+      "json": "Version 1.x.x/Miscellaneous/Contentstack CLI Configuration Reference.json",
+      "markdown": "Version 1.x.x/Miscellaneous/Contentstack CLI Configuration Reference.md"
+    },
+    {
+      "uid": "blt4f27fd89adf6b6c1",
+      "title": "[Contentstack Command-line Interface (CLI)] - Create Custom CLI Plugins for Contentstack | V1.x.x",
+      "folder": [
+        "Version 1.x.x",
+        "Miscellaneous"
+      ],
+      "url": "/headless-cms/create-custom-cli-plugins/v1",
+      "json": "Version 1.x.x/Miscellaneous/Create Custom CLI Plugins for Contentstack | V1.x.x.json",
+      "markdown": "Version 1.x.x/Miscellaneous/Create Custom CLI Plugins for Contentstack | V1.x.x.md"
+    },
+    {
+      "uid": "blt9da47fd57e3fd92e",
+      "title": "[Contentstack Command-line Interface (CLI)] - Bootstrap Starter Apps | V1.x.x",
+      "folder": [
+        "Version 1.x.x",
+        "Miscellaneous"
+      ],
+      "url": "/headless-cms/cli-bootstrap-starter-apps/v1",
+      "json": "Version 1.x.x/Miscellaneous/Bootstrap Starter Apps | V1.x.x.json",
+      "markdown": "Version 1.x.x/Miscellaneous/Bootstrap Starter Apps | V1.x.x.md"
+    },
+    {
+      "uid": "blt74918691c8a465c1",
+      "title": "[Contentstack Command-line Interface (CLI)] - CLI Limitations | V1.x.x",
+      "folder": [
+        "Version 1.x.x",
+        "Miscellaneous"
+      ],
+      "url": "/headless-cms/cli-limitations/v1",
+      "json": "Version 1.x.x/Miscellaneous/CLI Limitations | V1.x.x.json",
+      "markdown": "Version 1.x.x/Miscellaneous/CLI Limitations | V1.x.x.md"
+    },
+    {
+      "uid": "blt18f5edee45f9d6c2",
+      "title": "[Contentstack Command-line Interface (CLI)] - Create Custom CLI Commands",
+      "folder": [
+        "Version 1.x.x",
+        "Miscellaneous"
+      ],
+      "url": "/headless-cms/create-custom-cli-commands",
+      "json": "Version 1.x.x/Miscellaneous/Create Custom CLI Commands.json",
+      "markdown": "Version 1.x.x/Miscellaneous/Create Custom CLI Commands.md"
+    },
+    {
       "uid": "blt553b89ec322a6199",
-      "title": "[Contentstack Command-line Interface (CLI)] - Uninstall CLI Plugins | V1.x.x",
-      "bucket": "GA",
-      "slug": "uninstall-cli-plugins",
-      "production_version": 7,
-      "latest_version": 7,
-      "published_at": "2026-07-20T18:55:33.954Z",
-      "json": "GA/uninstall-cli-plugins.json",
-      "markdown": "GA/uninstall-cli-plugins.md"
+      "title": "[Contentstack Command-line Interface (CLI)] - Uninstall CLI Plugins",
+      "folder": [
+        "Version 1.x.x",
+        "Miscellaneous"
+      ],
+      "url": "/headless-cms/uninstall-cli-plugins",
+      "json": "Version 1.x.x/Miscellaneous/Uninstall CLI Plugins.json",
+      "markdown": "Version 1.x.x/Miscellaneous/Uninstall CLI Plugins.md"
+    },
+    {
+      "uid": "bltb4d51965b514f7c6",
+      "title": "[Contentstack Command-line Interface (CLI)] - Useful Plugins",
+      "folder": [
+        "Version 1.x.x",
+        "Miscellaneous"
+      ],
+      "url": "/headless-cms/cli-useful-plugins",
+      "json": "Version 1.x.x/Miscellaneous/Useful Plugins.json",
+      "markdown": "Version 1.x.x/Miscellaneous/Useful Plugins.md"
+    },
+    {
+      "uid": "bltc569502a4237c38f",
+      "title": "[Contentstack Command-line Interface (CLI)] - Bootstrap Starter Apps | V0.x.x",
+      "folder": [
+        "Version 0.x.x"
+      ],
+      "url": "/headless-cms/cli-bootstrap-starter-apps/v0",
+      "json": "Version 0.x.x/Bootstrap Starter Apps | V0.x.x.json",
+      "markdown": "Version 0.x.x/Bootstrap Starter Apps | V0.x.x.md"
+    },
+    {
+      "uid": "bltb8dd8dab38ffc4c1",
+      "title": "[Contentstack Command-line Interface (CLI)] - Branches | Migration Use Cases | V0.x.x",
+      "folder": [
+        "Version 0.x.x"
+      ],
+      "url": "/headless-cms/cli-branches-migration-use-cases/v0",
+      "json": "Version 0.x.x/Branches | Migration Use Cases | V0.x.x.json",
+      "markdown": "Version 0.x.x/Branches | Migration Use Cases | V0.x.x.md"
+    },
+    {
+      "uid": "blt7cd9c7438ee7322e",
+      "title": "[Contentstack Command-line Interface (CLI)] - Bulk Publish and Unpublish Content | V0.x.x",
+      "folder": [
+        "Version 0.x.x"
+      ],
+      "url": "/headless-cms/cli-bulk-publish-and-unpublish-content/v0",
+      "json": "Version 0.x.x/Bulk Publish and Unpublish Content | V0.x.x.json",
+      "markdown": "Version 0.x.x/Bulk Publish and Unpublish Content | V0.x.x.md"
+    },
+    {
+      "uid": "bltb29a84507c788306",
+      "title": "[Contentstack Command-line Interface (CLI)] - CLI Authentication and Adding Tokens | V0.x.x",
+      "folder": [
+        "Version 0.x.x"
+      ],
+      "url": "/headless-cms/cli-authentication/v0",
+      "json": "Version 0.x.x/CLI Authentication and Adding Tokens | V0.x.x.json",
+      "markdown": "Version 0.x.x/CLI Authentication and Adding Tokens | V0.x.x.md"
+    },
+    {
+      "uid": "bltee9040b2a40f7437",
+      "title": "[Contentstack Command-line Interface (CLI)] - Cloning a Stack | V0.x.x",
+      "folder": [
+        "Version 0.x.x"
+      ],
+      "url": "/headless-cms/cli-cloning-a-stack/v0",
+      "json": "Version 0.x.x/Cloning a Stack | V0.x.x.json",
+      "markdown": "Version 0.x.x/Cloning a Stack | V0.x.x.md"
+    },
+    {
+      "uid": "bltb2a9262996cb0033",
+      "title": "[Contentstack Command-line Interface (CLI)] - Configure Regions in the CLI | V0.x.x",
+      "folder": [
+        "Version 0.x.x"
+      ],
+      "url": "/headless-cms/configure-regions-in-the-cli/v0",
+      "json": "Version 0.x.x/Configure Regions in the CLI | V0.x.x.json",
+      "markdown": "Version 0.x.x/Configure Regions in the CLI | V0.x.x.md"
+    },
+    {
+      "uid": "blt0a21fe8af5279f9d",
+      "title": "[Contentstack Command-line Interface (CLI)] - Export Content to .CSV File | V0.x.x",
+      "folder": [
+        "Version 0.x.x"
+      ],
+      "url": "/headless-cms/cli-export-content-to-csv-file/v0",
+      "json": "Version 0.x.x/Export Content to .CSV File | V0.x.x.json",
+      "markdown": "Version 0.x.x/Export Content to .CSV File | V0.x.x.md"
+    },
+    {
+      "uid": "blt88f14f6af9eca1d9",
+      "title": "[Contentstack Command-line Interface (CLI)] - Export Content using the CLI | V0.x.x",
+      "folder": [
+        "Version 0.x.x"
+      ],
+      "url": "/headless-cms/export-content-using-the-cli/v0",
+      "json": "Version 0.x.x/Export Content using the CLI | V0.x.x.json",
+      "markdown": "Version 0.x.x/Export Content using the CLI | V0.x.x.md"
+    },
+    {
+      "uid": "bltc452d443530ac981",
+      "title": "[Contentstack Command-line Interface (CLI)] - Import Content using the CLI | V0.x.x",
+      "folder": [
+        "Version 0.x.x"
+      ],
+      "url": "/headless-cms/import-content-using-the-cli/v0",
+      "json": "Version 0.x.x/Import Content using the CLI | V0.x.x.json",
+      "markdown": "Version 0.x.x/Import Content using the CLI | V0.x.x.md"
+    },
+    {
+      "uid": "blt78f6b7d84156806f",
+      "title": "[Contentstack Command-line Interface (CLI)] - Import Content using the Seed Command | V0.x.x",
+      "folder": [
+        "Version 0.x.x"
+      ],
+      "url": "/headless-cms/cli-import-content-using-the-seed-command/v0",
+      "json": "Version 0.x.x/Import Content using the Seed Command | V0.x.x.json",
+      "markdown": "Version 0.x.x/Import Content using the Seed Command | V0.x.x.md"
+    },
+    {
+      "uid": "bltcddcfb50d44a61db",
+      "title": "[Contentstack Command-line Interface (CLI)] - Migrate Content from HTML RTE to JSON RTE | V0.x.x",
+      "folder": [
+        "Version 0.x.x"
+      ],
+      "url": "/headless-cms/cli-migrate-content-from-html-rte-to-json-rte/v0",
+      "json": "Version 0.x.x/Migrate Content from HTML RTE to JSON RTE | V0.x.x.json",
+      "markdown": "Version 0.x.x/Migrate Content from HTML RTE to JSON RTE | V0.x.x.md"
+    },
+    {
+      "uid": "bltce91c490961bf924",
+      "title": "[Contentstack Command-line Interface (CLI)] - Migrate your Content using the CLI Migration Command | V0.x.x",
+      "folder": [
+        "Version 0.x.x"
+      ],
+      "url": "/headless-cms/migrate-your-content-using-the-cli-migration-command/v0",
+      "json": "Version 0.x.x/Migrate your Content using the CLI Migration Command | V0.x.x.json",
+      "markdown": "Version 0.x.x/Migrate your Content using the CLI Migration Command | V0.x.x.md"
     }
   ]
 }

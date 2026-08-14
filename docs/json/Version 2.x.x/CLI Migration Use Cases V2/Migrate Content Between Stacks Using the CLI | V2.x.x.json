@@ -1,0 +1,94 @@
+{
+  "locale": "en-us",
+  "article_content": [
+    {
+      "article_section": {
+        "heading": "Migrate Content Between Stacks Using the CLI",
+        "_metadata": {
+          "uid": "cs1bd2148c1b593f91"
+        },
+        "content": "<p>This document guides you through the process of migrating content from one Contentstack stack to another manually.</p><div class=\"warning\"><p><strong>Warning:</strong> The export writes content flat into the folder you name. It does not create a <span class=\"code\">&lt;branch-uid&gt;/</span> subfolder, even when you pass <span class=\"code\">--branch</span>. Use the same path for the export and the import, and use a separate <span class=\"code\">--data-dir</span> per branch, because exporting a second branch into the same folder overwrites the first with no error.</p><p>If you are importing an export produced by CLI V1, that layout did nest content under a branch subfolder. Point <span class=\"code\">--data-dir</span> at the subfolder itself, for example <span class=\"code\">./export/main</span>, because the automatic branch detection that V1 relied on has been removed.</p></div><h2>Prerequisites</h2><ul><li><a href=\"https://www.contentstack.com/login/\" target=\"_blank\">Contentstack account</a></li><li>Contentstack CLI <a href=\"/docs/headless-cms/install-the-cli\" target=\"_self\">installed</a> and <a href=\"/docs/headless-cms/configure-regions-in-the-cli\" target=\"_self\">configured</a></li><li>CLI <a href=\"/docs/headless-cms/cli-authentication#authentication\" target=\"_self\">authenticated</a></li><li>Access to both source and target stacks</li><li>An empty target stack</li></ul><h2>Steps for Execution</h2><p>To migrate all content from one stack to another quickly, follow the steps below:</p><ul><li><a href=\"/docs/headless-cms/export-content-using-the-cli\" target=\"_self\">Export</a> from source stack:<pre>csdx cm:stacks:export -k &lt;source_stack_api_key&gt; --data-dir ./export --branch main</pre></li><li><a href=\"/docs/headless-cms/cli-audit-plugin\" target=\"_self\">Audit</a> the exported content (recommended):<pre>csdx cm:stacks:audit --data-dir ./export</pre><p class=\"note\"><strong>Note:</strong> The <a href=\"/docs/headless-cms/cli-audit-plugin\" target=\"_self\">audit</a> process runs automatically during <a href=\"/docs/headless-cms/import-content-using-the-cli\" target=\"_self\">import</a> to validate and fix any issues.</p></li><li><a href=\"/docs/headless-cms/import-content-using-the-cli\" target=\"_self\">Import</a> to target stack:<pre>csdx cm:stacks:import -k &lt;target_stack_api_key&gt; --data-dir ./export</pre></li></ul><h2>Behaviour to Check Before You Rely on the Result</h2><ul><li><strong>Only the main branch is exported by default.</strong> If you omit <span class=\"code\">--branch</span>, the export covers the branch named <span class=\"code\">main</span> and nothing else, and it fails when no such branch exists. Pass <span class=\"code\">--branch</span> once per branch to move a multi-branch stack.</li><li><strong>Global fields from a V1 export are skipped silently.</strong> If the folder you import came from CLI V1, every global field is skipped with no error and no warning, because V1 wrote them to a single aggregate file and the current importer reads one file per UID. The step reports success having created nothing. Re-export the source stack with the current CLI before importing.</li></ul>"
+      }
+    }
+  ],
+  "breadcrumb": [
+    {
+      "uid": "blt641003bf9368e112",
+      "_content_type_uid": "navigation"
+    },
+    {
+      "uid": "bltef82f5fd1a4eab6e",
+      "_content_type_uid": "navigation"
+    }
+  ],
+  "md_content": "",
+  "next_and_prev_links": {
+    "prev_link": {
+      "title": "",
+      "href": ""
+    },
+    "next_link": {
+      "title": "",
+      "href": ""
+    }
+  },
+  "related_articles": [
+    {
+      "referenced_articles": {
+        "heading": "",
+        "_metadata": {
+          "uid": "cs469af9fbd507a9a3"
+        },
+        "articles": [
+          {
+            "uid": "blt90658b5d8ff2391a",
+            "_content_type_uid": "more_articles"
+          }
+        ]
+      }
+    }
+  ],
+  "seo": {
+    "title": "Migrate Content Between Stacks Using the CLI | V2.x.x | Contentstack",
+    "description": "Learn how to manually migrate content between Contentstack stacks with step-by-step instructions.",
+    "image": null,
+    "robots": ""
+  },
+  "tags": [],
+  "title": "[Contentstack Command-line Interface (CLI)] - Migrate Content Between Stacks Using the CLI | V2.x.x",
+  "url": "/headless-cms/migrate-content-between-stacks-using-the-cli",
+  "uid": "blt8cddf6452fd82024",
+  "created_by": "blt8e5689a3647afd22",
+  "updated_by": "blt8e5689a3647afd22",
+  "created_at": "2026-08-06T19:27:22.318Z",
+  "updated_at": "2026-08-06T19:27:22.318Z",
+  "ACL": {},
+  "_version": 1,
+  "enable_skill_level_categories": false,
+  "enable_time_to_read": false,
+  "disable_last_updated_view": false,
+  "_in_progress": false,
+  "publish_details": [
+    {
+      "environment": "blt4a008c3cde35b0c2",
+      "locale": "en-us",
+      "time": "2026-08-07T06:30:19.366Z",
+      "user": "blt346b73255381ad74",
+      "version": 1
+    },
+    {
+      "environment": "blt92ab7d24e8c52483",
+      "locale": "en-us",
+      "time": "2026-08-07T06:30:19.366Z",
+      "user": "blt346b73255381ad74",
+      "version": 1
+    },
+    {
+      "environment": "bltfe8376c13fe85b9c",
+      "locale": "en-us",
+      "time": "2026-08-13T09:55:16.376Z",
+      "user": "blt346b73255381ad74",
+      "version": 1
+    }
+  ]
+}

@@ -4,7 +4,8 @@
 Reads only from disk, no network. The body is always produced by converting the
 article_section HTML. The md_content field is never read, even when populated.
 
-Layout mirrors the export: docs/markdown/{GA,Beta,old}/{slug}.md
+Layout mirrors docs/json/index.json: each entry's "json" path maps to the same
+relative path under docs/markdown/ with a .md extension.
 """
 
 import html as html_mod
@@ -17,7 +18,7 @@ from bs4 import BeautifulSoup, NavigableString, Tag
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 JSON_DIR = os.path.join(ROOT, "docs", "json")
 MD_DIR = os.path.join(ROOT, "docs", "markdown")
-BUCKETS = ("GA", "Beta", "old")
+INDEX_PATH = os.path.join(JSON_DIR, "index.json")
 
 CALLOUTS = {
     "note": "Note",
@@ -335,40 +336,37 @@ def article_section(entry):
 
 def main():
     converter = Converter()
-    written = {bucket: 0 for bucket in BUCKETS}
+    written = 0
     problems = []
 
-    for bucket in BUCKETS:
-        src_dir = os.path.join(JSON_DIR, bucket)
-        out_dir = os.path.join(MD_DIR, bucket)
-        os.makedirs(out_dir, exist_ok=True)
-        if not os.path.isdir(src_dir):
-            problems.append(f"missing {src_dir}")
-            continue
+    with open(INDEX_PATH, encoding="utf-8") as fh:
+        index = json.load(fh)
 
-        for filename in sorted(os.listdir(src_dir)):
-            if not filename.endswith(".json"):
-                continue
-            with open(os.path.join(src_dir, filename), encoding="utf-8") as fh:
-                entry = json.load(fh)
+    for record in index.get("entries", []):
+        json_rel = record["json"]
+        md_rel = record["markdown"]
+        json_path = os.path.join(JSON_DIR, json_rel)
+        md_path = os.path.join(MD_DIR, md_rel)
 
-            section = article_section(entry)
-            heading = (section.get("heading") or "").strip()
-            if not heading:
-                problems.append(f"{bucket}/{filename}: no article_section heading")
+        with open(json_path, encoding="utf-8") as fh:
+            entry = json.load(fh)
 
-            body = converter.convert(section.get("content") or "")
-            if not body:
-                problems.append(f"{bucket}/{filename}: empty body")
+        section = article_section(entry)
+        heading = (section.get("heading") or "").strip()
+        if not heading:
+            problems.append(f"{json_rel}: no article_section heading")
 
-            slug = filename[: -len(".json")]
-            document = f"{front_matter(entry)}\n\n# {heading}\n\n{body}\n"
-            with open(os.path.join(out_dir, f"{slug}.md"), "w", encoding="utf-8") as fh:
-                fh.write(document)
-            written[bucket] += 1
+        body = converter.convert(section.get("content") or "")
+        if not body:
+            problems.append(f"{json_rel}: empty body")
 
-    summary = " ".join(f"{bucket}={written[bucket]}" for bucket in BUCKETS)
-    print(f"{summary}, total {sum(written.values())}")
+        os.makedirs(os.path.dirname(md_path), exist_ok=True)
+        document = f"{front_matter(entry)}\n\n# {heading}\n\n{body}\n"
+        with open(md_path, "w", encoding="utf-8") as fh:
+            fh.write(document)
+        written += 1
+
+    print(f"wrote {written} markdown files")
     for problem in problems:
         print(f"WARNING: {problem}", file=sys.stderr)
     return 1 if problems else 0

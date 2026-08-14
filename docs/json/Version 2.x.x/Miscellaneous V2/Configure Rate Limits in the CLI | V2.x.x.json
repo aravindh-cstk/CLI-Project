@@ -1,0 +1,98 @@
+{
+  "title": "[Contentstack Command-line Interface (CLI)] - Configure Rate Limits in the CLI | V2.x.x",
+  "url": "/headless-cms/configure-rate-limits-in-the-cli",
+  "breadcrumb": [
+    {
+      "uid": "blt641003bf9368e112",
+      "_content_type_uid": "navigation"
+    },
+    {
+      "uid": "bltef82f5fd1a4eab6e",
+      "_content_type_uid": "navigation"
+    }
+  ],
+  "article_content": [
+    {
+      "article_section": {
+        "heading": "Configure Rate Limits in the CLI",
+        "_metadata": {
+          "uid": "cs4692070f3ff67abb"
+        },
+        "content": "<p><a href=\"/docs/developers/apis/content-management-api#rate-limiting\" target=\"_self\">Rate Limit</a> defines the maximum number of requests you can make using Contentstack's API within a specific time frame.</p>\n<p>This guide provides step-by-step instructions on how to configure and manage rate limits in the Contentstack Command Line Interface (CLI).</p>\n<p>By following these instructions, you can effectively control the number of requests made to the Contentstack API within a specified timeframe, ensuring optimal performance and preventing any disruptions due to exceeding rate limits.</p>\n<p class=\"warning\"><strong>Warning:</strong> The CLI supports rate limit configuration only for the <span class=\"code\">bulkLimit</span> parameter, which is <a href=\"/docs/headless-cms/configure-rate-limits-in-the-cli#using-rate-limits-for-enhanced-bulk-publishing-control\" target=\"_self\">used in bulk publish commands</a> to control requests.</p>\n<h2>Prerequisites</h2>\n<ul>\n  <li><a href=\"https://www.contentstack.com/login/\" target=\"_blank\">Contentstack account</a></li>\n  <li><a href=\"/docs/headless-cms/install-the-cli\">CLI installed</a> and <a href=\"/docs/headless-cms/configure-regions-in-the-cli\">configured</a> (version 1.25.0 and above)</li>\n  <li><a href=\"/docs/headless-cms/cli-authentication\">CLI authenticated</a></li>\n</ul>\n<h2>Commands</h2>\n<h3>Set Custom Rate Limit</h3>\n<p>The <span class=\"code\">config:set:rate-limit</span> command lets you set a Custom rate limit for your organization in the CLI.</p>\n<ol>\n  <li>Open the terminal.</li>\n  <li>Enter the following command:<pre>csdx config:set:rate-limit</pre>\n  </li>\n  <li>Then, enter the <strong>organization UID</strong>.</li>\n</ol>\n<p>With these steps, you have successfully set a rate limit in the CLI.</p>\n<p>To set a <strong>Custom</strong> rate limit, you can pass the <strong>--limit-name</strong> and <strong>--utilize</strong> flags along with the <strong>--org</strong> flag in the command as given below:</p><pre>csdx config:set:rate-limit --org blt***********1b --utilize 60,80 --limit-name bulkLimit</pre>\n<p><strong>Usage</strong></p><pre>csdx config:set:rate-limit</pre>\n<p><strong>Options</strong></p>\n<table>\n  <thead>\n    <tr>\n      <th>Flag</th>\n      <th>Short Flag</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><span class=\"code\">--org</span></td>\n      <td>-</td>\n      <td>Provide the organization UID.</td>\n    </tr>\n    <tr>\n      <td><span class=\"code\">--utilize</span></td>\n      <td>-</td>\n      <td>\n        Provide the utilization percentages for the rate limit, separated by commas.\n        <p>Default: <span class=\"code\">50</span></p>\n      </td>\n    </tr>\n    <tr>\n      <td><span class=\"code\">--limit-name</span></td>\n      <td>-</td>\n      <td>\n        [Optional] Provide the limit names separated by commas.\n        <p>\n          Supported values:\n          <span class=\"code\">limit</span>,\n          <span class=\"code\">getLimit</span>,\n          <span class=\"code\">bulkLimit</span>\n        </p>\n      </td>\n    </tr>\n    <tr>\n      <td><span class=\"code\">--default</span></td>\n      <td>-</td>\n      <td>Reset to default rate limit.</td>\n    </tr>\n  </tbody>\n</table>\n\n<p><strong>Examples</strong></p>\n<ul>\n  <li>To set a default rate limit for your organization:<pre>csdx config:set:rate-limit  --org blt***********1b  --default</pre>\n  </li>\n  <li>To set a Custom rate limit for your organization:<pre>csdx config:set:rate-limit  --org blt***********1b  --utilize 60 --limit-name bulkLimit</pre>\n  </li>\n</ul>\n<div class=\"note\"><strong>Note:</strong>\n  <ul>\n    <li>CLI applies a utilization percentage of your organization’s actual rate limit, based on your subscription plan.</li>\n    <li>By default, this is set to <strong>50%</strong>, which means the CLI internally enforces a limit at half of the available rate. For example, if your <strong>getLimit</strong> is <strong>10</strong>, the CLI will apply a <strong>limit of 5</strong> at <strong>50% utilization</strong>, or <strong>6</strong> at <strong>60% utilization</strong>.</li>\n    <li>This utilization is managed internally and is not shown in the CLI output.</li>\n  </ul>\n</div>\n<h3>Get the Rate Limit of an Organization</h3>\n<p>The <span class=\"code\">config:get:rate-limit</span> command fetches the rate limit that you have set in an organization in the CLI.</p>\n<ol>\n  <li>Open the terminal.</li>\n  <li>Enter the following command:<pre>csdx config:get:rate-limit</pre>\n  </li>\n</ol>\n<p>With these steps, you have successfully retrieved the rate limit you have set in the CLI.</p>\n<p><strong>Usage</strong></p><pre>csdx config:get:rate-limit</pre>\n<h3>Remove the Rate Limit of an Organization</h3>\n<p>The <span class=\"code\">config:remove:rate-limit</span> command lets you remove an existing rate limit configuration from the CLI.</p>\n<ol>\n  <li>Open the terminal.</li>\n  <li>Enter the following command:<pre>csdx config:remove:rate-limit</pre>\n  </li>\n  <li>Then, enter the <strong>organization UID</strong>.</li>\n</ol>\n<p>With these steps, you have successfully removed the rate limit configuration of an organization.</p>\n<p><strong>Usage</strong></p><pre>csdx config:remove:rate-limit</pre>\n<p><strong>Options</strong></p>\n<table>\n  <thead>\n    <tr>\n      <th>Flag</th>\n      <th>Short Flag</th>\n      <th>Description</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><span class=\"code\">--org</span></td>\n      <td>-</td>\n      <td>Provide the organization UID.</td>\n    </tr>\n  </tbody>\n</table>\n<p><strong>Examples</strong></p>\n<ul>\n  <li>To remove the configuration of the rate limit from the CLI by providing the organization UID:<pre>csdx config:remove:rate-limit --org</pre>\n  </li>\n</ul>\n<h2>Using Rate Limits for Enhanced Bulk Publishing Control</h2>\n<p>By default, the rate limit is set to 1, letting you publish one asset or entry per second. To enable the bulk publish feature, you must configure the rate limit for your specific organization.</p>\n<p>The <span class=\"code\">config:set:rate-limit</span> command lets you <a href=\"#set-custom-rate-limit\" target=\"_self\">set the rate limit</a> to utilize the bulk publish feature according to your plan.</p>\n<p><strong>Usage</strong></p><pre>csdx config:set:rate-limit  --org blt***********1b  --utilize 10 --limit-name bulkLimit</pre>"
+      }
+    }
+  ],
+  "related_articles": [
+    {
+      "referenced_articles": {
+        "heading": "",
+        "_metadata": {
+          "uid": "csd421e13b27de2c03"
+        },
+        "articles": [
+          {
+            "uid": "blt22aa65188c7d8092",
+            "_content_type_uid": "more_articles"
+          }
+        ]
+      }
+    }
+  ],
+  "next_and_prev_links": {
+    "prev_link": {
+      "title": "",
+      "href": ""
+    },
+    "next_link": {
+      "title": "",
+      "href": ""
+    }
+  },
+  "seo": {
+    "title": "Configure Rate Limits in the CLI | V2.x.x | Contentstack",
+    "description": "Learn to configure and manage Contentstack CLI rate limits. Try the beta commands to adjust bulkLimit and utilization for optimized bulk publishing.",
+    "image": null,
+    "robots": ""
+  },
+  "tags": [],
+  "locale": "en-us",
+  "uid": "bltc7a1129f3ee45ffd",
+  "created_by": "blt346b73255381ad74",
+  "updated_by": "blt8e5689a3647afd22",
+  "created_at": "2026-02-04T09:39:32.413Z",
+  "updated_at": "2026-08-06T19:26:33.223Z",
+  "ACL": {},
+  "_version": 13,
+  "_in_progress": false,
+  "md_content": "",
+  "publish_details": [
+    {
+      "environment": "blt4a008c3cde35b0c2",
+      "locale": "en-us",
+      "time": "2026-08-13T09:57:38.131Z",
+      "user": "blt346b73255381ad74",
+      "version": 13
+    },
+    {
+      "environment": "blt92ab7d24e8c52483",
+      "locale": "en-us",
+      "time": "2026-08-13T09:57:38.131Z",
+      "user": "blt346b73255381ad74",
+      "version": 13
+    },
+    {
+      "environment": "bltfe8376c13fe85b9c",
+      "locale": "en-us",
+      "time": "2026-08-13T09:57:38.131Z",
+      "user": "blt346b73255381ad74",
+      "version": 13
+    },
+    {
+      "environment": "blt18d21c1c300e766f",
+      "locale": "en-us",
+      "time": "2026-04-10T07:28:57.292Z",
+      "user": "blt3cf27864e6b61df3",
+      "version": 6
+    }
+  ]
+}

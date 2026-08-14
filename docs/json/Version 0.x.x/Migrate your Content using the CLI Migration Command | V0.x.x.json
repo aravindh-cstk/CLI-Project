@@ -1,0 +1,103 @@
+{
+  "title": "[Contentstack Command-line Interface (CLI)] - Migrate your Content using the CLI Migration Command | V0.x.x",
+  "url": "/headless-cms/migrate-your-content-using-the-cli-migration-command/v0",
+  "locale": "en-us",
+  "ACL": {},
+  "breadcrumb": [
+    {
+      "uid": "blt641003bf9368e112",
+      "_content_type_uid": "navigation"
+    },
+    {
+      "uid": "bltef82f5fd1a4eab6e",
+      "_content_type_uid": "navigation"
+    }
+  ],
+  "article_content": [
+    {
+      "article_section": {
+        "heading": "Migrate your Content using the CLI Migration Command",
+        "_metadata": {
+          "uid": "cse907deaea791ac42"
+        },
+        "content": "<p>The “Migration” plugin in Contentstack CLI allows developers to automate the content migration process using a custom migration script.</p><p>This guide explains&nbsp;how to migrate your content using the CLI migration plugin. We have provided sample migration scripts that developers can use to get started, or you can write your&nbsp;custom scripts.</p><p>Developers can validate the deployment before pushing it on production, using a test space to run the migration scripts.</p><p class=\"add-resource\"><strong>Additional Resource</strong>: For more information, refer the&nbsp;<a rel=\"noreferrer\" href=\"https://github.com/contentstack/cli-plugins/blob/main/packages/contentstack-migration/docs/api-reference.md\" target=\"_blank\">migration API documentation </a>and <a rel=\"noreferrer\" href=\"https://github.com/contentstack/cli-plugins/tree/main/packages/contentstack-migration/examples\" target=\"_blank\">advanced examples</a>.</p><h2>Process Overview</h2><p>The first step is to write a migration script to perform content migration. We have provided sample migration scripts which you can refer&nbsp;<a href=\"/docs/headless-cms/migrate-your-content-using-the-cli-migration-command/v0#get-started-with-the-migration-script\">here</a>,&nbsp;or write custom scripts. Furthermore, you can use various methods and SDK instances to make your migration script easy to write and read.</p><p>After writing the migration script, use the CLI migration command to migrate your content to the destination stack.</p><p>Now let us understand how to migrate content from one stack to another using the CLI migration command.</p><h2>Prerequisites</h2><ul><li><a href=\"https://www.contentstack.com/login\" target=\"_self\">Contentstack account</a></li><li><a rel=\"noreferrer\" href=\"https://nodejs.org/en/download/\" target=\"_blank\">Node.js version 16 or above</a></li><li>CLI installed on your machine: <span class=\"code\"><strong>npm install -g @contentstack/cli</strong></span></li></ul><h2>Steps for Execution</h2><ol><li><a href=\"#login-to-contentstack-cli-session\" target=\"_self\">Login to Contentstack CLI session</a></li><li><a href=\"#use-the-migration-command\" target=\"_self\">Use the “Migration” command</a></li></ol><ol class=\"step-sec\"><li><h2>Login to the Contentstack CLI session</h2><p>Firstly you should have the Contentstack CLI installed on your system. In case you haven't yet installed the Contentstack CLI, please follow the steps in the <a href=\"/docs/headless-cms/install-the-cli/v1\" target=\"_self\">CLI installation</a> guide.</p><p>After installing the CLI on your machine, log in to the CLI session to run the ‘Migration’ command.<br /></p><p class=\"note\"><strong>Note</strong>: By default, the CLI session will work for the app hosted in the <strong>North America</strong> region. If you want to switch to <strong>Europe</strong> or <strong>Azure North America&nbsp;</strong>region, follow the steps mentioned in the <a href=\"/docs/headless-cms/configure-regions-in-the-cli/v0#set-region\" target=\"_blank\">Set Region</a> command section.</p>Now log in to your Contentstack account, by running the following command in your terminal:<br /><pre>csdx auth:login</pre><p>Provide your Contentstack account’s email and password to successfully login to the CLI session.<br /></p><p class=\"add-resource\"><strong>Additional Resources</strong>: To learn more about the CLI login command, refer to the <a href=\"/docs/headless-cms/cli-authentication/v0#login\" target=\"_blank\">Login command </a>section.</p></li><li><h2>Use the “Migration” Command</h2><p>Once you log in to Contentstack, run the migration command to initiate the procedure.</p><p>To perform the operation you have to write a migration script in your code editor, and mention its file path while using the migration command.</p><p class=\"tip\"><strong>Tip: </strong>We have created a sample migration script for you to get started, which we have discussed further in this guide. Refer&nbsp;<a href=\"/docs/headless-cms/migrate-your-content-using-the-cli-migration-command/v0#get-started-with-the-migration-script\">this</a> section, to understand migration scripts and various methods you can use to execute your tasks.</p><p>We assume that you have a migration script ready with you, to migrate the content.</p><p>Now, run the&nbsp;following command to start migrating your content.</p><p><strong>Usage:</strong></p><pre>csdx cm:migration</pre><p>Along with the migration command, users have to define various parameters to successfully migrate the content.</p><p>In order to add a number of options/parameters in a single line, use the following command:</p><p><strong>Usage:</strong></p><p>Migrate content using Auth token:</p><pre>csdx cm:migration -A -n &lt;filepath&gt; -k &lt;api_key&gt; </pre><p>Migrate content using CLI Management token alias:</p><pre>csdx cm:migration -a &lt;management_token_alias&gt; -n &lt;file_path&gt; -k &lt;api_key&gt; </pre><p><strong>Options:</strong></p><ul><li><span class=\"code\">-A</span>, <span class=\"code\">--auth-token</span>: Add this flag to use the auth token of the current session. After logging in to CLI, an auth token is generated for each new session.</li><li><span class=\"code\">-a</span>, <span class=\"code\">--management-token-alias=management-token-alias</span>: Use this flag to add the management token alias.</li><li><span class=\"code\">-k</span>, <span class=\"code\">--api-key=api-key</span>: Use this flag to add the API key of your stack.</li><li><span class=\"code\">-n</span>, <span class=\"code\">--file-path=filepath</span>: Use this flag to provide the path of the file of the migration script.</li><li><span class=\"code\">--multi</span>: This flag helps you to migrate multiple content files in a single instance. Mention the folder path where your migration script files are stored.</li><li><span class=\"code\">-B</span>, <span class=\"code\">--branch=branch</span>: Use this flag to add the branch name where you want to perform the migration.&nbsp;(target branch name)</li><li><span class=\"code\">--config=config</span>: [<em>optional</em>] Inline configuration, &lt;key1&gt;:&lt;value1&gt;. Passing an external configuration makes the script re-usable.</li><li><span class=\"code\">--config-file=config-file</span>: [<em>optional</em>] Path of the JSON configuration file.</li></ul><p><strong>Example</strong>:</p><ul><li>Example 1:<pre>csdx cm:migration -A -n \"path/to/transform-contenttype/script/file\" -k bxxxxxxx</pre></li><li>Example 2:<pre>csdx cm:migration -a my_token_alias  -k bxxxxxxx --config contentTypeUID:author -n “path/to/migrate/single/contenttype/modification/script/file”</pre></li><li>Example 3:<pre>csdx cm:migration -a my_token_alias -k bxxxxxxx --config  numberOfEntries:100 contentTypeUID:blog -n “path/to/update/first/100/entries/of/given/contenttype/script/file”</pre></li></ul>In the next section, let’s understand how to create the migration files and use various methods to perform operations in your stack.</li></ol><h2>Get Started with the Migration Script</h2><p>Now let’s understand how to create and execute migration scripts using Contentstack CLI. Furthermore, we will discuss various methods for making migration scripts easier to write and more readable.</p><h3>Create Migration File</h3><p>First, determine the location where the&nbsp;migration script will be written. The&nbsp;migration script file will be exported when the migration command is run, accordingly, you can decide the location.</p><p>Now, you must specify the file path of the migration script to run the migration process,&nbsp;as mentioned in the migration command.</p><p>Developers can use JavaScript to create migration scripts that specify changes to a content model.</p><p>Here’s a sample code snippet for you to get started. Copy the sample code and initiate with your migration script.<br /></p><pre>'use strict';<br /><br />module.exports = async ({migration, stackSDKInstance}) =&gt; {<br /><br />     // write your scripts here<br /><br />})</pre><p>The script file of the code should have a function exported as default, that's the method where the scripts reside.</p><p class=\"note\"><strong>Note: </strong>Developers can alter the code and make changes according to their own requirements.</p><p>Let's discuss the objects we used in the above example.</p><p><span class=\"code\">“migration”</span> : This refers to your migration object. The migration object has some predefined methods to perform various tasks like create, edit, and so on.<br />Using these methods you can define the tasks and write other tasks to execute them.</p><p>Consider this example, where we have defined a method for creating the <strong>Blog </strong>content type.</p><pre>module.exports = async ({ migration, stackSDKInstance }) =&gt; {<br />  const blog = migration<br />    .createContentType(\"blog\")<br />    .title(\"Blog\")<br />    .description('The is Blog content type')<br />    .isPage(true)<br />    .singleton(false);  <br />blog<br />    .createField(\"title\")<br />    .display_name(\"Title\")<br />    .data_type(\"text\")<br />   .mandatory(true); <br />blog<br />       .createField(\"url\")<br />       .display_name(\"URL\")<br />      .data_type(\"text\")<br />      .mandatory(true); <br /><br /> migration.addTask(blog.getTaskDefinition());<br />};</pre><p>The last line of the code defines the migration task to execute the method.<br />Below we have mentioned various methods you can use to easily perform migration.</p><p><span class=\"code\">“stackSDKInstance”</span> : This is an SDK instance initiated with API key and the authentication method is chosen via the&nbsp;CLI.</p><p>This is an optional object users can add to customize tasks that are not supported by the migration script.</p><p>Currently, the migration script only supports <strong>content type-related methods</strong>. To extend your migration further, you can use this pre-initiated SDK instance to run the file via the CLI.</p><p>Consider this example where we are creating an entry for the <strong>Blog</strong> content type.</p><pre>module.exports = async ({migration, stackSDKInstance}) =&gt; {<br /><br />    let createEntryTask = {<br /><br />    title: 'Create blog entries',<br /><br />    task: [async (params) =&gt; {<br /><br />      try {<br /><br />        let entry = {<br /><br />          title: `Awesome Blog`,<br /><br />          url: `/awesome-blog`<br /><br />        }<br /><br />        await stackSDKInstance.contentType('blog').entry().create({ entry })<br /><br />      } catch (error) {<br /><br />        throw error<br /><br />      }<br /><br />    }]<br /><br />  }<br /><br />  migration.addTask(createEntryTask);<br /><br />}</pre><p>Carefully observe the SDK instance we have added to this example which extends our migration script and enables us to perform operations with entries in the content type.</p><p>Similar to the previous example, the last line of the code defines the migration task and adds this method to the existing&nbsp;migration tasks list for execution.</p><p class=\"add-resource\"><strong>Additional Resource</strong>: For more information, refer to the&nbsp;<a rel=\"noreferrer\" href=\"https://github.com/contentstack/cli-plugins/blob/main/packages/contentstack-migration/docs/api-reference.md\" target=\"_blank\">migration API documentation </a>and <a rel=\"noreferrer\" href=\"https://github.com/contentstack/cli-plugins/tree/main/packages/contentstack-migration/examples\" target=\"_blank\">advanced examples</a>.</p><h3>Execute the Migration File</h3><p>After configuring the migration script file, you can proceed to run the file via Contentstack CLI to complete the migration.</p><p>Migrate content using Auth token:</p><pre>csdx cm:migration -A -n &lt;file_path&gt; -k &lt;api_key&gt; </pre><p>OR</p><p>Migrate content using management token alias:</p><pre>csdx cm:migration -a &lt;management_token_alias&gt; -n &lt;file_path&gt; -k &lt;api_key&gt;</pre><ul></ul><p class=\"add-resource\"><strong>Additional Resource</strong>: Check out our GitHub repository for detailed information on the migration script and various <a rel=\"noreferrer\" href=\"https://github.com/contentstack/cli-plugins/tree/main/packages/contentstack-migration/examples\" target=\"_blank\">advanced options &amp; examples</a>.</p><h2>Points to Remember</h2><ol><li>Currently, you can pass a custom schema to the <strong>createField </strong>method to migrate group fields.</li><li>You can migrate global fields by creating an SDK instance and adding it to content types using the <strong>createField </strong>method.</li><li>Currently, you can migrate entries by creating an SDK instance to <strong>create</strong>/<strong>update</strong>/<strong>delete</strong> entries for your content type.</li></ol>"
+      }
+    }
+  ],
+  "related_articles": [
+    {
+      "referenced_articles": {
+        "heading": "",
+        "_metadata": {
+          "uid": "csc7e1bff882b13361"
+        },
+        "articles": [
+          {
+            "uid": "blt0d456863285185da",
+            "_content_type_uid": "more_articles"
+          }
+        ]
+      }
+    }
+  ],
+  "next_and_prev_links": {
+    "next_link": {
+      "title": "",
+      "href": ""
+    },
+    "prev_link": {
+      "title": "",
+      "href": ""
+    }
+  },
+  "seo": {
+    "title": "Migrate your Content using the CLI Migration Command | V0.x.x | Contentstack",
+    "image": null,
+    "description": "Effortlessly migrate your content with Contentstack's CLI Migration Command.",
+    "robots": ""
+  },
+  "tags": [],
+  "uid": "bltce91c490961bf924",
+  "created_by": "blta3007b105b17e5d8",
+  "updated_by": "blt8e5689a3647afd22",
+  "created_at": "2022-12-17T08:41:25.320Z",
+  "updated_at": "2026-08-05T12:51:36.557Z",
+  "_version": 18,
+  "_in_progress": false,
+  "md_content": "",
+  "publish_details": [
+    {
+      "environment": "blt4a008c3cde35b0c2",
+      "locale": "en-us",
+      "time": "2026-08-05T12:51:37.571Z",
+      "user": "blt8e5689a3647afd22",
+      "version": 18
+    },
+    {
+      "environment": "blt92ab7d24e8c52483",
+      "locale": "en-us",
+      "time": "2026-08-05T12:51:37.571Z",
+      "user": "blt8e5689a3647afd22",
+      "version": 18
+    },
+    {
+      "environment": "bltfe8376c13fe85b9c",
+      "locale": "en-us",
+      "time": "2026-08-13T09:55:59.528Z",
+      "user": "blt346b73255381ad74",
+      "version": 18
+    },
+    {
+      "environment": "blt18d21c1c300e766f",
+      "locale": "en-us",
+      "time": "2023-07-11T13:43:33.027Z",
+      "user": "blt3274538a64ad0ade",
+      "version": 6,
+      "version_name": {
+        "title": "NodeJS Version Update",
+        "updated_by": "blt3274538a64ad0ade",
+        "updated_at": "2023-07-10T16:03:34.426Z"
+      }
+    }
+  ]
+}
