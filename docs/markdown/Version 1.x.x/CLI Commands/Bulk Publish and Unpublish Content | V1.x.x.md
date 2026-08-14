@@ -342,7 +342,7 @@ csdx cm:entries:unpublish -e <environment_name> --locale <locale_code> --stack-a
 
 The `cm:stacks:publish-configure` command lets you generate a template for the configuration JSON file. It will set the variables for the Bulk Publish commands.
 
-After you generate the configuration file, you can simply use its path in the `-c` , `--config=config` option of any Bulk Publish commands. You can view this [reference configuration file](https://github.com/contentstack/cli/blob/v2.0.0-beta/packages/contentstack-bulk-publish/src/config/index.js) for Bulk Publish commands.
+After you generate the configuration file, you can simply use its path in the `-c` , `--config=config` option of any Bulk Publish commands. You can view this [reference configuration file](https://github.com/contentstack/cli-plugins/blob/main/packages/contentstack-bulk-operations/src/config/index.ts) for Bulk Publish commands.
 
 **Usage:**
 

@@ -289,7 +289,7 @@ csdx auth:login
 csdx cm:stacks:export -k <stack-api-key> --data-dir ./export
 ```
 
-**Related Documentation:** [CLI for CS Assets](/docs/headless-cms/cli-for-cs-assets/v1#how-management-tokens-affect-export)
+**Related Documentation:** [CLI for CS Assets](/docs/headless-cms/cli-for-cs-assets#how-management-tokens-affect-export)
 
 **Version Information:** All versions
 
@@ -751,7 +751,7 @@ csdx cm:stacks:import -k <target-api-key> --data-dir ./export
 - `csdx cm:stacks:export`
 - `csdx cm:stacks:import`
 
-**Related Documentation:** [CLI for CS Assets](/docs/headless-cms/cli-for-cs-assets/v1)
+**Related Documentation:** [CLI for CS Assets](/docs/headless-cms/cli-for-cs-assets)
 
 **Version Information:** All versions
 

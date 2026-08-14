@@ -207,7 +207,7 @@ When both conditions are met, the CLI activates CS Assets mode automatically and
 csdx cm:stacks:export -k <stack-api-key> --data-dir ./export
 ```
 
-> **Note:** Use `csdx auth:login` for CS Assets export. When using a management token, the CLI cannot read branch settings, so linked workspaces are never populated and CS Assets mode never activates. The export falls back to legacy asset export. See [Management Token Behavior](/docs/headless-cms/cli-for-cs-assets/v1#management-token-behavior).
+> **Note:** Use `csdx auth:login` for CS Assets export. When using a management token, the CLI cannot read branch settings, so linked workspaces are never populated and CS Assets mode never activates. The export falls back to legacy asset export. See [Management Token Behavior](/docs/headless-cms/cli-for-cs-assets#management-token-behavior).
 
 ### How CS Assets differs from legacy asset export
 
@@ -228,9 +228,9 @@ CS Assets import works with all authentication methods, including management tok
 csdx cm:stacks:import -k <stack-api-key> --data-dir ./export
 ```
 
-The import command detects CS Assets mode when **both** the `spaces/` directory and the `am_v2` key in `stack/settings.json` are present in the export directory. No additional flags are required. See [How CS Assets import is detected](/docs/headless-cms/cli-for-cs-assets/v1#how-cs-assets-import-is-detected).
+The import command detects CS Assets mode when **both** the `spaces/` directory and the `am_v2` key in `stack/settings.json` are present in the export directory. No additional flags are required. See [How CS Assets import is detected](/docs/headless-cms/cli-for-cs-assets#how-cs-assets-import-is-detected).
 
-For full details on CS Assets export and import behavior, see [CLI for CS Assets](/docs/headless-cms/cli-for-cs-assets/v1).
+For full details on CS Assets export and import behavior, see [CLI for CS Assets](/docs/headless-cms/cli-for-cs-assets).
 
 ---
 
