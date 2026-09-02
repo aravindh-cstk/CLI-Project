@@ -8,17 +8,48 @@ seo_description: "Understand Contentstack CLI limitations, supported environment
 
 ---
 
+## Overview
+
+This page indexes the known limitations of the Contentstack CLI, one section per module or plugin. Use the Quick Reference below to jump to the module you are working with rather than reading the page end to end.
+
+Each entry states the limitation, its impact, and a workaround where one exists. This page does not document command syntax or flags. Those live in each command's own reference page.
+
+## Quick Reference
+
+| Use Case | Section | Key Call |
+| --- | --- | --- |
+| Installing or upgrading the CLI | [Core CLI Limitations](#core-cli-limitations) | - |
+| Logging in or managing tokens | [Authentication Module Limitations](#authentication-module-limitations) | `csdx auth:login` |
+| Exporting a stack | [Export Module Limitations](#export-module-limitations) | `csdx cm:stacks:export` |
+| Importing into a stack | [Import Module Limitations](#import-module-limitations) | `csdx cm:stacks:import` |
+| Preparing an import | [Import Setup Limitations](#import-setup-limitations) | `csdx cm:stacks:import-setup` |
+| Overwriting existing content | [Overwrite Operations Limitations](#overwrite-operations-limitations) | `csdx cm:stacks:import` |
+| Publishing or unpublishing in bulk | [Bulk Publish/Unpublish Limitations](#bulk-publish-unpublish-limitations) | `csdx cm:stacks:bulk-entries` |
+| Cloning a stack | [Clone Operations Limitations](#clone-operations-limitations) | `csdx cm:stacks:clone` |
+| Comparing or merging branches | [Branch Operations Limitations](#branch-operations-limitations) | `csdx cm:branches:merge` |
+| Deploying with Launch | [Launch Operations Limitations](#launch-operations-limitations) | - |
+| Running a migration script | [Migration Scripts Limitations](#migration-scripts-limitations) | `csdx cm:stacks:migration` |
+| Bootstrapping a starter app | [Bootstrap Plugin Limitations](#bootstrap-plugin-limitations) | `csdx cm:bootstrap` |
+| Seeding a stack | [Seed Command Limitations](#seed-command-limitations) | `csdx cm:stacks:seed` |
+| Converting HTML RTE to JSON RTE | [RTE Migration Limitations](#rte-migration-limitations) | `csdx cm:entries:migrate-html-rte` |
+| Migrating entries between stacks | [Entry Migration Limitations](#entry-migration-limitations) | `csdx migrate:import` |
+| Auditing exported data | [Audit Plugin Limitations](#audit-plugin-limitations) | `csdx cm:stacks:audit` |
+| Working with entry variants | [Variants Plugin Limitations](#variants-plugin-limitations) | - |
+| Managing Marketplace apps | [Apps CLI Limitations](#apps-cli-limitations) | - |
+| Generating TypeScript typings | [TSGen Plugin Limitations](#tsgen-plugin-limitations) | `csdx tsgen` |
+| Setting CLI configuration | [Configuration Limitations](#configuration-limitations) | `csdx config:set:region` |
+
 ## Core CLI Limitations
 
 ### Node.js Version Requirements
 
-**Limitation:** CLI requires Node.js version 18.0.0 or above (recommended: 20.x or 22.x)
+**Limitation:** CLI 2.0.0 requires Node.js version 22.0.0 or above, which is what the package's own engines field declares
 
-**Impact:** CLI won't work with Node.js versions below 18.0.0
+**Impact:** On an unsupported Node version the install completes with EBADENGINE warnings and appears to succeed, then the CLI fails at runtime. Upgrade Node first, then install
 
 **Workaround:**
 
-- Install supported Node.js version (18.0.0+, recommended: 20.x or 22.x)
+- Install Node.js 22.0.0 or above, then install the CLI
 
 - Use nvm for version management:
 

@@ -355,6 +355,20 @@ For detailed limitations, see the [CLI Limitations Guide](/docs/headless-cms/cli
 - [CLI Limitations Guide](/docs/headless-cms/cli-limitations)
 - CLI Best Practices Guide
 
+## Quick Reference
+
+| Use Case | Section | Key Call |
+| --- | --- | --- |
+| Checking module coverage | [Supported Modules](#supported-modules) | - |
+| Moving Marketplace apps | [Marketplace Apps](#marketplace-apps) | - |
+| Meeting the requirements first | [Prerequisites](#prerequisites) | - |
+| Moving Personalize data and entry variants | [Personalize and Entry Variants](#personalize-and-entry-variants) | - |
+| Moving CS Assets | [CS Assets](#cs-assets) | - |
+| Running one module at a time | [Module-Wise Operations](#module-wise-operations) | `csdx cm:stacks:export` |
+| Reading an error | [Error Handling](#error-handling) | - |
+| Following the recommended order | [Best Practices](#best-practices) | - |
+| Checking what is not covered | [Limitations](#limitations) | - |
+
 ## Next Steps
 
 - [Export Content Using the CLI](/docs/headless-cms/export-content-using-the-cli): export stack content to disk before importing it elsewhere.
