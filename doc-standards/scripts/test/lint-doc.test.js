@@ -262,3 +262,43 @@ test('CLI-16 does not fire on the corrected note, and ignores code fences', () =
   ].join('\n'));
   assert.ok(!ids(checkBannedPhrases(doc)).includes('CLI-16'));
 });
+
+// CLI-17. The check that did not exist. Nine absolute docs links sat in the
+// corpus because the word "relative" appeared once in the whole standard, inside
+// C2-04, and no check anywhere tested for a URL scheme at all.
+const { checkInternalLinkForm } = require('../checks/internal-link-form');
+
+test('CLI-17 catches an absolute link to the docs site and names the relative form', () => {
+  const doc = new DocModel('abs.md', [
+    '---', 'uid: "blt1"', 'seo_title: "T"', 'seo_description: "D"', '---', '',
+    '# T', '', '## Overview', '',
+    'See [Contentstack CLI](https://www.contentstack.com/docs/headless-cms/install-the-cli).',
+    '',
+  ].join('\n'));
+  const findings = checkInternalLinkForm(doc);
+  assert.ok(ids(findings).includes('CLI-17'));
+  assert.match(findings[0].message, /\/docs\/headless-cms\/install-the-cli/);
+});
+
+test('CLI-17 leaves relative docs links, the login app, and third parties alone', () => {
+  const doc = new DocModel('ok.md', [
+    '---', 'uid: "blt1"', 'seo_title: "T"', 'seo_description: "D"', '---', '',
+    '# T', '', '## Overview', '',
+    '- [Install the CLI](/docs/headless-cms/install-the-cli): relative, correct.',
+    '- [Contentstack account](https://www.contentstack.com/login): the app, not the docs.',
+    '- [oclif](https://oclif.io/docs/plugins): third party.',
+    '- [This section](#overview): a bare fragment.',
+    '',
+  ].join('\n'));
+  assert.deepEqual(ids(checkInternalLinkForm(doc)), []);
+});
+
+test('CLI-17 ignores an absolute docs URL inside a code fence', () => {
+  const doc = new DocModel('fence.md', [
+    '---', 'uid: "blt1"', 'seo_title: "T"', 'seo_description: "D"', '---', '',
+    '# T', '', '## Overview', '',
+    '```', 'curl https://www.contentstack.com/docs/headless-cms/install-the-cli', '```',
+    '',
+  ].join('\n'));
+  assert.deepEqual(ids(checkInternalLinkForm(doc)), []);
+});

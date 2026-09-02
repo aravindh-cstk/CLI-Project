@@ -149,7 +149,7 @@ By doing so, you don’t need to separately provide parameters/options in the co
 
 ### Import Content Using Auth Token and Parameters
 
-You can use this method to import content to your stack if you have logged in to the session using the [Login](https://www.contentstack.com/docs/headless-cms/cli-authentication/v0#login) command. Running the Login command generates an auth token, which is used in the command below.
+You can use this method to import content to your stack if you have logged in to the session using the [Login](/docs/headless-cms/cli-authentication/v0#login) command. Running the Login command generates an auth token, which is used in the command below.
 
 **Usage**
 

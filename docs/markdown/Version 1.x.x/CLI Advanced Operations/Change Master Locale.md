@@ -15,7 +15,7 @@ As a solution, you can change the master locale of the data exported from the CL
 ## Prerequisites
 
 - [Contentstack account](https://www.contentstack.com/login)
-- [CLI installed](https://www.contentstack.com/docs/headless-cms/install-the-cli) (version 1.1.0 and above)
+- [CLI installed](/docs/headless-cms/install-the-cli) (version 1.1.0 and above)
 
 ## Steps for Execution
 

@@ -8,6 +8,7 @@ const { buildReport, renderText } = require('./lib/report');
 const { checkFrontMatter } = require('./checks/front-matter');
 const { checkSectionStructure } = require('./checks/section-structure');
 const { checkBannedPhrases } = require('./checks/banned-phrases');
+const { checkInternalLinkForm } = require('./checks/internal-link-form');
 const { checkEmDashSemicolon } = require('./checks/em-dash-semicolon');
 const { checkQaHeaders } = require('./checks/qa-headers');
 const { checkTroubleshootingFormat } = require('./checks/troubleshooting-format');
@@ -40,6 +41,7 @@ const CHECKS = [
   checkFrontMatter,
   checkSectionStructure,
   checkBannedPhrases,
+  checkInternalLinkForm,
   checkEmDashSemicolon,
   checkQaHeaders,
   checkTroubleshootingFormat,

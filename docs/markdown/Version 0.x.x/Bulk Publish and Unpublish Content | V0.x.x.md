@@ -12,7 +12,7 @@ The Bulk Publish and Unpublish commands allow you to publish entries and assets 
 
 - [Contentstack account](https://www.contentstack.com/login)
 - CLI [installed](/docs/headless-cms/install-the-cli/v1) on your machine
-- [Authentication](https://www.contentstack.com/docs/headless-cms/cli-authentication/v0) to use CLI
+- [Authentication](/docs/headless-cms/cli-authentication/v0) to use CLI
 - A [configured management token](/docs/headless-cms/cli-authentication/v0#add-token)
 
 ## Commands

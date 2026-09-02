@@ -6,7 +6,7 @@ seo_description: "Learn how to build, test, and publish custom CLI plugins for C
 
 # Create Custom CLI Plugins for Contentstack
 
-This guide explains how to develop an external plugin for [Contentstack CLI](https://www.contentstack.com/docs/headless-cms/install-the-cli), including requirements, project structure, best practices, testing, publishing steps, and key internal behaviors to consider.
+This guide explains how to develop an external plugin for [Contentstack CLI](/docs/headless-cms/install-the-cli/v1), including requirements, project structure, best practices, testing, publishing steps, and key internal behaviors to consider.
 
 ## Overview
 

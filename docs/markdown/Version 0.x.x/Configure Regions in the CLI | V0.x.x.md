@@ -61,7 +61,7 @@ csdx config:set:region AZURE-NA
 
 ### Set custom host and region
 
-By using the `config:set:region` command, you can also set a custom host for [Content Delivery](https://www.contentstack.com/docs/developers/apis/content-delivery-api/) and [Content Management](https://www.contentstack.com/docs/developers/apis/content-management-api/) APIs, and set a custom region name for the hosts.
+By using the `config:set:region` command, you can also set a custom host for [Content Delivery](/docs/developers/apis/content-delivery-api/) and [Content Management](/docs/developers/apis/content-management-api/) APIs, and set a custom region name for the hosts.
 
 **Usage**
 

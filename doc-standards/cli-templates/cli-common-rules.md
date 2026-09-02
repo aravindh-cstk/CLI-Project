@@ -226,6 +226,32 @@ The V2 page shipped documenting a flag that does not exist, describing a real fl
 
 ---
 
+### CLI-C13: Links to the docs site are root-relative
+
+**Rule:** Write an internal docs link as `/docs/headless-cms/install-the-cli`. Never as `https://www.contentstack.com/docs/headless-cms/install-the-cli`. Links to the application and to third parties stay absolute.
+
+**Why:** An absolute docs link resolves to production from every environment. A reviewer on staging who clicks one is thrown back to production mid-review, which means the link path cannot be checked before it ships. It also silently defeats any future environment, preview build or local render.
+
+Nine such links were in the corpus. One of them was also pointing at the wrong version: `Create Custom CLI Plugins for Contentstack | V1.x.x` opened with "how to develop an external plugin for [Contentstack CLI]" linking the **V2** install page, so a V1 reader landed on 2.0.0 instructions.
+
+**Why this was missed, which matters more than the nine links.** The word "relative" appeared exactly once in the entire standard before this rule, inside `C2-04`, and only as an incidental clause in a rule about Quick Reference tables:
+
+> Section names in a Quick Reference table must link to the corresponding section using the relative doc URL and section anchor.
+
+Three separate gaps followed from that:
+
+1. **No rule covered ordinary body links.** Nothing was being violated, so nothing could be reported.
+2. **Even `C2-04` does not test relativeness.** Its check asserts the cell matches `/\]\(#[^)]+\)/`, a bare fragment. A cell containing an absolute URL and no fragment fails it for the wrong reason, and one containing an absolute URL alongside a fragment passes.
+3. **No check anywhere looked at `http://` at all.** Grepping every check module for a URL scheme returned nothing, so an absolute internal link was invisible to every gate in the linter.
+
+**A 200 is not evidence of a relative link.** The link verification during the restructure fetched each target with a host prefix and confirmed it returned 200. Every absolute link passed that check, because it does resolve. It resolves to the wrong environment. A check that fetches a URL can only tell you the target exists, never that the link was written correctly.
+
+**How to check.** `doc-standards/scripts/checks/internal-link-form.js`, registered as `CLI-17`, reports any `contentstack.com/docs/` URL outside a code fence and prints the root-relative form to use instead.
+
+**Exception:** The application at `contentstack.com/login` and any third-party host. Neither is environment mirrored and neither has a relative form. 62 login links in the corpus are correct as they stand.
+
+---
+
 ## Section 3: Relationship to the SDK common rules
 
 | CLI rule | SDK rule it relates to | Relationship |
@@ -242,3 +268,4 @@ The V2 page shipped documenting a flag that does not exist, describing a real fl
 | CLI-C10 version claims | C6 verified claims | Specialises. Names `changelog/` as the CLI source of record |
 | CLI-C11 no inherited facts | C6 verified claims | Extends. Applies verification to a doc derived from an older version, where every sentence was once true |
 | CLI-C12 no absence claims | None | New. C6 and CLI-C10 govern claims about the product, this governs claims about the documentation, which no publishing step revisits |
+| CLI-C13 root-relative docs links | C2-04 Quick Reference tables | Generalises. C2-04 asked for a relative URL in one table and no check ever tested relativeness, so this states it for every link and adds the check |

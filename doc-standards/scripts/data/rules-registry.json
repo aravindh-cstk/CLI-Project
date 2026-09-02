@@ -1332,5 +1332,17 @@
     "exception": "A deprecation notice pointing at a live replacement is not an absence claim.",
     "tier": 1,
     "checkId": "banned-phrases"
+  },
+  {
+    "id": "CLI-17",
+    "source": "cli-templates/cli-common-rules.md",
+    "docTypes": [
+      "all"
+    ],
+    "rule": "Links to the Contentstack docs site must be root-relative, /docs/headless-cms/install-the-cli, never absolute. Links to the application and to third parties stay absolute.",
+    "why": "An absolute docs link resolves to production from every environment, so a reader reviewing on staging is thrown back to production the moment they click one, and a link path cannot be reviewed before it ships. Nine such links were in the corpus, and one of them also pointed at the wrong version: Create Custom CLI Plugins for Contentstack | V1.x.x linked the V2 install page, so a V1 reader landed on 2.0.0 instructions. The word relative appeared exactly once in the whole standard before this rule, inside C2-04, which is about Quick Reference tables only, and no check anywhere tested for http:// at all.",
+    "exception": "The application at contentstack.com/login and any third-party host. Neither is environment mirrored and neither has a relative form.",
+    "tier": 1,
+    "checkId": "internal-link-form"
   }
 ]

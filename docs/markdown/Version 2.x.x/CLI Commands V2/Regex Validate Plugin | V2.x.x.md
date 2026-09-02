@@ -180,7 +180,7 @@ After the table, the CLI also prints:
 ```
 CSV output stored successfully at: /path/to/results/results.csv
 To know more, visit our documentation site on catastrophic-backtracking:
-https://www.contentstack.com/docs/developers/create-content-types/validation-regex/#prevent-catastrophic-backtracking
+/docs/developers/create-content-types/validation-regex/#prevent-catastrophic-backtracking
 ```
 
 ---
