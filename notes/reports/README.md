@@ -112,6 +112,28 @@ Found from a Slack thread rather than from any check, which is the point.
 
 ---
 
+## Production is approval gated, which changes what "deploy" means
+
+Found while deploying the retirement release, and it applies to every production change in this stack.
+
+**A successful `POST /v3/releases/{uid}/deploy` does not mean anything is live.** The release locks, the API returns success, and the items land in the publish queue as:
+
+```
+"publish_details": {
+  "status": "pending_approval",
+  "message": "Entry has not received the required approval(s).",
+  "error": "The request cannot be processed as approval is pending."
+}
+```
+
+**Staging and development are not gated.** Publishes there return `status: success` immediately, which is why every write script in `scripts/` can target them directly. Only production (`bltfe8376c13fe85b9c`) holds items for approval.
+
+**So an approver has to act in the Contentstack UI, under Publish Queue, before the live site changes.** `scripts/deploy_release.py` reads the queue back after submitting and quotes the real per-item status, because reporting "deployed" on the strength of the POST alone is a false report. Its first version did exactly that and was corrected.
+
+This also explains a long-standing puzzle. `RELEASE_CLEANUP_NAV` is locked, so it looked deployed, yet `/docs/developers/cli/create-custom-cli-commands` kept returning 404. Two separate causes: the release carried `blt0d2ab10c0fa412a8` at v3 with the content edit never made, and a locked release is not proof its items were approved.
+
+---
+
 ## Reproducing everything
 
 ```bash
