@@ -152,3 +152,23 @@ Now any user can import your stack’s content to their stack by performing the 
 
 - To import content into an existing destination stack, ensure you have permission to create content in that stack.
 - To create a new stack for storing content, you must have “[owner](/docs/administration/about-administration-roles#organization-owner)” or “[admin](/docs/administration/about-administration-roles#organization-admin)” rights in that organization.
+
+## Examples
+
+Seed a new stack in an organization from the default starter repository.
+
+```
+csdx cm:stacks:seed --org <ORG_UID> --stack-name <NEW_STACK_NAME>
+```
+
+Seed from a specific GitHub repository into an existing stack.
+
+```
+csdx cm:stacks:seed --repo <GITHUB_ORG>/<REPO_NAME> --stack-api-key <STACK_API_KEY>
+```
+
+Seed without the confirmation prompt, for use in a script.
+
+```
+csdx cm:stacks:seed --org <ORG_UID> --stack-name <NEW_STACK_NAME> --yes
+```

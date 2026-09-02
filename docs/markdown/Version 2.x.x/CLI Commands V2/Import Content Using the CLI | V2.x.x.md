@@ -300,6 +300,26 @@ EXTENSIONS:
 [2025-09-10 19:19:07] INFO: Starting import of environments module
 ```
 
+## Examples
+
+Import a previously exported directory into a target stack.
+
+```
+csdx cm:stacks:import --alias <MANAGEMENT_TOKEN_ALIAS> --data-dir <EXPORT_PATH>
+```
+
+Import one module and replace the copy already in the target stack.
+
+```
+csdx cm:stacks:import --stack-api-key <STACK_API_KEY> --data-dir <EXPORT_PATH> --module entries --replace-existing
+```
+
+Import into a branch without publishing assets, and skip the audit fix, which shortens a large import.
+
+```
+csdx cm:stacks:import --alias <MANAGEMENT_TOKEN_ALIAS> --data-dir <EXPORT_PATH> --branch <BRANCH_NAME> --skip-assets-publish --skip-audit
+```
+
 ## Limitations
 
 - Only the **latest version** of published entries or assets is imported.

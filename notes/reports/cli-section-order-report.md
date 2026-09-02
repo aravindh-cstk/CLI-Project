@@ -15,7 +15,7 @@ python3 scripts/gen_section_order_report.py
 | Docs in scope | 81 |
 | Linted | 77 |
 | Excluded as untypable stubs | 4 |
-| Total tier-1 errors | 513 |
+| Total tier-1 errors | 505 |
 | Total tier-2 flags | 368 |
 
 ### Type assignment
@@ -115,7 +115,7 @@ Tier 1 is a hard error. Tier 2 is advisory.
 
 | Rule | Tier | Occurrences |
 |---|---|---|
-| `C1-01` | 1 | 188 |
+| `C1-01` | 1 | 180 |
 | `CLI-01` | 1 | 143 |
 | `C1-05` | 1 | 66 |
 | `C3-05` | 1 | 37 |
@@ -145,10 +145,10 @@ This is the core structural finding. Each row is a section the type requires and
 
 | Doc type | Missing section | Docs affected |
 |---|---|---|
-| `cli-command-reference` | Examples | 32 |
 | `cli-command-reference` | Troubleshooting | 32 |
 | `cli-command-reference` | Limitations | 26 |
 | `cli-command-reference` | Next Steps | 26 |
+| `cli-command-reference` | Examples | 24 |
 | `cli-task-runbook` | Limitations | 17 |
 | `cli-task-runbook` | Troubleshooting | 15 |
 | `cli-task-runbook` | Next Steps | 10 |
@@ -188,7 +188,6 @@ This is the core structural finding. Each row is a section the type requires and
 | `Version 1.x.x/CLI Commands/Export Content Using the CLI \| V1.x.x` | `cli-command-reference` | 6 | 3 | `C1-06`, `C8-01`, `C8-07`, `CLI-01` |
 | `Version 1.x.x/CLI Commands/Overwrite Existing Content using CLI Import \| V1.x.x` | `cli-task-runbook` | 6 | 2 | `C1-01`, `C3-03`, `C3-05`, `C8-01`, `CLI-02` |
 | `Version 1.x.x/Migration Use Cases/Branches \| Migration Use Cases \| V1.x.x` | `cli-task-runbook` | 6 | 4 | `C1-01`, `C8-06`, `CLI-02` |
-| `Version 2.x.x/CLI Commands V2/Cloning a Stack \| V2.x.x` | `cli-command-reference` | 6 | 4 | `C1-01`, `C3-03`, `C8-01`, `CLI-01` |
 | `Version 2.x.x/CLI Commands V2/Configure Proxy Settings in CLI \| V2.x.x` | `cli-command-reference` | 6 | 7 | `C1-01`, `C2-04`, `C3-05` |
 | `Version 2.x.x/CLI Migration Use Cases V2/Branches \| Migration Use Cases \| V2.x.x` | `cli-task-runbook` | 6 | 5 | `C1-01`, `C8-06`, `CLI-02` |
 | `Version 2.x.x/Miscellaneous V2/Bootstrap Starter Apps \| V2.x.x` | `cli-task-runbook` | 6 | 6 | `C1-01`, `C3-05`, `CLI-01` |
@@ -200,9 +199,7 @@ This is the core structural finding. Each row is a section the type requires and
 | `Version 1.x.x/Miscellaneous/CLI Limitations \| V1.x.x` | `cli-module-reference` | 5 | 3 | `C1-01`, `C3-05`, `C8-07` |
 | `Version 2.x.x/CLI Advanced Operations V2/Configure MFA Secret Using CLI \| V2.x.x` | `cli-command-reference` | 5 | 2 | `C1-01`, `C8-07` |
 | `Version 2.x.x/CLI Advanced Operations V2/Generate Typescript Typings with TSGen Plugin \| V2.x.x` | `cli-command-reference` | 5 | 1 | `C1-01`, `CLI-07` |
-| `Version 2.x.x/CLI Commands V2/Configure CLI Logging Preferences \| V2.x.x` | `cli-command-reference` | 5 | 1 | `C1-01`, `CLI-01` |
-| `Version 2.x.x/Content Migration Commands V2/Export Content to CSV File Using the CLI \| V2.x.x` | `cli-command-reference` | 5 | 3 | `C1-01`, `CLI-01` |
-| `Version 2.x.x/Content Migration Commands V2/Import Content Using the Seed Command \| V2.x.x` | `cli-command-reference` | 5 | 4 | `C1-01`, `CLI-01` |
+| `Version 2.x.x/CLI Commands V2/Cloning a Stack \| V2.x.x` | `cli-command-reference` | 5 | 4 | `C1-01`, `C3-03`, `C8-01`, `CLI-01` |
 | `Version 1.x.x/CLI Advanced Operations/Apps CLI Plugin \| V1.x.x` | `cli-command-reference` | 4 | 2 | `C1-01`, `CLI-07` |
 | `Version 1.x.x/CLI Advanced Operations/Configure MFA Secret Using CLI \| V1.x.x` | `cli-command-reference` | 4 | 2 | `C1-01` |
 | `Version 1.x.x/CLI Commands/Compare and Merge Branches Using the CLI \| V1.x.x` | `cli-command-reference` | 4 | 3 | `C1-01` |
@@ -216,21 +213,24 @@ This is the core structural finding. Each row is a section the type requires and
 | `Version 1.x.x/Miscellaneous/Create Custom CLI Commands` | `cli-task-runbook` | 4 | 2 | `C1-01` |
 | `Version 2.x.x/CLI Advanced Operations V2/Apps CLI Plugin \| V2.x.x` | `cli-command-reference` | 4 | 2 | `C1-01`, `CLI-07` |
 | `Version 2.x.x/CLI Commands V2/CLI-Supported Features for Export, Import, and Clone Operations \| V2.x.x` | `cli-module-reference` | 4 | 21 | `C1-01`, `C3-05`, `C8-01`, `C8-07` |
+| `Version 2.x.x/CLI Commands V2/Configure CLI Logging Preferences \| V2.x.x` | `cli-command-reference` | 4 | 1 | `C1-01`, `CLI-01` |
 | `Version 2.x.x/CLI Commands V2/Configure Early Access in the CLI \| V2.x.x` | `cli-command-reference` | 4 | 1 | `C1-01` |
 | `Version 2.x.x/CLI Commands V2/Query-based Export` | `cli-command-reference` | 4 | 2 | `C1-01` |
 | `Version 2.x.x/CLI Commands V2/Regex Validate Plugin \| V2.x.x` | `cli-command-reference` | 4 | 5 | `C8-07`, `CLI-01` |
+| `Version 2.x.x/Content Migration Commands V2/Export Content to CSV File Using the CLI \| V2.x.x` | `cli-command-reference` | 4 | 3 | `C1-01`, `CLI-01` |
+| `Version 2.x.x/Content Migration Commands V2/Import Content Using the Seed Command \| V2.x.x` | `cli-command-reference` | 4 | 4 | `C1-01`, `CLI-01` |
 | `Version 2.x.x/Content Migration Commands V2/Migrate your Content using the CLI Migration Command \| V2.x.x` | `cli-task-runbook` | 4 | 5 | `C1-01`, `CLI-01` |
-| `Version 2.x.x/Get Started with CLI V2/Configure Regions in the CLI \| V2.x.x` | `cli-command-reference` | 4 | 2 | `C1-01` |
-| `Version 2.x.x/Miscellaneous V2/Configure Rate Limits in the CLI \| V2.x.x` | `cli-command-reference` | 4 | 1 | `C1-01` |
 | `Version 1.x.x/CLI Commands/CLI-Supported Features for Export, Import, and Clone Operations \| V1.x.x` | `cli-module-reference` | 3 | 21 | `C1-01`, `C3-05`, `C8-01` |
 | `Version 1.x.x/Content Migration Commands/Migrate your Content using the CLI Migration Command \| V1.x.x` | `cli-task-runbook` | 3 | 5 | `C1-01` |
 | `Version 1.x.x/Migration Use Cases/Migrate and Overwrite Content in the Same Stack \| V1.x.x` | `cli-task-runbook` | 3 | 4 | `C1-01` |
-| `Version 2.x.x/CLI Commands V2/Export Content Using the CLI \| V2.x.x` | `cli-command-reference` | 3 | 5 | `C1-01`, `CLI-01` |
-| `Version 2.x.x/CLI Commands V2/Import Content Using the CLI \| V2.x.x` | `cli-command-reference` | 3 | 4 | `C1-01`, `CLI-01` |
 | `Version 2.x.x/CLI Migration Use Cases V2/Migrate and Overwrite Content in the Same Stack \| V2.x.x` | `cli-task-runbook` | 3 | 4 | `C1-01` |
+| `Version 2.x.x/Get Started with CLI V2/Configure Regions in the CLI \| V2.x.x` | `cli-command-reference` | 3 | 2 | `C1-01` |
+| `Version 2.x.x/Miscellaneous V2/Configure Rate Limits in the CLI \| V2.x.x` | `cli-command-reference` | 3 | 1 | `C1-01` |
 | `Version 1.x.x/CLI Commands/Bulk Publish and Unpublish Content \| V1.x.x` | `cli-command-reference` | 2 | 5 | `C1-01`, `C3-01` |
 | `Version 1.x.x/Get Started with CLI/Configure Regions in the CLI \| V1.x.x` | `cli-command-reference` | 2 | 3 | `C1-01` |
 | `Version 1.x.x/Migration Use Cases/Migrate Content Between Stacks Using the CLI \| V1.x.x` | `cli-task-runbook` | 2 | 6 | `C1-01` |
+| `Version 2.x.x/CLI Commands V2/Export Content Using the CLI \| V2.x.x` | `cli-command-reference` | 2 | 5 | `C1-01`, `CLI-01` |
+| `Version 2.x.x/CLI Commands V2/Import Content Using the CLI \| V2.x.x` | `cli-command-reference` | 2 | 4 | `C1-01`, `CLI-01` |
 | `Version 2.x.x/CLI Migration Use Cases V2/Migrate Content Between Stacks Using the CLI \| V2.x.x` | `cli-task-runbook` | 2 | 6 | `C1-01` |
 | `Version 2.x.x/Get Started with CLI V2/Install the CLI \| V2.x.x` | `setup-guide` | 2 | 7 | `C1-01`, `C8-07` |
 | `Version 2.x.x/Miscellaneous V2/Create Custom CLI Plugins for Contentstack \| V2.x.x` | `cli-task-runbook` | 2 | 6 | `C1-01` |

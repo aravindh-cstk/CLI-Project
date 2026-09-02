@@ -131,6 +131,26 @@ csdx cm:stacks:clone -n "<>" --source-management-token-alias "<>" --destination-
 
 > **Additional Resources**: Learn more about the CLI-supported clone operations in the [CLI-Supported Features for Export, Import, and Clone Operations](/docs/headless-cms/cli-supported-features-for-export-import-and-clone-operations) document.
 
+## Examples
+
+Clone both structure and content into a brand new stack, naming it as you go.
+
+```
+csdx cm:stacks:clone --source-stack-api-key <SOURCE_API_KEY> --stack-name <NEW_STACK_NAME> --type a
+```
+
+Clone into an existing destination stack using saved management token aliases rather than API keys.
+
+```
+csdx cm:stacks:clone --source-management-token-alias <SOURCE_ALIAS> --destination-management-token-alias <DEST_ALIAS>
+```
+
+Clone one branch into another, skipping the audit fix that otherwise runs during the import half of the operation.
+
+```
+csdx cm:stacks:clone --source-stack-api-key <SOURCE_API_KEY> --destination-stack-api-key <DEST_API_KEY> --source-branch <SOURCE_BRANCH> --target-branch <TARGET_BRANCH> --skip-audit
+```
+
 ## Next Steps
 
 - [Export Content Using the CLI](/docs/headless-cms/export-content-using-the-cli): export stack content to disk before importing it elsewhere.

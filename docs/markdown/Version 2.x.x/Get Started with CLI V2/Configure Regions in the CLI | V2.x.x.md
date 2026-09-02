@@ -125,3 +125,17 @@ csdx config:set:region --cda <<custom_cda_host_url>> --cma <<custom_cma_host_url
 ```
 csdx config:set:region --cda "https://in-cdn.contentstack.com" --cma "https://in-api.contentstack.com" --ui-host "https://in-app.contentstack.com" --developer-hub "https://in-developerhub-api.contentstack.com" --launch "https://in-launch-api.contentstack.com" --personalize "https://in-personalize-api.contentstack.com" --name "India"
 ```
+
+## Examples
+
+Point every API at a custom host in one command by naming the region. Adding --name is what makes the CLI treat the other hosts as a named region rather than individual overrides.
+
+```
+csdx config:set:region --name <REGION_NAME> --cma <CMA_HOST> --cda <CDA_HOST> --ui-host <UI_HOST>
+```
+
+Override only the Launch and Developer Hub hosts, leaving the rest of the region as it is.
+
+```
+csdx config:set:region --launch <LAUNCH_HOST> --developer-hub <DEVELOPER_HUB_HOST>
+```

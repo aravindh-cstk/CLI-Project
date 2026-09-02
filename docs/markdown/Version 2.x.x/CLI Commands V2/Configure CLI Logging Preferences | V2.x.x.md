@@ -63,3 +63,17 @@ The `config:get:log` command retrieves the current logging settings, including t
 ```
 csdx config:get:log
 ```
+
+## Examples
+
+Turn on console logging, which replaces the progress bar view.
+
+```
+csdx config:set:log --show-console-logs
+```
+
+Raise the log level and send log files to a directory of your choosing.
+
+```
+csdx config:set:log --level debug --path <LOG_DIRECTORY>
+```

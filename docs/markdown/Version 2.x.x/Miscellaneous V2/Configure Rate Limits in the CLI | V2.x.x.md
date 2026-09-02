@@ -148,3 +148,23 @@ The `config:set:rate-limit` command lets you [set the rate limit](#set-custom-ra
 ```
 csdx config:set:rate-limit  --org blt***********1b  --utilize 10 --limit-name bulkLimit
 ```
+
+## Examples
+
+Set the utilization percentage for an organization, which governs how much of the available rate limit the CLI will consume.
+
+```
+csdx config:set:rate-limit --org <ORG_UID> --utilize 70
+```
+
+Set utilization for named limits only, passing the limit names separated by commas.
+
+```
+csdx config:set:rate-limit --org <ORG_UID> --limit-name getRateLimit,bulkLimit --utilize 60,80
+```
+
+Reset an organization back to the default rate limit.
+
+```
+csdx config:set:rate-limit --org <ORG_UID> --default
+```

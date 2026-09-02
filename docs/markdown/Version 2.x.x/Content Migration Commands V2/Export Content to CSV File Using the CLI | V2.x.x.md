@@ -215,3 +215,23 @@ csdx cm:export-to-csv -a <alias_of_management_token> -n <name_of_the_stack> --ac
   ```
   csdx cm:export-to-csv --action <taxonomies> --alias <management-token-alias> --locale <locale> --include-fallback --fallback-locale <fallback-locale>
   ```
+
+## Examples
+
+Export the entries of one content type in one locale.
+
+```
+csdx cm:export-to-csv --action entries --alias <MANAGEMENT_TOKEN_ALIAS> --content-type blog_post --locale en-us
+```
+
+Export the users of an organization, naming the organization so the CSV filename reflects it.
+
+```
+csdx cm:export-to-csv --action users --org <ORG_UID> --org-name <ORG_NAME>
+```
+
+Export taxonomy terms with a semicolon delimiter, which suits spreadsheets configured for it.
+
+```
+csdx cm:export-to-csv --action taxonomies --stack-api-key <STACK_API_KEY> --taxonomy-uid <TAXONOMY_UID> --delimiter ";"
+```

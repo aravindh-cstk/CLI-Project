@@ -277,6 +277,26 @@ ENTRIES:
 [2025-08-22 16:12:25] SUCCESS: Exported stack settings successfully!
 ```
 
+## Examples
+
+Export an entire stack to a directory, authenticating with a management token alias.
+
+```
+csdx cm:stacks:export --alias <MANAGEMENT_TOKEN_ALIAS> --data-dir <EXPORT_PATH>
+```
+
+Export a single module rather than the whole stack.
+
+```
+csdx cm:stacks:export --stack-api-key <STACK_API_KEY> --data-dir <EXPORT_PATH> --module content-types
+```
+
+Export named content types from a specific branch, and skip the Marketplace prompts so the command can run unattended.
+
+```
+csdx cm:stacks:export --alias <MANAGEMENT_TOKEN_ALIAS> --data-dir <EXPORT_PATH> --branch <BRANCH_NAME> --content-types blog_post author --yes
+```
+
 ## Limitations
 
 - If multiple assets have the same UID and file name, only the first asset will be exported.
