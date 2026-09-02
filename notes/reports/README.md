@@ -2,7 +2,7 @@
 
 Everything produced by the audit pass, mapped to the six items on the developer ticket.
 
-Nothing in this pass changed a published doc or wrote to the CMS. Every CMS call was a GET. The reports say what should change and, where the answer is verified, exactly what to change it to.
+The audit itself made only GET calls. Content changes were applied later, to `docs/json` and then to the CMS **staging and development** environments only. Production is approval gated and is the docs owner's call, so nothing here reaches the live site. See [Production is approval gated](#production-is-approval-gated-which-changes-what-deploy-means).
 
 ---
 
@@ -25,7 +25,7 @@ Nothing in this pass changed a published doc or wrote to the CMS. Every CMS call
 
 ### 1. Templates
 
-Three new doc types under `doc-standards/cli-templates/`, plus `cli-common-rules.md` holding the ten rules that apply across all three, wired into the existing linter:
+Three new doc types under `doc-standards/cli-templates/`, plus `cli-common-rules.md` holding the twelve rules that apply across all three, wired into the existing linter:
 
 | Type | Docs | Grouping rule |
 |---|---|---|
@@ -33,7 +33,7 @@ Three new doc types under `doc-standards/cli-templates/`, plus `cli-common-rules
 | `cli-task-runbook` | 24 | Exactly one procedure spine, ordered by execution rather than by namespace |
 | `cli-module-reference` | 6 | Command and module H2s use the real identifier verbatim, in one contiguous lexicographic run, with structural and cross-cutting sections exempt |
 
-`cli-common-rules.md` is a delta on `sdk-templates/common-rules.md`, not a replacement. It carries the rules that are true of the CLI regardless of which template a doc follows: headings stop at H3, flag tables use `Flag | Type | Required | Default | Description | Notes`, the baseline prerequisite order, and six settled style conventions each recorded with the corpus split that motivated it.
+`cli-common-rules.md` is a delta on `sdk-templates/common-rules.md`, not a replacement. It carries the rules that are true of the CLI regardless of which template a doc follows: headings stop at H3, flag tables use `Flag | Type | Required | Default | Description | Notes`, the baseline prerequisite order, six settled style conventions each recorded with the corpus split that motivated it, and two rules against stale claims.
 
 Three archetypes reuse product-wide types instead of getting their own: `setup-guide` (2 docs), `feature-doc` (2), `migration-guide` (1). Two stubs get no type and are retire candidates.
 
@@ -41,10 +41,10 @@ Three archetypes reuse product-wide types instead of getting their own: `setup-g
 
 ### 2. Linter support
 
-- `doc-standards/scripts/checks/cli-specific.js`, 14 registered rules `CLI-01` through `CLI-14`, 7 of them machine-checked and 7 in the manual review queue.
+- `doc-standards/scripts/checks/cli-specific.js`, plus 16 registered rules `CLI-01` through `CLI-16`. 8 are machine-checked and 8 sit in the manual review queue. The registry holds 109 rules in total.
 - Doc-type detection extended, keyed off each doc's **subject** rather than its current structure, so a doc missing its `Commands` section is still linted as a command reference and the omission is reported.
 - Heading depth is gated on subject rather than on type, so a CLI doc typed `migration-guide` or `feature-doc` is still checked. That one change is what surfaces the 43 unlinkable headings in the V1-to-V2 migration guide.
-- 19 tests pass, 10 of them new.
+- 21 tests pass, 12 of them new. Two feed the linter the exact sentence that shipped on the Install pages and assert `CLI-16` fires, so the rule is known to have teeth rather than merely to pass.
 
 **Three pre-existing bugs fixed along the way:**
 
@@ -129,6 +129,8 @@ Found while deploying the retirement release, and it applies to every production
 **Staging and development are not gated.** Publishes there return `status: success` immediately, which is why every write script in `scripts/` can target them directly. Only production (`bltfe8376c13fe85b9c`) holds items for approval.
 
 **So an approver has to act in the Contentstack UI, under Publish Queue, before the live site changes.** `scripts/deploy_release.py` reads the queue back after submitting and quotes the real per-item status, because reporting "deployed" on the strength of the POST alone is a false report. Its first version did exactly that and was corrected.
+
+**This tooling now refuses production outright.** That is the docs owner's standing instruction, and it matches what the server does anyway. `deploy_release.py` defaults to staging and development and rejects `--env production` even with `--confirm`. The handover to production is a release uid, not a deploy: the docs owner approves it in the UI.
 
 This also explains a long-standing puzzle. `RELEASE_CLEANUP_NAV` is locked, so it looked deployed, yet `/docs/developers/cli/create-custom-cli-commands` kept returning 404. Two separate causes: the release carried `blt0d2ab10c0fa412a8` at v3 with the content edit never made, and a locked release is not proof its items were approved.
 

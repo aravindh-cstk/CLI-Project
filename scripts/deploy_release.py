@@ -1,8 +1,18 @@
 #!/usr/bin/env python3
-"""Deploy a Contentstack release to named environments.
+"""Deploy a Contentstack release to staging and development.
 
-This is the one action in this repo that changes the live production site, so
-it is deliberately its own script rather than a step inside a content script.
+Production is deliberately refused. Two independent reasons, either of which
+would be enough on its own:
+
+  * The docs owner's standing instruction is that this tooling publishes to
+    staging and development only.
+  * Production is approval gated server side. A deploy aimed at it locks the
+    release, returns success, and leaves every item in the publish queue as
+    `pending_approval`. Nothing reaches the live site. Calling that a deploy
+    would be a false report, so the script does not offer it.
+
+Production happens when the docs owner approves the release in the Contentstack
+UI, under Publish Queue. The handover is a release uid, not a deploy.
 
 What it guards against, in order of how easily each one bites:
 
@@ -19,9 +29,8 @@ unpublish action, which is how the retirement release removes a nav row and
 unpublishes an article in one deploy.
 
 Usage:
-  python3 scripts/deploy_release.py <release_uid>                      # dry run
-  python3 scripts/deploy_release.py <release_uid> --confirm            # deploy to production
-  python3 scripts/deploy_release.py <release_uid> --env staging,development --confirm
+  python3 scripts/deploy_release.py <release_uid>            # dry run
+  python3 scripts/deploy_release.py <release_uid> --confirm  # staging + development
 """
 
 import sys
@@ -32,6 +41,15 @@ from cli_release import release_items
 
 ENV_NAMES = {"production": PROD_ENV_UID, "staging": STAGING_ENV_UID,
              "development": DEVELOPMENT_ENV_UID}
+
+# Standing constraint from the docs owner: this tooling publishes to staging and
+# development only. Production is somebody else's call, made by approving the
+# release in the Contentstack UI. Production is also approval gated server side,
+# so a deploy here cannot change the live site anyway, it only files a request
+# under somebody else's name. Refusing outright keeps the two facts from being
+# confused: a submitted request is not a deploy.
+FORBIDDEN_ENVS = {"production"}
+DEFAULT_ENVS = ["staging", "development"]
 
 
 def live_version(headers, content_type_uid, uid):
@@ -47,12 +65,20 @@ def main():
         sys.exit(__doc__)
     release_uid = argv[0]
     confirm = "--confirm" in argv
-    envs = ["production"]
+    envs = list(DEFAULT_ENVS)
     if "--env" in argv:
         envs = [e.strip() for e in argv[argv.index("--env") + 1].split(",") if e.strip()]
     unknown = [e for e in envs if e not in ENV_NAMES]
     if unknown:
         sys.exit(f"Unknown environment(s) {unknown}. Choose from {list(ENV_NAMES)}.")
+    blocked = sorted(set(envs) & FORBIDDEN_ENVS)
+    if blocked:
+        sys.exit(
+            f"Refusing to deploy to {', '.join(blocked)}.\n\n"
+            "This tooling publishes to staging and development only. Production is "
+            "approval gated and is the docs owner's call: they approve the release "
+            "in the Contentstack UI under Publish Queue.\n\n"
+            "Deploy to staging and development, then hand over the release uid.")
 
     headers = load_env()
     release = request("GET", f"/v3/releases/{release_uid}", headers)["release"]
@@ -110,10 +136,10 @@ def main():
 def report_queue(headers, uids, envs):
     """Say what the deploy actually achieved, per item.
 
-    A successful POST to /deploy does NOT mean the change is live. Production in
-    this stack is approval gated, so items land as `pending_approval` and stay
-    there until an approver acts. Saying "deployed" on the strength of the POST
-    alone would be a false report, so the queue is read back and quoted.
+    A successful POST to /deploy does not by itself mean the change applied, so
+    the queue is read back and its real per-item status quoted rather than
+    inferred. On staging and development items normally come back `success`.
+    Anything else is reported as not applied.
     """
     queue = request("GET", "/v3/publish-queue", headers,
                     params={"limit": "30"}).get("queue", [])
@@ -139,10 +165,8 @@ def report_queue(headers, uids, envs):
         print("\nNOT LIVE YET. These items are queued but not applied:")
         for uid, status, message in pending:
             print(f"  {uid}  {status}  {message}")
-        print("\nProduction in this stack requires publish approval, so a POST to "
-              "/deploy only submits the request. An approver has to approve these "
-              "in the Contentstack UI under Publish Queue before anything changes "
-              "on the live site.")
+        print("\nA queued item is not an applied one. Check the Contentstack "
+              "publish queue for the reason before treating this as done.")
     else:
         print("\nAll items applied.")
 
