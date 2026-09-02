@@ -1,9 +1,17 @@
 #!/usr/bin/env python3
-"""Bundle every pushed entry into one release for production.
+"""Bundle every entry that staging is ahead on into one release for production.
 
-Reads notes/reports/pushed-entries.json, written by
-scripts/push_all_wave_changes.py, and adds each entry to a single release
-together with the corrected 2.0.0 changelog entry.
+Targets are computed by comparing each entry's staging version against its
+production version, not read from a file. The first version of this script read
+notes/reports/pushed-entries.json, which push_all_wave_changes.py overwrites on
+every run, so a second push left the script able to see only the last 7 entries
+of 74. It happened to work because add_item is idempotent and the earlier items
+were already in the release, but rebuilding the release from scratch would have
+produced a silently incomplete one. That is the same class of bug as
+RELEASE_CLEANUP_NAV, and it is the bug this file most needs to avoid.
+
+"staging is ahead of production" is the definition that matters, because that is
+exactly the set of changes a production deploy has to carry.
 
 One release, deployed as a unit. Waves A to E touch the same pages repeatedly,
 so deploying a subset would put pages live in a state no wave intended.
@@ -28,12 +36,13 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from cli_docs_common import DOCS_ARTICLE, LOCALE, ROOT, get_entry, load_env, request
+from cli_docs_common import (DOCS_ARTICLE, LOCALE, PROD_ENV_UID, ROOT,
+                             STAGING_ENV_UID, get_entry, load_env, request)
 from cli_release import RELEASE_FULL_RESTRUCTURE, add_item, ensure_release, index_items
 
-PUSHED = os.path.join(ROOT, "notes", "reports", "pushed-entries.json")
 CHANGELOG_TYPE = "changelog_details"
 CHANGELOG_UID = "blt48436d263389bb65"
+RETIRED = {"blt18f5edee45f9d6c2"}   # Create Custom CLI Commands, unpublished separately
 
 
 def live_version(headers, content_type, uid):
@@ -46,29 +55,41 @@ def main():
     headers = load_env()
     print("LIVE RUN\n" if confirm else "DRY RUN, pass --confirm to write\n")
 
-    if not os.path.exists(PUSHED):
-        sys.exit(f"{os.path.relpath(PUSHED, ROOT)} not found. Run "
-                 f"scripts/push_all_wave_changes.py --confirm first.")
-    pushed = json.load(open(PUSHED, encoding="utf-8"))
-    print(f"{len(pushed)} docs_article entries from the push, plus the changelog\n")
-
-    items, drift = [], []
-    for row in pushed:
-        current = live_version(headers, DOCS_ARTICLE, row["uid"])
-        if current != row["version"]:
-            drift.append((row["uid"], row["version"], current, row["path"]))
-        items.append((DOCS_ARTICLE, row["uid"], current, row["path"]))
+    index = json.load(open(os.path.join(ROOT, "docs", "json", "index.json"),
+                          encoding="utf-8"))
+    seen, items, drift = set(), [], []
+    for row in index["entries"]:
+        uid = row["uid"]
+        if uid in seen or uid in RETIRED:
+            continue
+        seen.add(uid)
+        entry = get_entry(headers, DOCS_ARTICLE, uid)
+        published = {r["environment"]: r["version"]
+                     for r in (entry.get("publish_details") or [])
+                     if r.get("locale") == LOCALE}
+        staging = published.get(STAGING_ENV_UID)
+        production = published.get(PROD_ENV_UID)
+        if staging is None or staging == production:
+            continue
+        if staging != entry["_version"]:
+            drift.append((uid, staging, entry["_version"], row["json"]))
+        items.append((DOCS_ARTICLE, uid, staging, row["json"]))
     cl_version = live_version(headers, CHANGELOG_TYPE, CHANGELOG_UID)
     items.append((CHANGELOG_TYPE, CHANGELOG_UID, cl_version, "changelog 2.0.0"))
+    print(f"{len(items) - 1} entries where staging is ahead of production, "
+          f"plus the changelog\n")
 
     if drift:
-        print("versions moved since the push, using the current one:")
-        for uid, was, now, path in drift:
-            print(f"  {uid}  pushed v{was}, CMS now v{now}  {path.split('/')[-1][:40]}")
+        print("staging is behind the latest saved version on these, so the release "
+              "carries what staging serves rather than an unpublished draft:")
+        for uid, staged, latest, path in drift:
+            print(f"  {uid}  staging v{staged}, latest v{latest}  "
+                  f"{path.split('/')[-1][:40]}")
         print()
 
     print(f"release: {RELEASE_FULL_RESTRUCTURE!r}")
-    print(f"items:   {len(items)}  ({len(pushed)} docs + 1 changelog at v{cl_version})")
+    print(f"items:   {len(items)}  ({len(items) - 1} docs + 1 changelog "
+          f"at v{cl_version})")
 
     if not confirm:
         print("\nDry run complete. Nothing written.")

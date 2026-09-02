@@ -78,6 +78,18 @@ ALLOWED_REMOVALS = {
 }
 
 
+# Some removals are a class, not a list. Enumerating individual URLs here would
+# mean editing this file every time a link is made relative, and the enumeration
+# would rot. CLI-C13 converts absolute docs links to the root-relative form, so
+# the absolute URL disappearing IS the intended change.
+ABSOLUTE_DOCS_URL = re.compile(
+    r"^https?://(?:www\.|stag-www\.|dev-www\.)?contentstack\.com/docs/")
+
+
+def explained_by_rule(token):
+    return bool(ABSOLUTE_DOCS_URL.match(token))
+
+
 def words(text):
     text = re.sub(r"<[^>]+>", " ", text)
     text = html.unescape(text)
@@ -110,7 +122,8 @@ def main():
         before, after = words(live_html), words(local_html)
         gone = {t: before[t] - after.get(t, 0)
                 for t in before if before[t] > after.get(t, 0)}
-        unexplained = {t: n for t, n in gone.items() if t not in ALLOWED_REMOVALS}
+        unexplained = {t: n for t, n in gone.items()
+                       if t not in ALLOWED_REMOVALS and not explained_by_rule(t)}
         targets.append({"uid": uid, "path": row["json"], "live": live,
                         "content": local_html, "delta": len(local_html) - len(live_html),
                         "lost": sum(gone.values()), "unexplained": unexplained})
