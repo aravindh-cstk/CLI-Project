@@ -1,0 +1,352 @@
+[
+  {
+    "uid": "bltcfd09427012100cd",
+    "version": 32,
+    "path": "Version 1.x.x/CLI Advanced Operations/Apps CLI Plugin | V1.x.x.json"
+  },
+  {
+    "uid": "blt6ee109a7b3725e1c",
+    "version": 7,
+    "path": "Version 1.x.x/CLI Advanced Operations/Asset Scanning in CLI | V1.x.x.json"
+  },
+  {
+    "uid": "blt2a4723e44d15237a",
+    "version": 40,
+    "path": "Version 1.x.x/CLI Advanced Operations/Bulk Operations in CLI | V1.x.x.json"
+  },
+  {
+    "uid": "blt278785a9d6da5074",
+    "version": 17,
+    "path": "Version 1.x.x/CLI Advanced Operations/Change Master Locale.json"
+  },
+  {
+    "uid": "blt1637a00d696b0fe4",
+    "version": 10,
+    "path": "Version 1.x.x/CLI Advanced Operations/Configure MFA Secret Using CLI | V1.x.x.json"
+  },
+  {
+    "uid": "blt844ebc9ef2c5bf61",
+    "version": 27,
+    "path": "Version 1.x.x/CLI Advanced Operations/Entry Migration | V1.x.x.json"
+  },
+  {
+    "uid": "bltcc14ad6c062c9a82",
+    "version": 34,
+    "path": "Version 1.x.x/CLI Advanced Operations/Generate Typescript Typings with TSGen Plugin | V1.x.x.json"
+  },
+  {
+    "uid": "blt3afca0a8bf912f83",
+    "version": 11,
+    "path": "Version 1.x.x/CLI Advanced Operations/Update Missing Reference UIDs for Entries, Assets, and Extensions.json"
+  },
+  {
+    "uid": "blt5bf8ffa6d7788728",
+    "version": 48,
+    "path": "Version 1.x.x/CLI Commands/Audit Plugin | V1.x.x.json"
+  },
+  {
+    "uid": "blt804647818d4181f9",
+    "version": 42,
+    "path": "Version 1.x.x/CLI Commands/Bulk Publish and Unpublish Content | V1.x.x.json"
+  },
+  {
+    "uid": "bltff3041eae16be17d",
+    "version": 89,
+    "path": "Version 1.x.x/CLI Commands/CLI for Launch | V1.x.x.json"
+  },
+  {
+    "uid": "blte46be17c7b0eacde",
+    "version": 26,
+    "path": "Version 1.x.x/CLI Commands/CLI-Supported Features for Export, Import, and Clone Operations | V1.x.x.json"
+  },
+  {
+    "uid": "bltf1f565bcdf7e63cd",
+    "version": 41,
+    "path": "Version 1.x.x/CLI Commands/Cloning a Stack | V1.x.x.json"
+  },
+  {
+    "uid": "blt12dd3cd4c0194061",
+    "version": 58,
+    "path": "Version 1.x.x/CLI Commands/Compare and Merge Branches Using the CLI | V1.x.x.json"
+  },
+  {
+    "uid": "blta33efb37c73c3bdf",
+    "version": 9,
+    "path": "Version 1.x.x/CLI Commands/Configure CLI Logging Preferences | V1.x.x.json"
+  },
+  {
+    "uid": "blt923027e7deb9851a",
+    "version": 11,
+    "path": "Version 1.x.x/CLI Commands/Configure Early Access in the CLI | V1.x.x.json"
+  },
+  {
+    "uid": "bltd66941065e0c9244",
+    "version": 23,
+    "path": "Version 1.x.x/CLI Commands/Configure Proxy Settings in CLI | V1.x.x.json"
+  },
+  {
+    "uid": "bltdb5ced1cd5ecc104",
+    "version": 15,
+    "path": "Version 1.x.x/CLI Commands/Configure Rate Limits in the CLI | V1.x.x.json"
+  },
+  {
+    "uid": "bltb2268be653f55338",
+    "version": 9,
+    "path": "Version 1.x.x/CLI Commands/Content Type Plugin | V1.x.x.json"
+  },
+  {
+    "uid": "blt878916ff618af5c2",
+    "version": 96,
+    "path": "Version 1.x.x/CLI Commands/Export Content Using the CLI | V1.x.x.json"
+  },
+  {
+    "uid": "blt1ee86e6419f390f8",
+    "version": 124,
+    "path": "Version 1.x.x/CLI Commands/Import Content Using the CLI | V1.x.x.json"
+  },
+  {
+    "uid": "blt3a999013669bda40",
+    "version": 15,
+    "path": "Version 1.x.x/CLI Commands/Overwrite Existing Content using CLI Import | V1.x.x.json"
+  },
+  {
+    "uid": "blt7b3284729d3494f0",
+    "version": 30,
+    "path": "Version 1.x.x/CLI Commands/Query-based Export.json"
+  },
+  {
+    "uid": "blt33b42b2ce32f4cb4",
+    "version": 11,
+    "path": "Version 1.x.x/CLI Commands/Regex Validate Plugin | V1.x.x.json"
+  },
+  {
+    "uid": "blt64c4e01079d2e7c2",
+    "version": 57,
+    "path": "Version 1.x.x/Content Migration Commands/Export Content to CSV File Using the CLI | V1.x.x.json"
+  },
+  {
+    "uid": "bltd980d5d1a241b442",
+    "version": 38,
+    "path": "Version 1.x.x/Content Migration Commands/Import Content Using the Seed Command | V1.x.x.json"
+  },
+  {
+    "uid": "blt563cc44829432a89",
+    "version": 30,
+    "path": "Version 1.x.x/Content Migration Commands/Migrate your Content using the CLI Migration Command | V1.x.x.json"
+  },
+  {
+    "uid": "blt372f35bf931194f0",
+    "version": 45,
+    "path": "Version 1.x.x/Get Started with CLI/CLI Authentication and Adding Tokens | V1.x.x.json"
+  },
+  {
+    "uid": "bltbc6ad24437532c4f",
+    "version": 51,
+    "path": "Version 1.x.x/Get Started with CLI/Configure Regions in the CLI | V1.x.x.json"
+  },
+  {
+    "uid": "blt0756f65e7c6f9eed",
+    "version": 40,
+    "path": "Version 1.x.x/Get Started with CLI/Install the CLI | V1.x.x.json"
+  },
+  {
+    "uid": "bltd48fe0ffb5cf8b08",
+    "version": 12,
+    "path": "Version 1.x.x/Migration Use Cases/Branches | Migration Use Cases | V1.x.x.json"
+  },
+  {
+    "uid": "blt8e8d75af4f2678b0",
+    "version": 11,
+    "path": "Version 1.x.x/Migration Use Cases/Migrate Content Between Stacks Using the CLI | V1.x.x.json"
+  },
+  {
+    "uid": "blt3168251b46327602",
+    "version": 9,
+    "path": "Version 1.x.x/Migration Use Cases/Migrate Selected Content Using the Query Export Plugin.json"
+  },
+  {
+    "uid": "blt229455bbe1e19fa9",
+    "version": 12,
+    "path": "Version 1.x.x/Migration Use Cases/Migrate and Overwrite Content in the Same Stack | V1.x.x.json"
+  },
+  {
+    "uid": "blt9da47fd57e3fd92e",
+    "version": 85,
+    "path": "Version 1.x.x/Miscellaneous/Bootstrap Starter Apps | V1.x.x.json"
+  },
+  {
+    "uid": "blt74918691c8a465c1",
+    "version": 32,
+    "path": "Version 1.x.x/Miscellaneous/CLI Limitations | V1.x.x.json"
+  },
+  {
+    "uid": "bltc7c58ab7c7d76974",
+    "version": 46,
+    "path": "Version 1.x.x/Miscellaneous/Contentstack CLI Configuration Reference.json"
+  },
+  {
+    "uid": "blt4f27fd89adf6b6c1",
+    "version": 22,
+    "path": "Version 1.x.x/Miscellaneous/Create Custom CLI Plugins for Contentstack | V1.x.x.json"
+  },
+  {
+    "uid": "blt66d5de60ef6a5cf1",
+    "version": 2,
+    "path": "Version 2.x.x/CLI Advanced Operations V2/Apps CLI Plugin | V2.x.x.json"
+  },
+  {
+    "uid": "blt24a7546077dbb2e0",
+    "version": 2,
+    "path": "Version 2.x.x/CLI Advanced Operations V2/Configure MFA Secret Using CLI | V2.x.x.json"
+  },
+  {
+    "uid": "blt53db6e60c7fc27a8",
+    "version": 2,
+    "path": "Version 2.x.x/CLI Advanced Operations V2/Entry Migration | V2.x.x.json"
+  },
+  {
+    "uid": "bltba55204ebbb83bf9",
+    "version": 2,
+    "path": "Version 2.x.x/CLI Advanced Operations V2/Generate Typescript Typings with TSGen Plugin | V2.x.x.json"
+  },
+  {
+    "uid": "bltf6e6f0af0665ce7f",
+    "version": 22,
+    "path": "Version 2.x.x/CLI Commands V2/Audit Plugin | V2.x.x.json"
+  },
+  {
+    "uid": "blt85d9deae08de968d",
+    "version": 15,
+    "path": "Version 2.x.x/CLI Commands V2/Bulk Operations in CLI | V2.x.x.json"
+  },
+  {
+    "uid": "blt2d8bdf2eef3c2aa7",
+    "version": 4,
+    "path": "Version 2.x.x/CLI Commands V2/CLI for Launch | V2.x.x.json"
+  },
+  {
+    "uid": "blt5ea38dadb4d99b6c",
+    "version": 2,
+    "path": "Version 2.x.x/CLI Commands V2/CLI-Supported Features for Export, Import, and Clone Operations | V2.x.x.json"
+  },
+  {
+    "uid": "bltb61fca77fed848a6",
+    "version": 15,
+    "path": "Version 2.x.x/CLI Commands V2/Cloning a Stack | V2.x.x.json"
+  },
+  {
+    "uid": "blt1f5e428e3a8d3734",
+    "version": 15,
+    "path": "Version 2.x.x/CLI Commands V2/Compare and Merge Branches Using the CLI | V2.x.x.json"
+  },
+  {
+    "uid": "blt66365ee2f36e0315",
+    "version": 16,
+    "path": "Version 2.x.x/CLI Commands V2/Configure CLI Logging Preferences | V2.x.x.json"
+  },
+  {
+    "uid": "blt275d7d8eb02308f3",
+    "version": 13,
+    "path": "Version 2.x.x/CLI Commands V2/Configure Early Access in the CLI | V2.x.x.json"
+  },
+  {
+    "uid": "blt000db18e26fa0aee",
+    "version": 2,
+    "path": "Version 2.x.x/CLI Commands V2/Configure Proxy Settings in CLI | V2.x.x.json"
+  },
+  {
+    "uid": "blt8012fa025c919ece",
+    "version": 8,
+    "path": "Version 2.x.x/CLI Commands V2/Content Type Plugin | V2.x.x.json"
+  },
+  {
+    "uid": "blt2fe395869b399af0",
+    "version": 24,
+    "path": "Version 2.x.x/CLI Commands V2/Export Content Using the CLI | V2.x.x.json"
+  },
+  {
+    "uid": "blt1215a1f9bbcc9900",
+    "version": 21,
+    "path": "Version 2.x.x/CLI Commands V2/Import Content Using the CLI | V2.x.x.json"
+  },
+  {
+    "uid": "bltd28635508877b2ec",
+    "version": 15,
+    "path": "Version 2.x.x/CLI Commands V2/Overwrite Existing Content using CLI Import | V2.x.x.json"
+  },
+  {
+    "uid": "blt50c45d9983b508a7",
+    "version": 6,
+    "path": "Version 2.x.x/CLI Commands V2/Regex Validate Plugin | V2.x.x.json"
+  },
+  {
+    "uid": "blt6702caeefc36568f",
+    "version": 2,
+    "path": "Version 2.x.x/CLI Migration Use Cases V2/Branches | Migration Use Cases | V2.x.x.json"
+  },
+  {
+    "uid": "blt8cddf6452fd82024",
+    "version": 2,
+    "path": "Version 2.x.x/CLI Migration Use Cases V2/Migrate Content Between Stacks Using the CLI | V2.x.x.json"
+  },
+  {
+    "uid": "blt449b48a8ef6980a4",
+    "version": 2,
+    "path": "Version 2.x.x/CLI Migration Use Cases V2/Migrate and Overwrite Content in the Same Stack | V2.x.x.json"
+  },
+  {
+    "uid": "blt25e29bfc7ef93e50",
+    "version": 15,
+    "path": "Version 2.x.x/Content Migration Commands V2/Export Content to CSV File Using the CLI | V2.x.x.json"
+  },
+  {
+    "uid": "blt9f703f1d6c0405d9",
+    "version": 18,
+    "path": "Version 2.x.x/Content Migration Commands V2/Import Content Using the Seed Command | V2.x.x.json"
+  },
+  {
+    "uid": "blt992979390532a894",
+    "version": 15,
+    "path": "Version 2.x.x/Content Migration Commands V2/Migrate your Content using the CLI Migration Command | V2.x.x.json"
+  },
+  {
+    "uid": "blt4617ed0b5e1c23f4",
+    "version": 15,
+    "path": "Version 2.x.x/Get Started with CLI V2/CLI Authentication and Adding Tokens | V2.x.x.json"
+  },
+  {
+    "uid": "blt267c4988aa1389a5",
+    "version": 16,
+    "path": "Version 2.x.x/Get Started with CLI V2/Configure Regions in the CLI | V2.x.x.json"
+  },
+  {
+    "uid": "blt91a20a3ff7b6e05d",
+    "version": 2,
+    "path": "Version 2.x.x/Get Started with CLI V2/Install the CLI | V2.x.x.json"
+  },
+  {
+    "uid": "blt05c442f72f396864",
+    "version": 2,
+    "path": "Version 2.x.x/Get Started with CLI V2/Migrate from Contentstack CLI V1 to V2 | V2.x.x.json"
+  },
+  {
+    "uid": "bltc0036c8ffee6ddd5",
+    "version": 17,
+    "path": "Version 2.x.x/Miscellaneous V2/Bootstrap Starter Apps | V2.x.x.json"
+  },
+  {
+    "uid": "blt5364aa60e762784c",
+    "version": 3,
+    "path": "Version 2.x.x/Miscellaneous V2/CLI Limitations | V2.x.x.json"
+  },
+  {
+    "uid": "bltc7a1129f3ee45ffd",
+    "version": 14,
+    "path": "Version 2.x.x/Miscellaneous V2/Configure Rate Limits in the CLI | V2.x.x.json"
+  },
+  {
+    "uid": "blt64294e11f81fe300",
+    "version": 7,
+    "path": "Version 2.x.x/Miscellaneous V2/Create Custom CLI Plugins for Contentstack | V2.x.x.json"
+  }
+]
