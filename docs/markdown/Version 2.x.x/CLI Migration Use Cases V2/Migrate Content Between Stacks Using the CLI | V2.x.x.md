@@ -50,3 +50,10 @@ To migrate all content from one stack to another quickly, follow the steps below
 
 - **Only the main branch is exported by default.** If you omit `--branch`, the export covers the branch named `main` and nothing else, and it fails when no such branch exists. Pass `--branch` once per branch to move a multi-branch stack.
 - **Global fields from a V1 export are skipped silently.** If the folder you import came from CLI V1, every global field is skipped with no error and no warning, because V1 wrote them to a single aggregate file and the current importer reads one file per UID. The step reports success having created nothing. Re-export the source stack with the current CLI before importing.
+
+## Next Steps
+
+- [Export Content Using the CLI](/docs/headless-cms/export-content-using-the-cli): export stack content to disk before importing it elsewhere.
+- [Audit Plugin](/docs/headless-cms/cli-audit-plugin): audit exported data for reference and field problems before importing it.
+- [Import Content Using the CLI](/docs/headless-cms/import-content-using-the-cli): import exported content into a target stack.
+- [CLI Limitations](/docs/headless-cms/cli-limitations): the coverage gaps and known constraints across CLI commands.

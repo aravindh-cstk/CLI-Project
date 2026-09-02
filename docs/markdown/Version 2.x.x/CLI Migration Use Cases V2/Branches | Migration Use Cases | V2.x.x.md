@@ -123,3 +123,9 @@ csdx cm:branches:merge-status -k <stack_api_key> --merge-uid <merge_uid>
 This is useful in a pipeline that merges a release branch and then publishes. Poll the merge status until it reports completion rather than assuming the merge finished when the merge command returned.
 
 > **Note:** Publishing steps in a migration script use the bulk commands. Use `cm:stacks:bulk-entries --operation publish` for entries and `cm:stacks:bulk-assets --operation publish` for assets. See [Bulk Operations in CLI](/docs/headless-cms/bulk-operations-in-cli) for the full reference.
+
+## Next Steps
+
+- [Migrate Content Between Stacks Using the CLI](/docs/headless-cms/migrate-content-between-stacks-using-the-cli): the end-to-end stack-to-stack migration procedure.
+- [Bulk Operations in CLI](/docs/headless-cms/bulk-operations-in-cli): publish or unpublish entries and assets in bulk.
+- [CLI Limitations](/docs/headless-cms/cli-limitations): the coverage gaps and known constraints across CLI commands.

@@ -123,3 +123,10 @@ If you are facing a **Migration Unsuccessful** or **Module cannot be found** err
   ```
   npm link lodash
   ```
+
+## Next Steps
+
+- [Compare and Merge Branches Using the CLI](/docs/headless-cms/compare-and-merge-branches-using-the-cli/v1): compare and merge content model changes between branches.
+- [Migrate your Content using the CLI Migration Command](/docs/headless-cms/migrate-your-content-using-the-cli-migration-command/v1): run scripted content model changes with the migration command.
+- [Migrate from Contentstack CLI V1 to V2](/docs/headless-cms/cli-v1-to-v2-migration-guide): what changed at 2.0.0, flag by flag, and how to upgrade.
+- [CLI Limitations](/docs/headless-cms/cli-limitations/v1): the coverage gaps and known constraints across CLI commands.

@@ -699,3 +699,9 @@ csdx cm:stacks:audit \
     - [Select](/docs/headless-cms/select/), [title](/docs/headless-cms/title/), and mandatory fields of entries.
     - Multiple field type mismatches in entries.
     - Field rules of content types.
+
+## Next Steps
+
+- [Bulk Publish and Unpublish Content](/docs/headless-cms/cli-bulk-publish-and-unpublish-content/v1): publish or unpublish entries and assets in bulk.
+- [Migrate from Contentstack CLI V1 to V2](/docs/headless-cms/cli-v1-to-v2-migration-guide): what changed at 2.0.0, flag by flag, and how to upgrade.
+- [CLI Limitations](/docs/headless-cms/cli-limitations/v1): the coverage gaps and known constraints across CLI commands.

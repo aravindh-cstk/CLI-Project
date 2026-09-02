@@ -111,3 +111,9 @@ Consider an example where you want to update the content models of your stack. L
    ![image.png](https://images.contentstack.io/v3/assets/blt23180bf2502c7444/blt11e3ede5971ccc10/618a96bd953e1e65040092f6/image.png)
 
 > **Additional Resource**: We highly recommend you to check our [GitHub](https://github.com/contentstack/cli/tree/v2.0.0-beta/packages/contentstack-migration/examples) page for more information on [migration script creation, use cases,](https://github.com/contentstack/cli/blob/v2.0.0-beta/packages/contentstack-migration/docs/api-reference.md) and [advanced examples](https://github.com/contentstack/cli/tree/v2.0.0-beta/packages/contentstack-migration/examples).
+
+## Next Steps
+
+- [Migrate Content Between Stacks Using the CLI](/docs/headless-cms/migrate-content-between-stacks-using-the-cli/v1): the end-to-end stack-to-stack migration procedure.
+- [Migrate from Contentstack CLI V1 to V2](/docs/headless-cms/cli-v1-to-v2-migration-guide): what changed at 2.0.0, flag by flag, and how to upgrade.
+- [CLI Limitations](/docs/headless-cms/cli-limitations/v1): the coverage gaps and known constraints across CLI commands.

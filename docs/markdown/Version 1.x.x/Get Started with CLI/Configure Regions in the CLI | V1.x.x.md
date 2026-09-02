@@ -257,3 +257,9 @@ csdx config:get:region
 > - [CLI Authentication and Adding Tokens](/docs/headless-cms/cli-authentication/v1)
 > - [Configure Rate Limits in the CLI](/docs/headless-cms/configure-rate-limits-in-the-cli/v1)
 > - [Contentstack Regions](/docs/administration/about-regions)
+
+## Next Steps
+
+- [Configure Rate Limits in the CLI](/docs/headless-cms/configure-rate-limits-in-the-cli/v1): raise or lower the API rate limits the CLI applies.
+- [Migrate from Contentstack CLI V1 to V2](/docs/headless-cms/cli-v1-to-v2-migration-guide): what changed at 2.0.0, flag by flag, and how to upgrade.
+- [CLI Limitations](/docs/headless-cms/cli-limitations/v1): the coverage gaps and known constraints across CLI commands.

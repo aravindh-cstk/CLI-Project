@@ -294,3 +294,8 @@ ENTRIES:
   - [Releases](/docs/headless-cms/about-releases/)
 
 **Additional Resource:** Learn more about the CLI-supported export operations in the [CLI-Supported Features for Export, Import, and Clone Operations](/docs/headless-cms/cli-supported-features-for-export-import-and-clone-operations) document.
+
+## Next Steps
+
+- [CLI-Supported Features for Export, Import, and Clone Operations](/docs/headless-cms/cli-supported-features-for-export-import-and-clone-operations): which modules export, import and clone cover, module by module.
+- [CLI Limitations](/docs/headless-cms/cli-limitations): the coverage gaps and known constraints across CLI commands.

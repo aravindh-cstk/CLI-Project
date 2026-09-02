@@ -123,3 +123,9 @@ If you are facing a **Migration Unsuccessful** or **Module cannot be found** err
   ```
   npm link lodash
   ```
+
+## Next Steps
+
+- [Compare and Merge Branches Using the CLI](/docs/headless-cms/compare-and-merge-branches-using-the-cli): compare and merge content model changes between branches.
+- [Migrate your Content using the CLI Migration Command](/docs/headless-cms/migrate-your-content-using-the-cli-migration-command): run scripted content model changes with the migration command.
+- [CLI Limitations](/docs/headless-cms/cli-limitations): the coverage gaps and known constraints across CLI commands.

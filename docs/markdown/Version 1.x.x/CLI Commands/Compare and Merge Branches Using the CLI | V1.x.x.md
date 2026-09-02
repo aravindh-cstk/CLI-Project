@@ -558,3 +558,9 @@ csdx cm:branches:merge --stack-api-key <value> --base-branch <value> --compare-b
   ```
   csdx cm:branches:merge --export-summary-path "/file/path"
   ```
+
+## Next Steps
+
+- [Entry Migration](/docs/headless-cms/cli-entry-migration/v1): migrate entries between stacks with field-level control.
+- [Migrate from Contentstack CLI V1 to V2](/docs/headless-cms/cli-v1-to-v2-migration-guide): what changed at 2.0.0, flag by flag, and how to upgrade.
+- [CLI Limitations](/docs/headless-cms/cli-limitations/v1): the coverage gaps and known constraints across CLI commands.

@@ -601,3 +601,8 @@ csdx cm:branches:merge-status --stack-api-key bltxxxxxxxx --merge-uid merge_abc1
 ```
 
 > **Note:** This command requires you to be logged in. Run `csdx auth:login` first. If no merge job matches the UID you pass, the command reports that no merge job was found.
+
+## Next Steps
+
+- [Entry Migration](/docs/headless-cms/cli-entry-migration): migrate entries between stacks with field-level control.
+- [CLI Limitations](/docs/headless-cms/cli-limitations): the coverage gaps and known constraints across CLI commands.

@@ -382,3 +382,10 @@ csdx cm:stacks:publish-configure --stack-api-key <stack_api_key>
 - The [cm:bulk-publish:add-fields](#bulk-publish-all-entries-after-adding-a-new-field-in-the-content-type) command does not work for [custom](/docs/headless-cms/custom) and [mandatory](/docs/headless-cms/mandatory) fields.
 - To manage API request timing and prevent concurrency issues, add the `delayMs` parameter to your configuration file to add controlled delays between requests. For example, use `delayMs: 1000` (for 1-second delays).
 - On stacks with asset scanning enabled, `cm:assets:publish` does not retry assets that are still in the scan queue. See [Assets remain unpublished after cm:assets:publish --backup-dir](#assets-remain-unpublished-after) for the resolution.
+
+## Next Steps
+
+- [Configure Rate Limits in the CLI](/docs/headless-cms/configure-rate-limits-in-the-cli/v1): raise or lower the API rate limits the CLI applies.
+- [Import Content Using the CLI](/docs/headless-cms/import-content-using-the-cli/v1): import exported content into a target stack.
+- [Asset Scanning in CLI](/docs/headless-cms/asset-scanning-in-cli/v1): scan assets for malware as part of an import or export.
+- [Migrate from Contentstack CLI V1 to V2](/docs/headless-cms/cli-v1-to-v2-migration-guide): what changed at 2.0.0, flag by flag, and how to upgrade.

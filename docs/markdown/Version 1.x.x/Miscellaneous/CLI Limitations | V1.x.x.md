@@ -1383,3 +1383,9 @@ csdx cm:stacks:import -k <target-api-key> --data-dir ./export
 **Tags:** configuration, rate limit, global settings
 
 ---
+
+## Next Steps
+
+- [CLI for CS Assets](/docs/headless-cms/cli-for-cs-assets): the CS Assets commands, which use the cs-assets REST API rather than the Content Management API.
+- [Asset Scanning in CLI](/docs/headless-cms/asset-scanning-in-cli/v1): scan assets for malware as part of an import or export.
+- [Migrate from Contentstack CLI V1 to V2](/docs/headless-cms/cli-v1-to-v2-migration-guide): what changed at 2.0.0, flag by flag, and how to upgrade.
