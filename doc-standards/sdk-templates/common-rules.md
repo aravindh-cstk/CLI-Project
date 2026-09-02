@@ -171,9 +171,21 @@ Every rule follows this format:
 
 ---
 
-**Rule:** Callouts (ATTENTION, Required, Note) are reserved for high-stakes warnings: content that causes data loss, broken preview, or security issues if ignored. Do not use callouts for general information.
+**Rule:** Callouts (Warning, Note, Tip, Additional Resource) are reserved for high-stakes warnings: content that causes data loss, broken preview, or security issues if ignored. Do not use callouts for general information.
 **Why:** Overused callouts lose their signal value. When everything is a callout, nothing is.
 **Exception:** A single informational Note callout per section is acceptable if the information would otherwise be missed in a long prose block.
+
+---
+
+**Rule:** A callout must use one of exactly four labels: `Warning` (data loss, breakage, or a security issue if ignored), `Note` (a plain fact the reader could otherwise miss), `Tip` (optional, non-blocking advice), or `Additional Resource` (a pointer to outbound content). Do not invent ad hoc labels such as Caution, Important, Attention, or Action Required.
+**Why:** An open-ended label set forces every reader (and every future author) to guess what a given label implies about severity. A closed set of four makes severity and intent unambiguous at a glance.
+**Exception:** None. Rewrite the callout under one of the four labels, or fold it into surrounding prose if it does not meet the high-stakes bar above.
+
+---
+
+**Rule:** Do not merge a stated fact, a conditional exception, an inline command reference, and a location or path fact into a single prose paragraph. Split each kind of information into its own bolded lead-in statement, a small table (when the fact is a discrete set of cases with a per-case behavior), or a fenced code block (for any command or config reference), in that order.
+**Why:** A paragraph blending several distinct kinds of information forces the reader to parse prose to extract a fact they came to scan for, not read linearly. Separating by kind lets the reader jump straight to the piece they need.
+**Exception:** A short paragraph with only one or two of these kinds mixed, and under roughly 40 words, does not need splitting.
 
 ---
 
@@ -185,9 +197,15 @@ Every rule follows this format:
 
 ### C3: Language and Tone
 
-**Rule:** No casual language in prose. Remove phrases such as "right away", "on its own", "you'll find", "pretty straightforward", "just".
+**Rule:** No casual language in prose. Remove phrases such as "right away", "on its own", "you'll find", "pretty straightforward", "just", "simply", "basically", "actually".
 **Why:** Casual language is inconsistent with professional documentation standards and undermines credibility.
 **Exception:** None. Neutral, precise language applies throughout.
+
+---
+
+**Rule:** Rewrite conditional framing that hides a direct cause-and-effect fact ("If you see X in your logs, do Y") as a direct declarative statement of the fact and the action ("X happens because Z. Do Y.").
+**Why:** Conditional framing presents an already-true fact about the system as a hypothetical the reader must first notice, adding a layer of indirection between the reader and the information.
+**Exception:** Framing that is genuinely conditional on the reader's own setup or choices, not on the system's behavior, is not casual and does not need rewriting.
 
 ---
 
@@ -326,6 +344,24 @@ Every rule follows this format:
 **Rule:** When a multi-fact paragraph is converted into a bulleted list under a bolded lead-in label, the label must name the specific grouping the bullets share, not a generic placeholder such as "Note," "Important," or "Important Points."
 **Why:** A generic label gives the reader no scan value and no way to judge relevance before reading the list. A specific label lets the reader decide whether the list matters to them.
 **Exception:** None.
+
+---
+
+**Rule:** When the same category of change (a flag removal, an alias removal, a short-character drop) recurs across multiple sibling sections, use one consistent heading name and, where applicable, table column shape for every instance, regardless of how many items changed in a given instance. Do not name the heading after the specific item that changed in that instance.
+**Why:** A reader scanning several sibling sections for "what changed with this command's flags" should find that fact under the same heading every time. Naming the heading after the specific flag (`` `-i` Flag Removed ``) makes the heading unpredictable and forces the reader to open every section to find the one that matters to them.
+**Exception:** A heading describing a behavior change unique to that instance, not a recurring structural category, is not subject to this rule and should stay specific to what it contains.
+
+---
+
+**Rule:** A heading that is the only subsection under its parent, and does not belong to a recurring category used elsewhere in the doc (see the rule above), should be collapsed into a lead-in sentence in the parent section's body instead of kept as a standalone heading.
+**Why:** A heading exists to let a reader jump to or scan past a section. A heading with no siblings and no recurring counterpart elsewhere in the doc adds a navigation stop without adding scan value.
+**Exception:** Keep the heading if the doc's table of contents or an existing cross-reference anchors directly to it.
+
+---
+
+**Rule:** A quantitative claim (a count of commands, flags, or files) or a capability claim ("full support," "takes the most effort of any change") must be verified against the current source of truth (source code, API reference, or changelog) before publishing, and must state the concrete, verified fact rather than an unquantified or unverified claim.
+**Why:** An unverified count or capability claim reads as confident and specific, but if wrong, it actively misleads a reader who trusts the doc over checking the source themselves. A comparative superlative ("the most effort of any change") is also inherently unverifiable, since it is not a fact about the system.
+**Exception:** None. If verification is not possible before publishing, state the claim as approximate or omit it.
 
 ---
 
