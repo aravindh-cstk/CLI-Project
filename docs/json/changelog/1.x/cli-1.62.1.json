@@ -1,0 +1,21 @@
+{
+  "title": "CLI Version 1.62.1",
+  "date": "2026-05-25",
+  "filters": [
+    {
+      "uid": "blta9b77391ce974879",
+      "_content_type_uid": "changelog_tags"
+    }
+  ],
+  "description": "<p><strong>Enhancement:</strong></p>\n<ul>\n  <li>\n    Performed dependency upgrades to improve stability and performance for the following plugins:\n    <ul>\n      <li><strong>cli-cm-bootstrap (v1.19.4)</strong></li>\n      <li><strong>cli-cm-clone (v1.21.5)</strong></li>\n      <li><strong>types-generator (v3.10.1)</strong></li>\n    </ul>\n  </li>\n</ul>\n\n<p><strong>Bug fixes:</strong></p>\n<ul>\n  <li>\n    <strong>cli-cm-import (v1.33.1)</strong>:\n    <ul>\n      <li>Fixed an issue with the incorrect mapping of asset URLs inside text fields during import.</li>\n    </ul>\n  </li>\n  <li>\n    <strong>cli-cm-export-query (v1.0.2)</strong>:\n    <ul>\n      <li>Fixed management token support to ensure proper authentication during query exports.</li>\n    </ul>\n  </li>\n</ul>",
+  "tags": [],
+  "locale": "en-us",
+  "uid": "blta08eac20cc8feb1e",
+  "created_by": "blt346b73255381ad74",
+  "updated_by": "blt346b73255381ad74",
+  "created_at": "2026-05-25T17:19:35.330Z",
+  "updated_at": "2026-05-25T17:19:59.526Z",
+  "ACL": {},
+  "_version": 2,
+  "_in_progress": false
+}

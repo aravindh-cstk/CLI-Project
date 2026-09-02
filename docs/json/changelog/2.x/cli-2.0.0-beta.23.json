@@ -1,0 +1,21 @@
+{
+  "title": "CLI Version 2.0.0-beta.23",
+  "date": "2026-05-25",
+  "filters": [
+    {
+      "uid": "blta9b77391ce974879",
+      "_content_type_uid": "changelog_tags"
+    }
+  ],
+  "description": "<p><strong>New Feature:</strong></p><ul><li><strong>Asset Management 2.0 (AM2.0) Support</strong>: Added AM2.0 support to the import setup flow across the following plugins:<ul><li><strong>cli-cm-import-setup (v2.0.0-beta.12)</strong></li><li><strong>cli-asset-management (v1.0.0-beta.2)</strong></li><li><strong>cli-cm-import (v2.0.0-beta.18)</strong></li></ul></li></ul><p><strong>Enhancement:</strong></p><ul><li>Performed dependency upgrades to improve stability and performance for:<ul><li><strong>cli-cm-export (v2.0.0-beta.18)</strong></li><li><strong>cli-cm-export-query (v2.0.0-beta.2)</strong></li><li><strong>cli-cm-seed (v2.0.0-beta.18)</strong></li></ul></li></ul><p><strong>Bug fixes:</strong></p><ul><li><strong>cli-cm-bootstrap (v2.0.0-beta.18)</strong>:<ul><li>Cleaned up the plugin by removing deprecated sample and starter apps.</li></ul></li><li><strong>cli-cm-clone (v2.0.0-beta.19)</strong>:<ul><li>Fixed an issue to ensure the correct path is resolved in the clone plugin while running imports.</li></ul></li><li><strong>cli-config (v2.0.0-beta.10)</strong>:<ul><li>Fixed a bug where the <span class=\"code\">get region</span> command failed to display the AM endpoint for custom regions.</li></ul></li></ul>",
+  "tags": [],
+  "locale": "en-us",
+  "uid": "blt52860b2ddf23d849",
+  "created_by": "blt346b73255381ad74",
+  "updated_by": "blt346b73255381ad74",
+  "created_at": "2026-05-25T17:17:40.780Z",
+  "updated_at": "2026-05-25T17:17:40.780Z",
+  "ACL": {},
+  "_version": 1,
+  "_in_progress": false
+}

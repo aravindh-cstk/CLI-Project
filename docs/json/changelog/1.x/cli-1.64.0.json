@@ -1,0 +1,21 @@
+{
+  "title": "CLI Version 1.64.0",
+  "date": "2026-06-29",
+  "filters": [
+    {
+      "uid": "blta9b77391ce974879",
+      "_content_type_uid": "changelog_tags"
+    }
+  ],
+  "description": "<p><strong>Enhancements</strong></p><ul><li><strong>Node.js 22 Runtime Migration:</strong> Upgraded the Node.js runtime version to v22 across all CLI plugins and updated the corresponding documentation.</li><li><strong>ESLint Infrastructure Upgrade:</strong> Upgraded ESLint to v10.50.0 and migrated all plugin configurations to the new flat config format.</li><li><strong>Dependency and Plugin Updates:</strong> Rolled out the runtime and linting enhancements across the following plugin versions:<ul><li><span class=\"code\"><strong>cli-audit v1.19.5</strong></span></li><li><span class=\"code\"><strong>cli-cm-export v1.25.2</strong></span></li><li><span class=\"code\"><strong>cli-cm-import v1.33.4</strong></span></li><li><span class=\"code\"><strong>cli-auth v1.8.4</strong></span></li><li><span class=\"code\"><strong>cli-cm-bootstrap v1.19.7</strong></span></li><li><span class=\"code\"><strong>cli-cm-branches v1.8.3</strong></span></li><li><span class=\"code\"><strong>cli-cm-bulk-publish v1.12.1</strong></span></li><li><span class=\"code\"><strong>cli-cm-clone v1.21.8</strong></span></li><li><span class=\"code\"><strong>cli-cm-export-to-csv v1.12.5</strong></span></li><li><span class=\"code\"><strong>cli-cm-import-setup v1.8.5</strong></span></li><li><span class=\"code\"><strong>cli-cm-migrate-rte v1.7.1</strong></span></li><li><span class=\"code\"><strong>cli-cm-seed v1.15.7</strong></span></li><li><span class=\"code\"><strong>cli-command v1.8.4</strong></span></li><li><span class=\"code\"><strong>cli-config v1.20.5</strong></span></li><li><span class=\"code\"><strong>cli-migration v1.12.4</strong></span></li><li><span class=\"code\"><strong>cli-utilities v1.18.5</strong></span></li><li><span class=\"code\"><strong>apps-cli v1.7.1</strong></span></li><li><span class=\"code\"><strong>cli-bulk-operations v1.2.1</strong></span></li><li><span class=\"code\"><strong>cli-cm-regex-validate v1.0.1</strong></span></li><li><span class=\"code\"><strong>contentstack-cli-tsgen v4.10.1</strong></span></li><li><span class=\"code\"><strong>contentstack-cli-content-type v1.5.1</strong></span></li><li><span class=\"code\"><strong>cli-external-migrate v1.0.0-alpha.4</strong></span></li><li><span class=\"code\"><strong>cli-cm-export-query v1.0.4</strong></span></li></ul></li></ul><p><strong>Bug Fixe</strong></p><ul><li><strong>Organization User Pagination:</strong> Resolved pagination bugs within the organization user fetch logic (<span class=\"code\">cli-cm-export-to-csv v1.12.4</span>).</li></ul>",
+  "tags": [],
+  "locale": "en-us",
+  "uid": "blt3caa399fba66fda4",
+  "created_by": "blt346b73255381ad74",
+  "updated_by": "blt346b73255381ad74",
+  "created_at": "2026-06-29T16:50:54.271Z",
+  "updated_at": "2026-06-29T16:50:54.271Z",
+  "ACL": {},
+  "_version": 1,
+  "_in_progress": false
+}

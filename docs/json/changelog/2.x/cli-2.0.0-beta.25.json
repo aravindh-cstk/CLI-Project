@@ -1,0 +1,21 @@
+{
+  "title": "CLI Version 2.0.0-beta.25",
+  "date": "2026-06-08",
+  "filters": [
+    {
+      "uid": "blta9b77391ce974879",
+      "_content_type_uid": "changelog_tags"
+    }
+  ],
+  "description": "<p><strong>Enhancements:</strong></p><ul><li>Added Asset Management (AM) support for <strong>cli-bulk-operations (2.0.0-beta.1)</strong>.</li><li>Added support for exporting assets within the query export plugin in <strong>cli-cm-export-query (2.0.0-beta.4)</strong>.</li><li>Added comprehensive taxonomy publishing support across the migration, export, import, and cloning workflows in the following plugins:<ul><li><strong>cli-cm-export (2.0.0-beta.20)</strong></li><li><strong>cli-cm-import (2.0.0-beta.20)</strong></li><li><strong>cli-cm-clone (2.0.0-beta.21)</strong></li></ul></li></ul><p><strong>Bug &amp; Security Fixes:</strong></p><ul><li>Performed dependency upgrades to improve stability and performance for the following plugins:<ul><li><strong>cli-asset-management (1.0.0-beta.4)</strong></li><li><strong>cli-variants (2.0.0-beta.16)</strong></li></ul></li></ul>",
+  "tags": [],
+  "locale": "en-us",
+  "uid": "blt7608c9da1714e18c",
+  "created_by": "blt346b73255381ad74",
+  "updated_by": "blt346b73255381ad74",
+  "created_at": "2026-06-08T12:48:19.545Z",
+  "updated_at": "2026-06-08T12:48:49.503Z",
+  "ACL": {},
+  "_version": 2,
+  "_in_progress": false
+}

@@ -1,0 +1,21 @@
+{
+  "title": "CLI Version 1.66.0",
+  "date": "2026-07-27",
+  "filters": [
+    {
+      "uid": "blta9b77391ce974879",
+      "_content_type_uid": "changelog_tags"
+    }
+  ],
+  "description": "<p><strong>Enhancements:</strong></p><ul><li><span class=\"code\"><strong>CLI (v1.66.0)</strong></span>:<ul><li>Added groundwork for organization plan-based feature gating for CLI commands (currently inactive until individual commands opt in).</li><li>Introduced an auto-refresh for endpoints on command pre-run.</li></ul></li><li>Added support for global field validation rule for the following plugins:<ul><li><span class=\"code\"><strong>cli-audit (v1.20.0)</strong></span></li><li><span class=\"code\"><strong>cli-export (v1.26.0)</strong></span></li><li><span class=\"code\"><strong>cli-import (v1.34.0)</strong></span></li></ul></li></ul><span class=\"code\"><strong>cli-config (v1.22.0)</strong></span>:<ul>Updated the <span class=\"code\">config:set:region</span> command to store the full endpoint set for the selected region. Any future Contentstack endpoint added will now be available without requiring a command re-run.</ul><span class=\"code\"><strong>cli-utilities (v1.20.0)</strong></span>:<ul>Region configurations set on older CLI versions are now automatically refreshed with the latest endpoint data upon the next command execution, eliminating the need to manually run <span class=\"code\">config:set:region</span>.</ul>Updated dependency versions for the following plugins:<ul><span class=\"code\"><strong>@contentstack/cli-cm-clone (v1.21.10)</strong></span><span class=\"code\"><strong>@contentstack/cli-cm-export-query (v1.0.6)</strong></span><span class=\"code\"><strong>@contentstack/cli-cm-seed (v1.15.9)</strong></span><span class=\"code\"><strong>@contentstack/cli-auth (v1.8.5)</strong></span><span class=\"code\"><strong>@contentstack/apps-cli (v1.7.3)</strong></span><span class=\"code\"><strong>@contentstack/cli-cm-bootstrap (v1.19.8)</strong></span><span class=\"code\"><strong>@contentstack/cli-cm-branches (v1.8.4)</strong></span><span class=\"code\"><strong>@contentstack/cli-cm-bulk-publish (v1.12.2)</strong></span><span class=\"code\"><strong>contentstack-cli-tsgen (v4.10.2)</strong></span><span class=\"code\"><strong>@contentstack/cli-cm-export-to-csv (v1.12.7)</strong></span><span class=\"code\"><strong>@contentstack/cli-external-migrate (v1.0.0)</strong></span><span class=\"code\"><strong>@contentstack/cli-cm-import-setup (v1.8.7)</strong></span><span class=\"code\"><strong>@contentstack/cli-migration (v1.12.5)</strong></span><span class=\"code\"><strong>@contentstack/cli-variants (v1.6.1)</strong></span></ul><p><strong>Bug &amp; Security Fixes:</strong></p><ul><li><span class=\"code\"><strong>cli-utilities (v1.20.0)</strong></span>:<ul><li>Resolved an issue where resolving the org plan or auth host would fail hard when not explicitly configured. It now successfully falls back to deriving from the existing region host.</li></ul></li><li><span class=\"code\"><strong>cli-command (v1.8.6)</strong></span>:<ul><li>Fixed issues related to context setting.</li></ul></li><li><strong>Security Fixes</strong>: Resolved security vulnerabilities in the following plugins:<ul><li><span class=\"code\"><strong>cli-bulk-operations (v1.2.3)</strong></span></li><li><span class=\"code\"><strong>cli-cm-regex-validate (v1.0.2)</strong></span></li><li><span class=\"code\"><strong>contentstack-cli-content-type (v1.5.3)</strong></span></li><li><span class=\"code\"><strong>cli-cm-migrate-rte (v1.7.3)</strong></span></li></ul></li></ul>",
+  "tags": [],
+  "locale": "en-us",
+  "uid": "blt8acc0dd0ca1119ae",
+  "created_by": "blt346b73255381ad74",
+  "updated_by": "blt8e5689a3647afd22",
+  "created_at": "2026-07-28T09:01:10.477Z",
+  "updated_at": "2026-08-17T09:49:29.646Z",
+  "ACL": {},
+  "_version": 3,
+  "_in_progress": false
+}

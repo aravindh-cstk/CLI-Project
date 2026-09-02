@@ -1,0 +1,21 @@
+{
+  "title": "CLI Version  1.59.0",
+  "date": "2026-03-03",
+  "filters": [
+    {
+      "uid": "blta9b77391ce974879",
+      "_content_type_uid": "changelog_tags"
+    }
+  ],
+  "description": "<p><strong>Enhancements:</strong></p><ul><li><strong>cli-bulk-operations (v1.0.0):</strong><ul><li>Implemented non-localized filter support in bulk-entries.</li><li>Added a method to fetch the master locale when using the non-localize filter.</li><li>Added pagination support for locales.</li></ul></li><li><strong>cli-audit (v1.18.0):</strong><ul><li>Added validation for referenced entry content types during entries audit.</li></ul></li></ul><p><strong>Bug &amp; Security Fixes:</strong></p><ul><li><strong>cli-variants (v1.3.8):</strong><ul><li>Fixed an issue to filter Lytics audiences in experience variants during <a href=\"/docs/headless-cms/import-content-using-the-cli/\">import</a>.</li></ul></li></ul>",
+  "tags": [],
+  "locale": "en-us",
+  "uid": "blte9fb4ec9637f02aa",
+  "created_by": "blt346b73255381ad74",
+  "updated_by": "blt4006a0e8ebe46293",
+  "created_at": "2026-03-03T07:13:07.086Z",
+  "updated_at": "2026-07-20T17:04:21.018Z",
+  "ACL": {},
+  "_version": 2,
+  "_in_progress": false
+}

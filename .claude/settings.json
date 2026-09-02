@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/aravindh.s/SDK Project/changelog/cli/1.x/**)",
+      "Bash(python3 -c ' *)"
+    ],
+    "additionalDirectories": [
+      "/Users/aravindh.s/SDK Project/scripts"
+    ]
+  }
+}

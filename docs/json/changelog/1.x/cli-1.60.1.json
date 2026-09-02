@@ -1,0 +1,21 @@
+{
+  "title": "CLI Version  1.60.1",
+  "date": "2026-04-06",
+  "filters": [
+    {
+      "uid": "blta9b77391ce974879",
+      "_content_type_uid": "changelog_tags"
+    }
+  ],
+  "description": "<p><strong>Bug &amp; Security Fixes:</strong></p>\n<p>Resolved security vulnerabilities by upgrading dependencies in the following plugins:</p>\n<ul>\n  <li><strong>cli-audit (v1.19.1)</strong></li>\n  <li><strong>cli-cm-branches (v1.7.1)</strong></li>\n  <li><strong>cli-cm-bulk-publish (v1.11.1)</strong></li>\n  <li><strong>cli-cm-clone (v1.21.1)</strong></li>\n  <li><strong>cli-cm-import-setup (v1.8.1)</strong></li>\n  <li><strong>cli-config (v1.20.1)</strong></li>\n  <li><strong>cli-utilities (v1.18.1)</strong></li>\n  <li><strong>cli-variants (v1.4.1)</strong></li>\n</ul>",
+  "tags": [],
+  "locale": "en-us",
+  "uid": "blt8b16649400b65180",
+  "created_by": "blt346b73255381ad74",
+  "updated_by": "blt8e5689a3647afd22",
+  "created_at": "2026-04-06T17:56:41.239Z",
+  "updated_at": "2026-08-17T09:50:13.869Z",
+  "ACL": {},
+  "_version": 2,
+  "_in_progress": false
+}

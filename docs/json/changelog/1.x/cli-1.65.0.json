@@ -1,0 +1,21 @@
+{
+  "title": "CLI Version 1.65.0",
+  "date": "2026-07-13",
+  "filters": [
+    {
+      "uid": "blta9b77391ce974879",
+      "_content_type_uid": "changelog_tags"
+    }
+  ],
+  "description": "<p><strong>Bug &amp; Security Fixes:</strong></p><ul><li>Fixed an issue where content types were not correctly linked during Personalize import when some experiences have no audiences in the following plugins:<ul><li><span class=\"code\"><strong>cli-cm-import (v1.33.5)</strong></span></li><li><span class=\"code\"><strong>cli-variants (v1.6.0)</strong></span></li></ul></li></ul>",
+  "tags": [],
+  "locale": "en-us",
+  "uid": "blt151160b76b188ef7",
+  "created_by": "blt346b73255381ad74",
+  "updated_by": "blt346b73255381ad74",
+  "created_at": "2026-07-14T06:28:27.430Z",
+  "updated_at": "2026-07-14T06:28:27.430Z",
+  "ACL": {},
+  "_version": 1,
+  "_in_progress": false
+}

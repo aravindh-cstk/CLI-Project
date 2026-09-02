@@ -1,0 +1,21 @@
+{
+  "title": "CLI Version 2.0.0-beta.22",
+  "date": "2026-05-18",
+  "filters": [
+    {
+      "uid": "blta9b77391ce974879",
+      "_content_type_uid": "changelog_tags"
+    }
+  ],
+  "description": "<p><strong>New Feature:</strong></p><ul><li><strong>cli-cm-export-query (v2.0.0-beta.1)</strong>:<ul><li>Added support for nested global fields, enabling more granular data extraction for complex content models.</li></ul></li></ul><p><strong>Enhancement:</strong></p><ul><li>Performed dependency upgrades across the following plugins to ensure compatibility and stability:<ul><li><strong>cli-asset-management (v1.0.0-beta.1)</strong></li><li><strong>cli-audit (v2.0.0-beta.12)</strong></li><li><strong>cli-cm-bootstrap (v2.0.0-beta.17)</strong></li><li><strong>cli-cm-clone (v2.0.0-beta.18)</strong></li><li><strong>cli-cm-export (v2.0.0-beta.17)</strong></li><li><strong>cli-cm-import (v2.0.0-beta.17)</strong></li><li><strong>cli-cm-seed (v2.0.0-beta.17)</strong></li></ul></li></ul><p><strong>Bug fix:</strong></p><ul><li><strong>types-generator (v3.10.0)</strong> and <strong>contentstack-cli-tsgen (v4.9.0)</strong>:<ul><li>Fixed a bug that incorrectly handled or affected numeric IDs in generated types.</li></ul></li></ul><p><strong>Security fix:</strong></p><ul><li>Resolved security vulnerabilities by updating affected dependencies in:<ul><li><strong>contentstack-cli-content-type (v1.4.5)</strong></li><li><strong>cli-cm-migrate-rte (v2.0.0-beta.6)</strong></li></ul></li></ul>",
+  "tags": [],
+  "locale": "en-us",
+  "uid": "blt581459122653a764",
+  "created_by": "blt346b73255381ad74",
+  "updated_by": "blt8e5689a3647afd22",
+  "created_at": "2026-05-18T15:20:58.168Z",
+  "updated_at": "2026-08-17T09:49:58.316Z",
+  "ACL": {},
+  "_version": 2,
+  "_in_progress": false
+}

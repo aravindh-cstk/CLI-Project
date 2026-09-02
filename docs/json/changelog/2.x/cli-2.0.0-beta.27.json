@@ -1,0 +1,21 @@
+{
+  "title": "CLI Version 2.0.0-beta.27",
+  "date": "2026-07-06",
+  "filters": [
+    {
+      "uid": "blta9b77391ce974879",
+      "_content_type_uid": "changelog_tags"
+    }
+  ],
+  "description": "<p><strong>Enhancements:</strong></p><ul><li>Upgraded dependencies for the following plugins:<ul><li><span class=\"code\"><strong>cli-cm-clone (v2.0.0-beta.23)</strong></span></li><li><span class=\"code\"><strong>cli-cm-seed (v2.0.0-beta.22)</strong></span></li><li><span class=\"code\"><strong>cli-cm-export-query (v2.0.0-beta.6)</strong></span></li><li><span class=\"code\"><strong>cli-cm-bootstrap (v2.0.0-beta.22)</strong></span></li><li><span class=\"code\"><strong>cli-cm-import-setup (v2.0.0-beta.16)</strong></span></li></ul></li><li>Improved API key validation in <span class=\"code\"><strong>cli-cm-export (v2.0.0-beta.22)</strong></span>.</li><li>Updated and removed short flags across the following plugins:<ul><li><span class=\"code\"><strong>apps-cli (v2.0.0-beta.2)</strong></span></li><li><span class=\"code\"><strong>contentstack-cli-tsgen (v5.0.0-beta.2)</strong></span></li><li><span class=\"code\"><strong>cli-external-migrate (v2.0.0-beta.1)</strong></span></li><li><span class=\"code\"><strong>cli-migration (v2.0.0-beta.15)</strong></span></li><li><span class=\"code\"><strong>cli-cm-regex-validate (v2.0.0-beta.2)</strong></span></li><li><span class=\"code\"><strong>cli-auth (v2.0.0-beta.15)</strong></span></li><li><span class=\"code\"><strong>cli-config (v2.0.0-beta.13)</strong></span></li></ul></li></ul><p><strong>Bug &amp; Security Fixes:</strong></p><ul><li>Fixed an issue to ensure login errors are displayed on the console and improved core API key validation.</li><li>Fixed an issue to successfully display the backup folder path upon command completion.</li><li>Fixed and improved API key validation specifically in <span class=\"code\"><strong>cli-cm-import (v2.0.0-beta.22)</strong></span>.</li></ul>",
+  "tags": [],
+  "locale": "en-us",
+  "uid": "blt134d7a345c221dd3",
+  "created_by": "blt346b73255381ad74",
+  "updated_by": "blt346b73255381ad74",
+  "created_at": "2026-07-06T09:29:39.517Z",
+  "updated_at": "2026-07-06T09:29:39.517Z",
+  "ACL": {},
+  "_version": 1,
+  "_in_progress": false
+}

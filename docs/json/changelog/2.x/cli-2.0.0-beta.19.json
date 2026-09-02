@@ -1,0 +1,21 @@
+{
+  "title": "CLI Version 2.0.0-beta.19",
+  "date": "2026-03-30",
+  "filters": [
+    {
+      "uid": "blta9b77391ce974879",
+      "_content_type_uid": "changelog_tags"
+    }
+  ],
+  "description": "<p><strong>New Features:</strong></p><ul><li><strong>cli-cm-export (v2.0.0-beta.14):</strong> Added support for management tokens, allowing for authentication during export processes.</li></ul><p><strong>Enhancements:</strong></p><ul><li>Dependency upgrades for the following plugins:<ul><li><strong>cli-import (v2.0.0-beta.14)</strong></li><li><strong>cli-auth (v2.0.0-beta.10)</strong></li><li><strong>cli-cm-bootstrap (v2.0.0-beta.14)</strong></li><li><strong>cli-cm-branches (v2.0.0-beta.5)</strong></li><li><strong>cli-cm-clone (v2.0.0-beta.15)</strong></li><li><strong>cli-cm-export-to-csv (v2.0.0-beta.5)</strong></li><li><strong>cli-cm-import-setup (v2.0.0-beta.9)</strong></li><li><strong>cli-command (v2.0.0-beta.5)</strong></li><li><strong>cli-config (v2.0.0-beta.6)</strong></li><li><strong>cli-migration (v2.0.0-beta.10)</strong></li><li><strong>cli-variants (v2.0.0-beta.11)</strong></li></ul></li></ul><p><strong>Bug &amp; Security Fixes:</strong></p><ul><li><strong>cli-utilities (v2.0.0-beta.5):</strong><ul><li>Refactored the OAuth token refresh logic in <span class=\"code\">AuthHandler</span> to prevent concurrent refresh operations.</li><li>Introduced the <span class=\"code\">oauthRefreshInFlight</span> promise to manage refresh state and updated tests to validate new behavior.</li></ul></li><li><strong>cli-audit (v2.0.0-beta.9):</strong><ul><li>Fixed the Audit fix progress bar and the overwrite confirmation UX.</li></ul></li><li><strong>cli-cm-seed (v2.0.0-beta.13):</strong><ul><li>Fixed an issue that stops <span class=\"code\">chdir</span> before nested import.</li></ul></li><li>Security updates to resolve vulnerabilities in:<ul><li><strong>cli-tsgen (v4.8.3)</strong></li><li><strong>cli-cm-migrate-rte (v2.0.0-beta.4)</strong></li></ul></li></ul>",
+  "tags": [],
+  "locale": "en-us",
+  "uid": "blt2ecca8c881c05dec",
+  "created_by": "blt346b73255381ad74",
+  "updated_by": "blt8e5689a3647afd22",
+  "created_at": "2026-03-30T14:58:06.494Z",
+  "updated_at": "2026-08-17T09:50:15.302Z",
+  "ACL": {},
+  "_version": 3,
+  "_in_progress": false
+}

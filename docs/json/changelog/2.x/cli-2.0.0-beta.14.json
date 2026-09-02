@@ -1,0 +1,21 @@
+{
+  "title": "CLI Version  2.0.0-beta.14",
+  "date": "2026-03-10",
+  "filters": [
+    {
+      "uid": "blta9b77391ce974879",
+      "_content_type_uid": "changelog_tags"
+    }
+  ],
+  "description": "<p><strong>Enhancements:</strong></p><ul><li>Updated the following plugins to support the modular repository architecture:<ul><li><strong>cli-auth (v2.0.0-beta.7)</strong></li><li><strong>cli-command (v2.0.0-beta.2)</strong></li><li><strong>cli-config (v2.0.0-beta.3)</strong></li><li><strong>cli-utilities (v2.0.0-beta.2)</strong></li><li><strong>cli-dev-dependencies (v2.0.0-beta.0)</strong></li><li><strong>cli-audit (v2.0.0-beta.6)</strong></li><li><strong>cli-cm-bootstrap (v2.0.0-beta.11)</strong></li><li><strong>cli-cm-branches (v2.0.0-beta.2)</strong></li><li><strong>cli-cm-clone (v2.0.0-beta.12)</strong></li><li><strong>cli-cm-export-to-csv (v2.0.0-beta.2)</strong></li><li><strong>cli-cm-export (v2.0.0-beta.11)</strong></li><li><strong>cli-cm-import-setup (v2.0.0-beta.6)</strong></li><li><strong>cli-cm-import (v2.0.0-beta.11)</strong></li><li><strong>cli-migration (v2.0.0-beta.7)</strong></li><li><strong>cli-cm-seed (v2.0.0-beta.10)</strong></li><li><strong>cli-variants (v2.0.0-beta.8)</strong></li></ul></li></ul>",
+  "tags": [],
+  "locale": "en-us",
+  "uid": "bltd844bf707a26cf0f",
+  "created_by": "blt346b73255381ad74",
+  "updated_by": "blt346b73255381ad74",
+  "created_at": "2026-03-10T08:39:29.315Z",
+  "updated_at": "2026-03-10T08:40:21.300Z",
+  "ACL": {},
+  "_version": 2,
+  "_in_progress": false
+}

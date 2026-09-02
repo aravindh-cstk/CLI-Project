@@ -1,0 +1,21 @@
+{
+  "title": "CLI Version  2.0.0-beta.10",
+  "date": "2026-02-16",
+  "filters": [
+    {
+      "uid": "blta9b77391ce974879",
+      "_content_type_uid": "changelog_tags"
+    }
+  ],
+  "description": "<p><strong>Enhancements</strong></p><ul><li>Removed legacy bulk publish code and integrated the <strong>cli-bulk-operations (v1.0.0-beta)</strong> plugin to centralize bulk logic for improved scalability, reduced complexity, and easier maintenance.</li></ul><p><strong>Bugs &amp; Security Fixes</strong></p><p>Fixed security vulnerabilities in the following plugins:</p><ul><li><strong>types-generator (v3.9.2)</strong></li><li><strong>cli-tsgen (v4.8.2)</strong></li><li><strong>apps-cli (v1.4.6)</strong></li><li><strong>cli-cm-regex-validate (v1.2.6)</strong></li><li><strong>contentstack-cli-content-type (v1.4.1)</strong></li></ul>",
+  "tags": [],
+  "locale": "en-us",
+  "uid": "blta980325789da0f2c",
+  "created_by": "blt346b73255381ad74",
+  "updated_by": "blt8e5689a3647afd22",
+  "created_at": "2026-02-17T05:53:09.414Z",
+  "updated_at": "2026-08-17T09:50:24.179Z",
+  "ACL": {},
+  "_version": 4,
+  "_in_progress": false
+}

@@ -1,0 +1,21 @@
+{
+  "title": "CLI Version 2.0.0-beta.16",
+  "date": "2026-03-16",
+  "filters": [
+    {
+      "uid": "blta9b77391ce974879",
+      "_content_type_uid": "changelog_tags"
+    }
+  ],
+  "description": "<p><strong>Enhancements:</strong></p><ul><li><strong>contentstack-utilities (v2.0.0-beta.3):</strong><ul><li>Updated the major version of inquirer for improved interactive CLI prompts.</li><li>Added NO_PROXY support in the environment file for better network configuration control.</li></ul></li><li>Updated the major version of inquirer in the following plugins:<ul><li><strong>contentstack-bootstrap (v2.0.0-beta.12)</strong></li><li><strong>contentstack-clone (v2.0.0-beta.13)</strong></li><li><strong>contentstack-export-to-csv (v2.0.0-beta.3)</strong></li><li><strong>contentstack-seed (v2.0.0-beta.11)</strong></li></ul></li></ul><p><strong>Bug &amp; Security Fixes:</strong></p><ul><li><strong>contentstack-audit (v2.0.0-beta.7):</strong><ul><li>Fixed issues related to the progress manager and audit summary display in the audit command.</li></ul></li><li>Resolved security vulnerabilities by upgrading dependencies in the following:<ul><li><strong>types-generator (v3.9.3)</strong></li><li><strong>contentstack-cli-tsgen (v4.8.2)</strong></li><li><strong>cli-bulk-operations (v1.0.1)</strong></li><li><strong>contentstack-cli-content-type (v1.4.2)</strong></li></ul></li></ul>",
+  "tags": [],
+  "locale": "en-us",
+  "uid": "bltfd555f22bac65861",
+  "created_by": "blt346b73255381ad74",
+  "updated_by": "blt8e5689a3647afd22",
+  "created_at": "2026-03-18T15:00:49.040Z",
+  "updated_at": "2026-08-17T09:50:19.057Z",
+  "ACL": {},
+  "_version": 2,
+  "_in_progress": false
+}

@@ -1,0 +1,21 @@
+{
+  "title": "CLI Version  2.0.0-beta.8",
+  "date": "2026-02-02",
+  "filters": [
+    {
+      "uid": "blta9b77391ce974879",
+      "_content_type_uid": "changelog_tags"
+    }
+  ],
+  "description": "<p><strong>Bugs &amp; Security Fixes</strong></p><ul><li>Rewrote the migration workflow in TypeScript to improve stability and maintainability in the <strong>cli-migration (v2.0.0-beta.3)</strong> plugin.</li><li>Removed unused code paths to improve reliability in the <strong>cli-auth (v2.0.0-beta.4)</strong> plugin.</li></ul>",
+  "tags": [],
+  "locale": "en-us",
+  "uid": "blta24bc40d12b04c9e",
+  "created_by": "blt346b73255381ad74",
+  "updated_by": "blt346b73255381ad74",
+  "created_at": "2026-02-02T12:22:24.983Z",
+  "updated_at": "2026-02-02T12:22:24.983Z",
+  "ACL": {},
+  "_version": 1,
+  "_in_progress": false
+}

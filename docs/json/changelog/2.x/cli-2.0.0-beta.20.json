@@ -1,0 +1,21 @@
+{
+  "title": "CLI Version 2.0.0-beta.20",
+  "date": "2026-04-20",
+  "filters": [
+    {
+      "uid": "blta9b77391ce974879",
+      "_content_type_uid": "changelog_tags"
+    }
+  ],
+  "description": "<p><strong>Enhancements:</strong></p><ul><li><strong>cli-cm-export (v2.0.0-beta.15):</strong><ul><li>Introduced Single-branch layout support: Content is now written directly under the export directory. The <span class=\"code\">branchDir</span> is set to <span class=\"code\">exportDir</span>, eliminating per-branch subfolders for a flatter structure.</li></ul></li><li><strong>cli-variants (v2.0.0-beta.12):</strong><ul><li>Standardized all variant export modules (attributes, audiences, events, experiences, projects, and variant-entries) to use the <span class=\"code\">exportDir</span>.</li></ul></li><li>Updated the following plugins to ensure compatibility and stability:<ul><li><strong>cli-auth (v2.0.0-beta.11)</strong></li><li><strong>cli-cm-bootstrap (v2.0.0-beta.15)</strong></li><li><strong>cli-cm-branches (v2.0.0-beta.6)</strong></li><li><strong>cli-cm-export-to-csv (v2.0.0-beta.6)</strong></li><li><strong>cli-cm-import-setup (v2.0.0-beta.10)</strong></li><li><strong>cli-command (v2.0.0-beta.6)</strong></li><li><strong>cli-config (v2.0.0-beta.8)</strong></li><li><strong>cli-migration (v2.0.0-beta.11)</strong></li><li><strong>cli-audit (v2.0.0-beta.10)</strong></li><li><strong>cli-cm-seed (v2.0.0-beta.14)</strong></li></ul></li></ul><p><strong>Bug &amp; Security Fixes:</strong></p><ul><li><strong>cli-cm-import (v2.0.0-beta.15):</strong><ul><li>Fixed taxonomy mapping during import by correctly utilizing the backup directory.</li><li>Simplified path resolution: The plugin no longer reads <span class=\"code\">branches.json</span> or triggers branch selection. It now defaults to the user-provided content directory (export root).</li></ul></li><li><strong>cli-cm-clone (v2.0.0-beta.16):</strong><ul><li>Fixed issues with test report generation.</li></ul></li><li>Resolved security vulnerabilities by updating dependencies in the following plugins:<ul><li><strong>cli-utilities (v2.0.0-beta.6)</strong></li><li><strong>cli-cm-export-query (v1.0.0-beta.11)</strong></li></ul></li></ul>",
+  "tags": [],
+  "locale": "en-us",
+  "uid": "blt1912e2f6b90e9e5d",
+  "created_by": "blt346b73255381ad74",
+  "updated_by": "blt8e5689a3647afd22",
+  "created_at": "2026-04-21T10:25:35.984Z",
+  "updated_at": "2026-08-17T09:50:05.317Z",
+  "ACL": {},
+  "_version": 2,
+  "_in_progress": false
+}

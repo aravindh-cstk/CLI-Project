@@ -1,0 +1,21 @@
+{
+  "title": "CLI Version 1.55.1",
+  "date": "2026-01-21",
+  "filters": [
+    {
+      "uid": "blta9b77391ce974879",
+      "_content_type_uid": "changelog_tags"
+    }
+  ],
+  "description": "<p><strong>Bugs &amp; Security Fixes:</strong></p><ul><li>Fixed authentication issues when logging in using TOTP-based two-factor authentication (2FA).</li><li>Refactored 2FA <span class=\"code\">error_code</span> handling to align with the updated authentication response.</li></ul>",
+  "tags": [],
+  "locale": "en-us",
+  "uid": "bltb52df31c07e3a8f2",
+  "created_by": "blt346b73255381ad74",
+  "updated_by": "blt346b73255381ad74",
+  "created_at": "2026-01-25T10:36:10.592Z",
+  "updated_at": "2026-01-27T06:48:58.581Z",
+  "ACL": {},
+  "_version": 4,
+  "_in_progress": false
+}

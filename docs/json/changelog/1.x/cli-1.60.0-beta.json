@@ -1,0 +1,21 @@
+{
+  "title": "CLI Version  1.60.0-beta",
+  "date": "2026-03-04",
+  "filters": [
+    {
+      "uid": "blta9b77391ce974879",
+      "_content_type_uid": "changelog_tags"
+    }
+  ],
+  "description": "<p><strong>Enhancements:</strong></p><ul><li>Modularized the CLI Plugin to improve performance and maintainability.</li></ul>",
+  "tags": [],
+  "locale": "en-us",
+  "uid": "blt94594403a7165af3",
+  "created_by": "blt346b73255381ad74",
+  "updated_by": "blt346b73255381ad74",
+  "created_at": "2026-03-06T06:07:31.412Z",
+  "updated_at": "2026-03-06T06:07:31.412Z",
+  "ACL": {},
+  "_version": 1,
+  "_in_progress": false
+}

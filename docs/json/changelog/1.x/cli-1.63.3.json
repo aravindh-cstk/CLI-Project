@@ -1,0 +1,21 @@
+{
+  "title": "CLI Version 1.63.3",
+  "date": "2026-06-15",
+  "filters": [
+    {
+      "uid": "blta9b77391ce974879",
+      "_content_type_uid": "changelog_tags"
+    }
+  ],
+  "description": "<p><strong>Enhancement:</strong></p><ul><li>Performed dependency upgrades to improve stability and performance for the following plugins:<ul><li><strong>cli-cm-import (v1.33.3)</strong></li><li><strong>cli-cm-bootstrap (v1.19.6)</strong></li><li><strong>cli-cm-clone (v1.21.7)</strong></li><li><strong>cli-cm-seed (v1.15.6)</strong></li></ul></li></ul>",
+  "tags": [],
+  "locale": "en-us",
+  "uid": "bltd192f55e1ba7b5db",
+  "created_by": "blt346b73255381ad74",
+  "updated_by": "blt346b73255381ad74",
+  "created_at": "2026-06-15T13:51:17.492Z",
+  "updated_at": "2026-06-15T13:51:17.492Z",
+  "ACL": {},
+  "_version": 1,
+  "_in_progress": false
+}

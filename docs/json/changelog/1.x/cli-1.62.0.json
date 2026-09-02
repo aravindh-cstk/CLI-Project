@@ -1,0 +1,21 @@
+{
+  "title": "CLI Version  1.62.0",
+  "date": "2026-05-11",
+  "filters": [
+    {
+      "uid": "blta9b77391ce974879",
+      "_content_type_uid": "changelog_tags"
+    }
+  ],
+  "description": "<p><strong>New Feature:</strong></p><ul><li>Added support for publishing rules, enabling the inclusion of governance and workflow settings during content export and import processes in the following plugins:<ul><li><strong>cli-cm-export (v1.25.0)</strong></li><li><strong>cli-cm-import (v1.33.0)</strong>:</li></ul></li></ul><p><strong>Enhancement:</strong></p><ul><li>Performed dependency upgrades to improve stability and performance for the following plugins:<ul><li><strong>cli-cm-bootstrap (v1.19.3)</strong></li><li><strong>cli-cm-export-query (v1.0.1)</strong></li><li><strong>cli-cm-clone (v1.21.4)</strong></li><li><strong>cli-cm-seed (v1.15.3)</strong></li><li><strong>cli-variants (v1.5.0)</strong></li></ul></li></ul><p><strong>Security fix:</strong></p><ul><li>Resolved security vulnerabilities by updating affected dependencies in:<ul><li><strong>contentstack-apps-cli (v1.6.7)</strong></li><li><strong>cli-cm-regex-validate (v1.2.9)</strong></li><li><strong>cli-bulk-operations (v1.1.0)</strong></li><li><strong>contentstack-cli-content-type (v1.4.4)</strong></li></ul></li></ul>",
+  "tags": [],
+  "locale": "en-us",
+  "uid": "bltb74ef9eb3509b2c4",
+  "created_by": "blt346b73255381ad74",
+  "updated_by": "blt8e5689a3647afd22",
+  "created_at": "2026-05-11T14:12:03.480Z",
+  "updated_at": "2026-08-17T09:50:01.031Z",
+  "ACL": {},
+  "_version": 2,
+  "_in_progress": false
+}

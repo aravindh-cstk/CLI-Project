@@ -1,0 +1,21 @@
+{
+  "title": "CLI Version  1.61.1",
+  "date": "2026-05-04",
+  "filters": [
+    {
+      "uid": "blta9b77391ce974879",
+      "_content_type_uid": "changelog_tags"
+    }
+  ],
+  "description": "<p><strong>New Feature:</strong></p><ul><li><strong>cli-cm-export-query (v1.0.0):</strong><ul><li>Official General Availability (GA) release of the plugin.</li></ul></li></ul><p><strong>Enhancement:</strong></p><ul><li><strong>cli-cm-migrate-rte (v2.0.0-beta.5):</strong><ul><li>Upgraded Chalk to v5 to improve terminal string styling and resolve dependency-related issues.</li></ul></li><li>Performed dependency upgrades across all listed plugins to ensure improved stability.</li></ul><p><strong>Security fix:</strong></p><ul><li>Resolved security vulnerabilities by upgrading dependencies in the following plugins:<ul><li><strong>cli-audit (v1.19.3)</strong></li><li><strong>cli-cm-export (v1.24.3)</strong></li><li><strong>cli-cm-import (v1.32.3)</strong></li><li><strong>cli-cm-bootstrap (v1.19.2)</strong></li><li><strong>cli-cm-branches (v1.8.1)</strong></li><li><strong>cli-cm-bulk-publish (v1.11.3)</strong></li><li><strong>cli-cm-clone (v1.21.3)</strong></li><li><strong>cli-cm-export-to-csv (v1.12.2)</strong></li><li><strong>cli-cm-import-setup (v1.8.2)</strong></li><li><strong>cli-cm-seed (v1.15.2)</strong></li><li><strong>cli-migration (v1.12.2)</strong></li><li><strong>cli-variants (v1.4.3)</strong></li></ul></li></ul>",
+  "tags": [],
+  "locale": "en-us",
+  "uid": "blt207e5795ef526415",
+  "created_by": "blt346b73255381ad74",
+  "updated_by": "blt8e5689a3647afd22",
+  "created_at": "2026-05-05T06:50:13.183Z",
+  "updated_at": "2026-08-17T09:50:03.304Z",
+  "ACL": {},
+  "_version": 4,
+  "_in_progress": false
+}

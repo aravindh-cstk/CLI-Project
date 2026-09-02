@@ -1,0 +1,21 @@
+{
+  "title": "CLI Version  1.63.0",
+  "date": "2026-06-01",
+  "filters": [
+    {
+      "uid": "blta9b77391ce974879",
+      "_content_type_uid": "changelog_tags"
+    }
+  ],
+  "description": "<p><strong>Enhancements:</strong></p><ul><li>Migrated several external plugins into the unified&nbsp;<span class=\"code\">cli-plugins</span>&nbsp;monorepo structure to streamline maintenance and development:<ul><li><strong>contentstack-apps-cli (v1.7.0)</strong></li><li><strong>cli-bulk-operations (v1.2.0)</strong></li><li><strong>contentstack-cli-tsgen (v4.10.0)</strong></li><li><strong>contentstack-cli-content-type (v1.5.0)</strong></li><li><strong>cli-cm-regex-validate (v1.0.0)</strong></li><li><strong>cli-cm-migrate-rte (v1.7.0)</strong></li></ul></li><li>Upgraded the core oclif &nbsp;framework along with dependencies across the following plugins to improve stability and performance:<ul><li><strong>cli-audit (v1.19.4)</strong></li><li><strong>cli-cm-bootstrap (v1.19.5)</strong></li><li><strong>cli-cm-branches (v1.8.2)</strong></li><li><strong>cli-cm-bulk-publish (v1.12.0)</strong></li><li><strong>cli-cm-clone (v1.21.6)</strong></li><li><strong>cli-cm-export-to-csv (v1.12.3)</strong></li><li><strong>cli-cm-export (v1.25.1)</strong></li><li><strong>cli-cm-import-setup (v1.8.4)</strong></li><li><strong>cli-cm-import (v1.33.2)</strong></li><li><strong>cli-migration (v1.12.3)</strong></li><li><strong>cli-cm-export-query (v1.0.3)</strong></li><li><strong>cli-cm-seed (v1.15.5)</strong></li><li><strong>cli-variants (v1.5.1)</strong></li><li><strong>cli-auth (v1.8.3)</strong></li><li><strong>cli-command (v1.8.3)</strong></li><li><strong>cli-config (v1.20.4)</strong></li><li><strong>cli-utilities (v1.18.4)</strong></li></ul></li></ul>",
+  "tags": [],
+  "locale": "en-us",
+  "uid": "blt505b14170e47e99b",
+  "created_by": "blt346b73255381ad74",
+  "updated_by": "blt346b73255381ad74",
+  "created_at": "2026-06-02T03:53:55.914Z",
+  "updated_at": "2026-06-02T03:53:55.914Z",
+  "ACL": {},
+  "_version": 1,
+  "_in_progress": false
+}

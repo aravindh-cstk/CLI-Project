@@ -1,0 +1,21 @@
+{
+  "title": "CLI Version 2.0.0-beta.29",
+  "date": "2026-07-20",
+  "filters": [
+    {
+      "uid": "blta9b77391ce974879",
+      "_content_type_uid": "changelog_tags"
+    }
+  ],
+  "description": "<p><strong>Enhancements:</strong></p><ul><li><span class=\"code\"><strong>cli-bulk-operations</strong></span>:<ul><li>Merged the <span class=\"code\">cm:stacks:bulk-am-assets</span> command into <span class=\"code\">cm:stacks:bulk-assets</span>. All asset functionality is now supported directly by <span class=\"code\">cm:stacks:bulk-assets</span>, removing the need for a specific assets command.</li><li>Integrated the Progress Manager UI into all <span class=\"code\">cm:stacks:bulk-*</span> commands, ensuring bulk operations now display a clean header, a live summary, and per-command Module Details.</li></ul></li><li>Upgraded dependencies for the following plugins:<ul><li><span class=\"code\"><strong>cli-utilities (v2.0.0-beta.11)</strong></span></li><li><span class=\"code\"><strong>cli-bulk-operations (v2.0.0-beta.4)</strong></span></li><li><span class=\"code\"><strong>cli-auth (v2.0.0-beta.16)</strong></span></li><li><span class=\"code\"><strong>cli-command (v2.0.0-beta.10)</strong></span></li><li><span class=\"code\"><strong>cli-config (v2.0.0-beta.14)</strong></span></li><li><span class=\"code\"><strong>apps-cli (v2.0.0-beta.4)</strong></span></li><li><span class=\"code\"><strong>cli-asset-management (v1.0.0-beta.7)</strong></span></li><li><span class=\"code\"><strong>cli-audit (v2.0.0-beta.15)</strong></span></li><li><span class=\"code\"><strong>cli-cm-bootstrap (v2.0.0-beta.24)</strong></span></li><li><span class=\"code\"><strong>cli-cm-branches (v2.0.0-beta.10)</strong></span></li><li><span class=\"code\"><strong>cli-cm-regex-validate (v2.0.0-beta.3)</strong></span></li><li><span class=\"code\"><strong>contentstack-cli-tsgen (v5.0.0-beta.3)</strong></span></li><li><span class=\"code\"><strong>cli-cm-clone (v2.0.0-beta.25)</strong></span></li><li><span class=\"code\"><strong>contentstack-cli-content-type (v2.0.0-beta.2)</strong></span></li><li><span class=\"code\"><strong>cli-cm-export (v2.0.0-beta.24)</strong></span></li><li><span class=\"code\"><strong>cli-cm-export-to-csv (v2.0.0-beta.11)</strong></span></li><li><span class=\"code\"><strong>cli-external-migrate (v2.0.0-beta.3)</strong></span></li><li><span class=\"code\"><strong>cli-cm-import (v2.0.0-beta.24)</strong></span></li><li><span class=\"code\"><strong>cli-cm-import-setup (v2.0.0-beta.18)</strong></span></li><li><span class=\"code\"><strong>cli-cm-migrate-rte (v2.0.0-beta.9)</strong></span></li><li><span class=\"code\"><strong>cli-migration (v2.0.0-beta.16)</strong></span></li><li><span class=\"code\"><strong>cli-cm-export-query (v2.0.0-beta.8)</strong></span></li><li><span class=\"code\"><strong>cli-cm-seed (v2.0.0-beta.24)</strong></span></li><li><span class=\"code\"><strong>cli-variants (v2.0.0-beta.19)</strong></span></li></ul></li></ul>",
+  "tags": [],
+  "locale": "en-us",
+  "uid": "blte4017073a190bb3e",
+  "created_by": "blt346b73255381ad74",
+  "updated_by": "blt346b73255381ad74",
+  "created_at": "2026-07-20T08:56:22.113Z",
+  "updated_at": "2026-07-20T08:56:22.113Z",
+  "ACL": {},
+  "_version": 1,
+  "_in_progress": false
+}

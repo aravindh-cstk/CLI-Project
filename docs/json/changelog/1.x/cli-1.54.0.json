@@ -1,0 +1,21 @@
+{
+  "title": "CLI Version 1.54.0",
+  "date": "2026-01-12",
+  "filters": [
+    {
+      "uid": "blta9b77391ce974879",
+      "_content_type_uid": "changelog_tags"
+    }
+  ],
+  "description": "<p><strong>Enhancements</strong></p><ul><li>Added session file support in the session-based logger in the following plugins:<ul><li><strong>cli-cm-export (v1.22.2)</strong></li><li><strong>cli-cm-import (v1.30.2)</strong></li><li><strong>cli-utilities (v1.16.0)</strong></li></ul></li><li>Introduced Progress Manager support in:<ul><li><strong>cli-audit (v2.0.0-beta)</strong></li><li><strong>cli-cm-import-setup (v2.0.0-beta.1)</strong></li></ul></li><li>Upgraded dependencies to ensure stability and compatibility across the following plugins::<ul><li><strong>cli-audit (v1.16.2)</strong></li><li><strong>cli-auth (v1.6.3)</strong></li><li><strong>cli-cm-bootstrap (v1.17.2)</strong></li><li><strong>cli-cm-branches (v1.6.2)</strong></li><li><strong>cli-cm-bulk-publish (v1.10.4)</strong></li><li><strong>cli-cm-export-to-csv (v1.10.2)</strong></li><li><strong>cli-cm-import-setup (v1.7.2)</strong></li><li><strong>cli-cm-migrate-rte (v1.6.3)</strong></li><li><strong>cli-cm-seed (v1.13.2)</strong></li><li><strong>cli-command (v1.7.1)</strong></li><li><strong>cli-config (v1.16.2)</strong></li><li><strong>cli-migration (v1.10.2)</strong></li><li><strong>cli-variants (v1.3.6)</strong></li></ul></li></ul><p><strong>Bugs &amp; Security Fixes</strong></p><ul><li>Fixed an authentication failure during stack cloning for non-NA regions in <strong>cli-cm-clone (v1.18.1)</strong>.</li><li>Resolved security issues in the following plugins:<ul><li><strong>contentstack-cli-content-type (v1.3.2)</strong></li><li><strong>cli-cm-migrate-rte (v2.0.0-beta.1)</strong></li><li><strong>contentstack-apps-cli (v1.6.3)</strong></li></ul></li><li>Fixed additional security issues and upgraded Jest to v30 in <strong>cli-cm-regex-validate (v1.2.5).</strong></li></ul>",
+  "tags": [],
+  "locale": "en-us",
+  "uid": "blt4a96fd2f6feb54f0",
+  "created_by": "blt346b73255381ad74",
+  "updated_by": "blt8e5689a3647afd22",
+  "created_at": "2026-01-12T09:34:23.098Z",
+  "updated_at": "2026-08-17T09:50:29.088Z",
+  "ACL": {},
+  "_version": 3,
+  "_in_progress": false
+}

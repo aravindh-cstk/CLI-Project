@@ -1,0 +1,21 @@
+{
+  "title": "CLI Version 2.0.0-beta.28",
+  "date": "2026-07-13",
+  "filters": [
+    {
+      "uid": "blta9b77391ce974879",
+      "_content_type_uid": "changelog_tags"
+    }
+  ],
+  "description": "<p><strong>Enhancements:</strong></p><ul><li>Upgraded dependencies for the following plugins:<ul><li><span class=\"code\"><strong>cli-cm-export (v2.0.0-beta.23)</strong></span></li><li><span class=\"code\"><strong>cli-cm-import (v2.0.0-beta.23)</strong></span></li><li><span class=\"code\"><strong>cli-bulk-operations (v2.0.0-beta.3)</strong></span></li><li><span class=\"code\"><strong>cli-cm-bootstrap (v2.0.0-beta.23)</strong></span></li><li><span class=\"code\"><strong>cli-cm-clone (v2.0.0-beta.24)</strong></span></li><li><span class=\"code\"><strong>cli-cm-export-to-csv (v2.0.0-beta.10)</strong></span></li><li><span class=\"code\"><strong>cli-cm-import-setup (v2.0.0-beta.17)</strong></span></li><li><span class=\"code\"><strong>cli-cm-seed (v2.0.0-beta.23)</strong></span></li><li><span class=\"code\"><strong>cli-variants (v2.0.0-beta.18)</strong></span></li><li><span class=\"code\"><strong>cli-asset-management (v1.0.0-beta.6)</strong></span></li><li><span class=\"code\"><strong>cli-external-migrate (v2.0.0-beta.2)</strong></span></li></ul></li></ul><p><strong>Bug &amp; Security Fixes:</strong></p><ul><li>Fixed minor bugs in the <span class=\"code\"><strong>cli-asset-management (v1.0.0-beta.6)</strong></span> plugin.</li></ul><p><strong>Documentation Updates:</strong></p><ul><li>Updated the <strong>CLI v2 README</strong> with accurate installation instructions, command references, usage examples, and a clear summary of breaking changes from version 1.</li></ul>",
+  "tags": [],
+  "locale": "en-us",
+  "uid": "blt7481e7d5bf875e0e",
+  "created_by": "blt346b73255381ad74",
+  "updated_by": "blt346b73255381ad74",
+  "created_at": "2026-07-14T06:19:58.202Z",
+  "updated_at": "2026-07-14T06:19:58.202Z",
+  "ACL": {},
+  "_version": 1,
+  "_in_progress": false
+}

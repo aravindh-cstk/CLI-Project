@@ -1,0 +1,21 @@
+{
+  "title": "CLI Version 1.57.0",
+  "date": "2026-02-02",
+  "filters": [
+    {
+      "uid": "blta9b77391ce974879",
+      "_content_type_uid": "changelog_tags"
+    }
+  ],
+  "description": "<p><strong>Bugs & Security Fixes</strong></p>\n<ul>\n  <li>Rewrote the <strong>migration workflow in TypeScript</strong> to improve reliability and maintainability in the <strong>cli-migration (v1.11.0)</strong> plugin.</li>\n  <li>Removed obsolete logic related to CLI log file creation in the <strong>cli-utilities (v1.17.1)</strong> plugin.</li>\n  <li>\n    Cleaned up unused code paths to improve stability in the following plugins:\n    <ul>\n      <li><strong>cli-auth (v1.7.3)</strong></li>\n      <li><strong>cli-cm-clone (v1.20.1)</strong></li>\n    </ul>\n  </li>\n</ul>\n",
+  "tags": [],
+  "locale": "en-us",
+  "uid": "bltac04369730c7683f",
+  "created_by": "blt346b73255381ad74",
+  "updated_by": "blt346b73255381ad74",
+  "created_at": "2026-02-02T12:13:54.232Z",
+  "updated_at": "2026-02-02T12:13:54.232Z",
+  "ACL": {},
+  "_version": 1,
+  "_in_progress": false
+}

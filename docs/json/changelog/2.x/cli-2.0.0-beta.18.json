@@ -1,0 +1,21 @@
+{
+  "title": "CLI Version 2.0.0-beta.18",
+  "date": "2026-03-23",
+  "filters": [
+    {
+      "uid": "blta9b77391ce974879",
+      "_content_type_uid": "changelog_tags"
+    }
+  ],
+  "description": "<p><strong>Enhancements:</strong></p><ul><li><strong>contentstack-utilities (v2.0.0-beta.4):</strong><ul><li>Updated the major version of chalk to resolve security vulnerabilities.</li></ul></li><li>Updated the following plugins to the latest beta versions to ensure compatibility with the updated utility dependencies:<ul><li><strong>contentstack (v2.0.0-beta.17)</strong></li><li><strong>contentstack-auth (v2.0.0-beta.9)</strong></li><li><strong>contentstack-config (v2.0.0-beta.5)</strong></li><li><strong>contentstack-command (v2.0.0-beta.4)</strong></li><li><strong>cli-cm-bootstrap (v2.0.0-beta.13)</strong></li><li><strong>cli-cm-seed (v2.0.0-beta.12)</strong></li><li><strong>cli-cm-import (v2.0.0-beta.13)</strong></li><li><strong>cli-cm-clone (v2.0.0-beta.14)</strong></li><li><strong>cli-cm-export (v2.0.0-beta.13)</strong></li><li><strong>cli-cm-variants (v2.0.0-beta.10)</strong></li><li><strong>cli-cm-migration (v2.0.0-beta.9)</strong></li><li><strong>cli-cm-import-setup (v2.0.0-beta.8)</strong></li><li><strong>cli-cm-export-to-csv (v2.0.0-beta.4)</strong></li><li><strong>cli-cm-branches (v2.0.0-beta.4)</strong></li><li><strong>cli-audit (v2.0.0-beta.8)</strong></li></ul></li></ul>",
+  "tags": [],
+  "locale": "en-us",
+  "uid": "blt86cfae3497027083",
+  "created_by": "blt346b73255381ad74",
+  "updated_by": "blt8e5689a3647afd22",
+  "created_at": "2026-03-23T16:33:28.403Z",
+  "updated_at": "2026-08-17T09:50:17.587Z",
+  "ACL": {},
+  "_version": 3,
+  "_in_progress": false
+}
