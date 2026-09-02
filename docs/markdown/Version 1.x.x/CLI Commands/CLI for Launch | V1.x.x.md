@@ -12,7 +12,7 @@ You can create a project in Launch by [connecting your GitHub repository](/docs/
 
 This step-by-step guide discusses how you can perform different operations in Launch using the CLI.
 
-## What You Will Learn
+## Overview
 
 - How to create a Launch project from GitHub or a file upload using the CLI.
 - How to redeploy an existing Launch project, including from a CI environment.

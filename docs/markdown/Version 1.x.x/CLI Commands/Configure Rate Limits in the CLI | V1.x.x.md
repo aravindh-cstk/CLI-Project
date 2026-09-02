@@ -6,6 +6,8 @@ seo_description: "Configure Contentstack CLI rate limits with csdx config:set:ra
 
 # Configure Rate Limits in the CLI
 
+## Overview
+
 [Rate Limit](/docs/developers/apis/content-management-api#rate-limiting) defines the maximum number of requests you can make using Contentstack's API within a specific time frame.
 
 This guide provides step-by-step instructions on how to configure and manage rate limits in the Contentstack Command Line Interface (CLI).

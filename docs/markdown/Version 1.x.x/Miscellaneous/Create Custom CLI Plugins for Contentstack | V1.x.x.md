@@ -8,7 +8,7 @@ seo_description: "Learn how to build, test, and publish custom CLI plugins for C
 
 This guide explains how to develop an external plugin for [Contentstack CLI](https://www.contentstack.com/docs/headless-cms/install-the-cli), including requirements, project structure, best practices, testing, publishing steps, and key internal behaviors to consider.
 
-## Introduction
+## Overview
 
 The Contentstack CLI supports modular extensibility through external plugins.
 

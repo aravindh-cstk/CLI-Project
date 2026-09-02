@@ -6,6 +6,8 @@ seo_description: "Learn how to import content to your stack using the seed comma
 
 # Import Content Using the Seed Command
 
+## Overview
+
 The `seed` command in the Contentstack CLI allows you to import content into your stack from GitHub repositories. It helps you migrate content with minimal steps and setup.
 
 You can import content into your stack from the following sources:

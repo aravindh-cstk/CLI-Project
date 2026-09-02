@@ -6,6 +6,8 @@ seo_description: "Install and update the Contentstack CLI on macOS, Windows, and
 
 # Install the CLI
 
+## Overview
+
 Contentstack CLI can be installed in macOS, Windows and Linux environments. In this guide, you will learn how to install and update command-line interface (CLI).
 
 ## Prerequisites

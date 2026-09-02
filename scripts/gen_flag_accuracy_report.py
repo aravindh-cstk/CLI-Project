@@ -88,7 +88,16 @@ def flag_rows(text, own_command=None):
     lead_command = None
     for line in text.split("\n"):
         if not line.startswith("|"):
-            m = re.search(r"`(?:csdx\s+)?([a-z][a-z0-9-]*(?::[a-z][a-z0-9-]*)+)`", line)
+            # Two forms declare the command a following table belongs to. Inline
+            # code, `csdx cm:stacks:export`, and the bare syntax line inside a
+            # fence, `csdx cm:stacks:bulk-taxonomies [OPTIONS]`. The second form
+            # has no backticks because the fence already supplies them, and
+            # missing it produced three false positives on Bulk Operations in
+            # CLI, where each command's section is introduced by exactly that
+            # line. The doc was right and the checker was reading the wrong
+            # lead-in.
+            m = (re.search(r"`(?:csdx\s+)?([a-z][a-z0-9-]*(?::[a-z][a-z0-9-]*)+)`", line)
+                 or re.search(r"csdx\s+([a-z][a-z0-9-]*(?::[a-z][a-z0-9-]*)+)", line))
             if m and line.strip():
                 lead_command = m.group(1)
             continue
@@ -105,10 +114,16 @@ def _consume(line, rows):
         cells = [c.strip() for c in line.strip().strip("|").split("|")]
         if len(cells) < 2:
             continue
-        # Cells appear as `--flag`, `--flag=<value>`, and `--flag`, `-f`. Anchor on
-        # the flag name and stop at whatever delimiter follows, rather than
-        # requiring a closing backtick immediately after the name.
-        m = re.match(r"^`--([A-Za-z][\w-]*)", cells[0])
+        # Four shapes appear in the corpus: `--flag`, `--flag=<value>`,
+        # `--flag`, `-f` (the CLI-C2 order), and `-f, --flag` (the older order
+        # that Wave C has not reached yet). Anchoring on a leading `-- missed
+        # the last of those and produced four false MISSING findings on Bulk
+        # Operations in CLI, where every flag is written short form first. So
+        # the test is "this cell starts with a flag" and then the long name is
+        # taken from wherever in the cell it appears.
+        if not re.match(r"^`\s*-", cells[0]):
+            continue
+        m = re.search(r"--([A-Za-z][\w-]*)", cells[0])
         if not m:
             continue
         # The description is the longest remaining cell, which survives the

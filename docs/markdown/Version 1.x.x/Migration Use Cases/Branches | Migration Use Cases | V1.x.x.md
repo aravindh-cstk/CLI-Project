@@ -6,6 +6,8 @@ seo_description: "Branches | Migration Use Cases"
 
 # Branches | Migration Use Cases
 
+## Overview
+
 The branches feature in Contentstack allows you to create multiple copies of your stack. You can add numerous branches of your stack and migrate your content to these branches.
 
 [Branches](/docs/headless-cms/about-branches) primarily help you sync between your code and content model without making significant changes to the code.

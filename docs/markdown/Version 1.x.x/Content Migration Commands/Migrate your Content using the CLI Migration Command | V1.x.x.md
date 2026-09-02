@@ -14,7 +14,7 @@ Developers can validate the deployment before pushing it on production, using a 
 
 > **Additional Resource**: For more information, refer to the [migration API documentation](https://github.com/contentstack/cli/blob/v2.0.0-beta/packages/contentstack-migration/docs/api-reference.md) and [advanced examples](https://github.com/contentstack/cli/tree/v2.0.0-beta/packages/contentstack-migration/examples).
 
-## Process Overview
+## Overview
 
 The first step is to write a migration script to perform content migration. We have provided sample migration scripts which you can refer [here](/docs/headless-cms/migrate-your-content-using-the-cli-migration-command/v1#get-started-with-the-migration-script), or write custom scripts. Furthermore, you can use various methods and SDK instances to make your migration script easy to write and read.
 

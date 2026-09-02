@@ -32,7 +32,9 @@ Before you begin, ensure the following:
 
 - You have the necessary [permissions](/docs/headless-cms/types-of-roles).
 
-## Step 1: Export Content (If Not Already Exported)
+## Steps for Execution
+
+### Step 1: Export Content (If Not Already Exported)
 
 This command exports content from your stack.
 
@@ -44,7 +46,7 @@ Replace `<stack_api_key>` with your actual stack API key.
 
 The export writes content directly into the folder you named, with no per-branch subfolder. Use that same path in the next steps.
 
-## Step 2: Run Import Setup
+### Step 2: Run Import Setup
 
 The `import-setup` command generates mapper files and creates a backup of the existing entries in your stack.
 
@@ -65,7 +67,7 @@ The backup folder has been created at '`./_backup_123`'
 
 Copy the backup path shown in your terminal. Use this path in the next step.
 
-## Step 3: Import with Overwrite
+### Step 3: Import with Overwrite
 
 This command imports the content and replaces existing entries.
 

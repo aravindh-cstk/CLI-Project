@@ -6,6 +6,8 @@ seo_description: "Export content efficiently with Contentstack’s latest Comman
 
 # Export Content Using the CLI
 
+## Overview
+
 To migrate content from one [stack](/docs/headless-cms/about-stack) to another, begin by exporting content from the source stack, then import it into the destination stack.
 
 This guide explains how to use the `cm:stacks:export` command by logging in to CLI (or with a **management token**), using configuration files or direct CLI parameters.
@@ -45,7 +47,7 @@ The export command supports the following modules:
 - ❌ Users
 - ❌ Releases
 
-## Export Command
+## Commands
 
 The `cm:stacks:export` command lets you export content from one stack to your local file system.
 

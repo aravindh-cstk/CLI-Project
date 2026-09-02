@@ -6,6 +6,8 @@ seo_description: "Import content efficiently with Contentstack’s latest Comman
 
 # Import Content Using the CLI
 
+## Overview
+
 After exporting content from a source stack, use the Contentstack CLI to import it into a destination stack.
 
 This guide explains how to use the `cm:stacks:import` command by logging in to CLI (or with a **management token**), using configuration files or direct CLI parameters.
@@ -48,7 +50,7 @@ The import command supports the following modules:
 
 > **Note:** Imported content will be published to the same environment and locale as in the source stack. Unpublished content in the source stack will remain unpublished after import.
 
-## Import Command
+## Commands
 
 The `cm:stacks:import` command lets you import content into your destination stack.
 

@@ -10,7 +10,7 @@ Configure a proxy to control how the Contentstack CLI routes network requests. U
 
 This guide provides step-by-step instructions on how to configure and manage proxy settings in the Contentstack Command Line Interface (CLI).
 
-## What You'll Learn
+## Overview
 
 - How to configure and manage proxy settings for the Contentstack CLI using global configuration and environment variables
 - How proxy configuration precedence works between environment variables and CLI global config when connecting to Contentstack APIs

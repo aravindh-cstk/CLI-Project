@@ -6,6 +6,8 @@ seo_description: "Learn how to overwrite existing content using the CLI Import O
 
 # Overwrite Existing Content using CLI Import
 
+## Overview
+
 The Import Overwrite feature in Contentstack CLI facilitates seamless stack-to-stack migration by enabling updates to existing content and adding new entries for unmatched content during imports. This ensures that the import process continues smoothly, even if an imported module already exists in the target stack, effectively preventing import failures.
 
 By providing the ability to overwrite content, this feature streamlines content migration and eliminates the need for manual adjustments, saving time and effort during the import process.

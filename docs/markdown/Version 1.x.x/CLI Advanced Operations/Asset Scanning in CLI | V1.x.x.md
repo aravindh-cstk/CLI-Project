@@ -6,6 +6,8 @@ seo_description: "Learn how asset scanning gates publishing in the Contentstack 
 
 # Asset Scanning in CLI
 
+## Overview
+
 Asset scanning checks each asset for a scan status before it is published, and holds back assets that are still being scanned or that fail the scan. It affects the `cm:assets:publish` and `cm:stacks:import` commands.
 
 ## Prerequisites

@@ -17,6 +17,7 @@ Usage:
   python3 scripts/apply_wave_a.py --confirm       # write
   python3 scripts/apply_wave_a.py --only <substr> # one doc
   python3 scripts/apply_wave_a.py --steps a1,a3   # subset of steps
+  python3 scripts/apply_wave_a.py --all-versions  # lift the V1 subset gate
 """
 
 import collections
@@ -218,10 +219,18 @@ def shared_uids(paths):
     return {uid for uid, versions in seen.items() if len(versions) > 1}
 
 
-def steps_for(path, uid, shared, requested):
-    """Which step keys apply to this doc, intersected with what was requested."""
+def steps_for(path, uid, shared, requested, all_versions=False):
+    """Which step keys apply to this doc, intersected with what was requested.
+
+    `all_versions` lifts the V1 restriction. It exists because the scope
+    decision changed: the first pass was "V2 full restructure, V1 safe subset
+    only", so a2 and a3 never ran on V1 and 32 V1 docs still have untitled
+    intro prose. The full restructure was approved later, and lifting the gate
+    is the honest way to record that rather than editing V1_STEPS and losing
+    why it was ever narrow.
+    """
     is_v1 = "Version 1" in path
-    if not is_v1 or uid in shared:
+    if all_versions or not is_v1 or uid in shared:
         allowed = {k for k, _, _ in STEPS}
     else:
         allowed = V1_STEPS
@@ -230,6 +239,7 @@ def steps_for(path, uid, shared, requested):
 
 def main():
     confirm = "--confirm" in sys.argv
+    all_versions = "--all-versions" in sys.argv
     only = None
     steps = [s[0] for s in STEPS]
     for arg in sys.argv[1:]:
@@ -251,7 +261,7 @@ def main():
     for path in paths:
         doc = Doc.load(path)
         uid = doc.entry.get("uid")
-        applicable = steps_for(path, uid, shared, steps)
+        applicable = steps_for(path, uid, shared, steps, all_versions)
         edits = []
         for key, _label, fn in STEPS:
             if key not in applicable:

@@ -6,6 +6,8 @@ seo_description: "The Audit plugin in Contentstack CLI lets you perform audit op
 
 # Audit Plugin
 
+## Overview
+
 Contentstack CLI lets you use the Audit plugin to perform audit operations on the exported stack data, helping you identify and fix issues.
 
 The Audit plugin provides users with detailed reports about any issues related to the following, in a given stack data:
@@ -682,7 +684,7 @@ csdx cm:stacks:audit \
 - Use **configuration files** for repeated operations with the same settings.
 - Check the **Summary report** to get an overview before diving into specific module reports.
 
-## Limitation
+## Limitations
 
 - The Audit plugin currently supports audit operations for identifying and fixing issues in the following areas:
   - To find and fix missing reference issues in:

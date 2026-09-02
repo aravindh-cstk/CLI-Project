@@ -6,6 +6,8 @@ seo_description: "Use the CLI to bulk publish and unpublish entries and assets i
 
 # Bulk Publish and Unpublish Content
 
+## Overview
+
 The Bulk `publish` and `unpublish` commands allow you to publish entries and assets from multiple content types to one or more environments, and unpublish entries and assets.
 
 ## Prerequisites

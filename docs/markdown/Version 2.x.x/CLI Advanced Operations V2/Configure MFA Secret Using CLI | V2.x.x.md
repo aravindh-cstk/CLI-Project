@@ -17,7 +17,9 @@ To use [Multi-Factor Authentication (MFA)](/docs/administration/multi-factor-aut
 - [MFA enabled](/docs/administration/multi-factor-authentication#enable-mfa)
 - A copy of MFA secret
 
-## Set the MFA Secret
+## Commands
+
+### Set the MFA Secret
 
 The CLI reads the MFA secret from the `CONTENTSTACK_MFA_SECRET` environment variable. Set it in the shell session that runs the CLI, then log in as usual. The CLI generates the one-time password from it automatically.
 
@@ -37,7 +39,7 @@ csdx auth:login
 
 > **Warning:** The `config:mfa:add` and `config:mfa:remove` commands no longer exist. Scripts that call either one fail with a command-not-found error. Replace them by setting or unsetting `CONTENTSTACK_MFA_SECRET`.
 
-## Remove the MFA Secret
+### Remove the MFA Secret
 
 Unset the environment variable. There is no CLI command for this.
 

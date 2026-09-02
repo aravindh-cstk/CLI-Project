@@ -6,6 +6,8 @@ seo_description: "Learn how to manually migrate content between Contentstack sta
 
 # Migrate Content Between Stacks Using the CLI
 
+## Overview
+
 This document guides you through the process of migrating content from one Contentstack stack to another manually.
 
 ## Prerequisites

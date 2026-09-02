@@ -63,7 +63,7 @@ You should see `@contentstack/cli-cm-regex-validate` in the list.
 
 ---
 
-## Command Reference
+## Commands
 
 ### Command Syntax
 

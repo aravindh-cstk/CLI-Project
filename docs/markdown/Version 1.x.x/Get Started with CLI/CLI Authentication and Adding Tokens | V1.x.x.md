@@ -6,6 +6,8 @@ seo_description: "Authenticate securely and access Contentstack Command-line Int
 
 # CLI Authentication and Adding Tokens
 
+## Overview
+
 To start using CLI commands, you must first **authenticate** yourself after installing the CLI and configuring the region. The Contentstack CLI Authentication feature allows you to securely log in or use tokens—such as [Management](/docs/headless-cms/about-management-tokens) or [Delivery tokens](/docs/headless-cms/about-delivery-tokens)—to perform content management tasks via the terminal.
 
 It supports login credentials, Two-Factor Authentication, and Single Sign-On (SSO). You can authenticate either by using the [login](/docs/headless-cms/cli-authentication/v1#authentication) command or by adding a Management Token to the local config.

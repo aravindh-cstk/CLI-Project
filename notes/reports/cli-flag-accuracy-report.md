@@ -20,7 +20,7 @@ python3 scripts/gen_flag_accuracy_report.py
 | `SWAPPED` | 0 | Uses a real flag for the wrong purpose. Fails in a way that looks like their mistake. |
 | `MISSING` | 0 | Cannot discover a flag the command supports. |
 
-10 docs were tied to a single command and checked. 9 could not be scoped to one command. 0 document a plugin that publishes no manifest, so no GA flag data exists for them.
+11 docs were tied to a single command and checked. 8 could not be scoped to one command. 0 document a plugin that publishes no manifest, so no GA flag data exists for them.
 
 ---
 
@@ -43,7 +43,7 @@ It was found by diffing flag **descriptions** between the last 1.x manifest and 
 | Doc | Scoped to | Flags documented | Flags at GA |
 |---|---|---|---|
 | `Version 2.x.x/CLI Commands V2/Audit Plugin \| V2.x.x.md` | `documents 4 commands, not scoped` | - | - |
-| `Version 2.x.x/CLI Commands V2/Bulk Operations in CLI \| V2.x.x.md` | `documents 3 commands, not scoped` | - | - |
+| `Version 2.x.x/CLI Commands V2/Bulk Operations in CLI \| V2.x.x.md` | `cm:stacks:bulk-entries` | 17 | 17 |
 | `Version 2.x.x/CLI Commands V2/CLI-Supported Features for Export, Import, and Clone Operations \| V2.x.x.md` | `documents 4 commands, not scoped` | - | - |
 | `Version 2.x.x/CLI Commands V2/Cloning a Stack \| V2.x.x.md` | `cm:stacks:clone` | 14 | 14 |
 | `Version 2.x.x/CLI Commands V2/Compare and Merge Branches Using the CLI \| V2.x.x.md` | `documents 10 commands, not scoped` | - | - |

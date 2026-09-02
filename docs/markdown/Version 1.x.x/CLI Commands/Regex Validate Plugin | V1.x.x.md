@@ -67,7 +67,7 @@ This command is distributed as a separate plugin:
 
    You should see `@contentstack/cli-cm-regex-validate` in the list with version `1.x`.
 
-## Command Reference
+## Commands
 
 ### Command Syntax
 

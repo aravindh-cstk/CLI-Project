@@ -6,6 +6,8 @@ seo_description: "Learn how to configure and use the Early Access header in Cont
 
 # Configure Early Access in the CLI
 
+## Overview
+
 Contentstack’s **Early Access** program provides customers with the opportunity to explore Contentstack's products and features before they are generally available. Through this program, users can engage in collaborative communication with the product teams, enabling them to test and influence the development of products tailored to their organization's unique requirements.
 
 The configuration of headers in a Command Line Interface (CLI) involves the setting of HTTP headers when interacting with web services or APIs through the command line. The Early Access header support in CLI includes commands to set, get and remove headers for requests made to web servers or APIs for Contentstack products and features before they are generally available.
