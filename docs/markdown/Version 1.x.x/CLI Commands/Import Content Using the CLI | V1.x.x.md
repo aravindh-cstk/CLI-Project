@@ -20,26 +20,6 @@ Before importing content, ensure you have:
 - [Configured management token](/docs/headless-cms/cli-authentication/v1#add-management-token) *(optional, but recommended for CI/CD)*
 - [Exported content](/docs/headless-cms/export-content-using-the-cli/v1) extracted (unzipped) in a local folder
 
-## Quick Start
-
-**Import all modules to a stack:**
-
-```
-csdx cm:stacks:import -a <alias> --data-dir ./export
-```
-
-**Import specific module:**
-
-```
-csdx cm:stacks:import -a <alias> --data-dir ./export --module content-types
-```
-
-**Import to specific branch:**
-
-```
-csdx cm:stacks:import -a <alias> --data-dir ./export --branch develop
-```
-
 ## Supported Modules
 
 The import command supports the following modules:
@@ -690,13 +670,33 @@ Use configuration file with optimized concurrency settings:
 csdx cm:stacks:import -a production -c ./high-performance-config.json
 ```
 
-## Limitations
+## Examples
 
-For comprehensive information about import limitations, see the [CLI Limitations Guide](/docs/headless-cms/cli-limitations/v1#import-module-limitations).
+**Import all modules to a stack:**
+
+```
+csdx cm:stacks:import -a <alias> --data-dir ./export
+```
+
+**Import specific module:**
+
+```
+csdx cm:stacks:import -a <alias> --data-dir ./export --module content-types
+```
+
+**Import to specific branch:**
+
+```
+csdx cm:stacks:import -a <alias> --data-dir ./export --branch develop
+```
 
 ## Troubleshooting
 
 For troubleshooting import issues, see the CLI Troubleshooting Guide.
+
+## Limitations
+
+For comprehensive information about import limitations, see the [CLI Limitations Guide](/docs/headless-cms/cli-limitations/v1#import-module-limitations).
 
 ## Best Practices
 

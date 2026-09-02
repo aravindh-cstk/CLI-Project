@@ -12,8 +12,6 @@ This document provides a comprehensive reference for all configuration options a
 
 ---
 
-## Quick Start
-
 ## Environment Variables
 
 The CLI supports several environment variables that can be used to configure behavior without modifying configuration files.

@@ -19,26 +19,6 @@ Before exporting content, ensure you have:
 - CLI [authenticated](/docs/headless-cms/cli-authentication/v1)
 - [Configured management token](/docs/headless-cms/cli-authentication/v1#add-management-token) *(optional, but recommended for CI/CD)*
 
-## Quick Start
-
-**Export all modules from a stack:**
-
-```
-csdx cm:stacks:export -a <alias> --data-dir ./export
-```
-
-**Export specific module:**
-
-```
-csdx cm:stacks:export -a <alias> --data-dir ./export --module content-types
-```
-
-**Export from specific branch:**
-
-```
-csdx cm:stacks:export -a <alias> --data-dir ./export --branch develop
-```
-
 ## Supported Modules
 
 The export command supports the following modules:
@@ -585,13 +565,33 @@ After export, your directory structure will look like this:
     └── ...
 ```
 
-## Limitations
+## Examples
 
-For comprehensive information about export limitations, see the [CLI Limitations Guide](/docs/headless-cms/cli-limitations/v1#export-module-limitations).
+**Export all modules from a stack:**
+
+```
+csdx cm:stacks:export -a <alias> --data-dir ./export
+```
+
+**Export specific module:**
+
+```
+csdx cm:stacks:export -a <alias> --data-dir ./export --module content-types
+```
+
+**Export from specific branch:**
+
+```
+csdx cm:stacks:export -a <alias> --data-dir ./export --branch develop
+```
 
 ## Troubleshooting
 
 For troubleshooting export issues, see the CLI Troubleshooting Guide.
+
+## Limitations
+
+For comprehensive information about export limitations, see the [CLI Limitations Guide](/docs/headless-cms/cli-limitations/v1#export-module-limitations).
 
 ## Best Practices
 

@@ -24,8 +24,6 @@ This plugin handles all of these challenges automatically.
 
 ---
 
-## Installation
-
 ## Prerequisites
 
 - Node.js \>= 22
@@ -47,40 +45,7 @@ csdx cm:stacks:bulk-entries --help
 
 ---
 
-## Quick Start
-
-### Basic Publish Operation
-
-```
-# Publish all entries of a content type
-csdx cm:stacks:bulk-entries \
-  --operation publish \
-  --content-types blog_post \
-  --environments production \
-  --locales en-us \
-  --stack-api-key blt*******
-
-# Publish assets
-csdx cm:stacks:bulk-assets \
-  --operation publish \
-  --environments production \
-  --locales en-us \
-  --stack-api-key blt*******
-```
-
-### Basic Unpublish Operation
-
-```
-# Unpublish entries
-csdx cm:stacks:bulk-entries \
-  --operation unpublish \
-  --content-types blog_post \
-  --environments staging \
-  --locales en-us \
-  --stack-api-key blt*******
-```
-
----
+## Installation
 
 ## Commands
 
@@ -851,6 +816,41 @@ csdx cm:stacks:bulk-entries -c my-config.json -k blt********
   },
   "maxRetries": 3
 }
+```
+
+---
+
+## Examples
+
+### Basic Publish Operation
+
+```
+# Publish all entries of a content type
+csdx cm:stacks:bulk-entries \
+  --operation publish \
+  --content-types blog_post \
+  --environments production \
+  --locales en-us \
+  --stack-api-key blt*******
+
+# Publish assets
+csdx cm:stacks:bulk-assets \
+  --operation publish \
+  --environments production \
+  --locales en-us \
+  --stack-api-key blt*******
+```
+
+### Basic Unpublish Operation
+
+```
+# Unpublish entries
+csdx cm:stacks:bulk-entries \
+  --operation unpublish \
+  --content-types blog_post \
+  --environments staging \
+  --locales en-us \
+  --stack-api-key blt*******
 ```
 
 ---

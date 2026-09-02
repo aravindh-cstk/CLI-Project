@@ -42,7 +42,7 @@ You can also configure custom hosts for different APIs and set a custom region n
 
 ---
 
-## Quick Start
+## Common Commands
 
 ### Get Current Region
 
@@ -194,7 +194,7 @@ csdx config:set:region \
 
 ---
 
-## Developer Examples
+## Examples
 
 ### Example 1: Configure Region for Different Environments
 
