@@ -30,7 +30,7 @@ Now let us understand how to migrate content from one stack to another using the
 
 ## Steps for Execution
 
-1. [Login to Contentstack CLI session](#login-to-contentstack-cli-session)
+1. [Login to Contentstack CLI session](#login-to-the-contentstack-cli-session)
 2. [Use the “Migration” command](#use-the-migration-command)
 
 ## Login to the Contentstack CLI session

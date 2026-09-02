@@ -6,11 +6,13 @@ seo_description: "Learn how to import content to your stack using the seed comma
 
 # Import Content Using the Seed Command
 
+## Overview
+
 The `seed` command in the Contentstack CLI allows you to import content into your stack from GitHub repositories. It helps you migrate content with minimal steps and setup.
 
 You can import content into your stack from the following sources:
 
-- **Contentstack’s GitHub Organization**: We provide sample content that you can import directly into your stack using the `seed` command. Learn how to [import from Contentstack’s GitHub organization](#import-from-contentstack-s-github-organization).
+- **Contentstack’s GitHub Organization**: We provide sample content that you can import directly into your stack using the `seed` command. Learn how to [import from Contentstack’s GitHub organization](#import-from-contentstacks-github-organization).
 - **Non-Contentstack GitHub Repository**: You can also import stack content from any public GitHub repository owned by an individual or organization. Learn how to [import from a non-Contentstack GitHub repository](#import-from-a-non-contentstack-github-repository).
 
 ## Prerequisites
@@ -24,10 +26,10 @@ You can import content into your stack from the following sources:
 
 To use the `seed` command, choose one of the following options to import content into your stack.
 
-- [Import from Contentstack’s GitHub Organization](#import-from-contentstack-s-github-organization)
+- [Import from Contentstack’s GitHub Organization](#import-from-contentstacks-github-organization)
 - [Import from a Non-Contentstack GitHub Repository](#import-from-a-non-contentstack-github-repository)
 
-> **Note**: To upload your stack’s content to a GitHub repository for others to import, refer to the steps in the [Upload Stack's Content on GitHub](#upload-stack-s-content-on-github) section.
+> **Note**: To upload your stack’s content to a GitHub repository for others to import, refer to the steps in the [Upload Stack's Content on GitHub](#upload-stacks-content-on-github) section.
 
 ### Import from Contentstack’s GitHub Organization
 
@@ -58,7 +60,7 @@ The content will be imported into the selected destination stack.
 
 ### Import from a Non-Contentstack GitHub Repository
 
-You can import content from your GitHub repository into your stack using this option. Before doing so, ensure your GitHub repository contains the content. To upload content, follow the steps in the [Upload Stack’s Content on GitHub](#upload-stack-s-content-on-github) section.
+You can import content from your GitHub repository into your stack using this option. Before doing so, ensure your GitHub repository contains the content. To upload content, follow the steps in the [Upload Stack’s Content on GitHub](#upload-stacks-content-on-github) section.
 
 > **Note**: The GitHub repository must be public.
 
@@ -68,7 +70,7 @@ To import content, run the following `seed` command:
 csdx cm:stacks:seed --repo “<account/repository>”
 ```
 
-After running this command, you’ll be prompted to select an organization and a stack, as described in the [Import from Contentstack’s GitHub Organization](#import-from-contentstack-s-github-organization) section.
+After running this command, you’ll be prompted to select an organization and a stack, as described in the [Import from Contentstack’s GitHub Organization](#import-from-contentstacks-github-organization) section.
 
 Alternatively, you can run the command with all required parameters in a single line.
 
@@ -137,7 +139,7 @@ Before uploading your stack’s content to GitHub, export it using the following
 
    This command exports your stack’s content and saves it to the `stack` folder.
 
-5. Open Git Bash and follow [GitHub’s documentation](https://docs.github.com/en/github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line) to upload the `stack` folder to your repository.
+5. Open Git Bash and follow [GitHub’s documentation](https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github) to upload the `stack` folder to your repository.
 
    > **Additional Resource:** Refer to this [sample repository](https://github.com/contentstack/stack-starter-app) in Contentstack's GitHub organization to learn the folder structure for uploading content.
 

@@ -10,8 +10,8 @@ The “seed” command in Contentstack CLI allows users to import content to you
 
 To import content to your stack, you can choose from the following two sources:
 
-- **Contentstack’s GitHub organization**: In this organization, we have provided sample content, which you can import directly to your stack using the **seed** command. Learn more on how to [import from Contentstack’s GitHub organization](#option-1-import-from-contentstack-s-github-organization).
-- **Non-Contentstack's GitHub repository**: You can import stack content available on GitHub’s repository belonging to any organization or individual. Learn more on how to [import from Non-Contentstack's GitHub Repository](#option-2-import-from-non-contentstack-s-github-repository).
+- **Contentstack’s GitHub organization**: In this organization, we have provided sample content, which you can import directly to your stack using the **seed** command. Learn more on how to [import from Contentstack’s GitHub organization](#option-1-import-from-contentstacks-github-organization).
+- **Non-Contentstack's GitHub repository**: You can import stack content available on GitHub’s repository belonging to any organization or individual. Learn more on how to [import from Non-Contentstack's GitHub Repository](#option-2-import-from-non-contentstacks-github-repository).
 
 Now let’s import content to your stack by performing the following steps:
 
@@ -44,10 +44,10 @@ It will ask you to provide your email address and password of your Contentstack 
 
 To use the "seed" command, you can choose from the following options to import the content to your stack, as mentioned above.
 
-- [Import from Contentstack’s organization](#option-1-import-from-contentstacks-organization)
-- [Import from a GitHub repository](#option-2-import-from-github-repository)
+- [Import from Contentstack’s organization](#option-1-import-from-contentstacks-github-organization)
+- [Import from a GitHub repository](#option-2-import-from-non-contentstacks-github-repository)
 
-> **Note**: If you want to upload your stack’s content onto your GitHub repository for other users to import it, refer to the steps mentioned in the [Upload stack's content on the GitHub](#upload-stack-s-content-on-github) section.
+> **Note**: If you want to upload your stack’s content onto your GitHub repository for other users to import it, refer to the steps mentioned in the [Upload stack's content on the GitHub](#upload-stacks-content-on-github) section.
 
 Let's discuss the above two options in detail.
 
@@ -73,7 +73,7 @@ Finally, you’ll get the content imported to the destination stack.
 
 ### Option 2: Import from Non-Contentstack's GitHub Repository
 
-In this option, you can import content from your GitHub repository to your stack. However, first, ensure the content is available on your GitHub repository. To upload content on GitHub, perform the steps specified in the [upload stack’s content on GitHub](#upload-stack-s-content-on-github) section.
+In this option, you can import content from your GitHub repository to your stack. However, first, ensure the content is available on your GitHub repository. To upload content on GitHub, perform the steps specified in the [upload stack’s content on GitHub](#upload-stacks-content-on-github) section.
 
 > **Note**: The GitHub repository needs to be public.
 
@@ -83,7 +83,7 @@ To import content from the GitHub repository, run the “seed” command in the 
 csdx cm:seed -r “<account/repository>”
 ```
 
-After running this command, you'll be prompted to select an organization and a stack, as discussed in the [option 1](https://app.contentstack.com/#option-1-import-from-contentstack-s-github-organization) section.
+After running this command, you'll be prompted to select an organization and a stack, as discussed in the [option 1](#option-1-import-from-contentstacks-github-organization) section.
 
 The alternate way of using the plugin is by providing the required parameters after the command in a single line.
 
@@ -121,7 +121,7 @@ Options:
 
 To upload your stack’s content to your recently-created GitHub repository, first, you need to export the stack’s content. To do so, follow these steps:
 
-> **Note**: We assume that you are familiar with GitHub and Git. If not, go through GitHub’s documentation to [create and upload files to a GitHub repository.](https://docs.github.com/en/github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line)
+> **Note**: We assume that you are familiar with GitHub and Git. If not, go through GitHub’s documentation to [create and upload files to a GitHub repository.](https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github)
 
 Before uploading stack content on your GitHub repository, you need to create a public repository in this format: *stack-\<name\>*. For example, stack-exportdata, stack-gatsby-website, etc.
 
@@ -149,13 +149,13 @@ Before uploading stack content on your GitHub repository, you need to create a p
 
    This command will export your stack’s content and save it to the “stack” folder.
 
-4. Open your Git Bash terminal and follow the steps specified in [GitHub’s documentation](https://docs.github.com/en/github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line) to upload the “stack” folder to your repository.
+4. Open your Git Bash terminal and follow the steps specified in [GitHub’s documentation](https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github) to upload the “stack” folder to your repository.
    Refer to this [sample repository](https://github.com/contentstack/stack-starter-app) present in Contentstack's GitHub organization to learn the folder structure while uploading content to your GitHub repository.
 
    > **Note:** To avoid the following error make sure to create a GitHub release and proceed to import content.
    > **Error:** `Unable to find a release for '<account>/<repository>'`
 
-Now any user can import your stack’s content to their stack by performing the steps mentioned in the [option 2](#option-2-import-from-non-contentstack-s-github-repository) section.
+Now any user can import your stack’s content to their stack by performing the steps mentioned in the [option 2](#option-2-import-from-non-contentstacks-github-repository) section.
 
 ## Points to Remember
 

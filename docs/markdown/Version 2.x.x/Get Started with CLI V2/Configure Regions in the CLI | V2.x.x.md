@@ -6,6 +6,8 @@ seo_description: "Configure regions in Contentstack Command-line Interface to op
 
 # Configure Regions in the CLI
 
+## Overview
+
 The **config** namespace contains all the commands that you will need to configure the CLI as per your requirements.
 
 Contentstack currently supports the following regions:
@@ -103,18 +105,18 @@ csdx config:set:region --cda <<custom_cda_host_url>> --cma <<custom_cma_host_url
 
 **Options**
 
-| Flag | Short Flag | Description |
-| --- | --- | --- |
-| `--cda` | - | Custom host to set for the Content Delivery API.<br>If this flag is used, the following flags are required: `--cma`, `--ui-host`, `--name` |
-| `--cma` | - | Custom host to set for the Content Management API.<br>If this flag is used, the following flags are required: `--cda`, `--ui-host`, `--name` |
-| `--ui-host` | - | Custom UI host to set for the CLI.<br>If this flag is used, the following flags are required: `--cda`, `--cma`, `--name` |
-| `--name` | - | Name for the region.<br>If this flag is used, the following flags are required: `--cda`, `--cma`, `--ui-host` |
-| `--developer-hub` | - | Custom host to set for the Developer Hub API. |
-| `--personalize` | - | Custom host to set for the Personalize API. |
-| `--launch` | - | Custom host to set for the Launch API. |
-| `--studio` | - | Custom host to set for the Studio API. |
-| `--cs-assets` | - | Custom host for Contentstack Assets API. |
-| `--auth-api` | - | Custom host for the Auth API. |
+| Flag | Type | Required | Default | Description | Notes |
+| --- | --- | --- | --- | --- | --- |
+| `--cda` | string | No | - | Custom host to set for the Content Delivery API.<br>If this flag is used, the following flags are required: `--cma`, `--ui-host`, `--name` |  |
+| `--cma` | string | No | - | Custom host to set for the Content Management API.<br>If this flag is used, the following flags are required: `--cda`, `--ui-host`, `--name` |  |
+| `--ui-host` | string | No | - | Custom UI host to set for the CLI.<br>If this flag is used, the following flags are required: `--cda`, `--cma`, `--name` |  |
+| `--name` | string | No | - | Name for the region.<br>If this flag is used, the following flags are required: `--cda`, `--cma`, `--ui-host` |  |
+| `--developer-hub` | string | No | - | Custom host to set for the Developer Hub API. |  |
+| `--personalize` | string | No | - | Custom host to set for the Personalize API. |  |
+| `--launch` | string | No | - | Custom host to set for the Launch API. |  |
+| `--studio` | string | No | - | Custom host to set for the Studio API. |  |
+| `--cs-assets` | string | No | - | Custom host for Contentstack Assets API. |  |
+| `--auth-api` | string | No | - | Custom host for the Auth API. |  |
 
 > **Note**: The CLI generates the Developer Hub, Launch, Studio and Personalize APIs by default unless their corresponding flags are passed.
 

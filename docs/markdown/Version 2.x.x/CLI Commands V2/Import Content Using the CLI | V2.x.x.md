@@ -6,6 +6,8 @@ seo_description: "Import content efficiently with Contentstack’s latest Comman
 
 # Import Content Using the CLI
 
+## Overview
+
 After [exporting content](/docs/headless-cms/export-content-using-the-cli) from a source stack, unzip the exported file and then use the Contentstack CLI to import it into the destination stack.
 
 This guide covers how to use the `cm:stacks:import` command with:
@@ -144,12 +146,6 @@ During each module import, the system saves updated mapping files in the specifi
 
 > **Note:** The parent backup folder created during the initial import can be reused for subsequent module imports. To avoid errors, always include the `--backup-dir` flag when importing modules one at a time.
 
-Asset scanning is rolling out as an org-plan feature. Once it is active for a stack's org plan, `cm:stacks:import` sets `--skip-assets-publish` automatically, and imported assets are not published in the same run. When this happens, the command prints a reminder pointing to the publish command to run once scanning completes:
-
-```
-csdx cm:stacks:bulk-assets --data-dir <BACKUP_DIR> --stack-api-key <STACK_API_KEY> --operation publish
-```
-
 **Examples**
 
 - To import assets into a stack:
@@ -163,7 +159,7 @@ You can also import content using a configuration file that stores all required 
 
 To get started, follow the steps below:
 
-- Download the [configuration file](https://github.com/contentstack/cli/blob/v2.0.0-beta/packages/contentstack-export/example_config/auth_config.json).
+- Download the [configuration file](https://github.com/contentstack/cli-plugins/blob/main/packages/contentstack-export/example_config/auth_config.json).
 - Add your values.
 - Save the file and note its path.
 
@@ -187,7 +183,7 @@ Using a configuration file simplifies the import process by storing all required
 
 ## Import Content Using Management Token
 
-Use a [management token](/docs/headless-cms/cli-authentication#token-management) to import content into a stack when you prefer token-based authentication instead of CLI login. You can pass the token directly through the command line or reference it from a [configuration file](https://github.com/contentstack/cli/blob/v2.0.0-beta/packages/contentstack-import/example_config/management_config.json).
+Use a [management token](/docs/headless-cms/cli-authentication#token-management) to import content into a stack when you prefer token-based authentication instead of CLI login. You can pass the token directly through the command line or reference it from a [configuration file](https://github.com/contentstack/cli-plugins/blob/main/packages/contentstack-import/example_config/management_config.json).
 
 **Usage**
 
@@ -285,6 +281,8 @@ EXTENSIONS:
 
 **Options:**
 
+**Options for `config:set:log`:**
+
 | Option | Description |
 | --- | --- |
 | `--show-console-logs` | Displays the console logs for the operation. |
@@ -308,7 +306,7 @@ EXTENSIONS:
 
 - Workflow imports do not include admins or workflow stage users.
 
-- To resolve `maxContentLength` and `maxBodyLength` errors, include these parameters in the configuration JSON with values in bytes. The default limit is **100MB**. For implementation details, refer to the [example configuration file](https://github.com/contentstack/cli/blob/v2.0.0-beta/packages/contentstack-export/example_config/management_config.json).
+- To resolve `maxContentLength` and `maxBodyLength` errors, include these parameters in the configuration JSON with values in bytes. The default limit is **100MB**. For implementation details, refer to the [example configuration file](https://github.com/contentstack/cli-plugins/blob/main/packages/contentstack-export/example_config/management_config.json).
 
 - To manage API request timing and prevent concurrency issues, add the `delayMs` parameter to your configuration JSON.
   **Example:** `delayMs: 1000` (adds a 1-second delay between API requests).
@@ -317,10 +315,4 @@ EXTENSIONS:
   - [Users](/docs/headless-cms/about-stack-users/)
   - [Releases](/docs/headless-cms/about-releases/)
 
-- On stacks where asset scanning is active for the org plan, `cm:stacks:import` skips asset publishing automatically. See [Use of --backup-dir Flag](/docs/headless-cms/import-content-using-the-cli#use-of---backup-dir-flag) for the post-scan publish command.
-
 > **Additional Resource:** Learn more about the CLI-supported import operations in the [Support for CLI-Based Stack Import Operations](/docs/headless-cms/cli-supported-features-for-export-import-and-clone-operations#importing) document.
-
-## Next Steps
-
-- [Asset Scanning in CLI](/docs/headless-cms/asset-scanning-in-cli): asset-scan gating behavior during import, including the automatic `--skip-assets-publish` trigger and the post-scan publish command.

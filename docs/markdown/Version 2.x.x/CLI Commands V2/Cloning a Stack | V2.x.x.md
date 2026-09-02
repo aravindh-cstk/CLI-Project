@@ -6,6 +6,8 @@ seo_description: "Clone a stack easily with Contentstack Command-line Interface 
 
 # Cloning a Stack
 
+## Overview
+
 Contentstack enables you to **clone a stack** and its associated **structure and content** using the `cm:stacks:clone` CLI command. This process lets you [export](/docs/headless-cms/export-content-using-the-cli) data from a source stack and [import](/docs/headless-cms/import-content-using-the-cli) it into a new or existing stack, facilitating rapid setup, testing, or migration. This guide uses the latest **Contentstack CLI** commands to ensure a seamless cloning experience.
 
 > **Note:** Before executing this command, ensure you have the required permissions for creating or accessing the destination stack. To know more about user roles and their permissions, refer to [this](/docs/headless-cms/types-of-roles#stack-roles-and-permissions-overview) documentation.

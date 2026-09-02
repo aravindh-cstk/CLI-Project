@@ -6,6 +6,8 @@ seo_description: "Use the Contentstack CLI plugin to export content types using 
 
 # Query-based Export
 
+## Overview
+
 The Contentstack CLI Query Export Plugin gives you complete control over exporting specific content types and their dependencies using [queries](/docs/developers/apis/content-delivery-api/queries).
 
 The Query-based Export plugin lets you perform the following operations in Contentstack CLI:

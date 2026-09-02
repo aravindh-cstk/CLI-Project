@@ -6,6 +6,8 @@ seo_description: "Migrate and overwrite existing content in the same Contentstac
 
 # Migrate and Overwrite Content in the Same Stack
 
+## Overview
+
 Use this approach when the same stack already contains content, and you want to overwrite existing data instead of creating duplicates.
 
 This method imports entries and their dependencies, including assets, extensions, marketplace apps, and taxonomies, using the entries module, ensuring content remains consistent across the stack.

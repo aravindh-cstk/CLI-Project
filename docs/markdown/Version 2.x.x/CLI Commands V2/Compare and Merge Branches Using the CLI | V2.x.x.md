@@ -6,6 +6,8 @@ seo_description: "Learn to create, update, delete, compare, and merge branches u
 
 # Compare and Merge Branches Using the CLI
 
+## Overview
+
 Contentstack provides [Branches](/docs/headless-cms/about-branches/) to create multiple copies of your [stack](/docs/headless-cms/about-stack/) content. By default, stacks have a **main** branch. You can fork a branch from the main branch (parent branch) to create a new branch (child branch).
 
 Contentstack lets you list, create, delete, compare, and merge Branches using the CLI. You can compare two branches and merge the two with the desired changes into a single branch.

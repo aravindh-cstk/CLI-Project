@@ -31,7 +31,7 @@ Find the rows that match how you use the CLI, then read only those sections.
 | Use `launch:*` or `cm:entries:migrate-html-rte` | Medium | [Plugin Changes](#plugin-changes). Both are separate installs in V2. |
 | Use `cm:bootstrap` | Medium | [cm:bootstrap](#cmbootstrap). V2 removes 13 app configs. |
 | Import the `composable-studio` module | Medium | [Authentication Changes](#authentication-changes). Basic Auth is the only supported path. |
-| Maintain a custom CLI plugin or import config | Medium | [Removed Import Config Keys (Custom Plugins and Config Files)](#removed-import-config-keys-custom-plugins-and-config-files), [Node.js 22+](#nodejs-22) |
+| Maintain a custom CLI plugin or import config | Medium | [Removed Import Config Keys (Custom Plugins and Config Files)](#cmstacksimport), [Node.js 22+](#nodejs-22) |
 | Use `tsgen` or `content-type:*` | Low | [Type Mapping Reference](#type-mapping-reference). Flag renames only. |
 
 Commands not listed above need no changes beyond the flag renames in [Type Mapping Reference](#type-mapping-reference).
@@ -126,14 +126,17 @@ The table below lists every flag rename and removed short character across every
 | `cm:stacks:seed` | `--stack` | `-s` | `--stack-api-key` | None |
 |  | `--repo` | `-r` | `--repo` | None |
 |  | `--org` | `-o` | `--org` | None |
+|  | `--fetch-limit` | None | *(removed)* | None |
 | `cm:stacks:migration` | `--branch` | `-B` | `--branch` | None |
 |  | `--authtoken` | `-A` | `--authtoken` | None |
 |  | `--filePath` | `-n` | `--file-path` | None |
+|  | `--config-file` | None | *(removed, use* `--config`*)* | None |
 | `cm:stacks:validate-regex` | `--contentType` | `-c` | `--contentType` | None |
 |  | `--filePath` | `-f` | `--filePath` | None |
 |  | `--globalField` | `-g` | `--globalField` | None |
 | `cm:bootstrap` | `--appName` | `-a` | `--app-name` | None |
 |  | `--directory` | `-d` | `--project-dir` | None |
+|  | `--app-type` | None | *(removed)* | None |
 | `auth:tokens:add` | `--delivery` | `-d` | `--delivery` | None |
 |  | `--management` | `-m` | `--management` | None |
 |  | `--token` | `-t` | `--token` | None |
@@ -177,6 +180,10 @@ The table below lists every flag rename and removed short character across every
 | `content-type:list` | `--stack` | `-s` | `--stack-api-key` | `-k` |
 |  | `--token-alias` | `-a` | `--alias` | `-a` |
 |  | `--order` | `-o` | `--order` | None |
+| cm:stacks:audit | `--reference-only` | None | *(removed)* | None |
+| cm:stacks:audit:fix | `--reference-only` | None | *(removed)* | None |
+
+**Behavior Change: `cm:stacks:migration` configuration flags** In V1, `--config` took inline configuration and `--config-file` took a file path. In V2, `--config` takes the file path, inline configuration moved to the new `--inline-config` flag, and `--config-file` is removed. This is the one flag in the CLI that kept its name and changed its meaning, so a V1 script passing inline values to `--config` is read as a file path rather than failing outright.
 
 ## Global CLI Behavior Changes
 
@@ -358,7 +365,7 @@ nvm use 22 && npm install -g @contentstack/cli@2.0.0
 
 ### cm:stacks:export
 
-#### Removed Flags
+**Removed Flags**
 
 Every flag rename and removed short character for this command is listed in [Type Mapping Reference](#type-mapping-reference). Authentication flags are covered in [Authentication Changes](#authentication-changes).
 
@@ -374,7 +381,7 @@ csdx cm:stacks:export -s blt123 --data ./export -m content_types -t blog article
 csdx cm:stacks:export --stack-api-key blt123 --data-dir ./export --module content_types --content-types blog article --branch main
 ```
 
-#### Behavior Change: Branch Export Writes Flat Output
+**Behavior Change: Branch Export Writes Flat Output**
 
 **V1:** When you omit `--branch`, V1 exports all branches. V1 nests the output under `exportDir/<branch-uid>/...` for each branch.
 
@@ -398,11 +405,11 @@ csdx cm:stacks:export --branch-alias prod --data-dir ./export-prod     --stack-a
 - V1 wrote a `branches.json` file to the export root listing all branches at export time.
 - V2 does not write this file, and raises no error. If your import pipeline or post-export tooling reads `branches.json`, remove that step.
 
-#### `export-info.json` No Longer Written
+**`export-info.json` No Longer Written**
 
 V1 wrote `export-info.json` to the export directory containing `{ "contentVersion": 2, "logsPath": "..." }`. V2 does not write this file. If your pipeline checks for this file or reads `contentVersion` from it, remove that step.
 
-#### `content_types/schema.json` Removed
+**`content_types/schema.json` Removed**
 
 > **Warning:** A pipeline or script that reads `export/content_types/schema.json` fails on a V2 export with no error message, because the file does not exist in a V2 export.
 
@@ -420,7 +427,7 @@ cat export/content_types/schema.json
 ls export/content_types/*.json
 ```
 
-#### Global Fields Format Changed (Per-File)
+**Global Fields Format Changed (Per-File)**
 
 > **Warning:** If any pipeline or script reads `export/global_fields/globalfields.json`, it fails on a V2 export. The file does not exist.
 
@@ -440,7 +447,7 @@ export/global_fields/shared_banner.json
 
 Update any tooling that reads `globalfields.json` to iterate per-UID files instead.
 
-#### Behavior Change: Module Flag Now Validated, `studio` Renamed
+**Behavior Change: Module Flag Now Validated, `studio` Renamed**
 
 **Module validation:**
 
@@ -469,7 +476,7 @@ V2 also adds two export targets that V1 does not have: `publishing-rules`, `pers
 
 ### cm:stacks:import
 
-#### Removed Flags
+**Removed Flags**
 
 Every flag rename and removed short character for this command is listed in [Type Mapping Reference](#type-mapping-reference). Authentication flags are covered in [Authentication Changes](#authentication-changes). One removed flag has no replacement at all:
 
@@ -507,11 +514,11 @@ The following flags exist in **both V1 and V2** and require no migration:
 
 Of these, `--skip-assets-publish` and `--skip-entries-publish` interact with a real behavior change: when unset, the publish that runs now goes through NRP (see [All Publish Operations Now Use NRP](#all-publish-operations-now-use-nrp)). The flag's own skip or no-skip behavior is unchanged.
 
-#### Behavior Change: Module Flag Validates Against a Strict List
+**Behavior Change: Module Flag Validates Against a Strict List**
 
 Same as export: V2 validates `--module` on import before any operation begins. `--module studio` fails. Use `--module composable-studio` instead. V2 adds `--module variant-entries` as a new valid value that V1 does not have.
 
-#### Behavior Change: Importing a V1 Export Silently Skips Global Fields
+**Behavior Change: Importing a V1 Export Silently Skips Global Fields**
 
 V2's importers use per-UID file readers that explicitly ignore aggregate files. The impact differs between modules because V1 export behavior differs:
 
@@ -526,7 +533,7 @@ V2's importers use per-UID file readers that explicitly ignore aggregate files. 
 
 See [Global Fields Silently Skipped on Import](#global-fields-silently-skipped-on-import) in Troubleshooting. Symptom: the import command reports success, and zero global fields exist in the target stack afterward.
 
-#### Behavior Change: V1 Multi-Branch Export Auto Detection Removed
+**Behavior Change: V1 Multi-Branch Export Auto Detection Removed**
 
 V1 import auto-detected the branch by reading `branches.json` at the export root and navigating to the correct `<branch-uid>/` subfolder. V2 removes this `selectBranchFromDirectory` logic.
 
@@ -548,11 +555,11 @@ When importing a V1 multi-branch export, V2 requires you to specify the branch s
 
 If you point V2 import at a V1 multi-branch export root, it attempts to read content files directly from the root (where only `branches.json` lives), finds nothing, and silently produces an empty import. See [V1 Multi-Branch Export Produces an Empty Import](#v1-multi-branch-export-produces-an-empty-import) in Troubleshooting. Symptom: the command completes and reports success, and no content imports.
 
-#### Behavior Change: `composable-studio` Module Requires Basic Auth
+**Behavior Change: `composable-studio` Module Requires Basic Auth**
 
 Same requirement as export. See [Authentication Changes](#authentication-changes) for the skip conditions, skip messages, and login command.
 
-#### Removed Import Config Keys (Custom Plugins and Config Files)
+**Removed Import Config Keys (Custom Plugins and Config Files)**
 
 If you maintain a custom plugin or tool that reads the import config object, V2 removes these keys:
 
@@ -569,7 +576,7 @@ Use `importConfig.contentDir` directly in V2.
 
 ### cm:stacks:import-setup
 
-#### Removed Flags
+**Removed Flags**
 
 The `cm:import-setup` alias is removed, so use the full command name (see [Command Aliases Removed](#command-aliases-removed)). The removed short character is listed in [Type Mapping Reference](#type-mapping-reference).
 
@@ -591,7 +598,7 @@ csdx cm:stacks:import-setup --stack-api-key blt123 --branch main
 
 V2 replaces all 15 commands in the `@contentstack/cli-cm-bulk-publish` plugin (across `cm:entries:*`, `cm:stacks:*`, `cm:bulk-publish:*`, and `cm:assets:*`) with 3 commands in `@contentstack/cli-bulk-operations`, each driven by an `--operation` flag instead of a dedicated command per action. Rewrite every bulk publish script against the new flag-based interface.
 
-#### V1 to V2 Command Mapping
+**V1 to V2 Command Mapping**
 
 | V1 Command (REMOVED) | V2 Replacement |
 | --- | --- |
@@ -630,7 +637,7 @@ csdx cm:stacks:bulk-entries --revert ./log.json \
   --alias myalias
 ```
 
-#### Cross-Publish Migration (`cm:bulk-publish:cross-publish` to `--source-alias`)
+**Cross-Publish Migration (`cm:bulk-publish:cross-publish` to `--source-alias`)**
 
 **Before:** V1 accepts an inline `--delivery-token` flag.
 
@@ -657,7 +664,7 @@ csdx cm:stacks:bulk-entries \
   -k blt123
 ```
 
-#### `--api-version` Flag Removed
+**`--api-version` Flag Removed**
 
 V2 hardcodes `api_version: '3.2'` on every publish and unpublish call. V2 removes the `--api-version` flag. Passing it fails immediately:
 
@@ -671,7 +678,7 @@ ERROR: Nonexistent flag: --api-version
 
 **Replaces (all removed in V2):** `cm:assets:publish`, `cm:assets:unpublish`, `cm:stacks:publish` (assets), `cm:stacks:unpublish` (assets)
 
-#### V1 to V2 Command Mapping
+**V1 to V2 Command Mapping**
 
 | V1 Command (REMOVED) | V2 Replacement |
 | --- | --- |
@@ -686,7 +693,7 @@ csdx cm:stacks:bulk-assets --operation publish \
   --alias myalias
 ```
 
-#### New: CS Assets Bulk Delete and Move
+**New: CS Assets Bulk Delete and Move**
 
 **No prior equivalent in V1.** V2 adds two new operation types to `cm:stacks:bulk-assets` that target the CS Assets API, separate from the CMS publish pipeline:
 
@@ -745,16 +752,16 @@ V2 removes the `--api-version` flag here too and hardcodes `api_version: '3.2'` 
 
 **No prior equivalent in V1.** New command for bulk publishing or unpublishing taxonomy terms. V2 hardcodes `api_version: '3.2'` on all calls.
 
-| Flag | Short | Description |
-| --- | --- | --- |
-| `--operation` |  | `publish` or `unpublish` |
-| `--stack-api-key` | `-k` | Stack API key |
-| `--alias` | `-a` | Management token alias |
-| `--environments` |  | Target environments (multiple allowed) |
-| `--locales` |  | Target locales (multiple allowed) |
-| `--taxonomies` |  | Comma-separated taxonomy UIDs. Omit to target all taxonomies. |
-| `--branch` |  | Branch (defaults to `main`) |
-| `--yes` / `--no` | `-y` | Skip confirmation prompt |
+| Flag | Type | Required | Default | Description | Notes |
+| --- | --- | --- | --- | --- | --- |
+| `--operation` | string | No | - | `publish` or `unpublish` |  |
+| `--stack-api-key`, `-k` | string | No | - | Stack API key |  |
+| `--alias`, `-a` | string | No | - | Management token alias |  |
+| `--environments` | string\[\] | No | - | Target environments (multiple allowed) |  |
+| `--locales` | string\[\] | No | - | Target locales (multiple allowed) |  |
+| `--taxonomies` | string | No | - | Comma-separated taxonomy UIDs. Omit to target all taxonomies. |  |
+| `--branch` | string | No | \`main\` | Branch (defaults to `main`) |  |
+| `--yes` / `--no`, `-y` | boolean | No | - | Skip confirmation prompt |  |
 
 **Publish specific taxonomies:**
 
@@ -781,7 +788,7 @@ csdx cm:stacks:bulk-taxonomies \
 
 ### cm:stacks:seed
 
-#### Removed Flags
+**Removed Flags**
 
 The `cm:seed` alias is removed, so use the full command name (see [Command Aliases Removed](#command-aliases-removed)). Every flag rename and removed short character for this command is listed in [Type Mapping Reference](#type-mapping-reference).
 
@@ -797,7 +804,7 @@ csdx cm:seed -s blt123 -r contentstack/kickstart-stack-seed -o orgUid
 csdx cm:stacks:seed --stack-api-key blt123 --repo contentstack/kickstart-stack-seed --org orgUid
 ```
 
-#### Behavior Change: Curated List Replaces GitHub API in Interactive Mode
+**Behavior Change: Curated List Replaces GitHub API in Interactive Mode**
 
 **Before:** running `csdx cm:stacks:seed` without `--repo` in V1 queries the GitHub API for all Contentstack repos.
 
@@ -813,7 +820,7 @@ If you need a repo that is not on this list, use `--repo owner/repo` directly.
 
 ### cm:bootstrap
 
-#### Removed Flags
+**Removed Flags**
 
 `--appName` and `--directory` are renamed, and both renames are listed in [Type Mapping Reference](#type-mapping-reference). One further flag is removed outright:
 
@@ -835,7 +842,7 @@ csdx cm:bootstrap --appName reactjs --directory ./myapp --appType sampleapp
 csdx cm:bootstrap --app-name compass-app --project-dir ./myapp
 ```
 
-#### 13 App Configs Removed
+**13 App Configs Removed**
 
 V2 no longer accepts the following `--app-name` values. Passing any of them throws `CLI_BOOTSTRAP_INVALID_APP_NAME`.
 
@@ -867,7 +874,7 @@ V2 no longer accepts the following `--app-name` values. Passing any of them thro
 | --- | --- |
 | `nuxtjs-disabled` | `contentstack/contentstack-nuxtjs-vue-universal-demo` |
 
-#### Valid App Names in V2 (8)
+**Valid App Names in V2 (8)**
 
 These apps existed in V1's `starterApps` list and carry over to V2 unchanged. Display names ending in SSR or SSG name the app's rendering strategy, server-side rendering (SSR) or static site generation (SSG):
 
@@ -884,7 +891,7 @@ These apps existed in V1's `starterApps` list and carry over to V2 unchanged. Di
 
 ### cm:stacks:audit
 
-#### Removed Flags
+**Removed Flags**
 
 V2 strips the short aliases from both commands. See [Command Aliases Removed](#command-aliases-removed) for the full alias list.
 
@@ -902,7 +909,7 @@ csdx cm:stacks:audit
 csdx cm:stacks:audit:fix
 ```
 
-#### Behavior Change: Audit Reads Per-UID Files, So V1 Exports Produce Empty Results
+**Behavior Change: Audit Reads Per-UID Files, So V1 Exports Produce Empty Results**
 
 `cm:stacks:audit` now uses `readContentTypeSchemas` and `readGlobalFieldSchemas` (the same utilities V2 import uses) to load content type and global field schemas from the `--report-path` directory. These utilities read individual `<uid>.json` files and explicitly ignore `schema.json` and `globalfields.json`.
 
@@ -919,7 +926,7 @@ See [cm:stacks:audit Reports Zero Global-Field Issues on a V1 Export (False Clea
 
 ### cm:stacks:migration
 
-#### Removed Flags
+**Removed Flags**
 
 | Removed | V2 Replacement |
 | --- | --- |
@@ -946,7 +953,7 @@ csdx cm:stacks:migration --branch feature-branch --file-path ./migrate.js
 
 ### cm:stacks:validate-regex
 
-#### Removed Flags
+**Removed Flags**
 
 Every removed short character for this command is listed in [Type Mapping Reference](#type-mapping-reference). The long-form flag names are unchanged.
 
@@ -962,7 +969,7 @@ csdx cm:stacks:validate-regex -c blog -f ./regex.json -g header
 csdx cm:stacks:validate-regex --contentType blog --filePath ./regex.json --globalField header
 ```
 
-#### Output Format
+**Output Format**
 
 The results table and `results.csv` file use the same column order in both V1 and V2: `Module`, `Title`, `UID`, `Invalid Regex Count`. If you parse CSV output by header name, you need no changes.
 
@@ -994,7 +1001,7 @@ csdx auth:tokens:list
 
 ### auth:tokens:add
 
-#### Removed Flags
+**Removed Flags**
 
 Every flag rename and removed short character for this command is listed in [Type Mapping Reference](#type-mapping-reference). Three of them were hidden flags in V1: `--api-key` is removed entirely, `-f` / `--force` becomes `-y` / `--yes`, and `--branch` is removed entirely with no replacement.
 
@@ -1012,7 +1019,7 @@ csdx auth:tokens:add -a myalias --delivery --token bltABC --stack-api-key blt123
 
 ### auth:tokens:remove
 
-#### Removed Flags
+**Removed Flags**
 
 `-i` / `--ignore` is removed, as listed in [Type Mapping Reference](#type-mapping-reference).
 
@@ -1036,7 +1043,7 @@ V2 prints `No token found with alias 'myalias'.` (yellow) and exits 0. Scripts t
 
 ### auth:logout
 
-#### Removed Flags
+**Removed Flags**
 
 `-f` / `--force` (a hidden flag in V1) is removed, as listed in [Type Mapping Reference](#type-mapping-reference).
 
@@ -1056,7 +1063,7 @@ csdx auth:logout --yes
 
 ### config:set:region
 
-#### Removed Flags
+**Removed Flags**
 
 Every removed short character for this command is listed in [Type Mapping Reference](#type-mapping-reference). The long-form flag names are unchanged.
 
@@ -1072,7 +1079,7 @@ csdx config:set:region -d https://cdn.example.com -m https://api.example.com -n 
 csdx config:set:region --cda https://cdn.example.com --cma https://api.example.com --name MyRegion
 ```
 
-#### New: `--cs-assets` Flag
+**New: `--cs-assets` Flag**
 
 **No prior equivalent in V1.** V2 adds a `--cs-assets` flag for specifying the Contentstack Assets API URL when you configure a custom region:
 
@@ -1128,7 +1135,7 @@ csdx config:set:early-access-header --header-alias myheader --header x-header-va
 
 `tsgen` generates TypeScript interfaces from your stack's content type schemas, authenticated with a delivery token alias. Use the generated types to annotate content model access in a TypeScript client, whether that client uses the Contentstack Delivery SDK or a plain HTTP request. See the [tsgen plugin docs](/docs/headless-cms/cli-tsgen-plugin) for full usage.
 
-#### Removed Flags
+**Removed Flags**
 
 Every flag rename and removed short character for this command is listed in [Type Mapping Reference](#type-mapping-reference).
 
@@ -1154,7 +1161,7 @@ csdx tsgen -a myalias --output ./types --prefix CS_ --doc
 
 ### app:create
 
-#### Removed Flags
+**Removed Flags**
 
 `-n` is removed. Use `--name` (long form only). See [Type Mapping Reference](#type-mapping-reference).
 
@@ -1172,7 +1179,7 @@ csdx app:create --name my-app
 
 ### migrate:convert
 
-#### Removed Flags
+**Removed Flags**
 
 Every removed short character for this command is listed in [Type Mapping Reference](#type-mapping-reference). The long-form flag names are unchanged.
 
@@ -1190,7 +1197,7 @@ csdx migrate:convert --output ./output --master-locale en-us --affix v2_
 
 ### migrate:export
 
-#### Removed Flags
+**Removed Flags**
 
 `-o` is removed. Use `--output` (long form only). See [Type Mapping Reference](#type-mapping-reference).
 
@@ -1210,7 +1217,7 @@ csdx migrate:export --output ./output
 
 > **Note:** the `content-type:*` commands belong to a separate plugin (`@contentstack/contentstack-content-type`) that inspects and compares content type schemas. They differ from `cm:stacks:*` commands: they do not export or import content, they analyze schema structure. The flag changes below apply to every command in this namespace.
 
-#### Removed Flags
+**Removed Flags**
 
 Every flag rename and removed short character for this command is listed in [Type Mapping Reference](#type-mapping-reference).
 
@@ -1228,7 +1235,7 @@ csdx content-type:audit --stack-api-key blt123 --alias myalias --content-type bl
 
 ### content-type:compare
 
-#### Removed Flags
+**Removed Flags**
 
 Every flag rename and removed short character for this command is listed in [Type Mapping Reference](#type-mapping-reference).
 
@@ -1246,7 +1253,7 @@ csdx content-type:compare --stack-api-key blt123 --alias myalias --content-type 
 
 ### content-type:compare-remote
 
-#### Removed Flags
+**Removed Flags**
 
 Every flag rename and removed short character for this command is listed in [Type Mapping Reference](#type-mapping-reference).
 
@@ -1266,7 +1273,7 @@ csdx content-type:compare-remote --origin-stack bltOrigin --remote-stack bltRemo
 
 ### content-type:details
 
-#### Removed Flags
+**Removed Flags**
 
 Every flag rename and removed short character for this command is listed in [Type Mapping Reference](#type-mapping-reference).
 
@@ -1284,7 +1291,7 @@ csdx content-type:details --stack-api-key blt123 --alias myalias --content-type 
 
 ### content-type:diagram
 
-#### Removed Flags
+**Removed Flags**
 
 Every flag rename and removed short character for this command is listed in [Type Mapping Reference](#type-mapping-reference).
 
@@ -1302,7 +1309,7 @@ csdx content-type:diagram --stack-api-key blt123 --alias myalias --output ./diag
 
 ### content-type:list
 
-#### Removed Flags
+**Removed Flags**
 
 Every flag rename and removed short character for this command is listed in [Type Mapping Reference](#type-mapping-reference).
 
@@ -1453,7 +1460,7 @@ This checklist orders items by risk. Complete top sections before lower ones.
 3. Rewrite all `cm:entries:publish*`, `cm:assets:publish*`, `cm:bulk-publish:*`, `cm:stacks:publish`, `cm:stacks:unpublish` calls to `cm:stacks:bulk-entries` / `cm:stacks:bulk-assets` commands. ([cm:stacks:bulk-entries](#cmstacksbulk-entries), [cm:stacks:bulk-assets](#cmstacksbulk-assets))
 4. Verify publish behavior in a staging stack. All bulk publish and unpublish calls now use `api_version: '3.2'`, and V2 removes the `--api-version` flag. ([All Publish Operations Now Use NRP](#all-publish-operations-now-use-nrp))
 5. Remove checks for `export-info.json` or `content_types/schema.json` in post-export tooling. V2 does not write these files. ([cm:stacks:export](#cmstacksexport))
-6. Update tooling that reads `global_fields/globalfields.json` to iterate per-UID JSON files instead. ([Global Fields Format Changed (Per-File)](#global-fields-format-changed-per-file))
+6. Update tooling that reads `global_fields/globalfields.json` to iterate per-UID JSON files instead. ([Global Fields Format Changed (Per-File)](#cmstacksexport))
 
 ### CI and Pipeline Audit
 
@@ -1493,6 +1500,12 @@ This checklist orders items by risk. Complete top sections before lower ones.
 ### Custom Plugins (Plugin Authors Only)
 
 1. Update `engines.node` to `>=22.0.0` in your plugin's `package.json`. ([Node.js 22+](#nodejs-22))
+2. Update `@oclif/core` from `^3.0.0` to `^4.11.14`.
+3. Add `@contentstack/cli-command` and `@contentstack/cli-utilities` at `~2.0.0` to your dependencies. Import `Command` from `@contentstack/cli-command`, and `flags` and `Args` from `@contentstack/cli-utilities`, so your plugin needs no direct dependency on `@oclif/core`.
+4. Point `oclif.commands` at `./lib/commands`, the compiled JavaScript output, rather than `./src/commands`. A build step is now required before linking or installing, and pointing at TypeScript source makes command discovery fail.
+5. Rewrite your tests if you use `@oclif/test`. Version 4 removed the chained `test.stdout().command().it()` API entirely and now exports only `runCommand`, `captureOutput` and `runHook`. The old API throws `TypeError: Cannot read properties of undefined`.
+
+For the full authoring workflow, see [Create Custom CLI Plugins for Contentstack](/docs/headless-cms/create-custom-cli-plugins).
 
 ### Test Run
 
@@ -1503,6 +1516,7 @@ This checklist orders items by risk. Complete top sections before lower ones.
 
 ## Next Steps
 
-- [Contentstack CLI documentation](/docs/headless-cms/install-the-cli): reference documentation for the V1 CLI.
+- [Contentstack CLI documentation](/docs/headless-cms/install-the-cli): reference documentation for the V2 CLI.
+- [Create Custom CLI Plugins for Contentstack](/docs/headless-cms/create-custom-cli-plugins): the V2 plugin authoring guide, updated for `@oclif/core` v4.
 - [Migrate content from HTML RTE to JSON RTE](/docs/headless-cms/cli-migrate-content-from-html-rte-to-json-rte): docs for the `migrate-rte` plugin you now install separately (see [migrate-rte Plugin: Now Opt-In](#migrate-rte-plugin-now-opt-in)).
 - [tsgen plugin docs](/docs/headless-cms/cli-tsgen-plugin): full usage reference for the `tsgen` command (see [tsgen](#tsgen)).

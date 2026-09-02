@@ -15,7 +15,7 @@ Content can be imported in a stack for the following modules:
 - [Assets](/docs/headless-cms/about-assets)
 - [Locales](/docs/headless-cms/about-languages)
 - [Environments](/docs/headless-cms/about-environments)
-- [Extensions](/docs/developers/experience-extensions-overview)
+- [Extensions](/docs/developer-hub/about-ui-locations)
 - [Webhooks](/docs/headless-cms/about-webhooks)
 - [Global Fields](/docs/headless-cms/about-global-field)
 - [Content Types](/docs/headless-cms/about-content-types)

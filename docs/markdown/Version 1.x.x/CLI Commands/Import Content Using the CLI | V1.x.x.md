@@ -118,7 +118,7 @@ csdx cm:import [OPTIONS]
 
 ### Examples
 
-#### Import All Modules
+**Import All Modules**
 
 **Using Stack API Key:**
 
@@ -150,7 +150,7 @@ csdx cm:stacks:import -a production --data-dir /Users/username/Desktop/export
 csdx cm:stacks:import -a production --data-dir "C:\Users\Username\Desktop\export"
 ```
 
-#### Import to Specific Branch
+**Import to Specific Branch**
 
 **Using Branch Name:**
 
@@ -175,7 +175,7 @@ csdx cm:stacks:import -a production --data-dir ./export --branch-alias developAl
       └── ...
 ```
 
-#### Import Specific Module
+**Import Specific Module**
 
 **Import Only Content Types:**
 
@@ -227,7 +227,7 @@ csdx cm:stacks:import -a production --data-dir ./export --module entries
 12. `labels`
 13. `custom-roles`
 
-#### Using Backup Directory
+**Using Backup Directory**
 
 The `--backup-dir` flag is essential when repeatedly using the single module import command. Due to module inter-dependencies, the backup flag helps avoid import errors.
 
@@ -249,7 +249,7 @@ csdx cm:stacks:import -a production --data-dir ./export --module content-types -
 
 > **Note:** The parent backup folder created during the initial import can be reused for subsequent module imports. To ensure a smooth import process, always provide this backup folder when importing modules individually.
 
-#### Import with Overwrite
+**Import with Overwrite**
 
 **Replace Existing Module:**
 
@@ -263,7 +263,7 @@ csdx cm:stacks:import -a production --data-dir ./export --module content-types -
 csdx cm:stacks:import -a production --data-dir ./export --module content-types --skip-existing
 ```
 
-#### Import with Publishing Options
+**Import with Publishing Options**
 
 **Skip Asset Publishing:**
 
@@ -285,7 +285,7 @@ csdx cm:stacks:import -a production --data-dir ./export --skip-assets-publish --
 
 > **Note:** `--skip-assets-publish` can also be set automatically rather than passed explicitly when asset scanning is active for a stack's org plan. See Using Backup Directory above for details and the post-scan publish command.
 
-#### Import Marketplace Apps
+**Import Marketplace Apps**
 
 **Import Marketplace Apps (Interactive):**
 
@@ -299,7 +299,7 @@ csdx cm:stacks:import -a production --data-dir ./export --module marketplace-app
 csdx cm:stacks:import -a production --data-dir ./export --module marketplace-apps -y
 ```
 
-#### Import with Webhook Status
+**Import with Webhook Status**
 
 **Disable Webhooks (Default):**
 
@@ -313,7 +313,7 @@ csdx cm:stacks:import -a production --data-dir ./export --import-webhook-status 
 csdx cm:stacks:import -a production --data-dir ./export --import-webhook-status current
 ```
 
-#### Import with Audit Options
+**Import with Audit Options**
 
 **Skip Audit Fix:**
 
@@ -328,7 +328,7 @@ csdx cm:stacks:import -a production --data-dir ./export
 # Audit fix runs automatically
 ```
 
-#### Import Personalize Projects
+**Import Personalize Projects**
 
 **Import with Custom Project Name:**
 
@@ -710,4 +710,4 @@ After successful import:
 - Clone a stack
 - [Migrate content](/docs/headless-cms/migrate-content-between-stacks-using-the-cli/v1)
 - [Overwrite existing content](/docs/headless-cms/overwrite-existing-content-using-cli-import/v1)
-- [Asset Scanning in CLI](/docs/headless-cms/asset-scanning-in-cli): asset-scan gating behavior during import, including the automatic `--skip-assets-publish` trigger and the post-scan publish command.
+- [Asset Scanning in CLI](/docs/headless-cms/asset-scanning-in-cli/v1): asset-scan gating behavior during import, including the automatic `--skip-assets-publish` trigger and the post-scan publish command.

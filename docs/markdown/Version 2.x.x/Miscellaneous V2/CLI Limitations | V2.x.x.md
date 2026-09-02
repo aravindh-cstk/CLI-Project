@@ -1,6 +1,6 @@
 ---
-uid: "blt74918691c8a465c1"
-seo_title: "CLI Limitations | V1.x.x | Contentstack"
+uid: "blt5364aa60e762784c"
+seo_title: "CLI Limitations | V2.x.x | Contentstack"
 seo_description: "Understand Contentstack CLI limitations, supported environments, and workarounds for import/export, authentication, OS support, and more."
 ---
 
@@ -518,27 +518,6 @@ csdx cm:stacks:export -k <stack-api-key> --data-dir ./export
 
 ---
 
-### Asset Publishing Is Skipped When Asset Scanning Is Active
-
-**Limitation:** During `cm:stacks:import`, assets are not published in the same run when asset scanning applies. This happens either because `--skip-assets-publish` was passed explicitly, or because the org plan has asset scanning enabled, which sets the same flag automatically. Org-plan auto-detection of asset scanning is rolling out and is not yet active for every org plan.
-
-**Impact:** Assets are imported but remain unpublished until a separate publish step runs after scanning completes.
-
-**Workaround:** See [Asset Scan In-Queue Assets Are Not Retried](#asset-scan-in-queue-assets-are-not-retried) for the wait-and-republish steps, since the same retry behavior applies here.
-
-**Related Commands:**
-
-- `csdx cm:stacks:import --skip-assets-publish`
-- `csdx cm:assets:publish --backup-dir`
-
-**Related Documentation:** [Asset Scanning in CLI](/docs/headless-cms/asset-scanning-in-cli/v1)
-
-**Version Information:** All versions with asset scanning enabled
-
-**Tags:** asset scanning, import, skip-assets-publish, backup-dir
-
----
-
 ## Overwrite Operations Limitations
 
 ### Dependency on Properly Structured Exported Content
@@ -696,37 +675,12 @@ csdx cm:stacks:export -k <stack-api-key> --data-dir ./export
 
 **Related Commands:**
 
-- `csdx cm:entries:publish`
-- `csdx cm:assets:publish`
+- `csdx cm:stacks:bulk-entries --operation publish`
+- `csdx cm:stacks:bulk-assets --operation publish`
 
 **Version Information:** All versions
 
 **Tags:** bulk publish, batch size, performance
-
----
-
-### Asset Scan In-Queue Assets Are Not Retried
-
-**Limitation:** When a stack has asset scanning enabled, `cm:assets:publish` skips any asset that is still in the scan queue (pending) at the time the command runs. The retry loop that would otherwise wait and recheck pending assets is present in the code but configured with zero retries in this release, so it never executes.
-
-**Impact:** In-queue assets are skipped and logged as "Skipped (max retries exceeded)" on the same run, even though the underlying scan may finish moments later.
-
-**Workaround:**
-
-- Wait for the asset's scan to complete, then run `csdx cm:assets:publish --backup-dir <BACKUP_DIR>` again to publish it.
-- Quarantined assets are skipped permanently and are not resolved by retrying.
-
-**Related Commands:**
-
-- `csdx cm:assets:publish --backup-dir`
-
-**Related Documentation:** [Asset Scanning in CLI](/docs/headless-cms/asset-scanning-in-cli/v1)
-
-**Version Information:** All versions with asset scanning enabled
-
-**Tags:** asset scanning, bulk publish, quarantine, in-queue
-
----
 
 ---
 
@@ -772,8 +726,8 @@ csdx cm:stacks:import -k <target-api-key> --data-dir ./export
 
 **Related Commands:**
 
-- `csdx cm:entries:publish -e <environment>`
-- `csdx cm:assets:publish -e <environment>`
+- `csdx cm:stacks:bulk-entries --operation publish --environments <environment>`
+- `csdx cm:stacks:bulk-assets --operation publish --environments <environment>`
 
 **Version Information:** All versions
 
@@ -1038,7 +992,7 @@ csdx cm:stacks:import -k <target-api-key> --data-dir ./export
 
 ### Deprecated Apps
 
-**Limitation:** Deprecated starter apps (reactjs-starter, nextjs-starter, gatsby-starter, angular-starter, nuxt-starter, vue-starter, stencil-starter, nuxt3-starter) are still available but not recommended for new projects
+**Limitation:** The older starter apps are no longer available. The bootstrap command accepts only `compass-app` and the `kickstart-` apps, and it rejects any other value. Scripts that pass a name such as `reactjs-starter` fail rather than falling back to a default
 
 **Impact:** Deprecated apps may not receive updates or support
 
@@ -1165,7 +1119,7 @@ csdx cm:stacks:import -k <target-api-key> --data-dir ./export
 **Related Commands:**
 
 - `csdx cm:stacks:audit`
-- `csdx audit:fix`
+- `csdx cm:stacks:audit:fix`
 
 **Version Information:** All versions
 
@@ -1187,7 +1141,7 @@ csdx cm:stacks:import -k <target-api-key> --data-dir ./export
 
 **Related Commands:**
 
-- `csdx audit:fix --fix-only <type>`
+- `csdx cm:stacks:audit:fix --fix-only <type>`
 
 **Version Information:** All versions
 
@@ -1383,3 +1337,12 @@ csdx cm:stacks:import -k <target-api-key> --data-dir ./export
 **Tags:** configuration, rate limit, global settings
 
 ---
+
+## Version Requirements and Removed Flags
+
+- The Bulk Operations plugin requires Node.js 22 or later. On an older Node.js version the plugin fails to load.
+- The `--api-version` flag has been removed from the bulk commands. Nested Reference Publishing is always on and the API version is fixed internally, so there is no way to opt out of it.
+- The `--bulk-publish` flag has been removed. Use `--publish-mode` to choose between bulk and single mode instead.
+- There is no CLI command for the multi-factor authentication secret. Set the `CONTENTSTACK_MFA_SECRET` environment variable instead.
+- The older starter apps are not supported by the bootstrap command. Use one of the `kickstart-` apps or `compass-app` instead.
+- The Launch and migrate-rte plugins are not installed by default. Install each with `csdx plugins:install` before use.

@@ -322,7 +322,7 @@ You can easily run the Compass Starter on your local machine by following the st
       ```
 
 2. Build, Configure, and Run the Website (Manual Process)
-   1. [Download](https://github.com/contentstack/compass-starter-app/archive/refs/tags/3.2.0.zip) the website code.
+   1. [Download](https://codeload.github.com/contentstack/compass-starter-app/zip/refs/tags/3.2.0) the website code.
 
    2. Open your terminal.
 

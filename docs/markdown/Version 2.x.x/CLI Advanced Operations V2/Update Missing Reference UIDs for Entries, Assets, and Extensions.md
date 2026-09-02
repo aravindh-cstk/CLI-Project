@@ -6,6 +6,8 @@ seo_description: "Update the missing reference UIDs of entries, assets, and exte
 
 # Update Missing Reference UIDs for Entries, Assets, and Extensions
 
+## Overview
+
 When importing data via Contentstack's CLI, if some of the reference UIDs of [assets](/docs/headless-cms/about-assets), [entries](/docs/headless-cms/about-entries), or [extensions](/docs/developer-hub/about-ui-locations) in the destination stack are not updated within the entries. This can result in those entries not displaying correctly, potentially affecting functionalities that depend on them.
 
 To resolve this, you can use the script `05-Update-reference-entry-from-mapper` to update the references. This script can be used under the following conditions:
@@ -27,7 +29,7 @@ Follow the steps below to update the missing reference UIDs:
 
 1. [Import the data](/docs/headless-cms/import-content-using-the-cli) from the source stack using the `cm:stacks:import` command.
 
-2. Download the [examples](https://github.com/contentstack/cli/tree/v2.0.0-beta/packages/contentstack-migration/examples) folder and navigate to the folder using the `cd` command in the terminal.
+2. Download the [examples](https://github.com/contentstack/cli-plugins/tree/main/packages/contentstack-migration/examples) folder and navigate to the folder using the `cd` command in the terminal.
 
    ```
    cd <path-to-examples>
@@ -56,7 +58,7 @@ Follow the steps below to update the missing reference UIDs:
    csdx cm:stacks:migration --file-path ./05-Update-reference-entry-from-mapper.js --config-file ./config.json -k <stack_ApiKey>
    ```
 
-## Troubleshoot
+## Troubleshooting
 
 If you are facing a **Migration Unsuccessful** or **Module cannot be found** error, please try one of the following troubleshooting methods:
 

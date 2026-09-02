@@ -6,6 +6,8 @@ seo_description: "Learn to configure and manage Contentstack CLI rate limits. Tr
 
 # Configure Rate Limits in the CLI
 
+## Overview
+
 [Rate Limit](/docs/developers/apis/content-management-api#rate-limiting) defines the maximum number of requests you can make using Contentstack's API within a specific time frame.
 
 This guide provides step-by-step instructions on how to configure and manage rate limits in the Contentstack Command Line Interface (CLI).
@@ -52,12 +54,12 @@ csdx config:set:rate-limit
 
 **Options**
 
-| Flag | Short Flag | Description |
-| --- | --- | --- |
-| `--org` | - | Provide the organization UID. |
-| `--utilize` | - | Provide the utilization percentages for the rate limit, separated by commas.<br>Default: `50` |
-| `--limit-name` | - | \[Optional\] Provide the limit names separated by commas.<br>Supported values: `limit`, `getLimit`, `bulkLimit` |
-| `--default` | - | Reset to default rate limit. |
+| Flag | Type | Required | Default | Description | Notes |
+| --- | --- | --- | --- | --- | --- |
+| `--org` | string | No | - | Provide the organization UID. |  |
+| `--utilize` | string | No | \`50\` | Provide the utilization percentages for the rate limit, separated by commas.<br>Default: `50` |  |
+| `--limit-name` | string\[\] | No | - | \[Optional\] Provide the limit names separated by commas.<br>Supported values: `limit`, `getLimit`, `bulkLimit` |  |
+| `--default` | boolean | No | - | Reset to default rate limit. |  |
 
 **Examples**
 
@@ -123,9 +125,9 @@ csdx config:remove:rate-limit
 
 **Options**
 
-| Flag | Short Flag | Description |
-| --- | --- | --- |
-| `--org` | - | Provide the organization UID. |
+| Flag | Type | Required | Default | Description | Notes |
+| --- | --- | --- | --- | --- | --- |
+| `--org` | string | No | - | Provide the organization UID. |  |
 
 **Examples**
 

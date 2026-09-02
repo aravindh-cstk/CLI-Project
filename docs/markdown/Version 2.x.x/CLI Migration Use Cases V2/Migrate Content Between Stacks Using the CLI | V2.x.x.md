@@ -6,6 +6,8 @@ seo_description: "Learn how to manually migrate content between Contentstack sta
 
 # Migrate Content Between Stacks Using the CLI
 
+## Overview
+
 This document guides you through the process of migrating content from one Contentstack stack to another manually.
 
 > **Warning:** The export writes content flat into the folder you name. It does not create a `<branch-uid>/` subfolder, even when you pass `--branch`. Use the same path for the export and the import, and use a separate `--data-dir` per branch, because exporting a second branch into the same folder overwrites the first with no error.

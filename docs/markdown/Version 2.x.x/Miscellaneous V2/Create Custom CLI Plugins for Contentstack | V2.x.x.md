@@ -222,7 +222,7 @@ Use `@oclif/test` with Mocha and `sinon` for testing your commands.
 
 > **Note:** `@oclif/test` v4 (which aligns with `@oclif/core` v4) removed the old chained `test.stdout().command().it()` API entirely. The package now exports only `runCommand`, `captureOutput`, and `runHook`. Using the old API will throw `TypeError: Cannot read properties of undefined`.
 
-#### Example Test
+**Example Test**
 
 ```
 import { expect } from 'chai'
@@ -241,7 +241,7 @@ describe('myplugin:do', () => {
 })
 ```
 
-#### Run Tests
+**Run Tests**
 
 ```
 npm test
@@ -249,7 +249,7 @@ npm test
 
 ### Testing Workflows
 
-#### Production Testing
+**Production Testing**
 
 Test your published plugin as end users would:
 
@@ -283,7 +283,7 @@ Test your published plugin as end users would:
    csdx myplugin:do --help
    ```
 
-#### Development Testing
+**Development Testing**
 
 Test your plugin during development:
 
@@ -329,7 +329,7 @@ Test your plugin during development:
    csdx config:set:region <region-name>
    ```
 
-   For more information, see [Configure Regions](https://www.contentstack.com/docs/developers/cli/configure-regions).
+   For more information, see [Configure Regions](/docs/headless-cms/configure-regions-in-the-cli).
 
 2. **Authenticate:**
 
@@ -337,7 +337,7 @@ Test your plugin during development:
    csdx auth:login
    ```
 
-   For more information, see [CLI Authentication](https://www.contentstack.com/docs/developers/cli/authentication).
+   For more information, see [CLI Authentication](/docs/headless-cms/cli-authentication).
 
 ### Contentstack CLI Features
 
@@ -471,7 +471,7 @@ this.config.version               // CLI version
 npm install @contentstack/cli-utilities
 ```
 
-#### User Interface (cliux)
+**User Interface (cliux)**
 
 ```
 import { cliux } from '@contentstack/cli-utilities'
@@ -516,7 +516,7 @@ const answer = await cliux.inquire({ type: 'input', name: 'value', message: 'Ent
 const confirmed = await cliux.confirm('Are you sure?')
 ```
 
-#### Structured Errors (CLIError)
+**Structured Errors (CLIError)**
 
 Use `CLIError` instead of `cliux.error()` + `this.exit()` to throw a clean, structured CLI error:
 
@@ -528,7 +528,7 @@ if (!isAuthenticated()) {
 }
 ```
 
-#### Positional Arguments (Args)
+**Positional Arguments (Args)**
 
 ```
 import { Args, flags } from '@contentstack/cli-utilities'
@@ -544,7 +544,7 @@ async run() {
 }
 ```
 
-#### Configuration Access (configHandler)
+**Configuration Access (configHandler)**
 
 ```
 import { configHandler } from '@contentstack/cli-utilities'
@@ -556,7 +556,7 @@ const token  = configHandler.get('authtoken')
 configHandler.set('myKey', 'value')
 ```
 
-#### Authentication
+**Authentication**
 
 ```
 import { isAuthenticated, isManagementTokenValid } from '@contentstack/cli-utilities'
@@ -574,7 +574,7 @@ if (result.valid !== true) {
 }
 ```
 
-#### Management SDK Client
+**Management SDK Client**
 
 ```
 import { managementSDKClient } from '@contentstack/cli-utilities'
@@ -585,7 +585,7 @@ const stack  = client.stack({ api_key: cmdFlags['stack-api-key'] })
 const result = await stack.contentType('blog_post').entry().query().find()
 ```
 
-#### Direct HTTP Client (HttpClient)
+**Direct HTTP Client (HttpClient)**
 
 For calls that don't go through the management SDK (custom endpoints, third-party APIs):
 
@@ -605,7 +605,7 @@ const stack = response?.data?.stack
 
 `HttpClient` handles proxy configuration, retry logic, and Open Authorization (OAuth) headers automatically.
 
-#### File System Utility (FsUtility)
+**File System Utility (FsUtility)**
 
 For chunked streaming reads and writes of large datasets, used by all import/export plugins:
 
@@ -625,7 +625,7 @@ for (const entry of entries) {
 }
 ```
 
-#### Progress Tracking (CLIProgressManager + SummaryManager)
+**Progress Tracking (CLIProgressManager + SummaryManager)**
 
 `CLIProgressManager` is the standard way to track progress in complex multi-module operations (used by import/export plugins). It handles spinners, progress bars, and per-module success/failure counts.
 
@@ -683,7 +683,7 @@ CLIProgressManager.printGlobalSummary()             // print all module counts
 CLIProgressManager.clearGlobalSummary()             // reset for a new run
 ```
 
-#### Reading Content Type Schemas (readContentTypeSchemas / readGlobalFieldSchemas)
+**Reading Content Type Schemas (readContentTypeSchemas / readGlobalFieldSchemas)**
 
 For plugins that work with exported content type or global field schema files:
 
@@ -697,7 +697,7 @@ const contentTypes = readContentTypeSchemas('./exports/content_types')
 const globalFields = readGlobalFieldSchemas('./exports/global_fields')
 ```
 
-#### Chalk (loadChalk / getChalk)
+**Chalk (loadChalk / getChalk)**
 
 Chalk 5 is ESM-only. Use the built-in compatibility layer rather than requiring chalk directly:
 
@@ -712,7 +712,7 @@ const chalk = getChalk()
 cliux.print(chalk.bold.cyan('Bold cyan text'))
 ```
 
-#### Helper Utilities
+**Helper Utilities**
 
 ```
 import {
@@ -769,7 +769,7 @@ validateFileName('export.json') // true/false — alphanumeric, dash, underscore
 escapeRegExp('a.b*c')          // 'a\\.b\\*c'
 ```
 
-#### Logger Service
+**Logger Service**
 
 ```
 import { log, handleAndLogError, getLogPath, getSessionLogPath } from '@contentstack/cli-utilities'
@@ -903,7 +903,7 @@ export default class MyCommand extends Command {
 
 For the full list of base `Command` properties available on `this` (`this.region`, `this.cmaHost`, `this.cdaHost`, and the rest), see [Contentstack CLI Features](#contentstack-cli-features) above.
 
-#### @contentstack/cli-utilities: All Exports
+**@contentstack/cli-utilities: All Exports**
 
 | Export | Purpose |
 | --- | --- |
@@ -1027,6 +1027,6 @@ Warning: @contentstack/myplugin is a linked ESM module and cannot be auto-transp
 
 ## Next Steps
 
-- [CLI Authentication](https://www.contentstack.com/docs/developers/cli/authentication): set up and verify authentication for the Contentstack CLI before publishing or testing your plugin.
-- [Configure Regions](https://www.contentstack.com/docs/developers/cli/configure-regions): point the CLI at the correct Contentstack region for your organization.
+- [CLI Authentication](/docs/headless-cms/cli-authentication): set up and verify authentication for the Contentstack CLI before publishing or testing your plugin.
+- [Configure Regions](/docs/headless-cms/configure-regions-in-the-cli): point the CLI at the correct Contentstack region for your organization.
 - `@contentstack/apps-cli`: review a real, published plugin for command structure and namespacing conventions.

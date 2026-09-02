@@ -6,6 +6,8 @@ seo_description: "Configure Contentstack CLI export, import, audit, and migratio
 
 # Contentstack CLI Configuration Reference
 
+## Overview
+
 This document provides a comprehensive reference for all configuration options available across Contentstack CLI plugins.
 
 ---
@@ -74,7 +76,7 @@ The CLI uses a recursive merge strategy (`merge.recursive()`) when loading confi
 
 ### Examples
 
-#### Import Configuration Precedence
+**Import Configuration Precedence**
 
 **Example 1:** `importConcurrency` **for Entries Module**
 
@@ -91,8 +93,6 @@ The CLI uses a recursive merge strategy (`merge.recursive()`) when loading confi
 
 **Result:** Entries module uses `importConcurrency: 10` (module config), while other modules use `importConcurrency: 5` (root config).
 
-**Code Reference:** See [entries.ts](https://github.com/contentstack/cli/blob/db01c8a991988e6546e4188ffe3f6693048c7a89/packages/contentstack-import/src/import/modules/entries.ts#L95) in the CLI repository.
-
 **Example 2:** `writeConcurrency` **for Content Types Module**
 
 ```
@@ -108,9 +108,7 @@ The CLI uses a recursive merge strategy (`merge.recursive()`) when loading confi
 
 **Result:** Content Types module uses `writeConcurrency: 8` (module config), while other modules use `writeConcurrency: 5` (root config).
 
-**Code Reference:** See [content-types.ts](https://github.com/contentstack/cli/blob/db01c8a991988e6546e4188ffe3f6693048c7a89/packages/contentstack-import/src/import/modules/content-types.ts#L63) in the CLI repository.
-
-#### Export Configuration Precedence
+**Export Configuration Precedence**
 
 **Example 3:** `chunkFileSize` **for Entries Module**
 
@@ -195,8 +193,6 @@ In this example:
 ## Export Configuration
 
 **Command:** `csdx cm:stacks:export`
-
-**Default Configuration:** See the [default export configuration file](https://github.com/contentstack/cli/blob/db01c8a991988e6546e4188ffe3f6693048c7a89/packages/contentstack-export/src/config/index.ts) in the CLI repository.
 
 ### Basic Settings
 
@@ -486,8 +482,6 @@ In this example:
 ## Import Configuration
 
 **Command:** `csdx cm:stacks:import`
-
-**Default Configuration:** See the [default import configuration file](https://github.com/contentstack/cli/blob/db01c8a991988e6546e4188ffe3f6693048c7a89/packages/contentstack-import/src/config/index.ts) in the CLI repository.
 
 ### Basic Settings
 
@@ -816,8 +810,6 @@ In this example:
 
 **Command:** `csdx cm:stacks:audit`
 
-**Default Configuration:** See the [default audit configuration file](https://github.com/contentstack/cli/blob/db01c8a991988e6546e4188ffe3f6693048c7a89/packages/contentstack-audit/src/config/index.ts) in the CLI repository.
-
 ### Basic Settings
 
 | Option | Type | Default | Required | Description |
@@ -1074,7 +1066,7 @@ Use `--config-file` flag with JSON file:
 
 ### Common Configuration Patterns
 
-#### Performance Tuning
+**Performance Tuning**
 
 ```
 {
@@ -1084,7 +1076,7 @@ Use `--config-file` flag with JSON file:
 }
 ```
 
-#### Export Specific Content Types
+**Export Specific Content Types**
 
 ```
 {
@@ -1093,7 +1085,7 @@ Use `--config-file` flag with JSON file:
 }
 ```
 
-#### Import with Backup
+**Import with Backup**
 
 ```
 {

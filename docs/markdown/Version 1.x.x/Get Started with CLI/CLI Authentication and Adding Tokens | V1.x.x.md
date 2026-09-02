@@ -18,9 +18,9 @@ It supports login credentials, Two-Factor Authentication, and Single Sign-On (SS
 
 ## Commands
 
-### Authentication
+**Authentication**
 
-#### Login
+### Login
 
 The `auth:login` command lets you log in to Contentstack and save the login information in your local storage.
 
@@ -70,7 +70,7 @@ csdx login -u youremail@contentstack.com
 csdx auth:login --oauth
 ```
 
-#### Logout
+### Logout
 
 The `auth:logout` command lets you log out and clear the authentication from the local storage.
 
@@ -100,7 +100,7 @@ csdx auth:logout -y
 csdx logout -y
 ```
 
-#### Display Username of the Logged in User
+### Display Username of the Logged in User
 
 The `csdx auth:whoami` command returns the username (email address) of the user who is currently logged in.
 
@@ -116,9 +116,9 @@ csdx auth:whoami
 csdx whoami
 ```
 
-### Token Management
+**Token Management**
 
-#### Add Management Token
+### Add Management Token
 
 > **Note:** Ensure you have already [generated a Management Token](/docs/headless-cms/generate-a-management-token) in your stack before running this command.
 
@@ -150,7 +150,7 @@ csdx auth:tokens:add --management -a tokenname -k blt******** --token cs********
 
 > **Note:** This command does not generate a new token in your stack. It only allows you to use an existing Management Token with the CLI.
 
-#### Add Delivery Token
+### Add Delivery Token
 
 > **Note:** Ensure you have already [generated a Delivery Token](/docs/headless-cms/create-a-delivery-token) in your stack before running this command.
 
@@ -181,7 +181,7 @@ csdx auth:tokens:add --delivery -a tokenname -k blt******** --token cs*********
 csdx auth:tokens:add --delivery -a tokenname -k blt******** --token cs********* -y
 ```
 
-#### Delete Token
+### Delete Token
 
 > **Note:** This command will not delete the Management/Delivery token from the stack; it deletes the token from the local config.
 
@@ -206,7 +206,7 @@ csdx auth:tokens:remove -a mytoken
 csdx auth:tokens:remove --alias=mytoken
 ```
 
-#### List All Tokens
+### List All Tokens
 
 The `auth:tokens` command lists all tokens stored in the local config.
 

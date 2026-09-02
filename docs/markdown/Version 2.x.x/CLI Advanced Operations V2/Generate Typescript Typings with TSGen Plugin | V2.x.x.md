@@ -6,6 +6,8 @@ seo_description: "The tsgen plugin is a Contentstack CLI plugin that generates T
 
 # Generate Typescript Typings with TSGen Plugin
 
+## Overview
+
 The Contentstack CLI TSGen plugin generates TypeScript typings from REST API and GraphQL queries. The type file containing the TypeScript typings assists developers in working with content types, global fields, and GraphQL queries in TypeScript.
 
 With the TSGen plugin, you can annotate interfaces and fields with comments from the JSDoc library. Additionally, the TSGen plugin allows you to add prefixes to interfaces.

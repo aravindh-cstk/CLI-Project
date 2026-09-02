@@ -18,7 +18,7 @@ To export the content of a stack, you need to have access to it. Likewise, to ex
 You can export content into a .csv file by performing the following two steps:
 
 1. [Log in to the CLI session](#log-in-to-the-cli-session)
-2. [Use the “cm:export-to-csv” command](#use-the-cm-export-to-csv-command)
+2. [Use the “cm:export-to-csv” command](#use-the-cmexport-to-csv-command)
 
 ## Prerequisites
 

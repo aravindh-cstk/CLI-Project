@@ -353,6 +353,6 @@ Results are displayed as a terminal table and saved to a CSV file for further re
 
 - [Regex Validation in Content Type Fields (v2)](/docs/headless-cms/cli-content-type-plugin): how the `format` regex is configured on a field in the Contentstack UI.
 - [Regex Validate Plugin (v1)](/docs/headless-cms/cli-regex-validate-plugin): the v1 command reference, useful if you still run v1 or need the old flag names while upgrading.
-- [Prevent Catastrophic Backtracking (Contentstack Docs)](/docs/developers/create-content-types/validation-regex/#prevent-catastrophic-backtracking): background on why certain regex patterns are unsafe and how to rewrite them.
+- [Prevent Catastrophic Backtracking (Contentstack Docs)](/docs/headless-cms/validation-regex): background on why certain regex patterns are unsafe and how to rewrite them.
 - [CLI Authentication: Add Management Token](/docs/headless-cms/cli-authentication#add-management-token): create and save the management token alias these commands use.
 - [Configure Regions in the CLI](/docs/headless-cms/configure-regions-in-the-cli#set-region): set your region if your stack is not in North America.

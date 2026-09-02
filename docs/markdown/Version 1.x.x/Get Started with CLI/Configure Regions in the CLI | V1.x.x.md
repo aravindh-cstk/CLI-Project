@@ -165,15 +165,15 @@ csdx config:set:region \
 
 **Options:**
 
-| Option | Short | Description | Required |
-| --- | --- | --- | --- |
-| `--cda` | `-d` | Custom host for Content Delivery API. If used, `--cma`, `--ui-host`, and `-n` are required | Conditional\* |
-| `--cma` | `-m` | Custom host for Content Management API. If used, `--cda`, `--ui-host`, and `-n` are required | Conditional\* |
-| `--ui-host` |  | Custom UI host for CLI. If used, `--cda`, `--cma`, and `-n` are required | Conditional\* |
-| `--name` | `-n` | Name for the custom region. If used, `--cda`, `--cma`, and `--ui-host` are required | Conditional\* |
-| `--developer-hub` |  | Custom host for Developer Hub API | No |
-| `--launch` |  | Custom host for Launch API | No |
-| `--personalize` |  | Custom host for Personalize Management API | No |
+| Flag | Type | Required | Default | Description | Notes |
+| --- | --- | --- | --- | --- | --- |
+| `--cda`, `-d` | string | Conditional\* | - | Custom host for Content Delivery API. If used, `--cma`, `--ui-host`, and `-n` are required |  |
+| `--cma`, `-m` | string | Conditional\* | - | Custom host for Content Management API. If used, `--cda`, `--ui-host`, and `-n` are required |  |
+| `--ui-host` | string | Conditional\* | - | Custom UI host for CLI. If used, `--cda`, `--cma`, and `-n` are required |  |
+| `--name`, `-n` | string | Conditional\* | - | Name for the custom region. If used, `--cda`, `--cma`, and `--ui-host` are required |  |
+| `--developer-hub` | string | No | - | Custom host for Developer Hub API |  |
+| `--launch` | string | No | - | Custom host for Launch API |  |
+| `--personalize` | string | No | - | Custom host for Personalize Management API |  |
 
 \* If any of `--cda`, `--cma`, `--ui-host`, or `-n` is used, all four are required.
 

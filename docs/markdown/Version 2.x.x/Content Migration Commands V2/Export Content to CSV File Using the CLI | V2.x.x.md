@@ -6,6 +6,8 @@ seo_description: "Export entries, users, teams, and taxonomies to CSV files usin
 
 # Export Content to CSV File Using the CLI
 
+## Overview
+
 The `cm:export-to-csv` command lets you export the following data into a CSV file using Contentstack CLI:
 
 - [Stack Entries](/docs/headless-cms/about-entries)

@@ -6,6 +6,8 @@ seo_description: "Use Contentstack CLI for Launch: Step-by-step guide to deploy 
 
 # CLI for Launch
 
+## Overview
+
 [Launch](/docs/launch/about-launch/) is a deployment platform that enables you to host your Contentstack-powered JAM stack website instantly. Launch hosts websites managed by any CMS (headless or traditional).
 
 You can create a project in Launch by [connecting your GitHub repository](/docs/launch/import-project-using-github/)—Launch deploys your site instantly. Alternatively, you can [upload a folder or .zip file](/docs/launch/import-project-using-file-upload/) to create a project.
@@ -16,7 +18,14 @@ This step-by-step guide discusses how you can perform different operations in La
 
 - [Contentstack account](https://www.contentstack.com/login/)
 
-- [CLI installed](/docs/headless-cms/install-the-cli) and [configured](/docs/headless-cms/configure-regions-in-the-cli) (version 2.0.0 and above)
+- [CLI installed](/docs/headless-cms/install-the-cli) and [configured](/docs/headless-cms/configure-regions-in-the-cli) for AWS (version 1.6.0 and above), Azure (version 1.23.0 and above), or GCP (version 1.31.0 and above).
+
+  > **Note**: Starting with **CLI version 2.0.0**, the Launch plugin is **no longer bundled with the Contentstack CLI**. Versions prior to 2.0.0 continue to bundle and install it automatically. From version 2.0.0 onward, install the plugin separately before running launch commands:
+
+  ```
+  csdx plugins:install @contentstack/cli-launch
+  csdx launch
+  ```
 
 - [CLI authenticated](/docs/headless-cms/cli-authentication) (the cli-launch plugin supports only login-based authentication)
 
@@ -282,7 +291,7 @@ If you are using the [File Upload](/docs/launch/import-project-using-file-upload
 
 The Launch CLI can be utilized within CI environments to trigger redeployments for Launch projects. Follow the steps below to configure and use Launch CLI in your CI pipeline.
 
-#### Prerequisites
+### Prerequisites
 
 - **Environment Setup**
   - Use the Launch UI to create the necessary environments for your Launch project. This is a one-time setup process.
@@ -323,7 +332,7 @@ The Launch CLI can be utilized within CI environments to trigger redeployments f
 
   **Commit** the `cs-launch.json` file to your repository.
 
-#### Triggering Redeployments in CI
+### Triggering Redeployments in CI
 
 Use the following steps to trigger a redeployment using the Launch CLI within your CI environment:
 

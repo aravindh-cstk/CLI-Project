@@ -596,7 +596,7 @@ jobs:
           path: ./audit-reports
 ```
 
-#### Shell Script Example:
+**Shell Script Example:**
 
 ```
 #!/bin/bash

@@ -6,6 +6,8 @@ seo_description: "Set and retrieve logging preferences in Contentstack CLI, incl
 
 # Configure CLI Logging Preferences
 
+## Overview
+
 The `config` namespace in the Contentstack CLI provides commands to configure various settings, including logging preferences.
 
 ## Prerequisites

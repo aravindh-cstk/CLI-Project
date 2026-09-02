@@ -199,7 +199,7 @@ To fix a flagged regex:
 1. Update the field's `format` value in the Content Type Builder (or Global Field builder) to a pattern that does not nest repeated groups.
 2. Re-run the scan to confirm the field no longer appears in the results.
 
-For guidance on rewriting a specific vulnerable pattern, see the [Prevent Catastrophic Backtracking documentation](/docs/developers/create-content-types/validation-regex/#prevent-catastrophic-backtracking).
+For guidance on rewriting a specific vulnerable pattern, see the [Prevent Catastrophic Backtracking documentation](/docs/headless-cms/validation-regex).
 
 ## Examples
 
@@ -359,4 +359,4 @@ Results are displayed as a terminal table and saved to a CSV file for further re
 
 - [Regex Validate Plugin (v2)](/docs/headless-cms/cli-regex-validate-plugin): the v2 command reference. Flag names and the `results.csv` column order changed in v2, read this before upgrading.
 - [Regex Validation in Content Type Fields (v1)](/docs/headless-cms/cli-content-type-plugin/v1): how the `format` regex is configured on a field in the Contentstack UI.
-- [Prevent Catastrophic Backtracking (Contentstack Docs)](/docs/developers/create-content-types/validation-regex/#prevent-catastrophic-backtracking): background on why certain regex patterns are unsafe and how to rewrite them.
+- [Prevent Catastrophic Backtracking (Contentstack Docs)](/docs/headless-cms/validation-regex): background on why certain regex patterns are unsafe and how to rewrite them.

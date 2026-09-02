@@ -6,6 +6,8 @@ seo_description: "Learn how to change the master locale of the data exported fro
 
 # Change Master Locale
 
+## Overview
+
 While importing data using the Contentstack’s CLI, if the destination stack has a different master locale than the source stack, the API throws an error indicating that the master locale of the incoming data does not exist in the destination stack.
 
 As a solution, you can change the master locale of the data exported from the CLI using the `change-master-locale` utility so that it matches the master locale of the destination stack.
@@ -19,7 +21,7 @@ As a solution, you can change the master locale of the data exported from the CL
 
 1. [Export the data](/docs/headless-cms/export-content-using-the-cli) from the source stack using the `cm:stacks:export` command.
 
-2. Download the [examples](https://github.com/contentstack/cli/tree/v2.0.0-beta/packages/contentstack-migration/examples) folder and navigate to the folder using the `cd` command in the terminal.
+2. Download the [examples](https://github.com/contentstack/cli-plugins/tree/main/packages/contentstack-migration/examples) folder and navigate to the folder using the `cd` command in the terminal.
 
    ```
    cd <path-to-examples>
@@ -43,7 +45,7 @@ As a solution, you can change the master locale of the data exported from the CL
 
 4. [Import the data](/docs/headless-cms/import-content-using-the-cli) to the target stack using the `cm:stacks:import` command.
 
-## Troubleshoot
+## Troubleshooting
 
 If you are facing a **Migration Unsuccessful** or **Module cannot be found** error, please try one of the following troubleshooting methods:
 

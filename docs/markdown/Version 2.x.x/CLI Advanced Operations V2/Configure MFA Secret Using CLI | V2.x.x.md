@@ -6,6 +6,8 @@ seo_description: "Learn to set or remove your Multi-Factor Authentication (MFA) 
 
 # Configure MFA Secret Using CLI
 
+## Overview
+
 To use [Multi-Factor Authentication (MFA)](/docs/administration/multi-factor-authentication) with the Contentstack CLI, you must first set up or remove your MFA secret. This guide walks you through how to configure your MFA settings using CLI commands.
 
 ## Prerequisites

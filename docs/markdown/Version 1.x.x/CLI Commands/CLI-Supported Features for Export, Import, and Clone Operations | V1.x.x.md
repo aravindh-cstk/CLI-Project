@@ -45,7 +45,7 @@ The CLI supports the following modules for export, import, and clone operations:
 
 You can export/import public and private Marketplace apps into a stack using CLI commands.
 
-### Prerequisites
+## Prerequisites
 
 - **Logged In:** CLI authenticated (see [CLI Authentication and Adding Tokens](/docs/headless-cms/cli-authentication/v1))
 - **Permissions:** Owner or Admin rights to export Marketplace apps
@@ -154,9 +154,9 @@ If the content you're importing is associated or synced with a Personalize proje
 
 **Options:**
 
-| Option | Description | Required |
-| --- | --- | --- |
-| `--personalize-project-name` | Provide a unique name for the Personalize project | No |
+| Flag | Type | Required | Default | Description | Notes |
+| --- | --- | --- | --- | --- | --- |
+| `--personalize-project-name` | string | No | - | Provide a unique name for the Personalize project |  |
 
 **Example:**
 

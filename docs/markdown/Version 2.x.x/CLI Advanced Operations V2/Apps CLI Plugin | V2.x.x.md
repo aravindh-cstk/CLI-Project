@@ -6,6 +6,8 @@ seo_description: "The Contentstack Apps Command-line Interface plugin lets you p
 
 # Apps CLI Plugin
 
+## Overview
+
 Contentstack lets you develop apps in your organization using the [Developer Hub](/docs/developer-hub/about-developer-hub/) portal. With the Apps CLI plugin, Contentstack CLI allows you to perform the CRUD operations on your app in Developer Hub and then use the app in your organization or stack by installing or uninstalling your app as required.
 
 This step-by-step guide lets you install and use the Apps CLI plugin in CLI.
@@ -476,6 +478,6 @@ csdx app:delete
   csdx app:delete --app-uid <value> --org <value>
   ```
 
-## Limitation
+## Limitations
 
 - If a stack (where the app is installed) gets deleted, you cannot uninstall or delete the app from the organization. Please contact the [support team](mailto:support@contentstack.com) for the next steps.

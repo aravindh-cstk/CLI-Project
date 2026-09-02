@@ -12,9 +12,9 @@ This guide explains how to migrate your content using the CLI migration plugin. 
 
 Developers can validate the deployment before pushing it on production, using a test space to run the migration scripts.
 
-> **Additional Resource**: For more information, refer to the [migration API documentation](https://github.com/contentstack/cli/blob/v2.0.0-beta/packages/contentstack-migration/docs/api-reference.md) and [advanced examples](https://github.com/contentstack/cli/tree/v2.0.0-beta/packages/contentstack-migration/examples).
+> **Additional Resource**: For more information, refer to the [migration API documentation](https://github.com/contentstack/cli-plugins/blob/main/packages/contentstack-migration/docs/api-reference.md) and [advanced examples](https://github.com/contentstack/cli-plugins/tree/main/packages/contentstack-migration/examples).
 
-## Process Overview
+## Overview
 
 The first step is to write a migration script to perform content migration. We have provided sample migration scripts which you can refer [here](/docs/headless-cms/migrate-your-content-using-the-cli-migration-command#get-started-with-the-migration-script), or write custom scripts. Furthermore, you can use various methods and SDK instances to make your migration script easy to write and read.
 
@@ -29,7 +29,7 @@ Now let us understand how to migrate content from one stack to another using the
 
 ## Steps for Execution
 
-1. [Login to Contentstack CLI session](#login-to-contentstack-cli-session)
+1. [Login to Contentstack CLI session](#login-to-the-contentstack-cli-session)
 2. [Use the “Migration” command](#use-the-migration-command)
 
 ## Login to the Contentstack CLI session
@@ -95,16 +95,18 @@ csdx cm:stacks:migration -a <alias> --file-path <file_path> -k <api_key>
 | `--file-path` | - | Use this flag to provide the path of the migration script file. |
 | `--multiple` | - | This flag helps you migrate multiple content files in a single run.<br>Mention the folder path where your migration script files are stored. |
 | `--branch` | - | Use this flag to specify the target branch where the migration is performed. |
-| `--config-file` | - | \[Optional\] Path of the JSON configuration file. |
-| `--config` | - | \[Optional\] Inline configuration in the format `<key>:<value>`.<br>Passing an external configuration makes the migration script reusable. |
+| `--config` | - | \[Optional\] Path of the JSON configuration file. |
+| `--inline-config` | - | \[Optional\] Inline configuration in the format `<key>:<value>`.<br>Passing an external configuration makes the migration script reusable. |
+
+> **Warning:** The configuration flags changed in CLI 2.0.0. `--config` now takes the path of a JSON configuration file, and inline configuration moved to the new `--inline-config` flag. The `--config-file` flag is removed. A script written for CLI 1.x that passes inline values to `--config` will be read as a file path instead of failing, so update those calls to `--inline-config`.
 
 **Example**:
 
 - ```
-  csdx cm:stacks:migration -a my_token_alias --config contentTypeUID:author --file-path “path/to/migrate/single/contenttype/modification/script/file”
+  csdx cm:stacks:migration -a my_token_alias --inline-config contentTypeUID:author --file-path “path/to/migrate/single/contenttype/modification/script/file”
   ```
 - ```
-  csdx cm:stacks:migration -k bxxxxxxx --config  numberOfEntries:100 contentTypeUID:blog --file-path “path/to/update/first/100/entries/of/given/contenttype/script/file”
+  csdx cm:stacks:migration -k bxxxxxxx --inline-config  numberOfEntries:100 contentTypeUID:blog --file-path “path/to/update/first/100/entries/of/given/contenttype/script/file”
   ```
 
 In the next section, let’s understand how to create the migration files and use various methods to perform operations in your stack.
@@ -220,7 +222,7 @@ Carefully observe the SDK instance we have added to this example which extends o
 
 Similar to the previous example, the last line of the code defines the migration task and adds this method to the existing migration tasks list for execution.
 
-> **Additional Resource**: For more information, refer to the [migration API documentation](https://github.com/contentstack/cli/blob/v2.0.0-beta/packages/contentstack-migration/docs/api-reference.md) and [advanced examples](https://github.com/contentstack/cli/tree/v2.0.0-beta/packages/contentstack-migration/examples).
+> **Additional Resource**: For more information, refer to the [migration API documentation](https://github.com/contentstack/cli-plugins/blob/main/packages/contentstack-migration/docs/api-reference.md) and [advanced examples](https://github.com/contentstack/cli-plugins/tree/main/packages/contentstack-migration/examples).
 
 ### Execute the Migration File
 
@@ -238,7 +240,7 @@ Migrate content using management token alias:
 csdx cm:stacks:migration -a <alias> --file-path <file_path> -k <api_key>
 ```
 
-> **Additional Resource**: Check out our GitHub repository for detailed information on the migration script and various [advanced options & examples](https://github.com/contentstack/cli/tree/v2.0.0-beta/packages/contentstack-migration/examples).
+> **Additional Resource**: Check out our GitHub repository for detailed information on the migration script and various [advanced options & examples](https://github.com/contentstack/cli-plugins/tree/main/packages/contentstack-migration/examples).
 
 > **Warning:** CLI migration plugin is not ideal for branch merge.
 

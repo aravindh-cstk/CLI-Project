@@ -127,7 +127,7 @@ csdx cm:assets:publish -e <environment_name> --locales <locale_code> --stack-api
 
 **Asset Scan Skip Behavior:** If asset scanning is enabled for the stack, `cm:assets:publish` skips quarantined assets permanently and skips in-queue (pending) assets with no automatic retry. Wait for scanning to finish, then rerun the command to publish a skipped asset.
 
-**Additional Resources:** For more information, refer to the [Asset Scanning in CLI](/docs/headless-cms/asset-scanning-in-cli) documentation.
+**Additional Resources:** For more information, refer to the [Asset Scanning in CLI](/docs/headless-cms/asset-scanning-in-cli/v1) documentation.
 
 ### Bulk Publish Entries/Assets from One Environment to Another
 
@@ -379,4 +379,4 @@ csdx cm:stacks:publish-configure --stack-api-key <stack_api_key>
 
 - The [cm:bulk-publish:add-fields](#bulk-publish-all-entries-after-adding-a-new-field-in-the-content-type) command does not work for [custom](/docs/headless-cms/custom) and [mandatory](/docs/headless-cms/mandatory) fields.
 - To manage API request timing and prevent concurrency issues, add the `delayMs` parameter to your configuration file to add controlled delays between requests. For example, use `delayMs: 1000` (for 1-second delays).
-- On stacks with asset scanning enabled, `cm:assets:publish` does not retry assets that are still in the scan queue. See [Assets remain unpublished after cm:assets:publish --backup-dir](#assets-remain-unpublished-after-cmassetspublish---backup-dir) for the resolution.
+- On stacks with asset scanning enabled, `cm:assets:publish` does not retry assets that are still in the scan queue. See [Assets remain unpublished after cm:assets:publish --backup-dir](#assets-remain-unpublished-after) for the resolution.

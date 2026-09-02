@@ -6,6 +6,8 @@ seo_description: "Export content efficiently with Contentstack’s latest Comman
 
 # Export Content Using the CLI
 
+## Overview
+
 To migrate content from one [stack](/docs/headless-cms/about-stack) to another, begin by exporting content from the source stack, then import it into the destination stack.
 
 This guide explains how to use the `cm:stacks:export` command by logging in to the CLI (or using a management token), using configuration files, or using direct CLI parameters.
@@ -157,7 +159,7 @@ csdx cm:stacks:export -c <<config_file_path>>
 
 **Configuration File Options**
 
-The following are the possible file options in the [configuration file](https://github.com/contentstack/cli/blob/v2.0.0-beta/packages/contentstack-export/example_config/auth_config.json):
+The following are the possible file options in the [configuration file](https://github.com/contentstack/cli-plugins/blob/main/packages/contentstack-export/example_config/auth_config.json):
 
 | Configuration File Option | Options | Description |
 | --- | --- | --- |
@@ -189,7 +191,7 @@ Alternatively, refer to the following command to add several parameters or optio
 csdx cm:stacks:export -a <<alias>> --data-dir <<file_path>>
 ```
 
-You can also **export content by using a management token and a** [**configuration file**](https://github.com/contentstack/cli/blob/v2.0.0-beta/packages/contentstack-export/example_config/management_config.json) that contains the parameters or options and the associated values.
+You can also **export content by using a management token and a** [**configuration file**](https://github.com/contentstack/cli-plugins/blob/main/packages/contentstack-export/example_config/management_config.json) that contains the parameters or options and the associated values.
 
 By doing so, you don’t need to separately provide parameters or options in the command.
 
@@ -279,7 +281,7 @@ ENTRIES:
 
 - If multiple assets have the same UID and file name, only the first asset will be exported.
 
-- To resolve the `maxContentLength` and `maxBodyLength` errors, include these parameters in the configuration JSON with values specified in bytes. The default limit is **100MB**. For implementation details, refer to the [example configuration file](https://github.com/contentstack/cli/blob/v2.0.0-beta/packages/contentstack-export/example_config/management_config.json).
+- To resolve the `maxContentLength` and `maxBodyLength` errors, include these parameters in the configuration JSON with values specified in bytes. The default limit is **100MB**. For implementation details, refer to the [example configuration file](https://github.com/contentstack/cli-plugins/blob/main/packages/contentstack-export/example_config/management_config.json).
 
 - To manage API request timing and prevent concurrency issues, add the `delayMs` parameter to your configuration file.
 

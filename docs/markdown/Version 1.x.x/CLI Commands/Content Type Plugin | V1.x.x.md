@@ -60,27 +60,27 @@ These commands only read your stack's content types. They don't write, update, o
 
 List all content types in a stack, ordered by title or last modified date.
 
-#### Syntax
+**Syntax**
 
 ```
 csdx content-type:list [FLAGS]
 ```
 
-#### Flags
+**Flags**
 
-| Flag | Short | Type | Required | Default | Description |
+| Flag | Type | Required | Default | Description | Notes |
 | --- | --- | --- | --- | --- | --- |
-| `--stack-api-key` | `-k` | string | Yes (or `--alias`) | None | Stack API Key |
-| `--alias` | `-a` | string | Yes (or `--stack-api-key`) | None | Alias of the management token |
-| `--order` | None | string | No | `title` | Sort order: `title` or `modified` |
+| `--stack-api-key`, `-k` | string | Yes (or `--alias`) | None | Stack API Key |  |
+| `--alias`, `-a` | string | Yes (or `--stack-api-key`) | None | Alias of the management token |  |
+| `--order` | string | No | `title` | Sort order: `title` or `modified` |  |
 
 **Note**: Pass either `--stack-api-key` or `--alias`, not both. See [Authentication](#authentication) for the full enforcement table.
 
-#### Output
+**Output**
 
 Displays a table of all content types with their title, UID, and last modified date.
 
-#### Examples
+**Examples**
 
 List all content types, sorted by title:
 
@@ -106,28 +106,28 @@ csdx content-type:list -k <stack-api-key>
 
 Display the full schema details of a specific content type, including all fields, their types, and reference paths.
 
-#### Syntax
+**Syntax**
 
 ```
 csdx content-type:details --content-type <uid> [FLAGS]
 ```
 
-#### Flags
+**Flags**
 
-| Flag | Short | Type | Required | Default | Description |
+| Flag | Type | Required | Default | Description | Notes |
 | --- | --- | --- | --- | --- | --- |
-| `--stack-api-key` | `-k` | string | Yes (or `--alias`) | None | Stack API Key |
-| `--alias` | `-a` | string | Yes (or `--stack-api-key`) | None | Alias of the management token |
-| `--content-type` | None | string | Yes | None | content type UID |
-| `--path` / `--no-path` | None | boolean | No | `true` | Show or hide the field path column |
+| `--stack-api-key`, `-k` | string | Yes (or `--alias`) | None | Stack API Key |  |
+| `--alias`, `-a` | string | Yes (or `--stack-api-key`) | None | Alias of the management token |  |
+| `--content-type` | string | Yes | None | content type UID |  |
+| `--path` / `--no-path` | boolean | No | `true` | Show or hide the field path column |  |
 
-#### Output
+**Output**
 
 A structured table of the content type schema with columns for field title, UID, data type, and path (dot-notation path through nested structures).
 
 Use `--no-path` to hide the path column for a more compact view.
 
-#### Examples
+**Examples**
 
 View full details for a content type:
 
@@ -153,25 +153,25 @@ csdx content-type:details -k <stack-api-key> --content-type blog_post
 
 Display the recent [audit log](/docs/headless-cms/monitor-stack-activities-in-audit-log) of changes made to a specific content type: who changed it, when, and what changed.
 
-#### Syntax
+**Syntax**
 
 ```
 csdx content-type:audit --content-type <uid> [FLAGS]
 ```
 
-#### Flags
+**Flags**
 
-| Flag | Short | Type | Required | Default | Description |
+| Flag | Type | Required | Default | Description | Notes |
 | --- | --- | --- | --- | --- | --- |
-| `--stack-api-key` | `-k` | string | Yes (or `--alias`) | None | Stack API Key |
-| `--alias` | `-a` | string | Yes (or `--stack-api-key`) | None | Alias of the management token |
-| `--content-type` | None | string | Yes | None | content type UID |
+| `--stack-api-key`, `-k` | string | Yes (or `--alias`) | None | Stack API Key |  |
+| `--alias`, `-a` | string | Yes (or `--stack-api-key`) | None | Alias of the management token |  |
+| `--content-type` | string | Yes | None | content type UID |  |
 
-#### Output
+**Output**
 
 A table of audit log entries showing the action, the user who made the change, and the timestamp.
 
-#### Examples
+**Examples**
 
 View audit log for a content type:
 
@@ -191,29 +191,29 @@ csdx content-type:audit -k <stack-api-key> --content-type blog_post
 
 Compare two versions of the same content type within a stack. Shows fields added, removed, or modified between versions.
 
-#### Syntax
+**Syntax**
 
 ```
 csdx content-type:compare --content-type <uid> [FLAGS]
 ```
 
-#### Flags
+**Flags**
 
-| Flag | Short | Type | Required | Default | Description |
+| Flag | Type | Required | Default | Description | Notes |
 | --- | --- | --- | --- | --- | --- |
-| `--stack-api-key` | `-k` | string | Yes (or `--alias`) | None | Stack API Key |
-| `--alias` | `-a` | string | Yes (or `--stack-api-key`) | None | Alias of the management token |
-| `--content-type` | None | string | Yes | None | content type UID |
-| `--left` | None | integer | No | Latest version | Version number to use as the "left" (base) side of the diff |
-| `--right` | None | integer | No | `latest - 1` | Version number to use as the "right" (compare) side of the diff |
+| `--stack-api-key`, `-k` | string | Yes (or `--alias`) | None | Stack API Key |  |
+| `--alias`, `-a` | string | Yes (or `--stack-api-key`) | None | Alias of the management token |  |
+| `--content-type` | string | Yes | None | content type UID |  |
+| `--left` | integer | No | Latest version | Version number to use as the "left" (base) side of the diff |  |
+| `--right` | integer | No | `latest - 1` | Version number to use as the "right" (compare) side of the diff |  |
 
 **Note**: Provide `--left` and `--right` together, or omit both and let the command automatically compare the latest version against the previous version.
 
-#### Output
+**Output**
 
 A diff table showing fields that were added, removed, or changed between the two versions.
 
-#### Examples
+**Examples**
 
 Compare the two most recent versions (automatic):
 
@@ -239,27 +239,27 @@ csdx content-type:compare -k <stack-api-key> --content-type blog_post --left 3 -
 
 Compare the same content type across two different stacks, for example to validate that a staging schema matches production.
 
-#### Syntax
+**Syntax**
 
 ```
 csdx content-type:compare-remote --origin-stack <key> --remote-stack <key> --content-type <uid>
 ```
 
-#### Flags
+**Flags**
 
-| Flag | Short | Type | Required | Default | Description |
+| Flag | Type | Required | Default | Description | Notes |
 | --- | --- | --- | --- | --- | --- |
-| `--origin-stack` | None | string | Yes | None | API Key of the origin (source) stack |
-| `--remote-stack` | None | string | Yes | None | API Key of the remote (target) stack |
-| `--content-type` | None | string | Yes | None | content type UID to compare |
+| `--origin-stack` | string | Yes | None | API Key of the origin (source) stack |  |
+| `--remote-stack` | string | Yes | None | API Key of the remote (target) stack |  |
+| `--content-type` | string | Yes | None | content type UID to compare |  |
 
 **Note**: Pass two different stack API keys for `--origin-stack` and `--remote-stack`. Passing the same key for both produces an empty diff.
 
-#### Output
+**Output**
 
 A diff table showing field-level differences between the same content type on two stacks.
 
-#### Examples
+**Examples**
 
 ```
 # Compare home_page across staging and production stacks
@@ -275,23 +275,23 @@ csdx content-type:compare-remote \
 
 Generate a visual diagram of all content types in a stack, including references and relationships between them. Outputs an SVG or Graphviz DOT file.
 
-#### Syntax
+**Syntax**
 
 ```
 csdx content-type:diagram --output <path> [FLAGS]
 ```
 
-#### Flags
+**Flags**
 
-| Flag | Short | Type | Required | Default | Description |
+| Flag | Type | Required | Default | Description | Notes |
 | --- | --- | --- | --- | --- | --- |
-| `--stack-api-key` | `-k` | string | Yes (or `--alias`) | None | Stack API Key |
-| `--alias` | `-a` | string | Yes (or `--stack-api-key`) | None | Alias of the management token |
-| `--output` | None | string | Yes | None | Full path to the output file (e.g. `./content-model.svg`) |
-| `--direction` | None | string | No | `portrait` | Graph orientation: `portrait` or `landscape` |
-| `--type` | None | string | No | `svg` | Output file type: `svg` or `dot` |
+| `--stack-api-key`, `-k` | string | Yes (or `--alias`) | None | Stack API Key |  |
+| `--alias`, `-a` | string | Yes (or `--stack-api-key`) | None | Alias of the management token |  |
+| `--output` | string | Yes | None | Full path to the output file (e.g. `./content-model.svg`) |  |
+| `--direction` | string | No | `portrait` | Graph orientation: `portrait` or `landscape` |  |
+| `--type` | string | No | `svg` | Output file type: `svg` or `dot` |  |
 
-#### Output
+**Output**
 
 Creates a file at the specified `--output` path. The file is either:
 
@@ -304,7 +304,7 @@ The CLI always prints an absolute path here, regardless of whether you pass `--o
 Created Graph: /Users/you/project/content-model.svg
 ```
 
-#### Examples
+**Examples**
 
 Generate an SVG diagram (portrait, default):
 
@@ -497,4 +497,4 @@ See [content-type:diagram](#content-typediagram) for the full flag and output re
 - [Audit Plugin](/docs/headless-cms/cli-audit-plugin/v1): a related Contentstack plugin for reviewing audit log activity across your stack.
 - [CLI Authentication: Add Management Token](/docs/headless-cms/cli-authentication/v1#add-management-token): create and save the management token alias these commands use.
 - [Configure Regions in the CLI](/docs/headless-cms/configure-regions-in-the-cli/v1#set-region): set your region if your stack is not in North America.
-- [About Content Types](/docs/developers/create-content-types/about-content-types): conceptual background on how content types and their fields are structured.
+- [About Content Types](/docs/headless-cms/about-content-types): conceptual background on how content types and their fields are structured.

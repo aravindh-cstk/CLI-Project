@@ -6,6 +6,8 @@ seo_description: "Learn how to migrate selected content types between stacks usi
 
 # Migrate Selected Content Using the Query Export Plugin
 
+## Overview
+
 The Query Export plugin (`cm:stacks:export-query`) lets you export selected content types from a stack based on query criteria.
 
 Use it when you need to export a subset of stack content instead of a full stack export.

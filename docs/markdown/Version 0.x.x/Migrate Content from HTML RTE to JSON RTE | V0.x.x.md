@@ -13,7 +13,7 @@ If you already have data in the HTML RTE and want to migrate to JSON RTE, you ca
 In this guide, we will discuss the steps required to perform this migration by using the following two methods:
 
 1. [Using a config file to pass the commands](#using-a-config-file-to-pass-the-commands)
-2. [Using flags to migrate the content](#using-flags-to-migrate-the-content)
+2. [Using flags to migrate the content](#using-flags-to-migrate-content)
 
 ## Prerequisites
 

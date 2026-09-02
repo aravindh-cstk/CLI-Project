@@ -100,7 +100,7 @@ csdx cm:export [OPTIONS]
 
 ### Examples
 
-#### Export All Modules
+**Export All Modules**
 
 **Using Stack API Key:**
 
@@ -132,7 +132,7 @@ csdx cm:stacks:export -a production --data-dir /Users/username/Desktop/export
 csdx cm:stacks:export -a production --data-dir "C:\Users\Username\Desktop\export"
 ```
 
-#### Export from Specific Branch
+**Export from Specific Branch**
 
 **Using Branch Name:**
 
@@ -157,7 +157,7 @@ csdx cm:stacks:export -a production --data-dir ./export --branch-alias developAl
       └── ...
 ```
 
-#### Export Specific Module
+**Export Specific Module**
 
 **Export Only Content Types:**
 
@@ -207,7 +207,7 @@ When exporting modules individually, follow this module sequence for best result
 13. `labels`
 14. `custom-roles`
 
-#### Export Specific Content Types
+**Export Specific Content Types**
 
 **Export Entries from Specific Content Types:**
 
@@ -223,7 +223,7 @@ csdx cm:stacks:export -a production --data-dir ./export --content-types blog_pos
 
 > **Note:** This exports only entries from the specified content types. Content types themselves are still exported if using `--module content-types`.
 
-#### Export Secured Assets
+**Export Secured Assets**
 
 **Export with Secured Assets Flag:**
 
@@ -233,7 +233,7 @@ csdx cm:stacks:export -a production --data-dir ./export --secured-assets
 
 > **Note:** Ensure to add the `--secured-assets` flag to avoid errors while exporting content for stacks where the [secured assets](/docs/administration#manage-asset-security) feature is enabled.
 
-#### Export Marketplace Apps
+**Export Marketplace Apps**
 
 **Export Marketplace Apps (Interactive):**
 

@@ -288,7 +288,7 @@ If you are using the [File Upload](/docs/launch/import-project-using-file-upload
 
 The Launch CLI can be utilized within CI environments to trigger redeployments for Launch projects. Follow the steps below to configure and use Launch CLI in your CI pipeline.
 
-#### Prerequisites
+### Prerequisites
 
 - **Environment Setup**
   - Use the Launch UI to create the necessary environments for your Launch project. This is a one-time setup process.
@@ -329,7 +329,7 @@ The Launch CLI can be utilized within CI environments to trigger redeployments f
 
   **Commit** the `cs-launch.json` file to your repository.
 
-#### Triggering Redeployments in CI
+### Triggering Redeployments in CI
 
 Use the following steps to trigger a redeployment using the Launch CLI within your CI environment:
 

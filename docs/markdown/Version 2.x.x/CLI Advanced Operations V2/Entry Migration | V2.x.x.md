@@ -6,6 +6,8 @@ seo_description: "Entry Migration Contentstack CLI utility lets you merge the en
 
 # Entry Migration
 
+## Overview
+
 In Branches, the [merge operation](/docs/headless-cms/compare-and-merge-branches-using-the-cli) is performed on content types and not on the entries within the content types. With the Entry Migration utility, created as part of the Entry Migration flow, you can now merge the entries along with the content types.
 
 This step-by-step guide lets you use the Entry Migration utility to perform the merge operation on entries.
@@ -89,7 +91,7 @@ const publishEntriesTask = contentTypeUID => {
 }
 ```
 
-## Troubleshoot
+## Troubleshooting
 
 If you are facing a **Migration Unsuccessful** or **Module cannot be found** error, please try one of the following troubleshooting methods:
 

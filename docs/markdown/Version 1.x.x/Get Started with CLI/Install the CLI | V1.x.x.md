@@ -82,7 +82,7 @@ The following namespaces exist within the `csdx` command:
 - `plugins`: To list the installed plugins.
 - `config`: To perform configuration related activities in the CLI.
 
-> **Note**: The guide to create your own plugin within `csdx` is yet to come. But, as our CLI is built using the oclif package, you can create your custom plugin by referring to [oclif plugin documentation](https://oclif.io/docs/plugins).
+> **Note:** To build your own plugin for `csdx`, see [Create Custom CLI Plugins for Contentstack](/docs/headless-cms/create-custom-cli-plugins/v1). The CLI is built on oclif, so the [oclif plugin documentation](https://oclif.io/docs/plugins) applies as well.
 
 Here are the commands within each namespace:
 
@@ -163,6 +163,7 @@ To get the latest version of CLI, run the following command in your terminal:
 npm update -g @contentstack/cli
 ```
 
-## Next Step
+## Next Steps
 
-- [CLI Authentication and Adding Tokens](/docs/headless-cms/cli-authentication/v1)
+- [CLI Authentication and Adding Tokens](/docs/headless-cms/cli-authentication/v1): log in and add a management token before running any command.
+- [Create Custom CLI Plugins for Contentstack](/docs/headless-cms/create-custom-cli-plugins/v1): build and publish your own `csdx` commands.

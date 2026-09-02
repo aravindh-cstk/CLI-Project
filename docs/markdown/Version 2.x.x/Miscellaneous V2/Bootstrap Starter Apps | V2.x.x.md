@@ -6,6 +6,8 @@ seo_description: "Set up Starter apps quickly with Contentstack's Bootstrap CLI 
 
 # Bootstrap Starter Apps
 
+## Overview
+
 The Bootstrap plugin in the Contentstack CLI simplifies the process of setting up [Starter apps](/docs/headless-cms/nuxt) by automating stack creation and content import. With a single command, developers can quickly clone a Starter app and configure it with all the required assets and content.
 
 Using this plugin, all necessary content—such as [content types](/docs/headless-cms/about-content-types), [environments](/docs/headless-cms/about-environments), [entries](/docs/headless-cms/about-entries), and [assets](/docs/headless-cms/about-assets)—is automatically created in the stack you choose or create.
@@ -325,7 +327,7 @@ You can easily run the Compass Starter on your local machine by following the st
       ```
 
 2. Build, Configure, and Run the Website (Manual Process)
-   1. [Download](https://github.com/contentstack/compass-starter-app/archive/refs/tags/3.2.0.zip) the website code.
+   1. [Download](https://codeload.github.com/contentstack/compass-starter-app/zip/refs/tags/3.2.0) the website code.
 
    2. Open your terminal.
 

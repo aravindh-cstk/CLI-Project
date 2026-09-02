@@ -6,15 +6,17 @@ seo_description: "Branches | Migration Use Cases"
 
 # Branches | Migration Use Cases
 
+## Overview
+
 The branches feature in Contentstack allows you to create multiple copies of your stack. You can add numerous branches of your stack and migrate your content to these branches.
 
 [Branches](/docs/headless-cms/about-branches) primarily help you sync between your code and content model without making significant changes to the code.
 
 Using the Contentstack CLI's Migration plugin, you can migrate your content from one branch to another using a **migration script**.
 
-> **Note:** Branch merging is not currently automated as it can impact your production data and is a sensitive operation. You can use the existing scripts to perform the same function. Here are some [sample scripts](https://github.com/contentstack/cli/tree/v2.0.0-beta/packages/contentstack-migration/examples) to perform the branch merge action.
+> **Note:** Branch merging is not currently automated as it can impact your production data and is a sensitive operation. You can use the existing scripts to perform the same function. Here are some [sample scripts](https://github.com/contentstack/cli-plugins/tree/main/packages/contentstack-migration/examples) to perform the branch merge action.
 
-> **Additional Resource**: We recommend you to refer to our extensive guide on [migration plugin and how to write a migration script](/docs/headless-cms/migrate-content-between-stacks-using-the-cli) for your content or refer our [GitHub](https://github.com/contentstack/cli/tree/v2.0.0-beta/packages/contentstack-migration/examples) page.
+> **Additional Resource**: We recommend you to refer to our extensive guide on [migration plugin and how to write a migration script](/docs/headless-cms/migrate-content-between-stacks-using-the-cli) for your content or refer our [GitHub](https://github.com/contentstack/cli-plugins/tree/main/packages/contentstack-migration/examples) page.
 
 In this guide, let's look at different possible use case scenarios where you can use the CLI migration plugin to migrate your content from one branch to another by writing a migration script.
 
@@ -42,9 +44,9 @@ To do this, follow the steps given below:
 
       > **Warning**: We recommend you to keep the existing fields and optionally delete the old fields after your latest changes are published live. This will help you easily rollback, in case the new changes are not as expected.
 
-      > **Additional Resource**: We recommend, you check some example scripts on our [GitHub page](https://github.com/contentstack/cli/tree/v2.0.0-beta/packages/contentstack-migration/examples). This will help you get started with the tasks mentioned above.
+      > **Additional Resource**: We recommend, you check some example scripts on our [GitHub page](https://github.com/contentstack/cli-plugins/tree/main/packages/contentstack-migration/examples). This will help you get started with the tasks mentioned above.
 
-   3. Now, check your script, finalize the content and add a [task to publish](https://github.com/contentstack/cli/blob/v2.0.0-beta/packages/contentstack-migration/examples/02-publishing-entries.js) it.
+   3. Now, check your script, finalize the content and add a [task to publish](https://github.com/contentstack/cli-plugins/blob/main/packages/contentstack-migration/examples/02-publishing-entries.js) it.
 
 3. You can move to your UI and make appropriate changes to the UI. Make other suitable changes at your end and start using the newly created field.
 
@@ -76,9 +78,9 @@ Consider an example where you want to update the content models of your stack. L
 
    2. Add tasks to update the entries according to the new content models by adding your data to these entries.
 
-   3. Once all the changes are done, add a [task to your migration script to publish](https://github.com/contentstack/cli/blob/v2.0.0-beta/packages/contentstack-migration/examples/02-publishing-entries.js) the changes.
+   3. Once all the changes are done, add a [task to your migration script to publish](https://github.com/contentstack/cli-plugins/blob/main/packages/contentstack-migration/examples/02-publishing-entries.js) the changes.
 
-      > **Additional Resource**: We recommend you check some [example scripts](https://github.com/contentstack/cli/tree/v2.0.0-beta/packages/contentstack-migration/examples) on our GitHub page. This will help you get started with the tasks mentioned above.
+      > **Additional Resource**: We recommend you check some [example scripts](https://github.com/contentstack/cli-plugins/tree/main/packages/contentstack-migration/examples) on our GitHub page. This will help you get started with the tasks mentioned above.
 
 3. Now you can move to the UI and make appropriate changes. You can also make other suitable changes at your end.
 
@@ -108,7 +110,7 @@ Consider an example where you want to update the content models of your stack. L
 8. If your changes are working properly after deployment, you can merge them into your main branch. This will help you to keep a single original branch.
    ![image.png](https://images.contentstack.io/v3/assets/blt23180bf2502c7444/blt11e3ede5971ccc10/618a96bd953e1e65040092f6/image.png)
 
-> **Additional Resource**: We highly recommend you to check our [GitHub](https://github.com/contentstack/cli/tree/v2.0.0-beta/packages/contentstack-migration/examples) page for more information on [migration script creation, use cases,](https://github.com/contentstack/cli/blob/v2.0.0-beta/packages/contentstack-migration/docs/api-reference.md) and [advanced examples](https://github.com/contentstack/cli/tree/v2.0.0-beta/packages/contentstack-migration/examples).
+> **Additional Resource**: We highly recommend you to check our [GitHub](https://github.com/contentstack/cli-plugins/tree/main/packages/contentstack-migration/examples) page for more information on [migration script creation, use cases,](https://github.com/contentstack/cli-plugins/blob/main/packages/contentstack-migration/docs/api-reference.md) and [advanced examples](https://github.com/contentstack/cli-plugins/tree/main/packages/contentstack-migration/examples).
 
 ## Check the Status of a Merge
 

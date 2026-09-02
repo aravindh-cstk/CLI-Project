@@ -26,7 +26,7 @@ This plugin handles all of these challenges automatically.
 
 ## Installation
 
-### Prerequisites
+## Prerequisites
 
 - Node.js \>= 22
 - Contentstack CLI installed
@@ -88,13 +88,13 @@ csdx cm:stacks:bulk-entries \
 
 Perform bulk operations on entries with advanced filtering and publishing options.
 
-#### Syntax
+**Syntax**
 
 ```
 csdx cm:stacks:bulk-entries [OPTIONS]
 ```
 
-#### Required Options
+**Required Options**
 
 | Flag | Description | Example |
 | --- | --- | --- |
@@ -104,7 +104,7 @@ csdx cm:stacks:bulk-entries [OPTIONS]
 | `-k, --stack-api-key` | API key of the source stack. You must use either the --stack-api-key flag or the --alias flag. | `-k blt*********` |
 | `-a, --alias` | Alias (name) of the management token. You must use either the --alias flag or the --stack-api-key flag. | `-a my-token` |
 
-#### Entry-Specific Options
+**Entry-Specific Options**
 
 | Flag | Description | Default |
 | --- | --- | --- |
@@ -119,7 +119,7 @@ csdx cm:stacks:bulk-entries [OPTIONS]
 - `unpublished` — Entries that were published earlier but are currently unpublished
 - `non-localized` — Entries where non-localized fields have been updated in the master locale, requiring localized entries to be republished
 
-#### General Options
+**General Options**
 
 | Flag | Description | Default |
 | --- | --- | --- |
@@ -133,7 +133,7 @@ csdx cm:stacks:bulk-entries [OPTIONS]
 | `--revert` | Revert publish operations from a log folder. | - |
 | `--bulk-operation-file` | Folder path to store operation logs. | `bulk-operation` |
 
-#### Examples
+**Examples**
 
 **1. Publish all content types to production**
 
@@ -264,23 +264,23 @@ csdx cm:stacks:bulk-entries \
 
 Perform bulk operations on assets with folder and file type filtering.
 
-#### Syntax
+**Syntax**
 
 ```
 csdx cm:stacks:bulk-assets [OPTIONS]
 ```
 
-#### Required Options
+**Required Options**
 
 Same as bulk entries (see above).
 
-#### Asset-Specific Options
+**Asset-Specific Options**
 
-| Flag | Description | Example |
-| --- | --- | --- |
-| `--folder-uid` | The UID of the Assets' folder from which the assets need to be published. Default: cs_root | `--folder-uid cs_root` |
+| Flag | Type | Required | Default | Description | Notes |
+| --- | --- | --- | --- | --- | --- |
+| `--folder-uid` | string | No | - | The UID of the Assets' folder from which the assets need to be published. Default: cs_root | Example: `--folder-uid cs_root` |
 
-#### Examples
+**Examples**
 
 **1. Publish all assets**
 
