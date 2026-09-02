@@ -136,6 +136,43 @@ This also explains a long-standing puzzle. `RELEASE_CLEANUP_NAV` is locked, so i
 
 ---
 
+## The restructure, wave by wave
+
+Errors fell from **831 to 499** across the six waves. The count is a rough guide, not the point: during Wave C two table columns were destroyed and the count went **down**, because deleting content deletes the problems in it. Every wave is verified by a word-level audit instead.
+
+| Wave | What it did | Result |
+|---|---|---|
+| A | Heading depth. 179 unlinkable H4s became H3s or bold lead-ins, 32 docs gained an `Overview` over prose that already existed, plurals normalised | 50 docs |
+| B | Section order. 4 out-of-order pairs and 7 forbidden `Quick Start` headings | both now zero |
+| C | Flag tables reshaped to `Flag \| Type \| Required \| Default \| Description \| Notes` | 26 converted, 35 deferred, 106 config tables exempt |
+| D | The missing sections. `Commands` and `Steps for Execution` where the content existed, 25 `Next Steps`, 8 `Examples` | 42 and 24 deferred with reasons |
+| E | Module references. 4 `Quick Reference` index tables, plus a wrong Node.js requirement | `C2-04` reaches zero |
+| F | Links and anchors | **not started**, and it cannot be until this ships |
+
+**Wave B was planned wrong, and the correction is worth more than the wave.** It was scoped as 263 reorders because `C1-01` was the largest rule count and its rule text is about ordering. Every one of those 264 findings actually reads `Required section "X" is missing`. `compareOrder` was tested against deliberately reversed input to prove the zero was real: the CLI docs were already in the mandated order. Those findings belonged to Wave D.
+
+**Why Wave F has to be last, and why it is blocked.** Anchor ids are generated at render time, so every fix has to be confirmed against a rendered page. `dev-www` runs an older build that emits no heading anchors at all, and `stag-www` returns 401. So Wave F can only be verified once the restructure is live on production, which needs an approval this tooling cannot grant.
+
+## Where the quality bar was held rather than the count
+
+Three places where moving the number down was the wrong answer.
+
+**42 of the 67 `Next Steps` sections were not written.** A doc gets one only when at least 2 sourced links survive **and** at least one is specific to that doc. "How to upgrade" plus "coverage gaps" is true and relevant, but it is the same pair on every page, so on its own it is padding dressed as a section.
+
+**24 of the 32 `Examples` sections were not written.** V1 docs get none at all, because the only verified flag data is from the published **2.0.0** manifests and putting a 2.0.0 example on a V1 page is the `CLI-C11` defect exactly.
+
+**53 `Troubleshooting` and 43 `Limitations` sections are still absent.** The plugin sources yield 18 thrown error messages and around 120 error call sites across 47 docs that need one. Some docs have none. A fabricated root cause reads exactly as authoritative as a real one and the reader cannot tell, so the section is omitted and the linter keeps reporting it.
+
+## Accuracy defects found during the restructure
+
+Two that a reader would have hit, neither of them on the ticket.
+
+**The Node.js requirement was wrong in both `CLI Limitations` pages**, in three places each. They said `18.0.0 or above (recommended: 20.x or 22.x)`. Checked against each published package's own `engines` field, 18 was never the floor: 1.40.0 to 1.60.0 declared `>=14.0.0`, and 1.65.0 onward declares `>=22.0.0`. A reader on Node 18 or 20 installs, and the CLI fails at runtime.
+
+**`csdx plugins:create` has never existed.** It is step one of `Create Custom CLI Commands`. `@oclif/plugin-plugins` ships `index`, `inspect`, `install`, `link`, `reset`, `uninstall` and `update` and nothing else, at majors 1, 2, 3 and 5. That page is retired rather than repaired.
+
+---
+
 ## Reproducing everything
 
 ```bash

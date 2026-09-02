@@ -54,6 +54,9 @@ RELEASE_CLEANUP_NAV = "CLI nav + redirect cleanup 2026-08-26 [docs]"
 # add_release_item helper that takes an action.
 RELEASE_RETIRE_COMMANDS = "CLI retire create-custom-cli-commands 2026-09-02 [docs]"
 
+# The full restructure, Waves A to E, staged by stage_wave_release.py.
+RELEASE_FULL_RESTRUCTURE = "CLI docs full restructure (Waves A-E) 2026-09-02 [docs]"
+
 DESCRIPTIONS = {
     RELEASE_DOCS: ("CLI docs moved to /v0, /v1 and unsuffixed-for-GA URLs, slugs "
                    "prefixed with cli- where missing, titles and SEO titles "
@@ -109,6 +112,22 @@ DESCRIPTIONS = {
         "shadow redirect blt154a351243ad4eda stays published and is deliberately "
         "not in this release: it is what keeps /create-custom-cli-commands "
         "resolving to the plugins guide instead of 404ing."),
+    RELEASE_FULL_RESTRUCTURE: (
+        "DEPLOY TO ALL ENVIRONMENTS, AS A UNIT. Carries the CLI docs restructure, "
+        "Waves A to E, plus the corrected 2.0.0 changelog entry. Do not deploy a "
+        "subset: these waves edit the same pages repeatedly, so a partial deploy "
+        "leaves pages in a state no wave intended. Contents: 179 unlinkable H4 "
+        "headings resolved, 32 Overview headings added over prose that already "
+        "existed, 26 flag tables reshaped, section order and forbidden headings "
+        "fixed, 25 Next Steps and 8 Examples sections added with every link "
+        "verified over HTTP and every flag verified against the published 2.0.0 "
+        "manifests, 4 Quick Reference index tables built from live anchor ids, and "
+        "three accuracy fixes that matter to a reader: cm:stacks:migration's "
+        "renamed config flags, 22 GitHub links pinned to a tag whose repo no "
+        "longer holds that code, and a Node.js floor of 18.0.0 that was never the "
+        "requirement for any release. Wave F, links and anchors, is deliberately "
+        "NOT here: anchor ids are generated at render time, so it can only be "
+        "verified after this release is live."),
 }
 
 
