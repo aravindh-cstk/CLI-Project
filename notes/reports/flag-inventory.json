@@ -1,0 +1,4228 @@
+{
+  "cli_version": "2.0.0",
+  "source_of_truth": "oclif.manifest.json inside each published npm tarball",
+  "why_not_local_repo": "repo/cli-plugins is on branch v2-dev with no v2.0.0 tag, so its working tree is not GA",
+  "ga_claim_verification": [
+    {
+      "claim": "Short flags removed from cm:stacks:export",
+      "command": "cm:stacks:export",
+      "verdict": "TRUE",
+      "detail": "removed -A, -B, -m, -s, -t  |  kept -a, -c, -d, -k, -y"
+    },
+    {
+      "claim": "Short flags removed from cm:stacks:import",
+      "command": "cm:stacks:import",
+      "verdict": "TRUE",
+      "detail": "removed -A, -B, -b, -m, -s  |  kept -a, -c, -d, -k, -y"
+    },
+    {
+      "claim": "Short flags removed from content-type:list",
+      "command": "content-type:list",
+      "verdict": "TRUE",
+      "detail": "removed -o, -s  |  kept -a, -k"
+    },
+    {
+      "claim": "Short flags removed from content-type:diagram",
+      "command": "content-type:diagram",
+      "verdict": "TRUE",
+      "detail": "removed -d, -o, -s, -t  |  kept -a, -k"
+    },
+    {
+      "claim": "tsgen short flags -o, -p, -d removed",
+      "command": "tsgen",
+      "verdict": "TRUE",
+      "detail": "all removed"
+    },
+    {
+      "claim": "tsgen --token-alias renamed to --alias",
+      "command": "tsgen",
+      "verdict": "TRUE",
+      "detail": "--token-alias absent"
+    },
+    {
+      "claim": "--api-version removed from cm:stacks:bulk-entries",
+      "command": "cm:stacks:bulk-entries",
+      "verdict": "TRUE",
+      "detail": "--api-version absent"
+    },
+    {
+      "claim": "--api-version removed from cm:stacks:bulk-taxonomies",
+      "command": "cm:stacks:bulk-taxonomies",
+      "verdict": "TRUE",
+      "detail": "--api-version absent"
+    },
+    {
+      "claim": "New --skip-taxonomy-publish on import",
+      "command": "cm:stacks:import",
+      "verdict": "TRUE",
+      "detail": "--skip-taxonomy-publish present"
+    },
+    {
+      "claim": "New --cs-assets on config:set:region",
+      "command": "config:set:region",
+      "verdict": "TRUE",
+      "detail": "--cs-assets present"
+    },
+    {
+      "claim": "New --auth-api on config:set:region",
+      "command": "config:set:region",
+      "verdict": "TRUE",
+      "detail": "--auth-api present"
+    },
+    {
+      "claim": "New command auth:tokens:list",
+      "command": "auth:tokens:list",
+      "verdict": "TRUE",
+      "detail": "exists at 2.0.0"
+    },
+    {
+      "claim": "New command cm:stacks:bulk-taxonomies",
+      "command": "cm:stacks:bulk-taxonomies",
+      "verdict": "TRUE",
+      "detail": "exists at 2.0.0"
+    }
+  ],
+  "packages_missing_manifest": [
+    "@contentstack/apps-cli@2.0.0",
+    "@contentstack/cli-launch@1.11.2",
+    "@contentstack/cli-variants@2.0.0"
+  ],
+  "commands": {
+    "cm:stacks:audit:fix": {
+      "package": "@contentstack/cli-audit",
+      "package_version": "2.0.0",
+      "bundled_at_ga": true,
+      "install": null,
+      "description": "Perform audits and fix possible errors in the exported Contentstack data.",
+      "examples": [
+        "$ <%= config.bin %> <%= command.id %> --copy-dir",
+        "$ <%= config.bin %> <%= command.id %> --report-path=<path> --copy-dir",
+        "$ <%= config.bin %> <%= command.id %> --report-path=<path> --copy-dir --csv",
+        "$ <%= config.bin %> <%= command.id %> --fix-only=reference,global_field --copy-dir",
+        "$ <%= config.bin %> <%= command.id %> --report-path=<path> --filter=\"name=<filter-value>\"",
+        "$ <%= config.bin %> <%= command.id %> --report-path=<path> --modules=content-types --filter=\"name=\"<filter-value>\" --copy-dir --copy-path=<path>"
+      ],
+      "flags": {
+        "config": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-c",
+          "hidden": false,
+          "description": "Path of the external config",
+          "notes": ""
+        },
+        "data-dir": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-d",
+          "hidden": false,
+          "description": "Path where the data is stored",
+          "notes": ""
+        },
+        "show-console-output": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Display the audit and audit fix result for individual modules",
+          "notes": ""
+        },
+        "report-path": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Path to store the audit reports",
+          "notes": ""
+        },
+        "modules": {
+          "type": "string[]",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Provide the list of modules to be audited",
+          "notes": "Repeatable. One of: content-types, global-fields, entries, extensions, workflows, custom-roles, assets, field-rules, composable-studio"
+        },
+        "copy-dir": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Create backup from the original data.",
+          "notes": ""
+        },
+        "copy-path": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Provide the path to backup the copied data",
+          "notes": "Requires --copy-dir"
+        },
+        "fix-only": {
+          "type": "string[]",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Provide the list of fix options",
+          "notes": "Repeatable. One of: reference, global_field, json:rte, json:extension, blocks, group, content_types"
+        },
+        "yes": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": "-y",
+          "hidden": true,
+          "description": "Use this flag to skip confirmation",
+          "notes": ""
+        },
+        "external-config": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": true,
+          "description": "Provide JSON input",
+          "notes": ""
+        },
+        "columns": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Specify columns to display, comma-separated.",
+          "notes": ""
+        },
+        "sort": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Sort the table by a column. Use \"-\" for descending.",
+          "notes": ""
+        },
+        "filter": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Filter rows by a column value (e.g., name=foo).",
+          "notes": ""
+        },
+        "csv": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Output results in CSV format.",
+          "notes": ""
+        },
+        "no-truncate": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Prevent truncation of long text in columns.",
+          "notes": ""
+        },
+        "no-header": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Hide table headers in output.",
+          "notes": ""
+        },
+        "output": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Specify output format: csv, json, or yaml.",
+          "notes": "One of: csv, json, yaml"
+        }
+      }
+    },
+    "cm:stacks:audit": {
+      "package": "@contentstack/cli-audit",
+      "package_version": "2.0.0",
+      "bundled_at_ga": true,
+      "install": null,
+      "description": "Perform audits and find possible errors in the exported Contentstack data",
+      "examples": [
+        "$ <%= config.bin %> <%= command.id %>",
+        "$ <%= config.bin %> <%= command.id %> --report-path=<path>",
+        "$ <%= config.bin %> <%= command.id %> --report-path=<path> --csv",
+        "$ <%= config.bin %> <%= command.id %> --report-path=<path> --filter=\"name=<filter-value>\"",
+        "$ <%= config.bin %> <%= command.id %> --report-path=<path> --modules=content-types --filter=\"name=\"<filter-value>\""
+      ],
+      "flags": {
+        "config": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-c",
+          "hidden": false,
+          "description": "Path of the external config",
+          "notes": ""
+        },
+        "data-dir": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-d",
+          "hidden": false,
+          "description": "Path where the data is stored",
+          "notes": ""
+        },
+        "show-console-output": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Display the audit and audit fix result for individual modules",
+          "notes": ""
+        },
+        "report-path": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Path to store the audit reports",
+          "notes": ""
+        },
+        "modules": {
+          "type": "string[]",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Provide the list of modules to be audited",
+          "notes": "Repeatable. One of: content-types, global-fields, entries, extensions, workflows, custom-roles, assets, field-rules, composable-studio"
+        },
+        "columns": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Specify columns to display, comma-separated.",
+          "notes": ""
+        },
+        "sort": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Sort the table by a column. Use \"-\" for descending.",
+          "notes": ""
+        },
+        "filter": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Filter rows by a column value (e.g., name=foo).",
+          "notes": ""
+        },
+        "csv": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Output results in CSV format.",
+          "notes": ""
+        },
+        "no-truncate": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Prevent truncation of long text in columns.",
+          "notes": ""
+        },
+        "no-header": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Hide table headers in output.",
+          "notes": ""
+        },
+        "output": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Specify output format: csv, json, or yaml.",
+          "notes": "One of: csv, json, yaml"
+        }
+      }
+    },
+    "auth:login": {
+      "package": "@contentstack/cli-auth",
+      "package_version": "2.0.0",
+      "bundled_at_ga": true,
+      "install": null,
+      "description": "User sessions login",
+      "examples": [
+        "$ csdx auth:login",
+        "$ csdx auth:login -u <username>",
+        "$ csdx auth:login -u <username> -p <password>",
+        "$ csdx auth:login --username <username>",
+        "$ csdx auth:login --username <username> --password <password>"
+      ],
+      "flags": {
+        "username": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-u",
+          "hidden": false,
+          "description": "Email address of your Contentstack account.",
+          "notes": "Mutually exclusive with --oauth"
+        },
+        "password": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-p",
+          "hidden": false,
+          "description": "Password of your Contentstack app.",
+          "notes": "Mutually exclusive with --oauth"
+        },
+        "oauth": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Enables single sign-on (SSO) in Contentstack CLI.",
+          "notes": "Mutually exclusive with --username. Mutually exclusive with --password"
+        }
+      }
+    },
+    "auth:logout": {
+      "package": "@contentstack/cli-auth",
+      "package_version": "2.0.0",
+      "bundled_at_ga": true,
+      "install": null,
+      "description": "User session logout",
+      "examples": [
+        "$ csdx auth:logout",
+        "$ csdx auth:logout -y",
+        "$ csdx auth:logout --yes"
+      ],
+      "flags": {
+        "yes": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": "-y",
+          "hidden": false,
+          "description": "Force log out by skipping the confirmation.",
+          "notes": ""
+        }
+      }
+    },
+    "auth:whoami": {
+      "package": "@contentstack/cli-auth",
+      "package_version": "2.0.0",
+      "bundled_at_ga": true,
+      "install": null,
+      "description": "Display current user's email address",
+      "examples": [
+        "$ csdx auth:whoami"
+      ],
+      "flags": {}
+    },
+    "auth:tokens:add": {
+      "package": "@contentstack/cli-auth",
+      "package_version": "2.0.0",
+      "bundled_at_ga": true,
+      "install": null,
+      "description": "Adds management/delivery tokens to your session to use it with other CLI commands",
+      "examples": [
+        "$ csdx auth:tokens:add",
+        "$ csdx auth:tokens:add -a <alias>",
+        "$ csdx auth:tokens:add -k <stack api key>",
+        "$ csdx auth:tokens:add --delivery",
+        "$ csdx auth:tokens:add --management",
+        "$ csdx auth:tokens:add -e <environment>",
+        "$ csdx auth:tokens:add --token <token>",
+        "$ csdx auth:tokens:add -a <alias> -k <stack api key> --management --token <management token>",
+        "$ csdx auth:tokens:add -a <alias> -k <stack api key> --delivery -e <environment> --token <delivery token>",
+        "$ csdx auth:tokens:add --alias <alias> --stack-api-key <stack api key> --management --token <management token>",
+        "$ csdx auth:tokens:add --alias <alias> --stack-api-key <stack api key> --delivery -e <environment> --token <delivery token>"
+      ],
+      "flags": {
+        "alias": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-a",
+          "hidden": false,
+          "description": "Alias (name) you want to assign to the token",
+          "notes": ""
+        },
+        "delivery": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Set this flag to save delivery token",
+          "notes": "Mutually exclusive with --management"
+        },
+        "management": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Set this flag to save management token",
+          "notes": "Mutually exclusive with --delivery. Mutually exclusive with --environment"
+        },
+        "environment": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-e",
+          "hidden": false,
+          "description": "Environment name for delivery token",
+          "notes": "Mutually exclusive with --management"
+        },
+        "stack-api-key": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-k",
+          "hidden": false,
+          "description": "Stack API Key",
+          "notes": ""
+        },
+        "yes": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": "-y",
+          "hidden": false,
+          "description": "Use this flag to skip confirmation",
+          "notes": ""
+        },
+        "token": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Add the token name",
+          "notes": ""
+        }
+      }
+    },
+    "auth:tokens": {
+      "package": "@contentstack/cli-auth",
+      "package_version": "2.0.0",
+      "bundled_at_ga": true,
+      "install": null,
+      "description": "Manage authentication tokens for API access",
+      "examples": [
+        "$ csdx auth:tokens:list",
+        "$ csdx auth:tokens:add --alias mytoken",
+        "$ csdx auth:tokens:remove --alias mytoken"
+      ],
+      "flags": {
+        "columns": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Specify columns to display, comma-separated.",
+          "notes": ""
+        },
+        "sort": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Sort the table by a column. Use \"-\" for descending.",
+          "notes": ""
+        },
+        "filter": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Filter rows by a column value (e.g., name=foo).",
+          "notes": ""
+        },
+        "csv": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Output results in CSV format.",
+          "notes": ""
+        },
+        "no-truncate": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Prevent truncation of long text in columns.",
+          "notes": ""
+        },
+        "no-header": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Hide table headers in output.",
+          "notes": ""
+        },
+        "output": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Specify output format: csv, json, or yaml.",
+          "notes": "One of: csv, json, yaml"
+        }
+      }
+    },
+    "auth:tokens:list": {
+      "package": "@contentstack/cli-auth",
+      "package_version": "2.0.0",
+      "bundled_at_ga": true,
+      "install": null,
+      "description": "Lists all existing tokens added to the session",
+      "examples": [
+        "$ csdx auth:tokens:list"
+      ],
+      "flags": {
+        "columns": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Specify columns to display, comma-separated.",
+          "notes": ""
+        },
+        "sort": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Sort the table by a column. Use \"-\" for descending.",
+          "notes": ""
+        },
+        "filter": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Filter rows by a column value (e.g., name=foo).",
+          "notes": ""
+        },
+        "csv": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Output results in CSV format.",
+          "notes": ""
+        },
+        "no-truncate": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Prevent truncation of long text in columns.",
+          "notes": ""
+        },
+        "no-header": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Hide table headers in output.",
+          "notes": ""
+        },
+        "output": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Specify output format: csv, json, or yaml.",
+          "notes": "One of: csv, json, yaml"
+        }
+      }
+    },
+    "auth:tokens:remove": {
+      "package": "@contentstack/cli-auth",
+      "package_version": "2.0.0",
+      "bundled_at_ga": true,
+      "install": null,
+      "description": "Removes selected tokens",
+      "examples": [
+        "$ csdx auth:tokens:remove",
+        "$ csdx auth:tokens:remove -a <alias>"
+      ],
+      "flags": {
+        "alias": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-a",
+          "hidden": false,
+          "description": "Alias (name) of the token to delete.",
+          "notes": ""
+        }
+      }
+    },
+    "cm:stacks:bulk-assets": {
+      "package": "@contentstack/cli-bulk-operations",
+      "package_version": "2.0.0",
+      "bundled_at_ga": true,
+      "install": null,
+      "description": "Bulk operations for assets: publish/unpublish/cross-publish (CMS) and delete/move (CS Assets). Delete/move load asset UIDs from a JSON file `{ \"uids\": [...] }`; pass organization via `--org-uid`.",
+      "examples": [
+        "<%= config.bin %> <%= command.id %> --operation publish --environments dev,staging --locales en-us -k blt123",
+        "<%= config.bin %> <%= command.id %> --operation unpublish --environments prod --locales en-us -a myAlias",
+        "<%= config.bin %> <%= command.id %> --operation publish --folder-uid cs_root --environments prod --locales en-us -k blt123",
+        "<%= config.bin %> <%= command.id %> --operation publish --environments prod --locales en-us --publish-mode bulk -k blt123",
+        "<%= config.bin %> <%= command.id %> --operation publish --source-env production --source-alias prod-delivery --environments staging,dev --locales en-us -a myAlias",
+        "<%= config.bin %> <%= command.id %> --retry-failed ./bulk-operation -a myAlias",
+        "<%= config.bin %> <%= command.id %> --revert ./bulk-operation -a myAlias",
+        "<%= config.bin %> <%= command.id %> --data-dir ./content --operation publish -k blt123",
+        "<%= config.bin %> <%= command.id %> --operation delete --space-uid am123 --org-uid bltOrg --locale en-us --asset-uids-file ./assets.json",
+        "<%= config.bin %> <%= command.id %> --operation move --space-uid am123 --org-uid bltOrg --target-folder-uid amFolder --asset-uids-file ./assets.json"
+      ],
+      "flags": {
+        "alias": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-a",
+          "hidden": false,
+          "description": "Uses the name of a saved Management Token to authenticate the command. The command can only access the branches allowed for that token. This option can be used as an alternative to` --stack-api-key.`",
+          "notes": ""
+        },
+        "stack-api-key": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-k",
+          "hidden": false,
+          "description": "API key of the source stack. You must use either the --stack-api-key flag or the --alias flag.",
+          "notes": ""
+        },
+        "operation": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Operation to perform: `publish`/`unpublish` (CMS, requires stack API key or alias) or `delete`/`move` (CS Assets, requires OAuth/Token and --space-uid/--org-uid)",
+          "notes": "One of: publish, unpublish, delete, move"
+        },
+        "environments": {
+          "type": "string[]",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Specifies one or more environments where the entries or assets should be published. Separate multiple environments with spaces.",
+          "notes": "Repeatable"
+        },
+        "locales": {
+          "type": "string[]",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Specifies one or more locale codes for which the entries or assets should be published. Separate multiple locales with spaces.",
+          "notes": "Repeatable"
+        },
+        "source-env": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Source environment for cross-publish",
+          "notes": ""
+        },
+        "source-alias": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Alias name for source environment delivery token (required for cross-publish). Add delivery token using: csdx auth:tokens:add",
+          "notes": ""
+        },
+        "publish-mode": {
+          "type": "string",
+          "required": "No",
+          "default": "`bulk`",
+          "short": null,
+          "hidden": false,
+          "description": "Publish mode: bulk (uses Bulk Publish API) or single (individual API calls)",
+          "notes": "One of: bulk, single"
+        },
+        "branch": {
+          "type": "string",
+          "required": "No",
+          "default": "`main`",
+          "short": null,
+          "hidden": false,
+          "description": "The name of the branch where you want to perform the bulk publish operation. If you don't mention the branch name, then by default the content from main branch will be published.",
+          "notes": ""
+        },
+        "config": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-c",
+          "hidden": false,
+          "description": "(optional) Specifies the path to a JSON configuration file that defines the options for the command. Use this file instead of passing multiple CLI flags for a single run.",
+          "notes": ""
+        },
+        "yes": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": "-y",
+          "hidden": false,
+          "description": "Skips interactive confirmation prompts and runs the command immediately using the provided options. Useful for automation and scripts.",
+          "notes": ""
+        },
+        "retry-failed": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "(optional) Use this option to retry publishing the failed entries/assets from the logfile. Specify the name of the logfile that lists failed publish calls. If this option is used, it will override all other flags.",
+          "notes": ""
+        },
+        "revert": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "(optional) Revert publish operations from a log folder. Specify the folder path containing success logs. Works similar to retry-failed.",
+          "notes": ""
+        },
+        "bulk-operation-file": {
+          "type": "string",
+          "required": "No",
+          "default": "`bulk-operation`",
+          "short": null,
+          "hidden": false,
+          "description": "(optional) Folder path to store operation logs. Creates separate files for success and failed operations. Default: bulk-operation",
+          "notes": ""
+        },
+        "folder-uid": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "(optional) The UID of the Assets' folder from which the assets need to be published. The default value is cs_root.",
+          "notes": ""
+        },
+        "data-dir": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-d",
+          "hidden": false,
+          "description": "Path to exported content folder containing asset publish details.",
+          "notes": ""
+        },
+        "dry-run": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Preview the publish plan without making any API calls.",
+          "notes": ""
+        },
+        "space-uid": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "CS Assets space UID",
+          "notes": ""
+        },
+        "org-uid": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Organization UID for CS Assets API (organization_uid header)",
+          "notes": ""
+        },
+        "workspace": {
+          "type": "string",
+          "required": "No",
+          "default": "`main`",
+          "short": null,
+          "hidden": false,
+          "description": "CS Assets workspace query parameter (default: main)",
+          "notes": ""
+        },
+        "asset-uids-file": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Path to UTF-8 JSON file: exactly `{ \"uids\": [\"uid1\", \"uid2\"] }` (non-empty string array, no trimming; large lists: see docs for NODE_OPTIONS)",
+          "notes": ""
+        },
+        "locale": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Locale code for bulk delete only (single locale per run). Not applicable for move — move always relocates all locale variants of an asset.",
+          "notes": ""
+        },
+        "target-folder-uid": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Destination CS Assets folder UID for bulk move. Use \"root\" to move assets to the root folder.",
+          "notes": ""
+        }
+      }
+    },
+    "cm:stacks:bulk-entries": {
+      "package": "@contentstack/cli-bulk-operations",
+      "package_version": "2.0.0",
+      "bundled_at_ga": true,
+      "install": null,
+      "description": "Bulk operations for entries (publish/unpublish/cross-publish)",
+      "examples": [
+        "<%= config.bin %> <%= command.id %> --operation publish --environments dev --locales en-us -k blt123",
+        "<%= config.bin %> <%= command.id %> --operation publish --content-types blog,article --environments dev --locales en-us -k blt123",
+        "<%= config.bin %> <%= command.id %> --operation unpublish --content-types blog --environments prod --locales en-us -a myAlias",
+        "<%= config.bin %> <%= command.id %> --operation publish --content-types blog --source-env production --source-alias prod-delivery --environments staging --locales en-us -a myAlias",
+        "<%= config.bin %> <%= command.id %> --operation publish --content-types blog --environments prod --locales en-us --publish-mode bulk -k blt123",
+        "<%= config.bin %> <%= command.id %> --operation publish --content-types blog --environments prod --locales en-us --filter modified -k blt123",
+        "<%= config.bin %> <%= command.id %> --operation publish --content-types blog --environments prod --locales en-us --filter draft -k blt123",
+        "<%= config.bin %> <%= command.id %> --operation publish --content-types blog --environments prod --locales en-us --filter unpublished -k blt123",
+        "<%= config.bin %> <%= command.id %> --operation publish --content-types blog --environments prod --filter non-localized -k blt123",
+        "<%= config.bin %> <%= command.id %> --operation publish --content-types blog --environments prod --locales en-us --include-variants -k blt123",
+        "<%= config.bin %> <%= command.id %> --retry-failed ./bulk-operation",
+        "<%= config.bin %> <%= command.id %> --revert ./bulk-operation"
+      ],
+      "flags": {
+        "alias": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-a",
+          "hidden": false,
+          "description": "Uses the name of a saved Management Token to authenticate the command. The command can only access the branches allowed for that token. This option can be used as an alternative to` --stack-api-key.`",
+          "notes": ""
+        },
+        "stack-api-key": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-k",
+          "hidden": false,
+          "description": "API key of the source stack. You must use either the --stack-api-key flag or the --alias flag.",
+          "notes": ""
+        },
+        "operation": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Specifies whether to `publish` or `unpublish` content.",
+          "notes": "One of: publish, unpublish"
+        },
+        "environments": {
+          "type": "string[]",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Specifies one or more environments where the entries or assets should be published. Separate multiple environments with spaces.",
+          "notes": "Repeatable"
+        },
+        "locales": {
+          "type": "string[]",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Specifies one or more locale codes for which the entries or assets should be published. Separate multiple locales with spaces.",
+          "notes": "Repeatable"
+        },
+        "source-env": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Source environment for cross-publish",
+          "notes": ""
+        },
+        "source-alias": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Alias name for source environment delivery token (required for cross-publish). Add delivery token using: csdx auth:tokens:add",
+          "notes": ""
+        },
+        "publish-mode": {
+          "type": "string",
+          "required": "No",
+          "default": "`bulk`",
+          "short": null,
+          "hidden": false,
+          "description": "Publish mode: bulk (uses Bulk Publish API) or single (individual API calls)",
+          "notes": "One of: bulk, single"
+        },
+        "branch": {
+          "type": "string",
+          "required": "No",
+          "default": "`main`",
+          "short": null,
+          "hidden": false,
+          "description": "The name of the branch where you want to perform the bulk publish operation. If you don't mention the branch name, then by default the content from main branch will be published.",
+          "notes": ""
+        },
+        "config": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-c",
+          "hidden": false,
+          "description": "(optional) Specifies the path to a JSON configuration file that defines the options for the command. Use this file instead of passing multiple CLI flags for a single run.",
+          "notes": ""
+        },
+        "yes": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": "-y",
+          "hidden": false,
+          "description": "Skips interactive confirmation prompts and runs the command immediately using the provided options. Useful for automation and scripts.",
+          "notes": ""
+        },
+        "retry-failed": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "(optional) Use this option to retry publishing the failed entries/assets from the logfile. Specify the name of the logfile that lists failed publish calls. If this option is used, it will override all other flags.",
+          "notes": ""
+        },
+        "revert": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "(optional) Revert publish operations from a log folder. Specify the folder path containing success logs. Works similar to retry-failed.",
+          "notes": ""
+        },
+        "bulk-operation-file": {
+          "type": "string",
+          "required": "No",
+          "default": "`bulk-operation`",
+          "short": null,
+          "hidden": false,
+          "description": "(optional) Folder path to store operation logs. Creates separate files for success and failed operations. Default: bulk-operation",
+          "notes": ""
+        },
+        "content-types": {
+          "type": "string[]",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Content type UIDs to perform operation on. If not provided, operates on all content types.",
+          "notes": "Repeatable"
+        },
+        "filter": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Filter entries by status",
+          "notes": "One of: draft, modified, non-localized, unpublished"
+        },
+        "include-variants": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Includes entry variants (alternate versions of a base entry) in the bulk operation. By default, only base entries are processed.",
+          "notes": ""
+        }
+      }
+    },
+    "cm:stacks:bulk-taxonomies": {
+      "package": "@contentstack/cli-bulk-operations",
+      "package_version": "2.0.0",
+      "bundled_at_ga": true,
+      "install": null,
+      "description": "Publish taxonomies to environments and locales (CMA POST /v3/taxonomies/publish; initiates a publish job)",
+      "examples": [
+        "<%= config.bin %> <%= command.id %> --operation publish --environments dev,staging --locales en-us --taxonomies products_tax,brands_tax -k blt123",
+        "<%= config.bin %> <%= command.id %> --operation publish --environments development --locales en-us,hi-in -k blt123",
+        "<%= config.bin %> <%= command.id %> --operation unpublish --environments prod --locales en-us --taxonomies my_taxonomy -a myAlias",
+        "<%= config.bin %> <%= command.id %> --operation publish --environments staging --locales en-us,fr-fr --taxonomies taxonomy_a -a myAlias",
+        "<%= config.bin %> <%= command.id %> --operation publish --branch feature --environments development --locales en-us --taxonomies brands_tax -k blt123"
+      ],
+      "flags": {
+        "alias": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-a",
+          "hidden": false,
+          "description": "Uses the name of a saved Management Token to authenticate the command. The command can only access the branches allowed for that token. This option can be used as an alternative to` --stack-api-key.`",
+          "notes": ""
+        },
+        "stack-api-key": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-k",
+          "hidden": false,
+          "description": "API key of the source stack. You must use either the --stack-api-key flag or the --alias flag.",
+          "notes": ""
+        },
+        "operation": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Specifies whether to `publish` or `unpublish` content.",
+          "notes": "One of: publish, unpublish"
+        },
+        "environments": {
+          "type": "string[]",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Specifies one or more environments where the entries or assets should be published. Separate multiple environments with spaces.",
+          "notes": "Repeatable"
+        },
+        "locales": {
+          "type": "string[]",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Specifies one or more locale codes for which the entries or assets should be published. Separate multiple locales with spaces.",
+          "notes": "Repeatable"
+        },
+        "source-env": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Source environment for cross-publish",
+          "notes": ""
+        },
+        "source-alias": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Alias name for source environment delivery token (required for cross-publish). Add delivery token using: csdx auth:tokens:add",
+          "notes": ""
+        },
+        "publish-mode": {
+          "type": "string",
+          "required": "No",
+          "default": "`bulk`",
+          "short": null,
+          "hidden": false,
+          "description": "Publish mode: bulk (uses Bulk Publish API) or single (individual API calls)",
+          "notes": "One of: bulk, single"
+        },
+        "branch": {
+          "type": "string",
+          "required": "No",
+          "default": "`main`",
+          "short": null,
+          "hidden": false,
+          "description": "The name of the branch where you want to perform the bulk publish operation. If you don't mention the branch name, then by default the content from main branch will be published.",
+          "notes": ""
+        },
+        "config": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-c",
+          "hidden": false,
+          "description": "(optional) Specifies the path to a JSON configuration file that defines the options for the command. Use this file instead of passing multiple CLI flags for a single run.",
+          "notes": ""
+        },
+        "yes": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": "-y",
+          "hidden": false,
+          "description": "Skips interactive confirmation prompts and runs the command immediately using the provided options. Useful for automation and scripts.",
+          "notes": ""
+        },
+        "retry-failed": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "(optional) Use this option to retry publishing the failed entries/assets from the logfile. Specify the name of the logfile that lists failed publish calls. If this option is used, it will override all other flags.",
+          "notes": ""
+        },
+        "revert": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "(optional) Revert publish operations from a log folder. Specify the folder path containing success logs. Works similar to retry-failed.",
+          "notes": ""
+        },
+        "bulk-operation-file": {
+          "type": "string",
+          "required": "No",
+          "default": "`bulk-operation`",
+          "short": null,
+          "hidden": false,
+          "description": "(optional) Folder path to store operation logs. Creates separate files for success and failed operations. Default: bulk-operation",
+          "notes": ""
+        },
+        "taxonomies": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Comma-separated taxonomy UIDs to include in the job. If omitted, all taxonomies in the stack (current branch) are included. Example: products_tax,brands_tax",
+          "notes": ""
+        }
+      }
+    },
+    "cm:bootstrap": {
+      "package": "@contentstack/cli-cm-bootstrap",
+      "package_version": "2.0.0",
+      "bundled_at_ga": true,
+      "install": null,
+      "description": "Bootstrap contentstack apps",
+      "examples": [
+        "$ csdx cm:bootstrap",
+        "$ csdx cm:bootstrap --project-dir <path/to/setup/the/app>",
+        "$ csdx cm:bootstrap --app-name \"kickstart-next\" --project-dir <path/to/setup/the/app>",
+        "$ csdx cm:bootstrap --app-name \"kickstart-next\" --project-dir <path/to/setup/the/app> --stack-api-key \"stack-api-key\"",
+        "$ csdx cm:bootstrap --app-name \"kickstart-next\" --project-dir <path/to/setup/the/app> --org \"your-org-uid\" --stack-name \"stack-name\"",
+        "$ csdx cm:bootstrap --app-name \"kickstart-next\" --project-dir <path/to/setup/the/app> --run-dev-server"
+      ],
+      "flags": {
+        "app-name": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "App name, kickstart-next, kickstart-next-ssr, kickstart-next-ssg, kickstart-next-graphql, kickstart-next-middleware, kickstart-nuxt, kickstart-nuxt-ssr",
+          "notes": ""
+        },
+        "project-dir": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Directory to setup the project. If directory name has a space then provide the path as a string or escap the space using back slash eg: \"../../test space\" or ../../test\\ space",
+          "notes": ""
+        },
+        "stack-api-key": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-k",
+          "hidden": false,
+          "description": "Provide stack API key to seed content",
+          "notes": "Mutually exclusive with --org. Mutually exclusive with --stack-name"
+        },
+        "org": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Provide organization UID to create a new stack",
+          "notes": "Mutually exclusive with --stack-api-key"
+        },
+        "stack-name": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-n",
+          "hidden": false,
+          "description": "Name of the new stack that will be created.",
+          "notes": "Mutually exclusive with --stack-api-key"
+        },
+        "yes": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": "-y",
+          "hidden": false,
+          "description": "[Optional] Skip stack confirmation",
+          "notes": ""
+        },
+        "run-dev-server": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Automatically start the development server after setup",
+          "notes": ""
+        },
+        "alias": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-a",
+          "hidden": false,
+          "description": "Alias of the management token",
+          "notes": ""
+        }
+      }
+    },
+    "cm:branches:create": {
+      "package": "@contentstack/cli-cm-branches",
+      "package_version": "2.0.0",
+      "bundled_at_ga": true,
+      "install": null,
+      "description": "Create a new branch",
+      "examples": [
+        "csdx cm:branches:create",
+        "csdx cm:branches:create --source main --uid new_branch -k bltxxxxxxxx",
+        "csdx cm:branches:create --source main --uid new_branch --stack-api-key bltxxxxxxxx"
+      ],
+      "flags": {
+        "uid": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Branch UID (unique name) to be created.",
+          "notes": ""
+        },
+        "source": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Source branch from which a new branch is to be created.",
+          "notes": ""
+        },
+        "stack-api-key": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-k",
+          "hidden": false,
+          "description": "Stack API key",
+          "notes": ""
+        }
+      }
+    },
+    "cm:branches:delete": {
+      "package": "@contentstack/cli-cm-branches",
+      "package_version": "2.0.0",
+      "bundled_at_ga": true,
+      "install": null,
+      "description": "Delete a branch",
+      "examples": [
+        "csdx cm:branches:delete",
+        "csdx cm:branches:delete --uid main -k bltxxxxxxxx",
+        "csdx cm:branches:delete --uid main --stack-api-key bltxxxxxxxx",
+        "csdx cm:branches:delete --uid main --stack-api-key bltxxxxxxxx --yes"
+      ],
+      "flags": {
+        "uid": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Branch UID to be deleted",
+          "notes": ""
+        },
+        "stack-api-key": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-k",
+          "hidden": false,
+          "description": "Stack API key",
+          "notes": ""
+        },
+        "yes": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": "-y",
+          "hidden": false,
+          "description": "Force the deletion of the branch by skipping the confirmation",
+          "notes": ""
+        }
+      }
+    },
+    "cm:branches:diff": {
+      "package": "@contentstack/cli-cm-branches",
+      "package_version": "2.0.0",
+      "bundled_at_ga": true,
+      "install": null,
+      "description": "Differences between two branches",
+      "examples": [
+        "csdx cm:branches:diff",
+        "csdx cm:branches:diff --stack-api-key \"bltxxxxxxxx\"",
+        "csdx cm:branches:diff --compare-branch \"develop\"",
+        "csdx cm:branches:diff --compare-branch \"develop\" --stack-api-key \"bltxxxxxxxx\"",
+        "csdx cm:branches:diff --compare-branch \"develop\" --module \"content-types\"",
+        "csdx cm:branches:diff --module \"content-types\" --format \"detailed-text\"",
+        "csdx cm:branches:diff --compare-branch \"develop\" --format \"detailed-text\"",
+        "csdx cm:branches:diff --stack-api-key \"bltxxxxxxxx\" --base-branch \"main\"",
+        "csdx cm:branches:diff --stack-api-key \"bltxxxxxxxx\" --base-branch \"main\" --compare-branch \"develop\"",
+        "csdx cm:branches:diff --stack-api-key \"bltxxxxxxxx\" --base-branch \"main\" --module \"content-types\"",
+        "csdx cm:branches:diff --stack-api-key \"bltxxxxxxxx\" --base-branch \"main\" --compare-branch \"develop\" --module \"content-types\"",
+        "csdx cm:branches:diff --stack-api-key \"bltxxxxxxxx\" --base-branch \"main\" --compare-branch \"develop\" --module \"content-types\" --format \"detailed-text\"",
+        "csdx cm:branches:diff --stack-api-key \"bltxxxxxxxx\" --base-branch \"main\" --compare-branch \"develop\" --module \"content-types\" --format \"compact-text\"",
+        "csdx cm:branches:diff --stack-api-key \"bltxxxxxxxx\" --base-branch \"main\" --compare-branch \"develop\" --module \"content-types\" --format \"detailed-text\" --csv-path \"./reports/diff-report.csv\""
+      ],
+      "flags": {
+        "base-branch": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "[optional] Base branch (Target branch).",
+          "notes": ""
+        },
+        "compare-branch": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "[optional] Compare branch (Source branch).",
+          "notes": ""
+        },
+        "module": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "[optional] Module. <options: content-types, global-fields, all>",
+          "notes": "One of: content-types, global-fields, all"
+        },
+        "stack-api-key": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-k",
+          "hidden": false,
+          "description": "[optional] Provide the stack API key to show the difference between branches.",
+          "notes": ""
+        },
+        "format": {
+          "type": "string",
+          "required": "No",
+          "default": "`compact-text`",
+          "short": null,
+          "hidden": false,
+          "description": "[default: compact-text] [optional] Type of flags to show the difference between two branches. <options: compact-text, detailed-text>",
+          "notes": "One of: compact-text, detailed-text"
+        },
+        "csv-path": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "[optional] Custom path for CSV output file. If not provided, will use the current working directory.",
+          "notes": ""
+        }
+      }
+    },
+    "cm:branches": {
+      "package": "@contentstack/cli-cm-branches",
+      "package_version": "2.0.0",
+      "bundled_at_ga": true,
+      "install": null,
+      "description": "List the branches",
+      "examples": [
+        "csdx cm:branches",
+        "csdx cm:branches --verbose",
+        "csdx cm:branches -k <stack api key>"
+      ],
+      "flags": {
+        "stack-api-key": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-k",
+          "hidden": false,
+          "description": "Stack API key",
+          "notes": ""
+        },
+        "verbose": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Verbose, display information in detailed format.",
+          "notes": ""
+        }
+      }
+    },
+    "cm:branches:merge-status": {
+      "package": "@contentstack/cli-cm-branches",
+      "package_version": "2.0.0",
+      "bundled_at_ga": true,
+      "install": null,
+      "description": "Check the status of a branch merge job",
+      "examples": [
+        "csdx cm:branches:merge-status -k bltxxxxxxxx --merge-uid merge_abc123",
+        "csdx cm:branches:merge-status --stack-api-key bltxxxxxxxx --merge-uid merge_abc123"
+      ],
+      "flags": {
+        "stack-api-key": {
+          "type": "string",
+          "required": "Yes",
+          "default": "-",
+          "short": "-k",
+          "hidden": false,
+          "description": "Provide your stack API key.",
+          "notes": ""
+        },
+        "merge-uid": {
+          "type": "string",
+          "required": "Yes",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Merge job UID to check status for.",
+          "notes": ""
+        }
+      }
+    },
+    "cm:branches:merge": {
+      "package": "@contentstack/cli-cm-branches",
+      "package_version": "2.0.0",
+      "bundled_at_ga": true,
+      "install": null,
+      "description": "Merge changes from a branch",
+      "examples": [
+        "csdx cm:branches:merge --stack-api-key bltxxxxxxxx --compare-branch feature-branch",
+        "csdx cm:branches:merge --stack-api-key bltxxxxxxxx --comment \"merge comment\"",
+        "csdx cm:branches:merge -k bltxxxxxxxx --base-branch base-branch",
+        "csdx cm:branches:merge --export-summary-path file/path",
+        "csdx cm:branches:merge --use-merge-summary file-path",
+        "csdx cm:branches:merge -k bltxxxxxxxx --no-revert",
+        "csdx cm:branches:merge -k bltxxxxxxxx --compare-branch feature-branch --no-revert"
+      ],
+      "flags": {
+        "compare-branch": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "[optional] Compare branch (Source branch).",
+          "notes": ""
+        },
+        "base-branch": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "[optional] Base branch (Target branch).",
+          "notes": ""
+        },
+        "comment": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "[optional] Pass a comment.",
+          "notes": ""
+        },
+        "stack-api-key": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-k",
+          "hidden": false,
+          "description": "[optional] Provide stack API key to show the difference between the branches.",
+          "notes": ""
+        },
+        "export-summary-path": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "[optional] Export summary file path.",
+          "notes": ""
+        },
+        "use-merge-summary": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "[optional] Path of merge summary file.",
+          "notes": ""
+        },
+        "no-revert": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "[optional] If passed, will not create the new revert branch.",
+          "notes": ""
+        },
+        "strategy": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": true,
+          "description": "[hidden] Merge strategy.",
+          "notes": "One of: merge_prefer_base, merge_prefer_compare, overwrite_with_compare, custom_preferences"
+        },
+        "strategy-sub-options": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": true,
+          "description": "[hidden] Merge strategy sub options.",
+          "notes": "One of: new, modified, both"
+        },
+        "merge-action": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": true,
+          "description": "[hidden] Merge action.",
+          "notes": "One of: export, execute, both"
+        }
+      }
+    },
+    "cm:stacks:clone": {
+      "package": "@contentstack/cli-cm-clone",
+      "package_version": "2.0.0",
+      "bundled_at_ga": true,
+      "install": null,
+      "description": "Clone data (structure/content or both) of a stack into another stack Use this plugin to automate the process of cloning a stack in few steps.",
+      "examples": [
+        "csdx cm:stacks:clone",
+        "csdx cm:stacks:clone --source-branch <source-branch-name> --target-branch <target-branch-name> --yes",
+        "csdx cm:stacks:clone --source-stack-api-key <apiKey> --destination-stack-api-key <apiKey>",
+        "csdx cm:stacks:clone --source-management-token-alias <management token alias> --destination-management-token-alias <management token alias>",
+        "csdx cm:stacks:clone --source-branch --target-branch --source-management-token-alias <management token alias> --destination-management-token-alias <management token alias>",
+        "csdx cm:stacks:clone --source-branch --target-branch --source-management-token-alias <management token alias> --destination-management-token-alias <management token alias> --type <value a or b>"
+      ],
+      "flags": {
+        "source-branch": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Branch of the source stack.",
+          "notes": "Mutually exclusive with --source-branch-alias"
+        },
+        "source-branch-alias": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Alias of Branch of the source stack.",
+          "notes": "Mutually exclusive with --source-branch"
+        },
+        "target-branch": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Branch of the target stack.",
+          "notes": "Mutually exclusive with --target-branch-alias"
+        },
+        "target-branch-alias": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Alias of Branch of the target stack.",
+          "notes": "Mutually exclusive with --target-branch"
+        },
+        "source-management-token-alias": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Source management token alias.",
+          "notes": ""
+        },
+        "destination-management-token-alias": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Destination management token alias.",
+          "notes": ""
+        },
+        "stack-name": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-n",
+          "hidden": false,
+          "description": "Provide a name for the new stack to store the cloned content.",
+          "notes": ""
+        },
+        "type": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Type of data to clone. You can select option a or b. a) Structure (all modules except entries & assets). b) Structure with content (all modules including entries & assets).",
+          "notes": "One of: a, b"
+        },
+        "source-stack-api-key": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Source stack API key",
+          "notes": ""
+        },
+        "destination-stack-api-key": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Destination stack API key",
+          "notes": ""
+        },
+        "import-webhook-status": {
+          "type": "string",
+          "required": "No",
+          "default": "`disable`",
+          "short": null,
+          "hidden": false,
+          "description": "[default: disable] (optional) The status of the import webhook. <options: disable|current>",
+          "notes": "One of: disable, current"
+        },
+        "yes": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": "-y",
+          "hidden": false,
+          "description": "Force override all Marketplace prompts.",
+          "notes": ""
+        },
+        "skip-audit": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "(optional) Skips the audit fix that occurs during an import operation.",
+          "notes": ""
+        },
+        "config": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-c",
+          "hidden": false,
+          "description": "Path for the external configuration",
+          "notes": ""
+        }
+      }
+    },
+    "cm:stacks:export": {
+      "package": "@contentstack/cli-cm-export",
+      "package_version": "2.0.0",
+      "bundled_at_ga": true,
+      "install": null,
+      "description": "Export content from a stack",
+      "examples": [
+        "csdx cm:stacks:export --stack-api-key <stack_api_key> --data-dir <path/of/export/destination/dir>",
+        "csdx cm:stacks:export --config <path/to/config/dir>",
+        "csdx cm:stacks:export --alias <management_token_alias>",
+        "csdx cm:stacks:export --alias <management_token_alias> --data-dir <path/to/export/destination/dir>",
+        "csdx cm:stacks:export --alias <management_token_alias> --config <path/to/config/file>",
+        "csdx cm:stacks:export --module <single module name>",
+        "csdx cm:stacks:export --branch [optional] branch name"
+      ],
+      "flags": {
+        "config": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-c",
+          "hidden": false,
+          "description": "[optional] Path of the config",
+          "notes": ""
+        },
+        "stack-api-key": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-k",
+          "hidden": false,
+          "description": "API Key of the source stack",
+          "notes": ""
+        },
+        "data-dir": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-d",
+          "hidden": false,
+          "description": "The path or the location in your file system to store the exported content. For e.g., ./content",
+          "notes": ""
+        },
+        "alias": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-a",
+          "hidden": false,
+          "description": "The management token alias of the source stack from which you will export content.",
+          "notes": ""
+        },
+        "module": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "[optional] Specific module name. If not specified, the export command will export all the modules from the stack. The available modules are stack, assets, locales, environments, extensions, webhooks, global-fields, entries, content-types, custom-roles, workflows, publishing-rules, labels, marketplace-apps, taxonomies, personalize, and composable-studio.",
+          "notes": "One of: stack, assets, locales, environments, extensions, webhooks, global-fields, entries, content-types, custom-roles, workflows, publishing-rules, labels, marketplace-apps, taxonomies, personalize, composable-studio"
+        },
+        "content-types": {
+          "type": "string[]",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "[optional] The UID of the content type(s) whose content you want to export. In case of multiple content types, specify the IDs separated by spaces.",
+          "notes": "Repeatable"
+        },
+        "branch": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "[optional] The name of the branch where you want to export your content. If you don't mention the branch name, then by default the content will be exported from all the branches of your stack.",
+          "notes": "Mutually exclusive with --branch-alias"
+        },
+        "branch-alias": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "(Optional) The alias of the branch from which you want to export content.",
+          "notes": "Mutually exclusive with --branch"
+        },
+        "secured-assets": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "[optional] Use this flag for assets that are secured.",
+          "notes": ""
+        },
+        "yes": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": "-y",
+          "hidden": false,
+          "description": "[optional] Force override all Marketplace prompts.",
+          "notes": ""
+        },
+        "query": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": true,
+          "description": "[optional] Query object (inline JSON or file path) to filter module exports.",
+          "notes": ""
+        }
+      }
+    },
+    "cm:stacks:export-query": {
+      "package": "@contentstack/cli-cm-export-query",
+      "package_version": "2.0.0",
+      "bundled_at_ga": false,
+      "install": "csdx plugins:install @contentstack/cli-cm-export-query",
+      "description": "Export content from a stack using query-based filtering",
+      "examples": [
+        "csdx cm:stacks:export-query --query '{\"modules\":{\"content-types\":{\"title\":{\"$in\":[\"Blog\",\"Author\"]}}}}'",
+        "csdx cm:stacks:export-query --query ./ct-query.json --skip-references",
+        "csdx cm:stacks:export-query --alias <alias> --query '{\"modules\":{\"entries\":{\"content_type_uid\":\"blog\"}}}'",
+        "csdx cm:stacks:export-query --query '{\"modules\":{\"assets\":{\"title\":{\"$regex\":\"image\"}}}}'"
+      ],
+      "flags": {
+        "config": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-c",
+          "hidden": false,
+          "description": "Path to the configuration file",
+          "notes": ""
+        },
+        "stack-api-key": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-k",
+          "hidden": false,
+          "description": "Stack API key",
+          "notes": ""
+        },
+        "data-dir": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-d",
+          "hidden": false,
+          "description": "Path to store exported content",
+          "notes": ""
+        },
+        "alias": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-a",
+          "hidden": false,
+          "description": "Management token alias",
+          "notes": ""
+        },
+        "branch": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Branch name to export from",
+          "notes": "Mutually exclusive with --branch-alias"
+        },
+        "branch-alias": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Alias of Branch to export from",
+          "notes": "Mutually exclusive with --branch"
+        },
+        "query": {
+          "type": "string",
+          "required": "Yes",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Query as JSON string or file path",
+          "notes": ""
+        },
+        "skip-references": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Skip referenced content types",
+          "notes": ""
+        },
+        "skip-dependencies": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Skip dependent modules (global-fields, extensions, taxonomies)",
+          "notes": ""
+        },
+        "secured-assets": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Export secured assets",
+          "notes": ""
+        },
+        "yes": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": "-y",
+          "hidden": false,
+          "description": "Skip confirmation prompts",
+          "notes": ""
+        }
+      }
+    },
+    "cm:export-to-csv": {
+      "package": "@contentstack/cli-cm-export-to-csv",
+      "package_version": "2.0.0",
+      "bundled_at_ga": true,
+      "install": null,
+      "description": "Export entries, taxonomies, terms or organization users to csv using this command",
+      "examples": [
+        "$ <%= config.bin %> <%= command.id %>",
+        "",
+        "Exporting entries to CSV",
+        "$ <%= config.bin %> <%= command.id %> --action entries --locale <locale> --alias <management-token-alias> --content-type <content-type>",
+        "",
+        "Exporting entries to CSV with stack name and branch",
+        "$ <%= config.bin %> <%= command.id %> --action entries --locale <locale> --alias <management-token-alias> --content-type <content-type> --stack-name <stack-name> --branch <branch-name>",
+        "",
+        "Exporting organization users to CSV",
+        "$ <%= config.bin %> <%= command.id %> --action users --org <org-uid>",
+        "",
+        "Exporting organization teams to CSV",
+        "$ <%= config.bin %> <%= command.id %> --action teams --org <org-uid>",
+        "",
+        "Exporting teams with specific team UID",
+        "$ <%= config.bin %> <%= command.id %> --action teams --org <org-uid> --team-uid <team-uid>",
+        "",
+        "Exporting taxonomies to CSV",
+        "$ <%= config.bin %> <%= command.id %> --action taxonomies --alias <management-token-alias>",
+        "",
+        "Exporting specific taxonomy with locale",
+        "$ <%= config.bin %> <%= command.id %> --action taxonomies --alias <management-token-alias> --taxonomy-uid <taxonomy-uid> --locale <locale>",
+        "",
+        "Exporting taxonomies with fallback locale",
+        "$ <%= config.bin %> <%= command.id %> --action taxonomies --alias <management-token-alias> --locale <locale> --include-fallback --fallback-locale <fallback-locale>"
+      ],
+      "flags": {
+        "action": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Option to export data (entries, users, teams, taxonomies). <options: entries|users|teams|taxonomies>",
+          "notes": "One of: entries, users, teams, taxonomies"
+        },
+        "alias": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-a",
+          "hidden": false,
+          "description": "Alias of the management token.",
+          "notes": ""
+        },
+        "org": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Provide organization UID to clone org users.",
+          "notes": ""
+        },
+        "stack-name": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-n",
+          "hidden": false,
+          "description": "Name of the stack that needs to be created as CSV filename.",
+          "notes": ""
+        },
+        "stack-api-key": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-k",
+          "hidden": false,
+          "description": "API Key of the source stack.",
+          "notes": ""
+        },
+        "org-name": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Name of the organization that needs to be created as CSV filename.",
+          "notes": ""
+        },
+        "locale": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Locale of entries that will be exported.",
+          "notes": ""
+        },
+        "content-type": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Content type of entries that will be exported.",
+          "notes": ""
+        },
+        "branch": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Branch from which entries will be exported.",
+          "notes": ""
+        },
+        "team-uid": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Provide the UID of a specific team in an organization.",
+          "notes": ""
+        },
+        "taxonomy-uid": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Provide the taxonomy UID of the related terms you want to export.",
+          "notes": ""
+        },
+        "include-fallback": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "[Optional] Include fallback locale data when exporting taxonomies. When enabled, if a taxonomy term doesn't exist in the specified locale, it will fallback to the hierarchy defined in the branch settings.",
+          "notes": ""
+        },
+        "fallback-locale": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "[Optional] Specify a specific fallback locale for taxonomy export. This locale will be used when a taxonomy term doesn't exist in the primary locale. Takes priority over branch fallback hierarchy when both are specified.",
+          "notes": ""
+        },
+        "delimiter": {
+          "type": "string",
+          "required": "No",
+          "default": "`,`",
+          "short": null,
+          "hidden": false,
+          "description": "[optional] Provide a delimiter to separate individual data fields within the CSV file. For example: cm:export-to-csv --delimiter '|'",
+          "notes": ""
+        }
+      }
+    },
+    "cm:stacks:import": {
+      "package": "@contentstack/cli-cm-import",
+      "package_version": "2.0.0",
+      "bundled_at_ga": true,
+      "install": null,
+      "description": "Import content from a stack",
+      "examples": [
+        "csdx cm:stacks:import --stack-api-key <stack_api_key> --data-dir <path/of/export/destination/dir>",
+        "csdx cm:stacks:import --config <path/of/config/dir>",
+        "csdx cm:stacks:import --module <single module name>",
+        "csdx cm:stacks:import --module <single module name> --backup-dir <backup dir>",
+        "csdx cm:stacks:import --alias <management_token_alias>",
+        "csdx cm:stacks:import --alias <management_token_alias> --data-dir <path/of/export/destination/dir>",
+        "csdx cm:stacks:import --alias <management_token_alias> --config <path/of/config/file>",
+        "csdx cm:stacks:import --branch <branch name>  --yes --skip-audit"
+      ],
+      "flags": {
+        "config": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-c",
+          "hidden": false,
+          "description": "[optional] The path of the configuration JSON file containing all the options for a single run.",
+          "notes": ""
+        },
+        "stack-api-key": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-k",
+          "hidden": false,
+          "description": "API Key of the target stack",
+          "notes": ""
+        },
+        "data-dir": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-d",
+          "hidden": false,
+          "description": "The path or the location in your file system where the content, you intend to import, is stored. For example, -d \"C:\\Users\\Name\\Desktop\\cli\\content\". If the export folder has branches involved, then the path should point till the particular branch. For example, “-d \"C:\\Users\\Name\\Desktop\\cli\\content\\branch_name\"",
+          "notes": ""
+        },
+        "alias": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-a",
+          "hidden": false,
+          "description": "The management token of the destination stack where you will import the content.",
+          "notes": ""
+        },
+        "module": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "[optional] Specify the module to import into the target stack. If not specified, the import command will import all the modules into the stack. The available modules are stack, assets, locales, environments, extensions, webhooks, global-fields, entries, content-types, custom-roles, workflows, publishing-rules, labels, marketplace-apps, taxonomies, personalize, variant-entries, and composable-studio.",
+          "notes": "One of: stack, assets, locales, environments, extensions, webhooks, global-fields, entries, content-types, custom-roles, workflows, publishing-rules, labels, marketplace-apps, taxonomies, personalize, variant-entries, composable-studio"
+        },
+        "backup-dir": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "[optional] Backup directory name when using specific module.",
+          "notes": ""
+        },
+        "branch": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "The name of the branch where you want to import your content. If you don't mention the branch name, then by default the content will be imported to the main branch.",
+          "notes": "Mutually exclusive with --branch-alias"
+        },
+        "branch-alias": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Specify the branch alias where you want to import your content. If not specified, the content is imported into the main branch by default.",
+          "notes": "Mutually exclusive with --branch"
+        },
+        "import-webhook-status": {
+          "type": "string",
+          "required": "No",
+          "default": "`disable`",
+          "short": null,
+          "hidden": false,
+          "description": "[default: disable] (optional) This webhook state keeps the same state of webhooks as the source stack. <options: disable|current>",
+          "notes": "One of: disable, current"
+        },
+        "yes": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": "-y",
+          "hidden": false,
+          "description": "[optional] Force override all Marketplace prompts.",
+          "notes": ""
+        },
+        "replace-existing": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Replaces the existing module in the target stack.",
+          "notes": ""
+        },
+        "skip-existing": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Skips the module exists warning messages.",
+          "notes": ""
+        },
+        "personalize-project-name": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "(optional) Provide a unique name for the Personalize project.",
+          "notes": ""
+        },
+        "skip-audit": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Skips the audit fix that occurs during an import operation.",
+          "notes": ""
+        },
+        "exclude-global-modules": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Excludes the branch-independent module from the import operation.",
+          "notes": ""
+        },
+        "skip-assets-publish": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Skips asset publishing during the import process.",
+          "notes": ""
+        },
+        "skip-entries-publish": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Skips entry publishing during the import process",
+          "notes": ""
+        },
+        "skip-taxonomy-publish": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Skips taxonomy publishing during the import process.",
+          "notes": ""
+        }
+      }
+    },
+    "cm:stacks:import-setup": {
+      "package": "@contentstack/cli-cm-import-setup",
+      "package_version": "2.0.0",
+      "bundled_at_ga": true,
+      "install": null,
+      "description": "Helps to generate mappers and backup folder for importing (overwriting) specific modules",
+      "examples": [
+        "csdx cm:stacks:import-setup --stack-api-key <target_stack_api_key> --data-dir <path/of/export/destination/dir> --module <module_name, module_name> --branch <branch_name>"
+      ],
+      "flags": {
+        "stack-api-key": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-k",
+          "hidden": false,
+          "description": "API key of the target stack",
+          "notes": ""
+        },
+        "data-dir": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-d",
+          "hidden": false,
+          "description": "The path or the location in your file system where the content, you intend to import, is stored. For example, -d \"C:\\Users\\Name\\Desktop\\cli\\content\". If the export folder has branches involved, then the path should point till the particular branch. For example, “-d \"C:\\Users\\Name\\Desktop\\cli\\content\\branch_name\"",
+          "notes": ""
+        },
+        "alias": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-a",
+          "hidden": false,
+          "description": "The management token of the destination stack where you will import the content.",
+          "notes": ""
+        },
+        "module": {
+          "type": "string[]",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "[optional] Specify the modules/module to import into the target stack. currently options are global-fields, content-types, entries",
+          "notes": "Repeatable. One of: global-fields, content-types, entries"
+        },
+        "branch": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "The name of the branch where you want to import your content. If you don't mention the branch name, then by default the content will be imported to the main branch.",
+          "notes": "Mutually exclusive with --branch-alias"
+        },
+        "branch-alias": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Specify the branch alias where you want to import your content. If not specified, the content is imported into the main branch by default.",
+          "notes": "Mutually exclusive with --branch"
+        }
+      }
+    },
+    "cm:entries:migrate-html-rte": {
+      "package": "@contentstack/cli-cm-migrate-rte",
+      "package_version": "2.0.0",
+      "bundled_at_ga": false,
+      "install": "csdx plugins:install @contentstack/cli-cm-migrate-rte",
+      "description": "Migration script to migrate content from HTML RTE to JSON RTE",
+      "examples": [
+        "General Usage",
+        "csdx cm:entries:migrate-html-rte --config-path path/to/config.json",
+        "",
+        "Using Flags",
+        "csdx cm:entries:migrate-html-rte --alias alias --content-type content_type_uid --html-path html-path --json-path json-path",
+        "",
+        "Nested RTE",
+        "csdx cm:entries:migrate-html-rte --alias alias --content-type content_type_uid --html-path modular_block_uid.block_uid.html_rte_uid --json-path modular_block_uid.block_uid.json_rte_uid",
+        "",
+        "csdx cm:entries:migrate-html-rte --alias alias --content-type content_type_uid --html-path group_uid.html_rte_uid --json-path group_uid.json_rte_uid",
+        "",
+        "Global Field",
+        "csdx cm:entries:migrate-html-rte --alias alias --content-type global_field_uid --global-field --html-path html-path --json-path json-path"
+      ],
+      "flags": {
+        "config-path": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-c",
+          "hidden": false,
+          "description": "Specify the path where your config file is located.",
+          "notes": ""
+        },
+        "alias": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-a",
+          "hidden": false,
+          "description": "Enter the alias name. You must use either the --alias flag or the --stack-api-key flag.",
+          "notes": ""
+        },
+        "stack-api-key": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "API key of the source stack. You must use either the --stack-api-key flag or the --alias flag.",
+          "notes": ""
+        },
+        "content-type": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Specify the UID of the content type for which you want to migrate HTML RTE content.",
+          "notes": ""
+        },
+        "global-field": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Checks whether the specified UID belongs to a content type or a global field. This flag is set to false by default.",
+          "notes": ""
+        },
+        "yes": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": "-y",
+          "hidden": false,
+          "description": "Avoids reconfirmation of your configuration.",
+          "notes": ""
+        },
+        "branch": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "The name of the branch to be used.",
+          "notes": ""
+        },
+        "html-path": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Enter the path to the HTML RTE whose content you want to migrate.",
+          "notes": "Requires --json-path"
+        },
+        "json-path": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Enter the path to the JSON RTE to which you want to migrate the HTML RTE content.",
+          "notes": "Requires --html-path"
+        },
+        "delay": {
+          "type": "string",
+          "required": "No",
+          "default": "`1000`",
+          "short": null,
+          "hidden": false,
+          "description": "To set the interval time between the migration of HTML RTE to JSON RTE in subsequent entries of a content type. The default value is 1,000 milliseconds.",
+          "notes": ""
+        },
+        "locale": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "The locale from which entries will be migrated.",
+          "notes": ""
+        },
+        "batch-limit": {
+          "type": "string",
+          "required": "No",
+          "default": "`50`",
+          "short": null,
+          "hidden": false,
+          "description": "Provide batch limit for updating entries (default: 50).",
+          "notes": ""
+        }
+      }
+    },
+    "cm:stacks:validate-regex": {
+      "package": "@contentstack/cli-cm-regex-validate",
+      "package_version": "2.0.0",
+      "bundled_at_ga": false,
+      "install": "csdx plugins:install @contentstack/cli-cm-regex-validate",
+      "description": "This command is used to find all the invalid regexes present in the content types and global fields of your stack.",
+      "examples": [
+        "$ csdx cm:stacks:validate-regex",
+        "$ csdx cm:stacks:validate-regex -a <management_token_alias>",
+        "$ csdx cm:stacks:validate-regex --contentType",
+        "$ csdx cm:stacks:validate-regex --globalField",
+        "$ csdx cm:stacks:validate-regex --filePath <path/to/the/directory>",
+        "$ csdx cm:stacks:validate-regex -a <management_token_alias> --contentType --globalField",
+        "$ csdx cm:stacks:validate-regex -a <management_token_alias> --contentType --globalField --filePath <path/to/the/directory>"
+      ],
+      "flags": {
+        "alias": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-a",
+          "hidden": false,
+          "description": "Alias (name) assigned to the management token",
+          "notes": ""
+        },
+        "contentType": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "To find invalid regexes within the content types",
+          "notes": ""
+        },
+        "filePath": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "[optional] The path or the location in your file system where the CSV output file should be stored.",
+          "notes": ""
+        },
+        "globalField": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "To find invalid regexes within the global fields",
+          "notes": ""
+        }
+      }
+    },
+    "cm:stacks:seed": {
+      "package": "@contentstack/cli-cm-seed",
+      "package_version": "2.0.0",
+      "bundled_at_ga": true,
+      "install": null,
+      "description": "Create a stack from existing content types, entries, assets, etc",
+      "examples": [
+        "$ csdx cm:stacks:seed",
+        "$ csdx cm:stacks:seed --repo \"account\"",
+        "$ csdx cm:stacks:seed --repo \"account/repository\"",
+        "$ csdx cm:stacks:seed --repo \"account/repository\" --stack-api-key \"stack-api-key\" //seed content into specific stack",
+        "$ csdx cm:stacks:seed --repo \"account/repository\" --org \"your-org-uid\" --stack-name \"stack-name\" //create a new stack in given org uid"
+      ],
+      "flags": {
+        "repo": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "GitHub organization name or GitHub user name/repository name.",
+          "notes": ""
+        },
+        "org": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Provide Organization UID to create a new stack",
+          "notes": "Mutually exclusive with --stack-api-key"
+        },
+        "stack-api-key": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-k",
+          "hidden": false,
+          "description": "Provide stack API key to seed content to",
+          "notes": "Mutually exclusive with --org. Mutually exclusive with --stack-name"
+        },
+        "stack-name": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-n",
+          "hidden": false,
+          "description": "Name of a new stack that needs to be created.",
+          "notes": "Mutually exclusive with --stack-api-key"
+        },
+        "yes": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": "-y",
+          "hidden": false,
+          "description": "[Optional] Skip the stack confirmation.",
+          "notes": ""
+        },
+        "alias": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-a",
+          "hidden": false,
+          "description": "Alias of the management token",
+          "notes": ""
+        },
+        "locale": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": true,
+          "description": "Master locale for stack creation",
+          "notes": ""
+        }
+      }
+    },
+    "config:get:base-branch": {
+      "package": "@contentstack/cli-config",
+      "package_version": "2.0.0",
+      "bundled_at_ga": true,
+      "install": null,
+      "description": "Get current branch set for CLI",
+      "examples": [
+        "$ csdx config:get:base-branch"
+      ],
+      "flags": {}
+    },
+    "config:get:early-access-header": {
+      "package": "@contentstack/cli-config",
+      "package_version": "2.0.0",
+      "bundled_at_ga": true,
+      "install": null,
+      "description": "Display Early Access headers",
+      "examples": [
+        "$ <%= config.bin %> <%= command.id %>"
+      ],
+      "flags": {}
+    },
+    "config:get:log": {
+      "package": "@contentstack/cli-config",
+      "package_version": "2.0.0",
+      "bundled_at_ga": true,
+      "install": null,
+      "description": "Get logging configuration for CLI",
+      "examples": [
+        "csdx config:get:log"
+      ],
+      "flags": {}
+    },
+    "config:get:proxy": {
+      "package": "@contentstack/cli-config",
+      "package_version": "2.0.0",
+      "bundled_at_ga": true,
+      "install": null,
+      "description": "Get proxy configuration for CLI",
+      "examples": [
+        "csdx config:get:proxy"
+      ],
+      "flags": {}
+    },
+    "config:get:rate-limit": {
+      "package": "@contentstack/cli-config",
+      "package_version": "2.0.0",
+      "bundled_at_ga": true,
+      "install": null,
+      "description": "Get rate-limit of organizations",
+      "examples": [
+        "$ csdx config:get:rate-limit"
+      ],
+      "flags": {}
+    },
+    "config:get:region": {
+      "package": "@contentstack/cli-config",
+      "package_version": "2.0.0",
+      "bundled_at_ga": true,
+      "install": null,
+      "description": "Get current region set for CLI",
+      "examples": [
+        "$ csdx config:get:region"
+      ],
+      "flags": {}
+    },
+    "config:remove:base-branch": {
+      "package": "@contentstack/cli-config",
+      "package_version": "2.0.0",
+      "bundled_at_ga": true,
+      "install": null,
+      "description": "Remove branch config for CLI",
+      "examples": [
+        "$ csdx config:remove:base-branch",
+        "$ csdx config:remove:base-branch --stack-api-key <value>"
+      ],
+      "flags": {
+        "stack-api-key": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-k",
+          "hidden": false,
+          "description": "Stack API key.",
+          "notes": ""
+        },
+        "yes": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": "-y",
+          "hidden": false,
+          "description": "Force remove.",
+          "notes": ""
+        }
+      }
+    },
+    "config:remove:early-access-header": {
+      "package": "@contentstack/cli-config",
+      "package_version": "2.0.0",
+      "bundled_at_ga": true,
+      "install": null,
+      "description": "Remove Early Access header",
+      "examples": [
+        "$ <%= config.bin %> <%= command.id %>",
+        "$ <%= config.bin %> <%= command.id %> --header-alias <value>"
+      ],
+      "flags": {
+        "header-alias": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "(optional) Provide the Early Access header alias name.",
+          "notes": ""
+        },
+        "yes": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": "-y",
+          "hidden": false,
+          "description": "(optional) Force the removal of Early Access header configuration by skipping the confirmation.",
+          "notes": ""
+        }
+      }
+    },
+    "config:remove:proxy": {
+      "package": "@contentstack/cli-config",
+      "package_version": "2.0.0",
+      "bundled_at_ga": true,
+      "install": null,
+      "description": "Remove proxy configuration from global config",
+      "examples": [
+        "csdx config:remove:proxy"
+      ],
+      "flags": {}
+    },
+    "config:remove:rate-limit": {
+      "package": "@contentstack/cli-config",
+      "package_version": "2.0.0",
+      "bundled_at_ga": true,
+      "install": null,
+      "description": "Remove rate-limit of the organization",
+      "examples": [
+        "$ csdx config:remove:rate-limit --org <<org_uid>>"
+      ],
+      "flags": {
+        "org": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Provide the organization UID",
+          "notes": ""
+        }
+      }
+    },
+    "config:set:base-branch": {
+      "package": "@contentstack/cli-config",
+      "package_version": "2.0.0",
+      "bundled_at_ga": true,
+      "install": null,
+      "description": "Set branch for CLI",
+      "examples": [
+        "$ csdx config:set:base-branch",
+        "$ csdx config:set:base-branch --stack-api-key <value> --base-branch <value>"
+      ],
+      "flags": {
+        "stack-api-key": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-k",
+          "hidden": false,
+          "description": "Stack API key",
+          "notes": ""
+        },
+        "base-branch": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Base branch (Target branch).",
+          "notes": ""
+        }
+      }
+    },
+    "config:set:early-access-header": {
+      "package": "@contentstack/cli-config",
+      "package_version": "2.0.0",
+      "bundled_at_ga": true,
+      "install": null,
+      "description": "Set Early Access header",
+      "examples": [
+        "$ <%= config.bin %> <%= command.id %>",
+        "$ <%= config.bin %> <%= command.id %> --header <value> --header-alias <value>"
+      ],
+      "flags": {
+        "header-alias": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "(optional) Provide a name (alias) for this Early Access header.",
+          "notes": ""
+        },
+        "header": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "(optional) Provide the Early Access header value.",
+          "notes": ""
+        }
+      }
+    },
+    "config:set:log": {
+      "package": "@contentstack/cli-config",
+      "package_version": "2.0.0",
+      "bundled_at_ga": true,
+      "install": null,
+      "description": "Set logging configuration for CLI",
+      "examples": [
+        "csdx config:set:log",
+        "csdx config:set:log --level debug",
+        "csdx config:set:log --path ./logs",
+        "csdx config:set:log --level debug --path ./logs --show-console-logs",
+        "csdx config:set:log --no-show-console-logs",
+        "csdx config:set:log --level warn --show-console-logs",
+        "csdx config:set:log --path ~/custom/logs",
+        "csdx config:set:log --path /var/log/contentstack"
+      ],
+      "flags": {
+        "level": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Set the log level for the CLI. Defaults to \"info\" if not specified.",
+          "notes": "One of: debug, info, warn, error"
+        },
+        "path": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Specify the directory path where logs should be saved. Supports both relative and absolute paths. Defaults to ~/.contentstack/logs if not specified.",
+          "notes": ""
+        },
+        "show-console-logs": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Enable console logging.",
+          "notes": ""
+        }
+      }
+    },
+    "config:set:proxy": {
+      "package": "@contentstack/cli-config",
+      "package_version": "2.0.0",
+      "bundled_at_ga": true,
+      "install": null,
+      "description": "Set proxy configuration for CLI",
+      "examples": [
+        "csdx config:set:proxy --host 127.0.0.1 --port 3128",
+        "csdx config:set:proxy --host proxy.example.com --port 8080 --protocol https",
+        "csdx config:set:proxy --host proxy.example.com --port 8080 --username user"
+      ],
+      "flags": {
+        "host": {
+          "type": "string",
+          "required": "Yes",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Proxy host address",
+          "notes": ""
+        },
+        "port": {
+          "type": "string",
+          "required": "Yes",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Proxy port number",
+          "notes": ""
+        },
+        "protocol": {
+          "type": "string",
+          "required": "Yes",
+          "default": "`http`",
+          "short": null,
+          "hidden": false,
+          "description": "Proxy protocol (http or https)",
+          "notes": "One of: http, https"
+        },
+        "username": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Proxy username (optional)",
+          "notes": ""
+        }
+      }
+    },
+    "config:set:rate-limit": {
+      "package": "@contentstack/cli-config",
+      "package_version": "2.0.0",
+      "bundled_at_ga": true,
+      "install": null,
+      "description": "Set rate-limit for CLI",
+      "examples": [
+        "$ csdx config:set:rate-limit --org <<org_uid>>",
+        "$ csdx config:set:rate-limit --org <<org_uid>> --utilize 70,80 --limit-name getLimit,limit",
+        "$ csdx config:set:rate-limit --org <<org_uid>> --default"
+      ],
+      "flags": {
+        "org": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Provide the organization UID",
+          "notes": ""
+        },
+        "utilize": {
+          "type": "string",
+          "required": "No",
+          "default": "`50`",
+          "short": null,
+          "hidden": false,
+          "description": "Provide the utilization percentages for rate limit, separated by commas",
+          "notes": ""
+        },
+        "limit-name": {
+          "type": "string[]",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "[Optional] Provide the limit names separated by commas ['limit', 'getLimit', 'bulkLimit']",
+          "notes": "Repeatable"
+        },
+        "default": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Reset to default rate limit",
+          "notes": ""
+        }
+      }
+    },
+    "config:set:region": {
+      "package": "@contentstack/cli-config",
+      "package_version": "2.0.0",
+      "bundled_at_ga": true,
+      "install": null,
+      "description": "Set region for CLI",
+      "examples": [
+        "$ csdx config:set:region",
+        "$ csdx config:set:region AWS-NA",
+        "$ csdx config:set:region AWS-EU",
+        "$ csdx config:set:region AWS-AU",
+        "$ csdx config:set:region AZURE-NA",
+        "$ csdx config:set:region AZURE-EU",
+        "$ csdx config:set:region GCP-NA",
+        "$ csdx config:set:region GCP-EU",
+        "$ csdx config:set:region --cma <custom_cma_host_url> --cda <custom_cda_host_url> --ui-host <custom_ui_host_url> --name \"India\"",
+        "$ csdx config:set:region --cma <custom_cma_host_url> --cda <custom_cda_host_url> --ui-host <custom_ui_host_url> --name \"India\" --developer-hub <custom_developer_hub_url>",
+        "$ csdx config:set:region --cma <custom_cma_host_url> --cda <custom_cda_host_url> --ui-host <custom_ui_host_url> --name \"India\" --personalize <custom_personalize_url>",
+        "$ csdx config:set:region --cma <custom_cma_host_url> --cda <custom_cda_host_url> --ui-host <custom_ui_host_url> --name \"India\" --launch <custom_launch_url>",
+        "$ csdx config:set:region --cma <custom_cma_host_url> --cda <custom_cda_host_url> --ui-host <custom_ui_host_url> --name \"India\" --studio <custom_studio_url>",
+        "$ csdx config:set:region --cma <custom_cma_host_url> --cda <custom_cda_host_url> --ui-host <custom_ui_host_url> --name \"India\" --cs-assets <cs_assets_url>",
+        "$ csdx config:set:region --cda <custom_cda_host_url> --cma <custom_cma_host_url> --ui-host <custom_ui_host_url> --name \"India\" --developer-hub <custom_developer_hub_url> --launch <custom_launch_url> --personalize <custom_personalize_url> --studio <custom_studio_url> --cs-assets <cs_assets_url>"
+      ],
+      "flags": {
+        "cda": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Custom host to set for content delivery API, if this flag is added then cma, ui-host and name flags are required",
+          "notes": "Requires --cma. Requires --ui-host. Requires --name"
+        },
+        "cma": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Custom host to set for content management API, , if this flag is added then cda, ui-host and name flags are required",
+          "notes": "Requires --cda. Requires --ui-host. Requires --name"
+        },
+        "ui-host": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Custom UI host to set for CLI, if this flag is added then cda, cma and name flags are required",
+          "notes": "Requires --cda. Requires --cma. Requires --name"
+        },
+        "name": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Name for the region, if this flag is added then cda, cma and ui-host flags are required",
+          "notes": "Requires --cda. Requires --cma. Requires --ui-host"
+        },
+        "developer-hub": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Custom host to set for Developer hub API",
+          "notes": ""
+        },
+        "personalize": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Custom host to set for Personalize API",
+          "notes": ""
+        },
+        "launch": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Custom host to set for Launch API",
+          "notes": ""
+        },
+        "studio": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Custom host to set for Studio API",
+          "notes": ""
+        },
+        "cs-assets": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Custom host to set for Contentstack Assets API",
+          "notes": ""
+        },
+        "auth-api": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Custom host to set for Auth API",
+          "notes": ""
+        }
+      }
+    },
+    "migrate:audit": {
+      "package": "@contentstack/cli-external-migrate",
+      "package_version": "2.0.0",
+      "bundled_at_ga": false,
+      "install": "csdx plugins:install @contentstack/cli-external-migrate",
+      "description": "Audit a Contentstack import bundle (wraps csdx cm:stacks:audit)",
+      "examples": [
+        "$ csdx migrate:audit --data-dir ./contentstack-import/bundle",
+        "$ csdx migrate:audit -d ./contentstack-import/bundle --report-path ./audit-reports",
+        "$ csdx migrate:audit -d ./bundle --modules content-types,entries,assets --csv"
+      ],
+      "flags": {
+        "data-dir": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-d",
+          "hidden": false,
+          "description": "Path to convert output bundle directory",
+          "notes": ""
+        },
+        "report-path": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Directory for audit reports",
+          "notes": ""
+        },
+        "modules": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Comma-separated audit modules (e.g. content-types,entries,assets)",
+          "notes": ""
+        },
+        "csv": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Export audit report as CSV",
+          "notes": ""
+        },
+        "workspace": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-w",
+          "hidden": false,
+          "description": "Migration workspace root for migration-manifest.json",
+          "notes": ""
+        }
+      }
+    },
+    "migrate:convert": {
+      "package": "@contentstack/cli-external-migrate",
+      "package_version": "2.0.0",
+      "bundled_at_ga": false,
+      "install": "csdx plugins:install @contentstack/cli-external-migrate",
+      "description": "Convert a legacy CMS export to a Contentstack import bundle",
+      "examples": [
+        "$ csdx migrate:convert --legacy contentful --input ./export.json --output ./contentstack-import",
+        "$ csdx migrate:convert -l contentful -i ../references/contentful-export-*.json --output ./contentstack-import --master-locale en-US"
+      ],
+      "flags": {
+        "legacy": {
+          "type": "string",
+          "required": "Yes",
+          "default": "-",
+          "short": "-l",
+          "hidden": false,
+          "description": "Legacy CMS source (contentful)",
+          "notes": "One of: contentful"
+        },
+        "input": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-i",
+          "hidden": false,
+          "description": "Path to legacy export JSON (e.g. Contentful export)",
+          "notes": ""
+        },
+        "output": {
+          "type": "string",
+          "required": "No",
+          "default": "`./contentstack-import`",
+          "short": null,
+          "hidden": false,
+          "description": "Parent output directory; bundle written to <output>/bundle",
+          "notes": ""
+        },
+        "master-locale": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Destination master locale code",
+          "notes": ""
+        },
+        "affix": {
+          "type": "string",
+          "required": "No",
+          "default": "``",
+          "short": null,
+          "hidden": false,
+          "description": "Content-type UID prefix",
+          "notes": ""
+        },
+        "verbose": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": "-v",
+          "hidden": false,
+          "description": "Verbose conversion logs",
+          "notes": ""
+        },
+        "workspace": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-w",
+          "hidden": false,
+          "description": "Migration workspace root for migration-manifest.json",
+          "notes": ""
+        },
+        "org": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Organization UID for migrating marketplace `app` fields (e.g. Cloudinary). Optional: defaults to your csdx org, or prompts when you belong to several.",
+          "notes": ""
+        }
+      }
+    },
+    "migrate:create": {
+      "package": "@contentstack/cli-external-migrate",
+      "package_version": "2.0.0",
+      "bundled_at_ga": false,
+      "install": "csdx plugins:install @contentstack/cli-external-migrate",
+      "description": "Convert a source export, create a new stack in an organization, and import into it",
+      "examples": [
+        "$ csdx migrate:create --source contentful --input ./export.json --org bltOrgUid"
+      ],
+      "flags": {
+        "source": {
+          "type": "string",
+          "required": "Yes",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Legacy CMS source (contentful)",
+          "notes": "One of: contentful"
+        },
+        "space-id": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Contentful space ID — export from Contentful first (use this OR --input)",
+          "notes": ""
+        },
+        "source-token": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Source CMA token (prefer CONTENTFUL_MANAGEMENT_TOKEN env)",
+          "notes": ""
+        },
+        "download-assets": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Download asset binaries during export (with --space-id)",
+          "notes": ""
+        },
+        "include-drafts": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Include draft entries in export (with --space-id)",
+          "notes": ""
+        },
+        "include-archived": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Include archived entries in export (with --space-id)",
+          "notes": ""
+        },
+        "org": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Contentstack organization uid — a new stack is created here (prompts with a list if omitted)",
+          "notes": ""
+        },
+        "output": {
+          "type": "string",
+          "required": "No",
+          "default": "`./output-dir`",
+          "short": null,
+          "hidden": false,
+          "description": "Parent output directory; bundle written to <output>/bundle",
+          "notes": ""
+        },
+        "affix": {
+          "type": "string",
+          "required": "No",
+          "default": "`CS`",
+          "short": null,
+          "hidden": false,
+          "description": "Content-type UID prefix",
+          "notes": ""
+        },
+        "invite-users": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Invite Contentful space members into the new stack with their mapped roles (sends invite emails). On by default; pass --no-invite-users to only write the users-mapping.json report.",
+          "notes": ""
+        },
+        "yes": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": "-y",
+          "hidden": false,
+          "description": "Skip import confirmation prompts",
+          "notes": ""
+        },
+        "workspace": {
+          "type": "string",
+          "required": "No",
+          "default": "`./output-dir`",
+          "short": null,
+          "hidden": false,
+          "description": "Migration workspace root for migration-manifest.json",
+          "notes": ""
+        },
+        "input": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-i",
+          "hidden": true,
+          "description": "Path to source export JSON (use this OR --space-id)",
+          "notes": ""
+        },
+        "cf-org-id": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": true,
+          "description": "Contentful ORG id — migrate EVERY space the token can access in that org (one stack per space). Ignored if --space-id is given.",
+          "notes": ""
+        },
+        "stack-name": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": true,
+          "description": "New stack name (default: \"Contentful Migration <date>\")",
+          "notes": ""
+        },
+        "branch": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": true,
+          "description": "Branch alias for branch-aware import",
+          "notes": ""
+        },
+        "verbose": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": true,
+          "description": "Verbose logs",
+          "notes": ""
+        }
+      }
+    },
+    "migrate:export": {
+      "package": "@contentstack/cli-external-migrate",
+      "package_version": "2.0.0",
+      "bundled_at_ga": false,
+      "install": "csdx plugins:install @contentstack/cli-external-migrate",
+      "description": "Export content from a legacy CMS (e.g. Contentful)",
+      "examples": [
+        "$ csdx migrate:export --legacy contentful --space-id YOUR_SPACE --output ./migration-workspace",
+        "$ CONTENTFUL_MANAGEMENT_TOKEN=... csdx migrate:export -l contentful --space-id YOUR_SPACE -o ./migration-workspace",
+        "$ csdx migrate:export -l contentful --space-id YOUR_SPACE --download-assets --include-drafts"
+      ],
+      "flags": {
+        "legacy": {
+          "type": "string",
+          "required": "Yes",
+          "default": "-",
+          "short": "-l",
+          "hidden": false,
+          "description": "Legacy CMS source (contentful)",
+          "notes": "One of: contentful"
+        },
+        "space-id": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Contentful space ID",
+          "notes": ""
+        },
+        "management-token": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Contentful CMA token (prefer CONTENTFUL_MANAGEMENT_TOKEN env)",
+          "notes": ""
+        },
+        "output": {
+          "type": "string",
+          "required": "No",
+          "default": "`./migration-workspace`",
+          "short": null,
+          "hidden": false,
+          "description": "Migration workspace root (writes export.json here)",
+          "notes": ""
+        },
+        "download-assets": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Download asset binaries via Contentful CLI",
+          "notes": ""
+        },
+        "include-drafts": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Include draft entries in export",
+          "notes": ""
+        },
+        "include-archived": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Include archived entries in export",
+          "notes": ""
+        },
+        "verbose": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": "-v",
+          "hidden": false,
+          "description": "Verbose export logs",
+          "notes": ""
+        },
+        "workspace": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-w",
+          "hidden": false,
+          "description": "Migration workspace root for migration-manifest.json (defaults to --output)",
+          "notes": ""
+        }
+      }
+    },
+    "migrate:import": {
+      "package": "@contentstack/cli-external-migrate",
+      "package_version": "2.0.0",
+      "bundled_at_ga": false,
+      "install": "csdx plugins:install @contentstack/cli-external-migrate",
+      "description": "Import a Contentstack bundle — into an existing stack (--stack-api-key) or a new one created in an organization (--org)",
+      "examples": [
+        "$ csdx migrate:import --stack-api-key bltXXXX --data-dir ./contentstack-import/bundle",
+        "$ csdx migrate:import --org bltOrgUid --data-dir ./contentstack-import/bundle",
+        "$ csdx migrate:import -d ./contentstack-import/bundle   # prompts for org, creates a stack"
+      ],
+      "flags": {
+        "stack-api-key": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-k",
+          "hidden": false,
+          "description": "Destination stack API key (import into an EXISTING stack)",
+          "notes": ""
+        },
+        "org": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Destination organization uid — create a new stack here and import into it (used when --stack-api-key is omitted; prompts with a list if omitted)",
+          "notes": ""
+        },
+        "stack-name": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Name for the new stack (default: \"Contentful Migration <date>\")",
+          "notes": ""
+        },
+        "data-dir": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-d",
+          "hidden": false,
+          "description": "Path to convert output bundle directory",
+          "notes": ""
+        },
+        "yes": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": "-y",
+          "hidden": false,
+          "description": "Skip import confirmation prompts",
+          "notes": ""
+        },
+        "skip-audit": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Skip audit-fix before import",
+          "notes": ""
+        },
+        "module": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Import only a module (e.g. entries)",
+          "notes": ""
+        },
+        "branch": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Branch alias for branch-aware import",
+          "notes": ""
+        },
+        "workspace": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-w",
+          "hidden": false,
+          "description": "Migration workspace root for migration-manifest.json",
+          "notes": ""
+        }
+      }
+    },
+    "migrate:status": {
+      "package": "@contentstack/cli-external-migrate",
+      "package_version": "2.0.0",
+      "bundled_at_ga": false,
+      "install": "csdx plugins:install @contentstack/cli-external-migrate",
+      "description": "Show migration manifest and step status",
+      "examples": [
+        "$ csdx migrate:status --workspace ./migration-workspace",
+        "$ csdx migrate:status -w ."
+      ],
+      "flags": {
+        "workspace": {
+          "type": "string",
+          "required": "No",
+          "default": "`./migration-workspace`",
+          "short": "-w",
+          "hidden": false,
+          "description": "Migration workspace root (contains migration-manifest.json)",
+          "notes": ""
+        }
+      }
+    },
+    "cm:stacks:migration": {
+      "package": "@contentstack/cli-migration",
+      "package_version": "2.0.0",
+      "bundled_at_ga": true,
+      "install": null,
+      "description": "Contentstack migration script.",
+      "examples": [
+        "$ csdx cm:stacks:migration --file-path <migration/script/file/path> -k <api-key>",
+        "$ csdx cm:stacks:migration --file-path <migration/script/file/path> -k <api-key> --branch <target branch name>",
+        "$ csdx cm:migration --inline-config <key1>:<value1> <key2>:<value2> ... --file-path <migration/script/file/path>",
+        "$ csdx cm:migration --config <path/to/json/config/file> --file-path <migration/script/file/path>",
+        "$ csdx cm:stacks:migration --multiple --file-path <migration/scripts/dir/path> ",
+        "$ csdx cm:stacks:migration --alias <management-token-alias> --file-path <migration/script/file/path>"
+      ],
+      "flags": {
+        "stack-api-key": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-k",
+          "hidden": false,
+          "description": "Use this flag to add the API key of your stack. You must use either the --stack-api-key flag or the --alias flag.",
+          "notes": "Mutually exclusive with --alias"
+        },
+        "alias": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-a",
+          "hidden": false,
+          "description": "Use this flag to add the management token alias. You must use either the --alias flag or the --stack-api-key flag.",
+          "notes": ""
+        },
+        "file-path": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Use this flag to provide the path of the file of the migration script.",
+          "notes": ""
+        },
+        "branch": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Use this flag to add the branch name where you want to perform the migration. (target branch name)",
+          "notes": ""
+        },
+        "config": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-c",
+          "hidden": false,
+          "description": "[optional] Path of the JSON configuration file.",
+          "notes": ""
+        },
+        "inline-config": {
+          "type": "string[]",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "[optional] Inline configuration, <key1>:<value1>. Passing an external configuration makes the script re-usable.",
+          "notes": "Repeatable"
+        },
+        "multiple": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "This flag helps you to migrate multiple content files in a single instance. Mention the folder path where your migration script files are stored.",
+          "notes": ""
+        }
+      }
+    },
+    "content-type:audit": {
+      "package": "contentstack-cli-content-type",
+      "package_version": "2.0.0",
+      "bundled_at_ga": false,
+      "install": "csdx plugins:install contentstack-cli-content-type",
+      "description": "Display recent changes to a Content Type",
+      "examples": [
+        "$ csdx content-type:audit --stack-api-key \"xxxxxxxxxxxxxxxxxxx\" --content-type \"home_page\"",
+        "$ csdx content-type:audit --alias \"management token\" --content-type \"home_page\""
+      ],
+      "flags": {
+        "stack-api-key": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-k",
+          "hidden": false,
+          "description": "Stack API Key",
+          "notes": "Mutually exclusive with --alias"
+        },
+        "alias": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-a",
+          "hidden": false,
+          "description": "Alias of the management token",
+          "notes": ""
+        },
+        "content-type": {
+          "type": "string",
+          "required": "Yes",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Content Type UID",
+          "notes": ""
+        }
+      }
+    },
+    "content-type:compare-remote": {
+      "package": "contentstack-cli-content-type",
+      "package_version": "2.0.0",
+      "bundled_at_ga": false,
+      "install": "csdx plugins:install contentstack-cli-content-type",
+      "description": "compare two Content Types on different Stacks",
+      "examples": [
+        "$ csdx content-type:compare-remote --origin-stack \"xxxxxxxxxxxxxxxxxxx\" --remote-stack \"xxxxxxxxxxxxxxxxxxx\" --content-type \"home_page\""
+      ],
+      "flags": {
+        "origin-stack": {
+          "type": "string",
+          "required": "Yes",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Origin Stack API Key",
+          "notes": "Requires --remote-stack"
+        },
+        "remote-stack": {
+          "type": "string",
+          "required": "Yes",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Remote Stack API Key",
+          "notes": "Requires --origin-stack"
+        },
+        "content-type": {
+          "type": "string",
+          "required": "Yes",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Content Type UID",
+          "notes": ""
+        }
+      }
+    },
+    "content-type:compare": {
+      "package": "contentstack-cli-content-type",
+      "package_version": "2.0.0",
+      "bundled_at_ga": false,
+      "install": "csdx plugins:install contentstack-cli-content-type",
+      "description": "Compare two Content Type versions",
+      "examples": [
+        "$ csdx content-type:compare --stack-api-key \"xxxxxxxxxxxxxxxxxxx\" --content-type \"home_page\"",
+        "$ csdx content-type:compare --stack-api-key \"xxxxxxxxxxxxxxxxxxx\" --content-type \"home_page\" --left # --right #",
+        "$ csdx content-type:compare --alias \"management token\" --content-type \"home_page\" --left # --right #"
+      ],
+      "flags": {
+        "stack-api-key": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-k",
+          "hidden": false,
+          "description": "Stack API Key",
+          "notes": "Mutually exclusive with --alias"
+        },
+        "alias": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-a",
+          "hidden": false,
+          "description": "Alias of the management token",
+          "notes": ""
+        },
+        "content-type": {
+          "type": "string",
+          "required": "Yes",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Content Type UID",
+          "notes": ""
+        },
+        "left": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Content Type version, i.e. prev version",
+          "notes": "Requires --right"
+        },
+        "right": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Content Type version, i.e. later version",
+          "notes": "Requires --left"
+        }
+      }
+    },
+    "content-type:details": {
+      "package": "contentstack-cli-content-type",
+      "package_version": "2.0.0",
+      "bundled_at_ga": false,
+      "install": "csdx plugins:install contentstack-cli-content-type",
+      "description": "Display Content Type details",
+      "examples": [
+        "$ csdx content-type:details --stack-api-key \"xxxxxxxxxxxxxxxxxxx\" --content-type \"home_page\"",
+        "$ csdx content-type:details --alias \"management token\" --content-type \"home_page\"",
+        "$ csdx content-type:details --alias \"management token\" --content-type \"home_page\" --no-path"
+      ],
+      "flags": {
+        "stack-api-key": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-k",
+          "hidden": false,
+          "description": "Stack API Key",
+          "notes": "Mutually exclusive with --alias"
+        },
+        "alias": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-a",
+          "hidden": false,
+          "description": "Alias of the management token",
+          "notes": ""
+        },
+        "content-type": {
+          "type": "string",
+          "required": "Yes",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Content Type UID",
+          "notes": ""
+        },
+        "path": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "show path column",
+          "notes": ""
+        }
+      }
+    },
+    "content-type:diagram": {
+      "package": "contentstack-cli-content-type",
+      "package_version": "2.0.0",
+      "bundled_at_ga": false,
+      "install": "csdx plugins:install contentstack-cli-content-type",
+      "description": "Create a visual diagram of a Stack's Content Types",
+      "examples": [
+        "$ csdx content-type:diagram --stack-api-key \"xxxxxxxxxxxxxxxxxxx\" --output \"content-model.svg\"",
+        "$ csdx content-type:diagram --alias \"management token\" --output \"content-model.svg\"",
+        "$ csdx content-type:diagram --alias \"management token\" --output \"content-model.svg\" --direction \"landscape\"",
+        "$ csdx content-type:diagram --alias \"management token\" --output \"content-model.dot\" --type \"dot\""
+      ],
+      "flags": {
+        "stack-api-key": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-k",
+          "hidden": false,
+          "description": "Stack API Key",
+          "notes": "Mutually exclusive with --alias"
+        },
+        "alias": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-a",
+          "hidden": false,
+          "description": "Alias of the management token",
+          "notes": ""
+        },
+        "output": {
+          "type": "string",
+          "required": "Yes",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "full path to output",
+          "notes": ""
+        },
+        "direction": {
+          "type": "string",
+          "required": "Yes",
+          "default": "`portrait`",
+          "short": null,
+          "hidden": false,
+          "description": "graph orientation",
+          "notes": "One of: portrait, landscape"
+        },
+        "type": {
+          "type": "string",
+          "required": "Yes",
+          "default": "`svg`",
+          "short": null,
+          "hidden": false,
+          "description": "graph output file type",
+          "notes": "One of: svg, dot"
+        }
+      }
+    },
+    "content-type:list": {
+      "package": "contentstack-cli-content-type",
+      "package_version": "2.0.0",
+      "bundled_at_ga": false,
+      "install": "csdx plugins:install contentstack-cli-content-type",
+      "description": "List all Content Types in a Stack",
+      "examples": [
+        "$ csdx content-type:list --stack-api-key \"xxxxxxxxxxxxxxxxxxx\"",
+        "$ csdx content-type:list --alias \"management token\"",
+        "$ csdx content-type:list --alias \"management token\" --order modified"
+      ],
+      "flags": {
+        "stack-api-key": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-k",
+          "hidden": false,
+          "description": "Stack API Key",
+          "notes": "Mutually exclusive with --alias"
+        },
+        "alias": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": "-a",
+          "hidden": false,
+          "description": "Alias of the management token",
+          "notes": ""
+        },
+        "order": {
+          "type": "string",
+          "required": "No",
+          "default": "`title`",
+          "short": null,
+          "hidden": false,
+          "description": "order by column",
+          "notes": "One of: title, modified"
+        }
+      }
+    },
+    "tsgen": {
+      "package": "contentstack-cli-tsgen",
+      "package_version": "5.0.0",
+      "bundled_at_ga": false,
+      "install": "csdx plugins:install contentstack-cli-tsgen",
+      "description": "Generate TypeScript typings from a Stack",
+      "examples": [
+        "$ csdx tsgen -a \"delivery token alias\" --output \"contentstack/generated.d.ts\"",
+        "$ csdx tsgen -a \"delivery token alias\" --output \"contentstack/generated.d.ts\" --prefix \"I\"",
+        "$ csdx tsgen -a \"delivery token alias\" --output \"contentstack/generated.d.ts\" --no-doc",
+        "$ csdx tsgen -a \"delivery token alias\" --output \"contentstack/generated.d.ts\" --include-referenced-entry",
+        "$ csdx tsgen -a \"delivery token alias\" --output \"contentstack/generated.d.ts\" --api-type graphql",
+        "$ csdx tsgen -a \"delivery token alias\" --output \"contentstack/generated.d.ts\" --api-type graphql --namespace \"GraphQL\" "
+      ],
+      "flags": {
+        "alias": {
+          "type": "string",
+          "required": "Yes",
+          "default": "-",
+          "short": "-a",
+          "hidden": false,
+          "description": "delivery token alias",
+          "notes": ""
+        },
+        "output": {
+          "type": "string",
+          "required": "Yes",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "full path to output",
+          "notes": ""
+        },
+        "prefix": {
+          "type": "string",
+          "required": "No",
+          "default": "``",
+          "short": null,
+          "hidden": false,
+          "description": "interface prefix, e.g. \"I\"",
+          "notes": ""
+        },
+        "doc": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "include documentation comments",
+          "notes": ""
+        },
+        "branch": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "branch",
+          "notes": ""
+        },
+        "include-system-fields": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "include system fields in generated types",
+          "notes": ""
+        },
+        "include-editable-tags": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "include editable tags in generated types",
+          "notes": ""
+        },
+        "include-referenced-entry": {
+          "type": "boolean",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "Includes the ReferencedEntry interface in generated types. Use this option to add a generic interface for handling referenced entries when the exact content type is unknown or when you need a flexible reference type",
+          "notes": ""
+        },
+        "api-type": {
+          "type": "string",
+          "required": "No",
+          "default": "`rest`",
+          "short": null,
+          "hidden": false,
+          "description": "[Optional] Please enter an API type to generate the type definitions.",
+          "notes": "One of: rest, graphql"
+        },
+        "namespace": {
+          "type": "string",
+          "required": "No",
+          "default": "-",
+          "short": null,
+          "hidden": false,
+          "description": "[Optional]Please enter a namespace for the GraphQL API type to organize the generated types.",
+          "notes": ""
+        }
+      }
+    }
+  }
+}
