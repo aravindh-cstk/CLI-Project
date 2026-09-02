@@ -17,9 +17,7 @@ This is seamless and just works right away, powerful stuff.
 
 ### "Not found" error
 
-**Root Cause**: The alias does not exist.
-
-**Resolution**: Add the alias.
+Add the alias and try again.
 
 ## Next Steps
 

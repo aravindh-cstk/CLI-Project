@@ -2,7 +2,11 @@
 
 const { makeFinding } = require('../lib/report');
 
-const ROOT_CAUSE_RE = /\*\*Root Cause\(s\)\*\*/;
+// common-rules.md's Troubleshooting definition mandates `**Root Cause**` (singular,
+// one cause) or `**Root Causes**` (plural, several). This previously matched only the
+// literal `**Root Cause(s)**`, so every doc that followed the written standard failed
+// a tier-1 check. `(s)` stays accepted so existing docs using it do not regress.
+const ROOT_CAUSE_RE = /\*\*Root Causes?\*\*|\*\*Root Cause\(s\)\*\*/;
 const RESOLUTION_RE = /\*\*Resolution\*\*/;
 
 /** Tier 1: each Troubleshooting H3 entry has bolded Root Cause(s) then Resolution labels, in order. */

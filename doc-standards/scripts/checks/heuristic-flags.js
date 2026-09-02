@@ -2,7 +2,7 @@
 
 const { makeFinding } = require('../lib/report');
 
-const CALLOUT_RE = /^\s*(\*\*)?(ATTENTION|Required|Note|Additional Resource)(\*\*)?\s*:/i;
+const CALLOUT_RE = /^\s*(\*\*)?(Warning|Note|Tip|Additional Resource)(\*\*)?\s*:/i;
 const ASYNC_MARKER_RE = /\bawait\b|\.then\s*\(/;
 const TRY_RE = /\btry\s*\{/;
 
@@ -206,6 +206,37 @@ function checkMigrationBeforeAfter(doc, docType) {
   return findings;
 }
 
+const CONTRAST_MARKER_RE = /\binstead of\b|\brather than\b|\bunlike\b|\bwhereas\b/i;
+
+/** Migration guides: long contrastive lines mentioning both V1 and V2 behavior without explicit "**V1:**"/"**V2:**" labels. */
+function checkV1V2Blended(doc, docType) {
+  const findings = [];
+  if (docType !== 'migration-guide') return findings;
+
+  for (let lineNo = doc.bodyStartLine; lineNo <= doc.totalLines; lineNo++) {
+    if (doc.inFenceMask[lineNo]) continue;
+    const raw = doc.lines[lineNo - 1];
+    if (/^\s*[|>#]/.test(raw)) continue;
+    if (raw.length < 150) continue;
+    const hasV1 = /\bV1\b/.test(raw);
+    const hasV2 = /\bV2\b/.test(raw);
+    const hasLabels = /\*\*V1:\*\*|\*\*V2:\*\*/.test(raw);
+    if (hasV1 && hasV2 && !hasLabels && CONTRAST_MARKER_RE.test(raw)) {
+      findings.push(
+        makeFinding({
+          tier: 3,
+          ruleId: 'MIG-09',
+          checkId: 'migration-v1v2-blended',
+          line: lineNo,
+          message: 'Long line contrasts V1 and V2 behavior without explicit **V1:**/**V2:** labels. Consider splitting into labeled statements.',
+          falsePositiveNote: 'Short, already-clear comparisons are exempt per MIG-09, this only targets long lines with an explicit contrast marker.',
+        })
+      );
+    }
+  }
+  return findings;
+}
+
 /** Get Started Guides: Quick Start's final step should contain observable-success language. */
 function checkQuickStartVerification(doc, docType) {
   const findings = [];
@@ -242,6 +273,7 @@ function checkHeuristics(doc, docType) {
     ...checkCalloutFrequency(doc),
     ...checkTypeMappingRowGrouping(doc, docType),
     ...checkMigrationBeforeAfter(doc, docType),
+    ...checkV1V2Blended(doc, docType),
     ...checkQuickStartVerification(doc, docType),
   ];
 }

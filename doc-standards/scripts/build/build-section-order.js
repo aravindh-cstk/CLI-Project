@@ -16,14 +16,20 @@ const { parseMarkdown } = require('../lib/parse-markdown');
 const STANDARDS_DIR = path.join(__dirname, '..', '..');
 const DATA_DIR = path.join(__dirname, '..', 'data');
 
+// Every path is joined against STANDARDS_DIR, so a subfolder needs no code
+// change beyond the path here. The product-wide types live in sdk-templates/
+// and the CLI types in cli-templates/.
 const TYPE_FILES = {
-  'conceptual-guide': 'conceptual-guide.md',
-  'feature-doc': 'feature-doc.md',
-  'how-to-guide': 'how-to-guide.md',
-  'setup-guide': 'setup-guide.md',
-  'kickstarter': 'kickstarter.md',
-  'migration-guide': 'migration-guide.md',
-  'getting-started': 'getting-started.md',
+  'conceptual-guide': 'sdk-templates/conceptual-guide.md',
+  'feature-doc': 'sdk-templates/feature-doc.md',
+  'how-to-guide': 'sdk-templates/how-to-guide.md',
+  'setup-guide': 'sdk-templates/setup-guide.md',
+  'kickstarter': 'sdk-templates/kickstarter.md',
+  'migration-guide': 'sdk-templates/migration-guide.md',
+  'getting-started': 'sdk-templates/getting-started.md',
+  'cli-command-reference': 'cli-templates/cli-command-reference.md',
+  'cli-task-runbook': 'cli-templates/cli-task-runbook.md',
+  'cli-module-reference': 'cli-templates/cli-module-reference.md',
 };
 
 function findSectionOrderTable(doc) {
@@ -59,7 +65,7 @@ function buildSectionOrder() {
 }
 
 function buildSectionMatrix() {
-  const filePath = path.join(STANDARDS_DIR, 'section-matrix.md');
+  const filePath = path.join(STANDARDS_DIR, 'sdk-templates', 'section-matrix.md');
   const source = fs.readFileSync(filePath, 'utf8');
   const doc = parseMarkdown(source);
   const table = doc.tables[0];

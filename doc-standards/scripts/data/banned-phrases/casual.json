@@ -6,6 +6,9 @@
     { "phrase": "on its own", "fix": "state what actually happens automatically, or drop the phrase" },
     { "phrase": "you'll find", "fix": "state the fact directly" },
     { "phrase": "pretty straightforward", "fix": "drop the qualifier and state the steps" },
-    { "phrase": "just", "fix": "drop the minimizer" }
+    { "phrase": "just", "fix": "drop the minimizer" },
+    { "phrase": "simply", "fix": "drop the minimizer or state the fact plainly" },
+    { "phrase": "basically", "fix": "drop the hedge and state the fact directly" },
+    { "phrase": "actually", "fix": "drop the filler" }
   ]
 }
