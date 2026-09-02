@@ -121,6 +121,21 @@ def publish_entry(headers, content_type, uid, version, env_uids=None):
             headers, body=body)
 
 
+def unpublish_entry(headers, content_type, uid, version, env_uids=None):
+    """Take an entry off the given environments. Reversible: publish it again.
+
+    Preferred over deleting an entry when the goal is only to stop serving it, for
+    example a redirect whose source now needs to serve a real page.
+    """
+    body = {
+        "entry": {"environments": env_uids or PUBLISH_ENV_UIDS, "locales": [LOCALE]},
+        "locale": LOCALE,
+        "version": version,
+    }
+    request("POST", f"/v3/content_types/{content_type}/entries/{uid}/unpublish",
+            headers, body=body)
+
+
 def list_entries(headers, content_type, only=None, page_size=100, progress=False):
     """Page through every entry of a content type, optionally limiting fields."""
     entries, skip = [], 0

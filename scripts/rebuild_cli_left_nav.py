@@ -69,9 +69,16 @@ OLD_PLACEHOLDER_SECTIONS = [
     "blt001a7f708f23aa6c",
 ]
 
-# 7 GA-bucket docs_article entries not yet in any category section, and where
+# 8 GA-bucket docs_article entries not yet in any category section, and where
 # they should go. Confirmed with the user.
+#
+# asset-scanning-in-cli was created after the production nav was last built, and
+# its nav placement is deliberately left to this script rather than pushed to
+# production on its own: the Advanced Operations draft already holds an
+# un-deployed restructure change that removes a link, so publishing that entry
+# now would drop Taxonomy Migration out of the live nav.
 MISSING_GA_SLUG_TO_CATEGORY = {
+    "asset-scanning-in-cli": "bltfc496d77b74a316b",          # Advanced Operations
     "branches-migration-use-cases": "blt173073d4d91ff3dd",   # Migration Use Cases
     "bulk-operations-in-cli": "bltfc496d77b74a316b",         # Advanced Operations
     "cli-for-cs-assets": "bltfc496d77b74a316b",              # Advanced Operations

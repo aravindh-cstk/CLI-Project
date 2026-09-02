@@ -31,6 +31,35 @@ BUCKETS = ("GA", "Beta", "old")
 VERSION_LABEL = {"old": "V0.x.x", "GA": "V1.x.x", "Beta": "V2.x.x"}
 URL_SUFFIX = {"old": "/v0", "GA": "/v1", "Beta": ""}
 
+# Docs whose content is valid for every CLI version, so a single page serves them
+# all. These sit in the GA bucket for storage but take the bare URL and carry no
+# version label, because a "| V1.x.x" tag on a page a V2 reader is meant to read
+# would be wrong. Verified by grepping each one for removed commands, renamed
+# flags and V1-only module values, and finding none.
+VERSION_AGNOSTIC = frozenset({
+    "contentstack-cli-configuration-reference",
+    "create-custom-cli-commands",
+    "create-custom-cli-plugins",
+    "cli-migrate-selected-content-types-using-the-query-export-plugin",
+    "cli-query-based-export",
+    "cli-taxonomy-migration",
+    "uninstall-cli-plugins",
+    "cli-update-missing-reference-uids",
+    "cli-useful-plugins",
+    "cli-change-master-locale",
+})
+
+# Docs that only ever described V2 behaviour, so they belong in the Beta bucket
+# and take the bare URL with a V2 label, never a /v1 form.
+V2_ONLY = frozenset({"cli-for-cs-assets"})
+
+# V1-only docs whose successor is a differently named V2 doc. The bare URL has to
+# redirect to the successor rather than back to the /v1 page, because there is no
+# V2 page at this slug.
+V1_ONLY_SUCCESSOR = {
+    "cli-bulk-publish-and-unpublish-content": "bulk-operations-in-cli",
+}
+
 # Every version qualifier that has ever been used in a title, seo.title or
 # heading on these docs, plus the labels this restructure introduces so the
 # transform is idempotent.
@@ -82,8 +111,19 @@ def new_slug(slug):
     return slug if "cli" in slug else f"cli-{slug}"
 
 
+def _agnostic(slug):
+    return slug is not None and new_slug(slug) in VERSION_AGNOSTIC
+
+
+def _v2_only(slug):
+    return slug is not None and new_slug(slug) in V2_ONLY
+
+
 def new_url(slug, bucket):
-    return f"/headless-cms/{new_slug(slug)}{URL_SUFFIX[bucket]}"
+    ns = new_slug(slug)
+    if ns in VERSION_AGNOSTIC or ns in V2_ONLY:
+        return f"/headless-cms/{ns}"
+    return f"/headless-cms/{ns}{URL_SUFFIX[bucket]}"
 
 
 def old_url(slug, bucket):
@@ -128,7 +168,7 @@ def strip_version_qualifier(text):
     return text, False
 
 
-def new_title(title, bucket):
+def new_title(title, bucket, _slug_hint=None):
     """Append the version label to an entry title.
 
     Returns None when the title ends in an unrecognized version-looking segment,
@@ -136,6 +176,10 @@ def new_title(title, bucket):
     """
     label = VERSION_LABEL[bucket]
     base, matched = strip_version_qualifier(title)
+    if _agnostic(_slug_hint):
+        return base
+    if _v2_only(_slug_hint):
+        label = VERSION_LABEL["Beta"]
     if not matched and " | " in title:
         tail = title.rsplit(" | ", 1)[-1].strip()
         if VERSIONISH.match(tail):
@@ -168,6 +212,8 @@ def new_seo_title(seo_title, bucket, slug=None):
     for review instead of inventing a brand segment.
     """
     label = VERSION_LABEL[bucket]
+    if _v2_only(slug):
+        label = VERSION_LABEL["Beta"]
     override = SEO_TITLE_OVERRIDES.get((bucket, slug))
     if not (seo_title or "").strip():
         return override

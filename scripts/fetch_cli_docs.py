@@ -39,7 +39,9 @@ OUT_DIR = os.path.join(ROOT, "docs", "json")
 BUCKETS = ("GA", "Beta", "old")
 # Includes the Content Type Plugin and Regex Validate Plugin families, which sit
 # outside the CLI breadcrumb and are pulled in via EXTRA_CLI_UIDS.
-EXPECTED = {"GA": 43, "Beta": 18, "old": 12}
+# GA gained asset-scanning-in-cli (blt6ee109a7b3725e1c). The count only reaches 44
+# once the asset scanning release is deployed, since this fetch is production-scoped.
+EXPECTED = {"GA": 44, "Beta": 18, "old": 12}
 
 
 def load_env():

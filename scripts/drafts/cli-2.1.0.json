@@ -1,0 +1,12 @@
+{
+  "title": "CLI Version 2.1.0",
+  "date": "2026-08-31",
+  "filters": [
+    {
+      "uid": "blta9b77391ce974879",
+      "_content_type_uid": "changelog_tags"
+    }
+  ],
+  "description": "<p><strong>Bug Fixes:</strong></p>\n<ul>\n  <li><strong><span class=\"code\">@contentstack/cli-cm-import (2.0.1)</span></strong>:\n    <ul>\n      <li>Clarified the global field reference-field warning message shown when importing a global field.</li>\n    </ul>\n  </li>\n  <li><strong><span class=\"code\">@contentstack/cli-bulk-operations (2.1.0)</span></strong>:\n    <ul>\n      <li>Fixed an issue where assets were being published to all environments instead of only the scoped targets.</li>\n    </ul>\n  </li>\n  <li><strong><span class=\"code\">@contentstack/cli-cm-bootstrap (2.0.1)</span></strong>:\n    <ul>\n      <li>Fixed bootstrap failing silently on non-2xx tarball responses, hidden spinner errors, and imprecise branch-not-found error messages.</li>\n    </ul>\n  </li>\n  <li><strong><span class=\"code\">contentstack-cli-tsgen (5.1.0)</span></strong>:\n    <ul>\n      <li>Fixed the tsgen GraphQL type-generation command failing with a generic schema error instead of surfacing the real underlying error.</li>\n    </ul>\n  </li>\n  <li><strong><span class=\"code\">types-generator (3.10.5)</span></strong>:\n    <ul>\n      <li>Fixed the tsgen GraphQL type-generation command failing with a generic schema error instead of surfacing the real underlying error.</li>\n    </ul>\n  </li>\n</ul>",
+  "uid": "blt7b8cb5a2f2ec581a"
+}

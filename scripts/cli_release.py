@@ -1,18 +1,29 @@
 #!/usr/bin/env python3
-"""Release bookkeeping for the CLI URL restructure.
+"""Release bookkeeping for the CLI docs.
 
-Two releases carry this change to production, and the deploy order matters. The
-docs release has to land first, otherwise every redirect in the second release
-points at a URL that does not exist yet.
+The URL restructure, deployed 2026-08-13. Order mattered: the docs release had to
+land first, otherwise every redirect in the second release pointed at a URL that
+did not exist yet.
 
-  RELEASE_DOCS      the 73 CLI docs plus the non-CLI docs whose inbound links move
+  RELEASE_DOCS      the 73 CLI docs plus the non-CLI docs whose inbound links moved
   RELEASE_REDIRECTS the new and repaired server_redirects entries
 
+The 2026-08-26 cleanup. Three releases, because they differ in where they deploy
+and in what content type they carry. Deploy links first, then nav, then the V2
+removal.
+
+  RELEASE_CLEANUP_LINKS    broken links and anchors, plus the URL collision fix
+  RELEASE_CLEANUP_NAV      nav placement and one legacy redirect
+  RELEASE_CLEANUP_V2_SCAN  PRODUCTION ONLY, see its description
+
+Read each release's description before deploying it. RELEASE_CLEANUP_V2_SCAN in
+particular must not go to staging or development.
+
 The write scripts import ensure_release() and add_item() rather than running this
-file. Run it directly to print the current contents of both releases.
+file. Run it directly to print the current contents of every release.
 
 Usage:
-  python3 scripts/cli_release.py            # show both releases and their items
+  python3 scripts/cli_release.py            # show every release and its items
   python3 scripts/cli_release.py --create   # create whichever release is missing
 """
 
@@ -23,6 +34,26 @@ from cli_docs_common import load_env, request
 RELEASE_DOCS = "CLI docs URL restructure (V0/V1/V2) 2026-08-05 [docs]"
 RELEASE_REDIRECTS = "Redirect cleanup - CLI URL restructure 2026-08-05 [docs]"
 
+# Independent of the two restructure releases above and safe to deploy before them.
+# Every item in it carries the URL scheme production serves today.
+#
+# SUPERSEDED, DO NOT DEPLOY. Its three items are pinned to versions that predate
+# the URL restructure (v1, v7, v14), so deploying it now would revert two pages to
+# their old URLs. Archive it. The work it was for is redone by the three releases
+# below, against post-restructure versions.
+RELEASE_ASSET_SCANNING = "CLI asset scanning: GA page + V2 rollback 2026-08-06 [docs]"
+
+# The 2026-08-26 cleanup. Three releases rather than one, because they do not all
+# deploy to the same environments and they do not all carry the same content type.
+RELEASE_CLEANUP_LINKS = "CLI 404 fixes + custom-commands URL 2026-08-26 [docs]"
+RELEASE_CLEANUP_V2_SCAN = "CLI V2 asset scanning removal 2026-08-26 [docs]"
+RELEASE_CLEANUP_NAV = "CLI nav + redirect cleanup 2026-08-26 [docs]"
+
+# 2026-09-02. Retires Create Custom CLI Commands. Carries an unpublish item, which
+# add_item cannot express, so retire_create_custom_cli_commands.py uses its own
+# add_release_item helper that takes an action.
+RELEASE_RETIRE_COMMANDS = "CLI retire create-custom-cli-commands 2026-09-02 [docs]"
+
 DESCRIPTIONS = {
     RELEASE_DOCS: ("CLI docs moved to /v0, /v1 and unsuffixed-for-GA URLs, slugs "
                    "prefixed with cli- where missing, titles and SEO titles "
@@ -32,6 +63,52 @@ DESCRIPTIONS = {
                         "entries for the old URLs, plus repair of the legacy "
                         "/docs/developers/cli/* table. Deploy AFTER the CLI docs "
                         "URL restructure release."),
+    RELEASE_ASSET_SCANNING: (
+        "Asset scanning is GA for CLI V1 and not live for V2. Adds the new "
+        "Asset Scanning in CLI page, which four live GA docs already link to, "
+        "and rolls the two V2 Beta docs back to their last scan-free version. "
+        "Independent of the URL restructure releases, deploy in any order."),
+    RELEASE_CLEANUP_LINKS: (
+        "DEPLOY TO ALL ENVIRONMENTS. Fixes every broken link and dead in-page "
+        "anchor found across the CLI docs: Asset Scanning links repointed to /v1, "
+        "a stale /docs/developers/cli/configure-regions link, and 13 dead anchors. "
+        "Also moves the Create Custom CLI Commands page off the URL it shares with "
+        "Create Custom CLI Plugins | V2.x.x, which makes the V2 Plugins page "
+        "reachable again. Deploy this BEFORE the nav and redirect release."),
+    RELEASE_CLEANUP_V2_SCAN: (
+        "DEPLOY TO PRODUCTION ONLY. Do not deploy to staging or development.\n\n"
+        "Asset scanning shipped for CLI V1 and has not shipped for V2, but V2 "
+        "asset-scanning content is live on production. This removes it from the two "
+        "V2 pages that carry it.\n\n"
+        "Staging and development must keep serving the older versions that still "
+        "contain the content (blt85d9deae08de968d v13, blt1215a1f9bbcc9900 v19), so "
+        "that shipping V2 asset scanning later is a publish rather than a rewrite. "
+        "Deploying this release to staging or development would destroy that copy.\n\n"
+        "If it is deployed everywhere by mistake, recover with "
+        "scripts/republish_v2_staging.py."),
+    RELEASE_CLEANUP_NAV: (
+        "DEPLOY TO ALL ENVIRONMENTS, and only after the 404 fixes release. Adds the "
+        "Asset Scanning in CLI page to the Version 1.x.x > CLI Advanced Operations "
+        "nav, which it was missing, and repoints the legacy create-custom-cli-commands "
+        "redirect whose target 404s."),
+    RELEASE_RETIRE_COMMANDS: (
+        "DEPLOY TO ALL ENVIRONMENTS. Retires Create Custom CLI Commands "
+        "(blt18f5edee45f9d6c2). Its step one is csdx plugins:create, a command that "
+        "has never existed: @oclif/plugin-plugins ships only index, inspect, "
+        "install, link, reset, uninstall and update, checked at majors 1, 2, 3 and "
+        "5, and both CLI 1.68.0 and 2.0.0 depend on ^5.4.x. It also states Node 16 "
+        "while serving the V2 tree, which needs 22, and shows csdx plugins: install "
+        "with a stray space. Everything else it covers is in Create Custom CLI "
+        "Plugins for Contentstack, whose V1 page sits directly above it in the same "
+        "nav node. Three items: the Version 1.x.x > Miscellaneous nav node with the "
+        "row removed, an UNPUBLISH of the article, and the legacy "
+        "/docs/developers/cli/create-custom-cli-commands redirect retargeted from "
+        "/create-custom-cli-commands/v1, which 404s today, to "
+        "/create-custom-cli-plugins. The nav item must deploy at or before the "
+        "unpublish, or the sidebar briefly points at an unpublished page. The "
+        "shadow redirect blt154a351243ad4eda stays published and is deliberately "
+        "not in this release: it is what keeps /create-custom-cli-commands "
+        "resolving to the plugins guide instead of 404ing."),
 }
 
 
@@ -141,7 +218,8 @@ def main():
     headers = load_env()
     create = "--create" in sys.argv
 
-    for name in (RELEASE_DOCS, RELEASE_REDIRECTS):
+    for name in (RELEASE_DOCS, RELEASE_REDIRECTS, RELEASE_ASSET_SCANNING,
+                 RELEASE_CLEANUP_LINKS, RELEASE_CLEANUP_V2_SCAN, RELEASE_CLEANUP_NAV):
         release = find_release(headers, name)
         if not release:
             if create:
