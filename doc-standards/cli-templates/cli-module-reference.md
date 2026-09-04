@@ -2,7 +2,7 @@
 
 A CLI module reference is a lookup page. It lists what the CLI supports, or what it does not, or what it accepts, one section per module or per command, with no procedure. The reader arrives with one lookup in mind and should reach it in one jump.
 
-Apply `sdk-templates/common-rules.md` (B1, B2, C1-C9) and `cli-common-rules.md` (CLI-C1 to CLI-C10) alongside this file.
+Apply `sdk-templates/common-rules.md` (B1, B2, C1-C9) and `cli-common-rules.md` (CLI-C1 to CLI-C14) alongside this file.
 
 ---
 
@@ -16,9 +16,11 @@ Apply `sdk-templates/common-rules.md` (B1, B2, C1-C9) and `cli-common-rules.md` 
 | 4 | Quick Reference | Required | Index table mapping each module or command to its section, so no reader scrolls a 1,000-line page |
 | 5 | Precedence and Scope | Recommended | How overlapping sources resolve, where the page documents configuration |
 | 6 | Main Content | Required | One H2 per module or command, in the order the grouping rule sets |
-| 7 | Next Steps | Required | Links to the command docs the entries here refer to |
+| 7 | Next Steps | Recommended | Links to the command docs the entries here refer to, where at least two are genuinely specific to this page |
 
 **Governing rule:** A reader arrives with one module or one command in mind and reaches its section in one jump. No section assumes the reader read the section before it.
+
+**Next Steps moved from Required to Recommended**, for the same reason stated in `cli-command-reference.md`: forcing the section on every lookup page produced generic links rather than doc-specific ones. `Troubleshooting` was never part of this type. See MOD3.
 
 ---
 
