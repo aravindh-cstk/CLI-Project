@@ -213,3 +213,7 @@ csdx cm:export-to-csv -a <alias_of_management_token> -n <name_of_the_stack> --ac
   ```
   csdx cm:export-to-csv --action <taxonomies> --alias <management-token-alias> --locale <locale> --include-fallback --fallback-locale <fallback-locale>
   ```
+
+## Limitations
+
+- `--action` accepts only `entries`, `users`, `teams`, or `taxonomies`. Assets, content type schemas, and global fields cannot be exported to CSV with this command.

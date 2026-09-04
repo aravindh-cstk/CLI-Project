@@ -1132,8 +1132,3 @@ Use `--config-file` flag with JSON file:
 
 - Reduce `fetchConcurrency` and `writeConcurrency`
 - Increase `delayMs` between requests
-
-## Next Steps
-
-- [CLI for CS Assets](/docs/headless-cms/cli-for-cs-assets): the CS Assets commands, which use the cs-assets REST API rather than the Content Management API.
-- [Migrate from Contentstack CLI V1 to V2](/docs/headless-cms/cli-v1-to-v2-migration-guide): what changed at 2.0.0, flag by flag, and how to upgrade.

@@ -114,6 +114,5 @@ Consider an example where you want to update the content models of your stack. L
 
 ## Next Steps
 
-- [Migrate Content Between Stacks Using the CLI](/docs/headless-cms/migrate-content-between-stacks-using-the-cli/v1): the end-to-end stack-to-stack migration procedure.
-- [Migrate from Contentstack CLI V1 to V2](/docs/headless-cms/cli-v1-to-v2-migration-guide): what changed at 2.0.0, flag by flag, and how to upgrade.
-- [CLI Limitations](/docs/headless-cms/cli-limitations/v1): the coverage gaps and known constraints across CLI commands.
+- [Compare and Merge Branches Using the CLI](/docs/headless-cms/compare-and-merge-branches-using-the-cli/v1) covers listing, creating, deleting, comparing, and merging branches, the commands these use cases build on.
+- [CLI Limitations](/docs/headless-cms/cli-limitations/v1) lists known branch constraints, including the maximum number of branches allowed per stack, which depends on your product tier.

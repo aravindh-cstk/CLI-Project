@@ -59,26 +59,6 @@ csdx config:set:rate-limit
 - `--org`: Enter the organization UID.
 - `--utilize=utilize`: \[default: 50\] Enter the utilization percentages for rate limit, separated by commas.
 
-**Examples**
-
-- To set a default rate limit for your organization:
-
-  ```
-  csdx config:set:rate-limit  --org blt***********1b  --default
-  ```
-
-- To set a Custom rate limit for your organization:
-
-  ```
-  csdx config:set:rate-limit  --org blt***********1b  --utilize 60 --limit-name bulkLimit
-  ```
-
-> **Note:**
->
-> - CLI applies a utilization percentage of your organization’s actual rate limit, based on your subscription plan.
-> - By default, this is set to **50%**, which means the CLI internally enforces a limit at half of the available rate. For example, if your **getLimit** is **10**, the CLI will apply a **limit of 5** at **50% utilization**, or **6** at **60% utilization**.
-> - This utilization is managed internally and is not shown in the CLI output.
-
 ### Get the Rate Limit of an Organization
 
 The `config:get:rate-limit` command fetches the rate limit that you have set in an organization in the CLI.
@@ -125,14 +105,6 @@ csdx config:remove:rate-limit
 
 - `--org`: Enter the organization UID.
 
-**Examples**
-
-- To remove the configuration of the rate limit from the CLI by providing the organization UID:
-
-  ```
-  csdx config:remove:rate-limit --org
-  ```
-
 ## Using Rate Limits for Enhanced Bulk Publishing Control
 
 By default, the rate limit is set to 1, letting you publish one asset or entry per second. To enable the bulk publish feature, you must configure the rate limit for your specific organization.
@@ -144,3 +116,38 @@ The `config:set:rate-limit` command lets you [set the rate limit](#set-custom-ra
 ```
 csdx config:set:rate-limit  --org blt***********1b  --utilize 10 --limit-name bulkLimit
 ```
+
+## Examples
+
+**Set Custom Rate Limit**
+
+- To set a default rate limit for your organization:
+
+  ```
+  csdx config:set:rate-limit  --org blt***********1b  --default
+  ```
+
+- To set a Custom rate limit for your organization:
+
+  ```
+  csdx config:set:rate-limit  --org blt***********1b  --utilize 60 --limit-name bulkLimit
+  ```
+
+> **Note:**
+>
+> - CLI applies a utilization percentage of your organization’s actual rate limit, based on your subscription plan.
+> - By default, this is set to **50%**, which means the CLI internally enforces a limit at half of the available rate. For example, if your **getLimit** is **10**, the CLI will apply a **limit of 5** at **50% utilization**, or **6** at **60% utilization**.
+> - This utilization is managed internally and is not shown in the CLI output.
+
+**Remove the Rate Limit of an Organization**
+
+- To remove the configuration of the rate limit from the CLI by providing the organization UID:
+
+  ```
+  csdx config:remove:rate-limit --org
+  ```
+
+## Limitations
+
+- `--limit-name` accepts only `getLimit`, `limit`, and `bulkLimit`. No other API operation can be rate-limited individually through this command.
+- `--utilize` must be a number between 0 and 100.

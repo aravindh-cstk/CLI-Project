@@ -855,91 +855,6 @@ csdx cm:stacks:bulk-entries \
 
 ---
 
-## Troubleshooting
-
-### Problem: 429 Rate Limit Errors
-
-**Solution**: The adaptive rate limiter should prevent this, but if it occurs:
-
-1. Reduce `requestsPerSecond` in config
-2. Reduce `maxConcurrent` in config
-3. Use `--publish-mode single` for better control
-
-### Problem: Operations Timing Out
-
-**Solution**:
-
-1. Check batch sizes - reduce if too large
-2. Increase `maxPolls` in config (default: 300)
-3. Check network connectivity
-
-### Problem: Failed Items Not Retrying
-
-**Solution**:
-
-1. Check `maxRetries` config (default: 5)
-2. Review error logs for non-retryable errors
-3. Manually retry using `--retry-failed`
-
-### Problem: Memory Issues with Large Operations
-
-**Solution**:
-
-1. Process content types separately
-2. Use filtering to reduce item count
-3. Increase Node.js heap size: `NODE_OPTIONS=--max-old-space-size=4096`
-
-### Problem: Invalid Configuration
-
-**Error**: `Invalid configuration: errors`
-
-**Solution**: Validate your config file or flags:
-
-- Ensure required flags are present
-- Check locale/environment codes are valid
-- Verify content type UIDs exist
-
-### Problem: Cross-Publish Requires --source-alias
-
-**Error**: `Cross-publish requires --source-alias flag with a delivery token`
-
-**Solution**:
-
-1. Create a delivery token in Contentstack (Settings → Tokens → Delivery Tokens)
-2. Add it to CLI using:
-
-```
-csdx auth:tokens:add \
-  -a <alias-name> \
-  --delivery-token <token> \
-  --api-key <api-key> \
-  --environment <source-env> \
-  --type delivery
-```
-
-1. Use the alias in your command with `--source-alias <alias-name>`
-
-### Problem: Source Alias Not Found
-
-**Error**: `No token found for alias 'staging-delivery'`
-
-**Solution**:
-
-1. List your stored tokens: `csdx auth:tokens`
-2. Add the missing delivery token (see above)
-3. Verify the alias name matches exactly
-
-### Problem: Source Alias Invalid Type
-
-**Error**: `Alias 'my-token' is not a delivery token (type: management)`
-
-**Solution**: You're using a management token alias instead of a delivery token. Cross-publish requires a delivery token:
-
-1. Add a delivery token with `--type delivery` flag
-2. Use the delivery token alias with `--source-alias`
-
----
-
 ## Best Practices
 
 ### 1. Test in Lower Environments First
@@ -991,3 +906,9 @@ Apply filters to publish only necessary content:
 Group operations by content type, environment, or locale for better performance.
 
 ---
+
+## Limitations
+
+- Retry and revert (`--retry-failed`, `--revert`) are not supported for `cm:stacks:bulk-taxonomies`. They work for `bulk-entries` and `bulk-assets` only, which use a different log format.
+- Cross-publish, publishing content already live in one environment to another using `--source-alias`, is not supported for `cm:stacks:bulk-taxonomies`.
+- Taxonomy publish operates at the taxonomy level. Publishing an individual term is not supported by the API.

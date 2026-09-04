@@ -36,6 +36,15 @@ csdx cm:stacks:import --replace-existing --backup-dir <backup-dir-path> -k <valu
 - `--backup-dir=backup-dir`: Path to the backup directory.
 - `--module=module`: \[optional\] Specify the module to import into the target stack. If not specified, the import command will import all the modules into the stack. The available modules are *content-types, entries, environments, extensions, marketplace-apps, global-fields, labels, locales, webhooks, workflows, custom-roles,* and *taxonomies*.
 
+## Prerequisites
+
+- [Contentstack account](https://www.contentstack.com/login/)
+- Contentstack CLI [installed](/docs/headless-cms/install-the-cli)
+- CLI [authenticated](/docs/headless-cms/cli-authentication#login)
+- [Configured management token](/docs/headless-cms/cli-authentication#add-management-token) *(optional)*
+- [Exported](/docs/headless-cms/export-content-using-the-cli) content extracted (unzipped) in a local folder
+- Access to the target stack whose content is being overwritten
+
 ## Steps for Execution
 
 Follow the steps below to perform the overwrite operation on your target stack:
@@ -155,9 +164,3 @@ Here are the primary limitations to consider when leveraging the overwrite featu
 - **Manual Overwrite Steps**: Overwriting certain modules requires manual intervention due to the absence of an automated overwrite command.
 - **Processing Large Data Sets**: Migration of extensive content or assets may be time-consuming and requires accuracy verification.
 - **Handling Complex Relationships**: Additional manual effort may be necessary to map deeply nested or interdependent modules correctly.
-
-## Next Steps
-
-- [Export Content Using the CLI](/docs/headless-cms/export-content-using-the-cli/v1): export stack content to disk before importing it elsewhere.
-- [Migrate from Contentstack CLI V1 to V2](/docs/headless-cms/cli-v1-to-v2-migration-guide): what changed at 2.0.0, flag by flag, and how to upgrade.
-- [CLI Limitations](/docs/headless-cms/cli-limitations/v1): the coverage gaps and known constraints across CLI commands.

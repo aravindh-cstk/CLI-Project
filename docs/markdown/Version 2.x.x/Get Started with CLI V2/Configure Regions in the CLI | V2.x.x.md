@@ -139,3 +139,8 @@ Override only the Launch and Developer Hub hosts, leaving the rest of the region
 ```
 csdx config:set:region --launch <LAUNCH_HOST> --developer-hub <DEVELOPER_HUB_HOST>
 ```
+
+## Limitations
+
+- The region argument accepts only the predefined list: `NA`, `EU`, `AU`, `AWS-NA`, `AWS-EU`, `AWS-AU`, `AZURE-NA`, `AZURE-EU`, `GCP-NA`, `GCP-EU`. Any other value is rejected.
+- A custom region requires `--cda`, `--cma`, `--ui-host`, and `--name` together. None of the four can be set on its own.

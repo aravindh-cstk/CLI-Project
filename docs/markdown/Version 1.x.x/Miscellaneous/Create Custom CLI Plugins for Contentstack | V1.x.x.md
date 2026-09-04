@@ -311,7 +311,7 @@ Core plugins handle region and authentication automatically. Before using any co
 
 ### Contentstack CLI Features
 
-The `@contentstack/cli` package provides additional features that plugins can leverage:
+The `@contentstack/cli` package provides additional features that plugins can use:
 
 | Feature | Description |
 | --- | --- |
@@ -320,7 +320,7 @@ The `@contentstack/cli` package provides additional features that plugins can le
 | `utilities` | Common helpers for I/O, logging, formatting, etc. |
 | Shared base command classes | Consistent CLI behavior |
 
-### Publishing the Plugin
+## Publishing the Plugin
 
 1. Publish your plugin package to npm:
 
@@ -672,99 +672,8 @@ Here's a quick reference of essential utilities from `@contentstack/cli-utilitie
 | Path Utilities | `validatePath`, `sanitizePath` | Validate and sanitize file paths |
 | Logging | `LoggerService` | Logging for your plugin |
 
-## Troubleshooting
+## Next Steps
 
-### Command Not Found After Linking
-
-If your command isn't recognized after linking:
-
-1. Verify that the build completed successfully:
-
-   ```
-   npm run build
-   ```
-
-2. Regenerate the manifest:
-
-   ```
-   npx oclif manifest
-   ```
-
-3. Check that the command exists in the `dist/commands/` directory:
-
-   ```
-   ls dist/commands/myplugin/
-   ```
-
-4. Relink the plugin:
-
-   ```
-   csdx plugins:uninstall myplugin
-   csdx plugins:link
-   ```
-
-### ESM Module Warnings
-
-You may see a warning as given below:
-
-`Warning: @contentstack/myplugin is a linked ESM module and cannot be auto-transpiled.`
-
-This warning is expected. The plugin loads compiled code from the `dist/` directory. Ensure to build your plugin before linking.
-
-### Changes Not Reflecting
-
-If your changes aren't showing up:
-
-1. Rebuild the plugin:
-
-   ```
-   npm run build
-   ```
-
-2. Regenerate the manifest:
-
-   ```
-   npx oclif manifest
-   ```
-
-3. Relink if necessary:
-
-   ```
-   csdx plugins:link
-   ```
-
-### Authentication or Region Errors
-
-If you get authentication or region errors:
-
-1. Verify you're logged in:
-
-   ```
-   csdx login
-   ```
-
-2. Check your region:
-
-   ```
-   csdx config:get:region
-   ```
-
-3. Set region if required:
-
-   ```
-   csdx config:set:region <region-name>
-   ```
-
-### Plugin Installation Issues
-
-If installation fails:
-
-1. Verify that the package is published on npm.
-
-2. Check that the package name matches:
-
-   ```
-   csdx plugins:install @contentstack/myplugin
-   ```
-
-3. Ensure that the package has the correct `oclif.manifest.json` file (generated during `npm publish`).
+- [CLI Authentication](/docs/headless-cms/cli-authentication/v1): set up and verify authentication for the Contentstack CLI before publishing or testing your plugin.
+- [Configure Regions](/docs/headless-cms/configure-regions-in-the-cli/v1): point the CLI at the correct Contentstack region for your organization.
+- `@contentstack/apps-cli`: review a real, published plugin for command structure and namespacing conventions.

@@ -35,7 +35,19 @@ csdx config:set:log [--level <level>] [--path <path>]
 - `--level=level`: Set the log level for the CLI. \<options: debug|info|warn|error\>
 - `--path=path`: Specify the file path where logs should be saved.
 
-**Examples**
+### Get the Current Logging Configuration for the CLI
+
+The `config:get:log` command retrieves the current logging settings, including the log level and the file path where logs are stored. If no configuration is set, the CLI will indicate that no logging configuration is available.
+
+**Usage**
+
+```
+csdx config:get:log
+```
+
+## Examples
+
+**Set a Logging Configuration for the CLI**
 
 - Set log level to `debug`
 
@@ -48,13 +60,3 @@ csdx config:set:log [--level <level>] [--path <path>]
   ```
   csdx config:set:log --level info --path ./logs/app.log
   ```
-
-### Get the Current Logging Configuration for the CLI
-
-The `config:get:log` command retrieves the current logging settings, including the log level and the file path where logs are stored. If no configuration is set, the CLI will indicate that no logging configuration is available.
-
-**Usage**
-
-```
-csdx config:get:log
-```

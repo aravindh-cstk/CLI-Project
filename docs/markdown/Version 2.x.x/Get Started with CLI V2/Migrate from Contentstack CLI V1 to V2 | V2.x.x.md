@@ -352,7 +352,7 @@ V2 also carries over other stored config (proxy settings, region config) unchang
 csdx config:set:log --show-console-logs
 ```
 
-### Running V1 and V2 Side by Side
+## Gradual Migration
 
 npm global install allows only one active version per Node environment. If you need V1 available during testing, install it under a different nvm Node version. For example:
 
@@ -360,6 +360,8 @@ npm global install allows only one active version per Node environment. If you n
 nvm use 20 && npm install -g @contentstack/cli@1.x
 nvm use 22 && npm install -g @contentstack/cli@2.0.0
 ```
+
+**What this does not do:** nvm switches which install is active, it does not isolate CLI state. Both versions read the same saved tokens and the same region and proxy config described above, so signing out or reconfiguring in one affects the other. Only the console log setting is not shared, per the exception above.
 
 ## Command Reference
 
@@ -1366,83 +1368,6 @@ V2 adds taxonomy publishing support across export, import, and bulk operations.
   ```
 
 - `cm:stacks:bulk-taxonomies` handles bulk taxonomy publish operations (see [cm:stacks:bulk-taxonomies](#cmstacksbulk-taxonomies)).
-
-## Troubleshooting
-
-### Global Fields Silently Skipped on Import
-
-**Symptom:** you run `cm:stacks:import` against a V1 export. The command reports success. Zero global fields exist in the target stack afterward, with no error or warning.
-
-**Root Cause:** V2's per-UID file readers ignore the aggregate `globalfields.json` file that V1 export writes. V1 export never writes individual global-field files, so V2 import finds nothing to read.
-
-**Resolution:** Re-export your stack with V2 before importing. A separate migration conversion script covers cases where a V2 re-export is not possible.
-
-**See also:** [cm:stacks:import](#cmstacksimport)
-
-### Branch Export Silently Overwrites Another Branch's Data
-
-**Symptom:** you export two branches to the same `--data-dir`. The second export command completes successfully. The first branch's data is gone, with no error or warning.
-
-**Root Cause:** V2 writes flat output to `exportDir/...` with no `<branch-uid>/` subfolder, regardless of how you select the branch. The second export overwrites the first at the file level.
-
-**Resolution:** Use a separate `--data-dir` per branch:
-
-```
-csdx cm:stacks:export --branch main       --data-dir ./export-main    --stack-api-key bltXXX
-csdx cm:stacks:export --branch feature-x  --data-dir ./export-feature --stack-api-key bltXXX
-```
-
-**See also:** [cm:stacks:export](#cmstacksexport)
-
-### V1 Console Log Config Silently Ignored After Upgrade
-
-**Symptom:** after you upgrade to V2, CI pipelines that parse console output for success or failure signals start receiving progress-bar escape codes instead of plain text, even though you configured `csdx config:set:log --show-console-logs` under V1.
-
-**Root Cause:** V1 stores the console log preference under the key `log["show-console-logs"]` (hyphenated). V2 reads a different key, `log["showConsoleLogs"]` (camelCase). The two formats are not compatible, so V2 treats the setting as unset and defaults to progress bars.
-
-**Resolution:** Re-run the config command after upgrading:
-
-```
-csdx config:set:log --show-console-logs
-```
-
-**See also:** [config:set:log](#configsetlog), [Default Output: Progress Bars Replace Console Logs](#default-output-progress-bars-replace-console-logs)
-
-### V1 Multi-Branch Export Produces an Empty Import
-
-**Symptom:** you run V2 `cm:stacks:import` with `--data-dir` pointing at the root of a V1 multi-branch export. The command completes. No content imports, with no error or warning.
-
-**Root Cause:** V1 import auto-detects the branch by reading `branches.json` at the export root and navigating into the matching `<branch-uid>/` subfolder (the `selectBranchFromDirectory` logic). V2 removes this logic. When you point V2 at the export root, it looks for content files directly in that folder, where only `branches.json` lives, and finds nothing.
-
-**Resolution:** Point `--data-dir` directly at the branch subfolder:
-
-```
-csdx cm:stacks:import --data-dir ./my-export/main
-```
-
-**See also:** [cm:stacks:import](#cmstacksimport)
-
-### cm:stacks:audit Reports Zero Global-Field Issues on a V1 Export (False Clean)
-
-**Symptom:** you run `cm:stacks:audit` against a V1 export directory. The audit reports zero global-field issues, even when the export contains actual issues.
-
-**Root Cause:** audit uses the same per-UID-only file readers as V2 import (`readContentTypeSchemas` and `readGlobalFieldSchemas`). These readers ignore `globalfields.json`, the only global-field file a V1 export writes. With no per-UID files to read, audit reports zero results instead of an accurate count.
-
-**Resolution:** Re-export global fields with V2 before auditing. A separate conversion script covers cases where re-export is not possible.
-
-**See also:** [cm:stacks:audit](#cmstacksaudit)
-
-### Rolling Back After a Broken Upgrade
-
-**Symptom:** the V2 upgrade breaks a workflow and you need to return to V1 while you investigate.
-
-**Root Cause:** Not applicable. This entry is a recovery procedure rather than a failure diagnosis. It is grouped with the other Troubleshooting entries because it applies after any upgrade-related failure, regardless of cause.
-
-**Resolution:** follow these steps:
-
-1. Restore from your pre-upgrade stack export (the one you made in [Prerequisites](#prerequisites) before upgrading).
-2. Downgrade the CLI: `npm install -g @contentstack/cli@1.x`.
-3. Your tokens remain available. Both V1 and V2 read from the same token store.
 
 ## Pre-Upgrade Checklist
 
