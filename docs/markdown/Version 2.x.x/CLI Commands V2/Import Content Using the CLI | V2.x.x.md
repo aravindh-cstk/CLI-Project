@@ -336,10 +336,3 @@ csdx cm:stacks:import --alias <MANAGEMENT_TOKEN_ALIAS> --data-dir <EXPORT_PATH> 
   - [Releases](/docs/headless-cms/about-releases/)
 
 > **Additional Resource:** Learn more about the CLI-supported import operations in the [Support for CLI-Based Stack Import Operations](/docs/headless-cms/cli-supported-features-for-export-import-and-clone-operations#importing) document.
-
-## Next Steps
-
-- [Export Content Using the CLI](/docs/headless-cms/export-content-using-the-cli): export stack content to disk before importing it elsewhere.
-- [Audit Plugin](/docs/headless-cms/cli-audit-plugin): audit exported data for reference and field problems before importing it.
-- [Overwrite Existing Content using CLI Import](/docs/headless-cms/overwrite-existing-content-using-cli-import): overwrite existing entries and assets during an import.
-- [CLI-Supported Features for Export, Import, and Clone Operations](/docs/headless-cms/cli-supported-features-for-export-import-and-clone-operations): which modules export, import and clone cover, module by module.

@@ -365,10 +365,3 @@ For detailed limitations, see the [CLI Limitations Guide](/docs/headless-cms/cli
 | Reading an error | [Error Handling](#error-handling) | - |
 | Following the recommended order | [Best Practices](#best-practices) | - |
 | Checking what is not covered | [Limitations](#limitations) | - |
-
-## Next Steps
-
-- [Export Content Using the CLI](/docs/headless-cms/export-content-using-the-cli/v1): export stack content to disk before importing it elsewhere.
-- [Import Content Using the CLI](/docs/headless-cms/import-content-using-the-cli/v1): import exported content into a target stack.
-- [CLI for CS Assets](/docs/headless-cms/cli-for-cs-assets): the CS Assets commands, which use the cs-assets REST API rather than the Content Management API.
-- [CLI Limitations](/docs/headless-cms/cli-limitations/v1): the coverage gaps and known constraints across CLI commands.

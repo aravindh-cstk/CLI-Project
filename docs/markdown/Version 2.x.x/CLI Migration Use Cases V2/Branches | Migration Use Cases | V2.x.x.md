@@ -126,6 +126,5 @@ This is useful in a pipeline that merges a release branch and then publishes. Po
 
 ## Next Steps
 
-- [Migrate Content Between Stacks Using the CLI](/docs/headless-cms/migrate-content-between-stacks-using-the-cli): the end-to-end stack-to-stack migration procedure.
-- [Bulk Operations in CLI](/docs/headless-cms/bulk-operations-in-cli): publish or unpublish entries and assets in bulk.
-- [CLI Limitations](/docs/headless-cms/cli-limitations): the coverage gaps and known constraints across CLI commands.
+- [Compare and Merge Branches Using the CLI](/docs/headless-cms/compare-and-merge-branches-using-the-cli) covers listing, creating, deleting, comparing, and merging branches, the commands these use cases build on.
+- [CLI Limitations](/docs/headless-cms/cli-limitations) lists known branch constraints, including the maximum number of branches allowed per stack, which depends on your product tier.

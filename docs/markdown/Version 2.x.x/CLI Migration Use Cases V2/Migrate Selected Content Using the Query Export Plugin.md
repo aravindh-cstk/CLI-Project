@@ -22,23 +22,25 @@ Before running the export, ensure the following:
 - **Management token available** (Delivery tokens are not supported.)
 - **Export directory defined**: specify the `-d` path; optionally use `--branch` or `--branch-alias` (default: `main`).
 
-## Export Content Types Using CLI Commands
+## Steps for Execution
+
+### Export Content Types Using CLI Commands
 
 Use the following examples to export content types based on different query methods.
 
-### Export by Content Type Title
+**Export by Content Type Title**
 
 ```
 csdx cm:stacks:export-query -k <stack_api_key> -d ./export --query '{"modules":{"content-types":{"title":{"$in":["Blog","Author"]}}}}'
 ```
 
-### Export by Content Type UID
+**Export by Content Type UID**
 
 ```
 csdx cm:stacks:export-query -k <stack_api_key> -d ./export --query '{"modules":{"content-types":{"uid":{"$in":["blog","author"]}}}}'
 ```
 
-### Export Using a Query File
+**Export Using a Query File**
 
 ```
 csdx cm:stacks:export-query -k <stack_api_key> -d ./export --query ./my-query.json
@@ -58,13 +60,13 @@ Example `my-query.json`:
 }
 ```
 
-### Export from a Specific Branch
+**Export from a Specific Branch**
 
 ```
 csdx cm:stacks:export-query -k <stack_api_key> -d ./export --branch main --query '{"modules":{"content-types":{"title":{"$in":["Blog"]}}}}'
 ```
 
-## Query Format
+### Query Format
 
 - The top-level key must be `modules`; under it use **content-types** (the only queryable module for this plugin).
 - Use Delivery API–style operators (e.g. `$in`, `$regex`, `$gte`).
@@ -72,7 +74,7 @@ csdx cm:stacks:export-query -k <stack_api_key> -d ./export --branch main --query
 
 > **Additional Resource:** Refer to the Contentstack [Content Delivery API documentation](/docs/developers/apis/content-delivery-api) for the full list of supported operators.
 
-## Export Output Structure
+### Export Output Structure
 
 The export generates the same folder structure as a standard stack export:
 
@@ -103,17 +105,17 @@ In addition to this directory structure, Query Export automatically includes the
 - entries for the matched content types
 - referenced assets
 
-## Import the Exported Content into a Stack
+### Import the Exported Content into a Stack
 
 Use the export folder (e.g., `./export/main`) as `-d` in import or import-setup.
 
-### Import into an Empty Stack
+**Import into an Empty Stack**
 
 ```
 csdx cm:stacks:import -k <target_stack_api_key> -d ./export/main
 ```
 
-### Import into a Stack with Existing Content
+**Import into a Stack with Existing Content**
 
 **Step 1: Run import-setup**
 
@@ -130,3 +132,8 @@ Note the backup path printed in the output (for example, `./_backup_456`).
 ```
 csdx cm:stacks:import -k <target_stack_api_key> -d ./export/main --backup-dir ./_backup_456 --replace-existing --module entries
 ```
+
+## Limitations
+
+- `--query` filters which content types are exported. It cannot filter which entries within a content type are exported.
+- Asset-folder-level filtering is not supported. Every asset folder is exported regardless of the query.

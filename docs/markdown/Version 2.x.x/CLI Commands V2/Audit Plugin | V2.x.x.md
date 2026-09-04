@@ -388,7 +388,7 @@ The following modules have no dependencies and can be audited independently:
 - Workflows
 - Custom Roles
 
-## Common Use Cases
+## Examples
 
 This section outlines complete workflows for common developer use cases with the Audit plugin.
 
@@ -659,19 +659,6 @@ csdx cm:stacks:audit \
   --modules=entries \
   --report-path ./verify-reports
 ```
-
-## Troubleshooting
-
-### Common Issues
-
-- **Error:** `Path does not exist`
-  **Solution:** Ensure the `--data-dir` path points to the correct exported data directory. For branch-enabled stacks, include the full path to the branch folder.
-- **Error:** `No reports generated`
-  **Solution:** Verify that the `--report-path` directory is writable. Reports are only generated if issues are found.
-- **Error:** `Fix operation not working`
-  **Solution:** Ensure you are using the `--copy-dir` flag. The fix operation modifies files, and without a backup, you may lose the original data.
-- **Error:** `Select field values not being fixed`
-  **Solution:** Enable select field fixing by adding `{ "fixSelectField": true }` to your config file and passing it using the `--config` flag.
 
 ## Best Practices
 

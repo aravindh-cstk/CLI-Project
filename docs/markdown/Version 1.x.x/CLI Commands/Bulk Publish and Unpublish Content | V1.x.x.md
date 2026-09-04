@@ -357,35 +357,8 @@ csdx cm:stacks:publish-configure --stack-api-key <stack_api_key>
 - `-a`, `--alias=alias`: Name (alias) of the management token you want to use. You must use either the `--alias` flag or the `--stack-api-key` flag.
 - `--stack-api-key=stack-api-key`: API key of the source stack. You must use either the `--stack-api-key` flag or the `--alias` flag.
 
-## Troubleshooting
-
-### Assets remain unpublished after `cm:assets:publish --backup-dir`
-
-**Root Cause(s)**: Asset scanning found the asset still in the scan queue at the time the command ran. The retry mechanism for in-queue assets is disabled in this release, so the asset is skipped immediately instead of being retried.
-
-**Resolution**: Wait for the asset's scan to complete, then run `cm:assets:publish --backup-dir <BACKUP_DIR>` again. Assets are not retried automatically within a single command run.
-
-### `csdx cm:assets:publish --data-dir ...` reports an unrecognized flag
-
-**Root Cause(s)**: A message printed at the end of asset import (from `cm:stacks:import`) tells you to run `csdx cm:assets:publish --data-dir <BACKUP_DIR> ...` to publish assets after scanning. `cm:assets:publish` does not have a `--data-dir` flag.
-
-**Resolution**: Use `--backup-dir` instead: `csdx cm:assets:publish --backup-dir <BACKUP_DIR> --stack-api-key <STACK_API_KEY>`.
-
-### Import prints an asset-scanning message but the org does not have asset scanning enabled
-
-**Root Cause(s)**: The reminder to run `cm:assets:publish --backup-dir` after import is printed whenever assets were imported and `skipAssetsPublish` is set, including when `--skip-assets-publish` was passed manually and asset scanning played no part. The message text does not distinguish the two cases.
-
-**Resolution**: Check whether `--skip-assets-publish` was passed explicitly. If it was, the message is unrelated to asset scanning and assets can be published normally with `csdx cm:assets:publish --backup-dir <BACKUP_DIR> --stack-api-key <STACK_API_KEY>` at any time.
-
 ## Limitations
 
 - The [cm:bulk-publish:add-fields](#bulk-publish-all-entries-after-adding-a-new-field-in-the-content-type) command does not work for [custom](/docs/headless-cms/custom) and [mandatory](/docs/headless-cms/mandatory) fields.
 - To manage API request timing and prevent concurrency issues, add the `delayMs` parameter to your configuration file to add controlled delays between requests. For example, use `delayMs: 1000` (for 1-second delays).
 - On stacks with asset scanning enabled, `cm:assets:publish` does not retry assets that are still in the scan queue. See [Assets remain unpublished after cm:assets:publish --backup-dir](#assets-remain-unpublished-after) for the resolution.
-
-## Next Steps
-
-- [Configure Rate Limits in the CLI](/docs/headless-cms/configure-rate-limits-in-the-cli/v1): raise or lower the API rate limits the CLI applies.
-- [Import Content Using the CLI](/docs/headless-cms/import-content-using-the-cli/v1): import exported content into a target stack.
-- [Asset Scanning in CLI](/docs/headless-cms/asset-scanning-in-cli/v1): scan assets for malware as part of an import or export.
-- [Migrate from Contentstack CLI V1 to V2](/docs/headless-cms/cli-v1-to-v2-migration-guide): what changed at 2.0.0, flag by flag, and how to upgrade.

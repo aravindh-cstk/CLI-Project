@@ -1344,5 +1344,107 @@
     "exception": "The application at contentstack.com/login and any third-party host. Neither is environment mirrored and neither has a relative form.",
     "tier": 1,
     "checkId": "internal-link-form"
+  },
+  {
+    "id": "CLI-18",
+    "source": "cli-templates/cli-common-rules.md",
+    "docTypes": [
+      "cli-command-reference",
+      "cli-task-runbook",
+      "cli-module-reference"
+    ],
+    "rule": "No CLI doc, old or new, carries a page-level Troubleshooting H2. Every failure mode belongs in the CLI troubleshooting hub. Link the reader there instead, in whichever section fits the page.",
+    "why": "The CLI troubleshooting hub already holds 30 ticket-sourced articles across five groups. A Troubleshooting section copied onto every command page that can produce a given error goes stale in as many places as it was copied, while one hub entry linked from every page that can hit it stays current when the error message or the fix changes.",
+    "exception": "None. See CLI-19 for the machine-checked half of this rule.",
+    "tier": 2,
+    "checkId": null
+  },
+  {
+    "id": "CLI-19",
+    "source": "cli-templates/cli-common-rules.md",
+    "docTypes": [
+      "cli-command-reference",
+      "cli-task-runbook",
+      "cli-module-reference"
+    ],
+    "rule": "A CLI command reference, task runbook, or module reference must not carry a page-level Troubleshooting section. Link the CLI troubleshooting hub instead.",
+    "why": "The CLI troubleshooting hub already holds 30 ticket-sourced articles across five groups. A Troubleshooting section on a CLI page duplicates content that goes stale wherever it is copied, and the hub is the one place a reader searching an error message is likely to land.",
+    "exception": "None.",
+    "tier": 1,
+    "checkId": "section-structure"
+  },
+  {
+    "id": "CLI-20",
+    "source": "cli-templates/cli-common-rules.md",
+    "docTypes": [
+      "cli-command-reference",
+      "cli-task-runbook",
+      "cli-module-reference"
+    ],
+    "rule": "A code-sourced Limitations finding must be classified before it is published: a boundary on function (a closed list, an unsupported operation, a safely-rejected input format) is a limitation and gets written. A weakness in how the CLI protects data (a secret exposed via argv, disk, or logs, unsanitized input reaching a shell or file path, encryption or auth that is off by default, a check that fails open) is a possible vulnerability and does not get published anywhere in the docs. When unsure, treat it as a vulnerability and report it to whoever asked for the pass instead.",
+    "why": "A docs site is public, indexed, and not reviewed by a security team before it ships, so it is the wrong place for a vulnerability to surface first. \"The CLI cannot do X\" and \"the CLI does X in a way that leaks Y\" read as the same sentence shape from outside the code, so a pass built to find limitations can walk into a vulnerability without noticing unless it reads past the matched line into the surrounding function.",
+    "exception": "A vulnerability already publicly disclosed, such as a fixed CVE or a changelog entry describing the fix, is fine to reference as a version-specific claim per CLI-C10.",
+    "tier": 2,
+    "checkId": null
+  },
+  {
+    "id": "PLG1",
+    "source": "cli-templates/cli-plugin-guide.md",
+    "docTypes": [
+      "cli-plugin-guide"
+    ],
+    "rule": "The directory layout in Plugin Structure uses real file and folder names exactly as the CLI plugin scaffolding creates them, such as src/commands/ and oclif.manifest.json, not renamed or reorganized for readability.",
+    "why": "A reader building their first plugin is about to create these exact files. A paraphrased layout either does not match what their scaffolding tool produces, or leaves out a file the plugin will not load without.",
+    "exception": "None.",
+    "tier": 2,
+    "checkId": null
+  },
+  {
+    "id": "PLG2",
+    "source": "cli-templates/cli-plugin-guide.md",
+    "docTypes": [
+      "cli-plugin-guide"
+    ],
+    "rule": "A TypeScript example under Creating a Plugin or Commands and Flags is a complete, compilable command class, not a fragment that only illustrates a shape.",
+    "why": "The reader pastes this into a file and builds it. A fragment that reads correctly but does not compile fails at the moment a plugin guide most needs to work, before the reader has anything running to debug from.",
+    "exception": "A snippet explicitly introduced as showing one option in isolation does not need to be a full class, provided the surrounding prose says so.",
+    "tier": 2,
+    "checkId": null
+  },
+  {
+    "id": "PLG3",
+    "source": "cli-templates/cli-plugin-guide.md",
+    "docTypes": [
+      "cli-plugin-guide"
+    ],
+    "rule": "Plugin Registration and Linking includes a command the reader runs to confirm the plugin loaded, not only the linking command itself.",
+    "why": "A linking command succeeding is not the same as the new command being usable. A namespace collision or a skipped build step fails silently otherwise, and the reader spends the rest of the guide debugging a step that already went wrong.",
+    "exception": "None.",
+    "tier": 2,
+    "checkId": null
+  },
+  {
+    "id": "PLG4",
+    "source": "cli-templates/cli-plugin-guide.md",
+    "docTypes": [
+      "cli-plugin-guide"
+    ],
+    "rule": "A reference section such as Available Methods and Utilities, where it runs long enough that a reader would scroll past what they need, opens with a table mapping each method or utility to its subsection.",
+    "why": "The same reasoning as MOD2, restated for the one section in this type shaped like a lookup page rather than a procedure. A developer skimming for one method should not have to read the whole appendix to find it.",
+    "exception": "A reference section short enough to read in full does not need an index.",
+    "tier": 2,
+    "checkId": null
+  },
+  {
+    "id": "PLG5",
+    "source": "cli-templates/cli-plugin-guide.md",
+    "docTypes": [
+      "cli-plugin-guide"
+    ],
+    "rule": "Do not add a Troubleshooting H2 to this type. Link the CLI troubleshooting hub instead, per CLI-C14.",
+    "why": "Same reason as the other CLI types: one entry in the hub stays current, a copy on this page does not.",
+    "exception": "None. checks/section-structure.js reports CLI-19 if one is added back.",
+    "tier": 1,
+    "checkId": "section-structure"
   }
 ]

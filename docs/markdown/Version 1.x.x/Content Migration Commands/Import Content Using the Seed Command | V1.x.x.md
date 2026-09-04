@@ -151,3 +151,7 @@ Now any user can import your stack’s content to their stack by performing the 
 
 - To import content into an existing destination stack, ensure you have permission to create content in that stack.
 - To create a new stack for storing content, you must have “[owner](/docs/administration/about-administration-roles#organization-owner)” or “[admin](/docs/administration/about-administration-roles#organization-admin)” rights in that organization.
+
+## Limitations
+
+- The source repository must be public on GitHub. The Seed command authenticates to Contentstack, not to GitHub, so private repositories are not supported.

@@ -235,3 +235,7 @@ Export taxonomy terms with a semicolon delimiter, which suits spreadsheets confi
 ```
 csdx cm:export-to-csv --action taxonomies --stack-api-key <STACK_API_KEY> --taxonomy-uid <TAXONOMY_UID> --delimiter ";"
 ```
+
+## Limitations
+
+- `--action` accepts only `entries`, `users`, `teams`, or `taxonomies`. Assets, content type schemas, and global fields cannot be exported to CSV with this command.
