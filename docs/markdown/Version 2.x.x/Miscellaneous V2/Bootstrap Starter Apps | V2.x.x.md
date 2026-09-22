@@ -16,6 +16,15 @@ This guide explains how to use the Bootstrap plugin to automate the setup proces
 
 > **Note:** This Starter app uses [Live Preview](/docs/headless-cms/about-live-preview) version 2.0.
 
+## Quick Decision Guide
+
+`cm:bootstrap` prompts you to pick a Technology. Which walkthrough to follow depends on what you picked:
+
+| Approach | Key Configuration Value | Reason | Go to |
+| --- | --- | --- | --- |
+| React JS, or any other technology in Supported Starter Apps | Technology selected during `cm:bootstrap` is not Compass | This walkthrough is written for the React starter. The setup shape (env file, variable names) is the same pattern the other listed technologies follow. | [Run the Bootstrap Starter App](#run-the-bootstrap-starter-app) |
+| Compass Starter | Technology selected during `cm:bootstrap` is Compass | Compass ships its own setup flow and configuration file shape, different from the other starters. | [Run the Compass Starter](#run-the-compass-starter) |
+
 ## Prerequisites
 
 - [Contentstack account](https://www.contentstack.com/login)
@@ -28,7 +37,9 @@ This guide explains how to use the Bootstrap plugin to automate the setup proces
   - [Login](/docs/headless-cms/cli-authentication#authentication)
   - [Management Token](/docs/headless-cms/cli-authentication#token-management)
 
-## Using the Bootstrap Command
+## Steps for Execution
+
+### Using the Bootstrap Command
 
 Use the `cm:bootstrap` command to automate Starter app setup. This command performs the following:
 
@@ -162,7 +173,7 @@ The above command will add the Starter app’s (React JS) content to your stack 
 
 ![CLI-Bootstrap-Bootstrap-Stack.png](https://images.contentstack.io/v3/assets/blt2d43f51baca745a8/blt094971ffb299f4ce/680f5f29858ac99fb022b33b/CLI-Bootstrap-Bootstrap-Stack.png)
 
-## Run the Bootstrap Starter App
+### Run the Bootstrap Starter App
 
 You can easily run this Starter app on your local machine by following the steps below:
 
@@ -310,7 +321,7 @@ You can easily run this Starter app on your local machine by following the steps
 
    ![CLI-Bootstrap-LivePage.png](https://images.contentstack.io/v3/assets/blt2d43f51baca745a8/blt0a8d0af1a144f91c/680f5f2969863dfae9732007/CLI-Bootstrap-LivePage.png)
 
-## Run the Compass Starter
+### Run the Compass Starter
 
 You can easily run the Compass Starter on your local machine by following the steps below:
 
@@ -364,7 +375,7 @@ Here's how your website's Home page will look after running on your localhost.
 
 ![CLI-Bootstrap-Compass-Final.png](https://images.contentstack.io/v3/assets/blt2d43f51baca745a8/bltc5de3b5da75780f0/680f5f293b56c245671740c6/CLI-Bootstrap-Compass-Final.png)
 
-## Deploy the Website
+### Deploy the Website
 
 You can deploy your Starter app using:
 

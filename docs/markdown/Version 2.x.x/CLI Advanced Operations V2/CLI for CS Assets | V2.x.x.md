@@ -202,59 +202,6 @@ Management tokens do not block CS Assets import. Import detects CS Assets from `
 csdx cm:stacks:import -a <alias> --data-dir ./export
 ```
 
-## Troubleshooting
-
-### CS Assets mode does not activate during export
-
-**Symptom:** The export command completes without errors but produces a legacy `assets/` folder at the branch root instead of a `spaces/` directory.
-
-**Root cause:** One of the two activation conditions is not met: either the region is not configured with a CS Assets URL, or the stack branch does not have linked workspaces. The CLI falls back to legacy asset export silently when either condition is absent.
-
-**Resolution:** Verify both conditions before re-running export:
-
-1. Confirm your region has a CS Assets URL: run `csdx config:get:region` and check for the `cs-assets` field.
-2. Confirm linked workspaces exist: check your Contentstack organization settings for the stack branch.
-
----
-
-### CS Assets mode does not activate when using a management token for export
-
-**Symptom:** Export produces a legacy `assets/` folder even though the region has a CS Assets URL and the branch has linked workspaces.
-
-**Root cause:** Management tokens cannot read branch settings. Without branch settings, the CLI cannot confirm linked workspaces exist, so CS Assets mode never activates for export.
-
-**Resolution:** Use session-based authentication for export:
-
-```
-csdx auth:login
-csdx cm:stacks:export -k <stack-api-key> --data-dir ./export --branch <branch-name>
-```
-
----
-
-### CS Assets import mode does not activate
-
-**Symptom:** The import command runs but treats `--data-dir` as a legacy export. Assets from the `spaces/` directory are not imported, or the import fails with unexpected path errors.
-
-**Root cause:** CS Assets import requires two conditions in `--data-dir`: a `spaces/` directory at the branch root, and an `am_v2` key in `stack/settings.json`. If either is missing, the CLI uses legacy import behavior.
-
-**Resolution:** Verify that `--data-dir` points to a directory produced by a CS Assets export:
-
-1. Confirm a `spaces/` directory exists at the branch root inside `--data-dir`.
-2. Confirm `stack/settings.json` contains an `am_v2` key.
-
-If the key is missing, the source export ran as a legacy asset export. Re-run the export under the conditions described in the [Export](#export-cs-assets) section.
-
----
-
-### Target branch connects to source organization workspaces after import
-
-**Symptom:** After import completes, the target branch is linked to the source organization's workspaces instead of the newly imported ones.
-
-**Root cause:** `stack/settings.json` in the export directory contains the source stack's linked workspace entries. Applying this file without modification links the target branch to the source organization.
-
-**Resolution:** This should not occur when using the Contentstack CLI for import. The CLI strips linked workspace entries from `stack/settings.json` before writing it to the target stack, then creates correct links for the target branch. If you applied `stack/settings.json` manually or through a custom script, remove the linked workspace entries before re-applying the file.
-
 ## Next Steps
 
 - [Export Content Using the CLI](/docs/headless-cms/export-content-using-the-cli): Full reference for all flags and options available with `csdx cm:stacks:export`, including module filtering and branch targeting.

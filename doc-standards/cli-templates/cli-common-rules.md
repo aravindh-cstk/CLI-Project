@@ -8,7 +8,7 @@ Read this file alongside `sdk-templates/common-rules.md` and the per-type file f
 
 ---
 
-## Section 1: Rules that apply to all three CLI types
+## Section 1: Rules that apply to all four CLI types
 
 These were previously restated in each per-type file, or stated on one type and silently assumed on the others. They live here now, and the per-type files point at them.
 
@@ -252,6 +252,42 @@ Three separate gaps followed from that:
 
 ---
 
+### CLI-C14: No CLI doc carries a page-level Troubleshooting section. Link the troubleshooting hub instead
+
+**Rule:** A CLI command reference or task runbook does not carry a `Troubleshooting` H2. Every failure mode, old or new, belongs in the CLI troubleshooting hub (`troubleshooting/`). Link the reader there instead, in whichever section fits the page: a callout, or a line inside an existing `Limitations` or `Next Steps` section. `cli-module-reference` never carried one, per MOD3.
+
+**Why:** The hub already exists, 30 ticket-sourced articles across five groups (export and import commands, migration and branch operations, performance and rate limits, feature availability, and migration-tool login), and is where a reader who searches an error message is likely to land. A Troubleshooting section copied onto every command page that can produce a given error goes stale in as many places as it was copied, and nothing keeps the copies in sync when the error message or the fix changes. One entry in the hub, linked from wherever the failure can occur, is the only version that stays current.
+
+**This rule went through two stages, and the second correction matters.** It first downgraded `Troubleshooting` from Required to Recommended, leaving the 22 pages that already carried one untouched, on the reasoning that a page already documenting its own failures did not need to route around itself. The docs owner corrected that: a page-level section is exactly the duplicate this rule exists to stop, whether it was written last year or is being written today, so the 22 existing sections were removed rather than grandfathered in. `Troubleshooting` is absent from `cli-command-reference.md` and `cli-task-runbook.md`'s Section Order tables entirely now, not listed as Recommended. See CMD3 and RUN5.
+
+**Exception:** None. `checks/section-structure.js` reports `CLI-19` if a `Troubleshooting` H2 is added back to any of the four CLI types.
+
+---
+
+### CLI-C15: A code-sourced finding is a limitation only if it describes a boundary on function, not a weakness in protection
+
+**Rule:** Before writing a `Limitations` bullet sourced from the CLI or plugin code, classify what was found.
+
+A **limitation** describes a boundary on function: a closed list of accepted values, an operation the command does not perform, an input format the command requires and safely rejects otherwise. It answers "what can I not ask this command to do."
+
+A **vulnerability** describes a weakness in how the CLI protects data. Any of: a secret or credential written to disk in the clear, logged, or passed as a bare CLI argument where it would sit in shell history and process listings. Unsanitized input reaching a file path, shell command, or URL. Encryption or authentication that is off by default or can be silently bypassed. A check that fails open, permitting an action it should deny.
+
+If the finding is a limitation, write it, per CLI-C9's format. If the finding is a vulnerability, or the source is not clear enough to tell which, do not put it in the docs. Not in `Limitations`, not in `Troubleshooting` (which does not exist on a CLI page per CLI-C14 anyway), not anywhere. Name the finding instead, file and line, in the session's own report, and hand it to whoever asked for the pass rather than publishing it.
+
+**Why:** A docs site is a bad place for a vulnerability to surface first. It is public, indexed by search engines, and nobody on a security team reviews a Limitations bullet before it ships the way they would review a disclosure. "The CLI cannot do X" and "the CLI does X in a way that leaks Y" read as the same sentence shape from outside the code, so a pass built to find the first kind can walk straight into the second one without noticing the difference, and confirming the difference means reading past the line that matched a search pattern into the surrounding function.
+
+**Worked example, from the first pass that used this rule.** Two of the eighteen sourced findings needed exactly this check before they were written down.
+
+`Configure MFA Secret Using CLI`. The finding was that the MFA secret must be base32, at least 16 characters. Before writing that as a limitation, the surrounding code was checked for how the secret reaches the CLI at all, because a TOTP seed is exactly the kind of value that is unsafe to pass as a bare flag. It turned out `getMFACode()` reads only `process.env.CONTENTSTACK_MFA_SECRET`. There is no `--secret` flag and nothing is ever written to disk. So the format check is a limitation (a validation rule that rejects bad input safely), and the transmission path is not a vulnerability (there isn't one to describe). Both had to be checked. Only the first is in the docs.
+
+`Configure Proxy Settings in CLI`: the finding was that `--protocol` accepts only `http` or `https`. The command also takes a proxy password and stores it via `configHandler`, which was checked next, because "stores a password" is worth confirming rather than assuming. The underlying config store encrypts its file by default (`ENCRYPT_CONF` defaults to `true`), so there was no unencrypted-secret-at-rest finding to report either way. The protocol restriction is a limitation and was written down. Nothing about password handling was, because there was nothing wrong to report and reporting "it's fine" is not what a Limitations section is for.
+
+**How to check.** For every candidate finding, read past the line that matched a search pattern into the function that surrounds it, and ask where the value in question came from and where it goes. A flag with a closed `options` array, or a branch that says "not supported" and stops, is a limitation. A secret, token, or credential is worth one extra check every time: is it ever a bare CLI argument, is it ever written to disk unencrypted, is it ever logged. When genuinely unsure after that check, treat it as a vulnerability. A limitation held back for one more session costs a missing doc line. A vulnerability published costs a disclosure.
+
+**Exception:** A vulnerability that is already publicly disclosed, such as a fixed CVE or a changelog entry describing the fix, is fine to reference as a version-specific claim per CLI-C10, since the disclosure already happened elsewhere and this rule exists to stop this docs site being first.
+
+---
+
 ## Section 3: Relationship to the SDK common rules
 
 | CLI rule | SDK rule it relates to | Relationship |
@@ -269,3 +305,5 @@ Three separate gaps followed from that:
 | CLI-C11 no inherited facts | C6 verified claims | Extends. Applies verification to a doc derived from an older version, where every sentence was once true |
 | CLI-C12 no absence claims | None | New. C6 and CLI-C10 govern claims about the product, this governs claims about the documentation, which no publishing step revisits |
 | CLI-C13 root-relative docs links | C2-04 Quick Reference tables | Generalises. C2-04 asked for a relative URL in one table and no check ever tested relativeness, so this states it for every link and adds the check |
+| CLI-C14 troubleshooting hub | None | New. No CLI doc carries a page-level Troubleshooting section, old or new |
+| CLI-C15 limitation vs. vulnerability | None | New. Governs what a code-sourced pass is allowed to publish, not the shape of a passing doc |

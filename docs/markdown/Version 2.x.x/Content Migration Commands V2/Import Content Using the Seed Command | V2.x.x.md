@@ -172,3 +172,7 @@ Seed without the confirmation prompt, for use in a script.
 ```
 csdx cm:stacks:seed --org <ORG_UID> --stack-name <NEW_STACK_NAME> --yes
 ```
+
+## Limitations
+
+- The source repository must be public on GitHub. The Seed command authenticates to Contentstack, not to GitHub, so private repositories are not supported.

@@ -83,20 +83,6 @@ csdx app:create
 - `--org`: Provide the organization UID to fetch the app details for the operation.
 - `--boilerplate`: Provide a boilerplate \<options: App Boilerplate|DAM App Boilerplate|Ecommerce App Boilerplate\>.
 
-**Examples**
-
-- To create a stack app named App-1:
-
-  ```
-  csdx app:create --name App-1 --app-type stack
-  ```
-
-- To create an organization app named App-3 by providing the current working directory and the path of the external config:
-
-  ```
-  csdx app:create --name App-3 --app-type organization --org <UID> -d ./boilerplate -c ./external-config.json
-  ```
-
 ### Get App Details
 
 The `app:get` command allows you to get the details of an app in Developer Hub. Let's discuss how to use this command:
@@ -126,20 +112,6 @@ csdx app:get
 - `--app-type`: \[default: stack\] Type of app \<options: stack|organization\>.
 - `--app-uid`: Provide the app UID of an existing app.
 - `--org`: Provide the organization UID to fetch the app details for the operation.
-
-**Examples**
-
-- To fetch the details of a stack app:
-
-  ```
-  csdx app:get --org <value> --app-uid <value> --app-type stack
-  ```
-
-- To fetch the details of an organization app:
-
-  ```
-  csdx app:get --org <value> --app-uid <value> --app-type organization
-  ```
 
 ### Install an App
 
@@ -175,20 +147,6 @@ csdx app:install
 - `--org`: Provide the organization UID to fetch the app details for the operation.
 - `--app-uid`: Provide the app UID of an existing app.
 - `--stack-api-key`: API Key of the stack where the app operation is to be performed.
-
-**Examples**
-
-- To install an app:
-
-  ```
-  csdx app:install
-  ```
-
-- To install an app by providing the stack where the app is to be installed:
-
-  ```
-  csdx app:install --stack-api-key
-  ```
 
 ### Update an App
 
@@ -226,14 +184,6 @@ csdx app:update
 
 - `--app-manifest`: Path to the app `manifest.json` file.
 - `--org`: Provide the organization UID to fetch the app details for the operation.
-
-**Examples**
-
-- To update an app for a provided app manifest file:
-
-  ```
-  csdx app:update --app-manifest <value>
-  ```
 
 ### Deploy an App
 
@@ -284,44 +234,6 @@ csdx app:deploy
 - `--launch-project`: Choose a new or an existing Launch project. \<options: existing|new\>
 - `--config`: Enter the path of the config file.
 
-**Examples**
-
-- To deploy an app:
-
-  ```
-  csdx app:deploy
-  ```
-
-- To deploy an app by providing the organization UID and the app UID:
-
-  ```
-  csdx app:deploy --org <UID> --app-uid <APP-UID-1>
-  ```
-
-- To deploy an app using custom hosting by providing the organization UID and the app UID:
-
-  ```
-  csdx app:deploy --org <UID> --app-uid <APP-UID-1> --hosting-type <custom-hosting> --app-url <https://localhost:3000>
-  ```
-
-- To deploy an app using an existing Launch project, by providing the organization UID and the app UID:
-
-  ```
-  csdx app:deploy --org <UID> --app-uid <APP-UID-1> --hosting-type <hosting-with-launch> --launch-project <existing>
-  ```
-
-- To deploy an app using a new Launch project, by providing the organization UID and the app UID:
-
-  ```
-  csdx app:deploy --org <UID> --app-uid <APP-UID-1> --hosting-type <hosting-with-launch> --launch-project <new>
-  ```
-
-- To deploy an app using a new Launch project, by providing a config file path, the organization UID, and the app UID:
-
-  ```
-  csdx app:deploy --org <UID> --app-uid <APP-UID-1> --hosting-type <hosting-with-launch> --launch-project <new> --config <config-path>
-  ```
-
 ### Reinstall an App
 
 The `app:reinstall` command allows you to reinstall an app from Developer Hub to an organization or a stack.
@@ -357,20 +269,6 @@ csdx app:reinstall
 - `--org`: Provide the organization UID to fetch the app details for the operation.
 - `--app-uid`: Provide the app UID of an existing app.
 - `--stack-api-key`: API Key of the stack where the app operation is to be performed.
-
-**Examples**
-
-- To reinstall an app:
-
-  ```
-  csdx app:reinstall
-  ```
-
-- To reinstall an app by providing the stack where the app is to be reinstalled:
-
-  ```
-  csdx app:reinstall --stack-api-key
-  ```
 
 ### Uninstall an App
 
@@ -409,26 +307,6 @@ csdx app:uninstall
 - `--installation-uid`: Provide the installation ID of the app that needs to be uninstalled.
 - `--uninstall-all`: Uninstalls the app from all the stacks where it is installed.
 
-**Examples**
-
-- To uninstall an organization app:
-
-  ```
-  csdx app:uninstall --org <UID> --app-uid <APP-UID-1>
-  ```
-
-- To uninstall an organization app from all the stacks where it is installed:
-
-  ```
-  csdx app:uninstall --org <UID> --app-uid <APP-UID-1> --uninstall-all
-  ```
-
-- To uninstall an organization app for a given installation ID:
-
-  ```
-  csdx app:uninstall --org <UID> --app-uid <APP-UID-1> --installation-uid <INSTALLATION-UID-1>
-  ```
-
 ### Delete an App
 
 The `app:delete` command allows you to delete an app from Developer Hub as follows:
@@ -464,7 +342,131 @@ csdx app:delete
 - `--org`: Provide the organization UID to fetch the app details for the operation.
 - `--app-uid`: Provide the app UID of an existing app.
 
-**Examples**
+## Examples
+
+**Create an App**
+
+- To create a stack app named App-1:
+
+  ```
+  csdx app:create --name App-1 --app-type stack
+  ```
+
+- To create an organization app named App-3 by providing the current working directory and the path of the external config:
+
+  ```
+  csdx app:create --name App-3 --app-type organization --org <UID> -d ./boilerplate -c ./external-config.json
+  ```
+
+**Get App Details**
+
+- To fetch the details of a stack app:
+
+  ```
+  csdx app:get --org <value> --app-uid <value> --app-type stack
+  ```
+
+- To fetch the details of an organization app:
+
+  ```
+  csdx app:get --org <value> --app-uid <value> --app-type organization
+  ```
+
+**Install an App**
+
+- To install an app:
+
+  ```
+  csdx app:install
+  ```
+
+- To install an app by providing the stack where the app is to be installed:
+
+  ```
+  csdx app:install --stack-api-key
+  ```
+
+**Update an App**
+
+- To update an app for a provided app manifest file:
+
+  ```
+  csdx app:update --app-manifest <value>
+  ```
+
+**Deploy an App**
+
+- To deploy an app:
+
+  ```
+  csdx app:deploy
+  ```
+
+- To deploy an app by providing the organization UID and the app UID:
+
+  ```
+  csdx app:deploy --org <UID> --app-uid <APP-UID-1>
+  ```
+
+- To deploy an app using custom hosting by providing the organization UID and the app UID:
+
+  ```
+  csdx app:deploy --org <UID> --app-uid <APP-UID-1> --hosting-type <custom-hosting> --app-url <https://localhost:3000>
+  ```
+
+- To deploy an app using an existing Launch project, by providing the organization UID and the app UID:
+
+  ```
+  csdx app:deploy --org <UID> --app-uid <APP-UID-1> --hosting-type <hosting-with-launch> --launch-project <existing>
+  ```
+
+- To deploy an app using a new Launch project, by providing the organization UID and the app UID:
+
+  ```
+  csdx app:deploy --org <UID> --app-uid <APP-UID-1> --hosting-type <hosting-with-launch> --launch-project <new>
+  ```
+
+- To deploy an app using a new Launch project, by providing a config file path, the organization UID, and the app UID:
+
+  ```
+  csdx app:deploy --org <UID> --app-uid <APP-UID-1> --hosting-type <hosting-with-launch> --launch-project <new> --config <config-path>
+  ```
+
+**Reinstall an App**
+
+- To reinstall an app:
+
+  ```
+  csdx app:reinstall
+  ```
+
+- To reinstall an app by providing the stack where the app is to be reinstalled:
+
+  ```
+  csdx app:reinstall --stack-api-key
+  ```
+
+**Uninstall an App**
+
+- To uninstall an organization app:
+
+  ```
+  csdx app:uninstall --org <UID> --app-uid <APP-UID-1>
+  ```
+
+- To uninstall an organization app from all the stacks where it is installed:
+
+  ```
+  csdx app:uninstall --org <UID> --app-uid <APP-UID-1> --uninstall-all
+  ```
+
+- To uninstall an organization app for a given installation ID:
+
+  ```
+  csdx app:uninstall --org <UID> --app-uid <APP-UID-1> --installation-uid <INSTALLATION-UID-1>
+  ```
+
+**Delete an App**
 
 - To delete an app for a given app UID:
 

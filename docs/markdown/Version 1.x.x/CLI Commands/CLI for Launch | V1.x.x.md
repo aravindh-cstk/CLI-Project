@@ -152,46 +152,6 @@ csdx launch
 
 > **Note**: The `--enable-cs-auth` and `--disable-cs-auth` flags are mutually exclusive.
 
-**Examples**
-
-- To create a Launch project by providing the config file path and file type:
-
-  ```
-  csdx launch --config <path to launch config file> --type <options: GitHub|FileUpload>
-  ```
-
-- To create a Launch project by providing the directory path and file type:
-
-  ```
-  csdx launch --data-dir <path of current working dir> --type <options: GitHub|FileUpload>
-  ```
-
-- To create a Launch project from a specific connected GitHub namespace:
-
-  ```
-  csdx launch --type=GitHub --namespace=<name> --org=<org_uid> --name=<value>
-  ```
-
-- To create a Launch project by passing the server command:
-
-  ```
-  csdx launch --config <path to launch config file> --type <options: GitHub|FileUpload> --name=<value> --environment=<value> --branch=<value> --build-command=<value> --framework=<option> --org=<value> --out-dir=<value> --server-command=<value>
-  ```
-
-- To create a Launch project by providing a variable type:
-
-  ```
-  csdx launch --config <path to launch config file> --type <options: GitHub|FileUpload> --name=<value> --environment=<value> --branch=<value> --build-command=<value> --framework=<option> --org=<value> --out-dir=<value> --variable-type="Import variables from a stack" --alias=<value>
-  ```
-
-- To create a Launch project by providing a variable type and environment variables:
-
-  ```
-  csdx launch --config <path to launch config file> --type <options: GitHub|FileUpload> --name=<value> --environment=<value> --branch=<value> --build-command=<value> --framework=<option> --org=<value> --out-dir=<value> --variable-type="Manually add custom variables to the list" --env-variables="APP_ENV:prod, TEST_ENV:testVal"
-  ```
-
-> **Note**: If multiple branches are identified in the configuration, you will be prompted to **Choose a branch** to proceed with the Launch operations. A single config file can have multiple configurations based on the branch.
-
 ### Launch (Redeploy an Existing Project)
 
 To redeploy or re-initialize an existing project, run the `launch` command using the project’s directory path or execute it from the current working directory.
@@ -244,45 +204,6 @@ If you are using the [File Upload](/docs/launch/import-project-using-file-upload
   - For 'GitHub' projects, redeploy using the latest commit.
 
 - `--redeploy-last-upload`: \[optional\] Redeploy using the last uploaded file (applicable only for the 'File Upload' projects).
-
-**Examples**
-
-- To redeploy using the project’s directory path, use `--data-dir`:
-
-  ```
-  csdx launch --data-dir <project-directory-path>
-  ```
-
-- To specify either the name or the UID of the environment to be redeployed, use `--environment`:
-
-  ```
-  csdx launch --environment <environment name or UID>
-  ```
-
-- To redeploy an existing GitHub project with the latest commit, use `--redeploy-latest`:
-
-  ```
-  csdx launch --redeploy-latest
-  ```
-
-- To redeploy an existing File Upload project with a new zip file, use `--redeploy-latest`:
-
-  ```
-  csdx launch --redeploy-latest
-  ```
-
-- To redeploy an existing File Upload project with the last uploaded file, use `--redeploy-last-upload`:
-
-  ```
-  csdx launch --redeploy-last-upload
-  ```
-
-- To redeploy an existing File Upload project with the new zip file from a specific path, using a specific config file, use `--redeploy-latest`, `--data-dir` and `--config`:
-
-  ```
-  csdx launch --data-dir=/root/src/project1  --redeploy-latest
-   --config=/root/configs/project1/dev.json
-  ```
 
 ### Using Launch CLI in a CI Environment
 
@@ -387,20 +308,6 @@ csdx launch:logs
 
 > **Note**: If you do not pass a deployment ID, by default Launch fetches the latest deployment logs.
 
-**Examples**
-
-- To fetch Launch project logs based on the environment number and type of flags:
-
-  ```
-  csdx launch:logs -e "environment number or uid" --type "types of flags"
-  ```
-
-- To fetch Launch project logs based on the environment number and deployment number:
-
-  ```
-  csdx launch:logs -e "environment number or uid" --deployment "deployment number or uid"
-  ```
-
 ### Functions
 
 You can test your Launch project [Cloud Functions](/docs/launch/cloud-functions/) locally using the `launch:functions` command in CLI.
@@ -416,20 +323,6 @@ csdx launch:functions
 - `-d, --data-dir=data-dir`: Current working directory.
 - `-c, --config=config`: Path to the local '.cs-launch.json' file.
 - `-p, --port=port`: \[default: 3000\] Port number.
-
-**Examples**
-
-- To test your Launch project Cloud Function locally:
-
-  ```
-  csdx launch:functions
-  ```
-
-- To test your Launch project Cloud Function locally in a specific port:
-
-  ```
-  csdx launch:functions -p "port number"
-  ```
 
 ### Deployments
 
@@ -463,20 +356,6 @@ csdx launch:deployments
 - `-–org=org`: \[Optional\] Provide the organization UID.
 - `-–project=project`: \[Optional\] Provide the project UID.
 
-**Examples**
-
-- To list the deployments in your current working directory
-
-  ```
-  csdx launch:deployments -d "current working directory"
-  ```
-
-- To list the deployments for a given environment
-
-  ```
-  csdx launch:deployments -e "environment number or uid"
-  ```
-
 ### Environments
 
 You can display the list of [environments](/docs/launch/environments/) that are available for a particular project using the `launch:environments` command in CLI.
@@ -505,20 +384,6 @@ csdx launch:environments
 - `-c`, `--config=config`: Path to the local '.cs-launch.json' file.
 - `-–org=org`: \[Optional\] Provide the organization UID.
 - `-–project=project`: \[Optional\] Provide the project UID.
-
-**Examples**
-
-- To list the environments in your current working directory
-
-  ```
-  csdx launch:environments -d "current working directory"
-  ```
-
-- To list the environments for a specific project under a given organization
-
-  ```
-  csdx launch:environments --org=<org UID> --project=<Project UID>
-  ```
 
 ### Open
 
@@ -551,20 +416,6 @@ csdx launch:open
 - `-e`, `--environment=environment`: Environment name or UID.
 - `-–org=org`: \[Optional\] Provide the organization UID.
 - `-–project=project`: \[Optional\] Provide the project UID.
-
-**Examples**
-
-- To open the website for an environment by passing your current working directory
-
-  ```
-  csdx launch:open --environment=environment --data-dir <path/of/current/working/dir>
-  ```
-
-- To open the website for an environment for a given configuration
-
-  ```
-  csdx launch:open --environment=environment --config <path/to/launch/config/file>
-  ```
 
 ### Rollback
 
@@ -613,7 +464,158 @@ csdx launch:rollback
 - `--project=project`: \[optional\] Provide the project UID.
 - `--reason=reason`: \[optional\] Reason for the rollback (saved to audit log).
 
-**Examples**
+## Examples
+
+**Launch (Create a Project)**
+
+- To create a Launch project by providing the config file path and file type:
+
+  ```
+  csdx launch --config <path to launch config file> --type <options: GitHub|FileUpload>
+  ```
+
+- To create a Launch project by providing the directory path and file type:
+
+  ```
+  csdx launch --data-dir <path of current working dir> --type <options: GitHub|FileUpload>
+  ```
+
+- To create a Launch project from a specific connected GitHub namespace:
+
+  ```
+  csdx launch --type=GitHub --namespace=<name> --org=<org_uid> --name=<value>
+  ```
+
+- To create a Launch project by passing the server command:
+
+  ```
+  csdx launch --config <path to launch config file> --type <options: GitHub|FileUpload> --name=<value> --environment=<value> --branch=<value> --build-command=<value> --framework=<option> --org=<value> --out-dir=<value> --server-command=<value>
+  ```
+
+- To create a Launch project by providing a variable type:
+
+  ```
+  csdx launch --config <path to launch config file> --type <options: GitHub|FileUpload> --name=<value> --environment=<value> --branch=<value> --build-command=<value> --framework=<option> --org=<value> --out-dir=<value> --variable-type="Import variables from a stack" --alias=<value>
+  ```
+
+- To create a Launch project by providing a variable type and environment variables:
+
+  ```
+  csdx launch --config <path to launch config file> --type <options: GitHub|FileUpload> --name=<value> --environment=<value> --branch=<value> --build-command=<value> --framework=<option> --org=<value> --out-dir=<value> --variable-type="Manually add custom variables to the list" --env-variables="APP_ENV:prod, TEST_ENV:testVal"
+  ```
+
+> **Note**: If multiple branches are identified in the configuration, you will be prompted to **Choose a branch** to proceed with the Launch operations. A single config file can have multiple configurations based on the branch.
+
+**Launch (Redeploy an Existing Project)**
+
+- To redeploy using the project’s directory path, use `--data-dir`:
+
+  ```
+  csdx launch --data-dir <project-directory-path>
+  ```
+
+- To specify either the name or the UID of the environment to be redeployed, use `--environment`:
+
+  ```
+  csdx launch --environment <environment name or UID>
+  ```
+
+- To redeploy an existing GitHub project with the latest commit, use `--redeploy-latest`:
+
+  ```
+  csdx launch --redeploy-latest
+  ```
+
+- To redeploy an existing File Upload project with a new zip file, use `--redeploy-latest`:
+
+  ```
+  csdx launch --redeploy-latest
+  ```
+
+- To redeploy an existing File Upload project with the last uploaded file, use `--redeploy-last-upload`:
+
+  ```
+  csdx launch --redeploy-last-upload
+  ```
+
+- To redeploy an existing File Upload project with the new zip file from a specific path, using a specific config file, use `--redeploy-latest`, `--data-dir` and `--config`:
+
+  ```
+  csdx launch --data-dir=/root/src/project1  --redeploy-latest
+   --config=/root/configs/project1/dev.json
+  ```
+
+**Logs**
+
+- To fetch Launch project logs based on the environment number and type of flags:
+
+  ```
+  csdx launch:logs -e "environment number or uid" --type "types of flags"
+  ```
+
+- To fetch Launch project logs based on the environment number and deployment number:
+
+  ```
+  csdx launch:logs -e "environment number or uid" --deployment "deployment number or uid"
+  ```
+
+**Functions**
+
+- To test your Launch project Cloud Function locally:
+
+  ```
+  csdx launch:functions
+  ```
+
+- To test your Launch project Cloud Function locally in a specific port:
+
+  ```
+  csdx launch:functions -p "port number"
+  ```
+
+**Deployments**
+
+- To list the deployments in your current working directory
+
+  ```
+  csdx launch:deployments -d "current working directory"
+  ```
+
+- To list the deployments for a given environment
+
+  ```
+  csdx launch:deployments -e "environment number or uid"
+  ```
+
+**Environments**
+
+- To list the environments in your current working directory
+
+  ```
+  csdx launch:environments -d "current working directory"
+  ```
+
+- To list the environments for a specific project under a given organization
+
+  ```
+  csdx launch:environments --org=<org UID> --project=<Project UID>
+  ```
+
+**Open**
+
+- To open the website for an environment by passing your current working directory
+
+  ```
+  csdx launch:open --environment=environment --data-dir <path/of/current/working/dir>
+  ```
+
+- To open the website for an environment for a given configuration
+
+  ```
+  csdx launch:open --environment=environment --config <path/to/launch/config/file>
+  ```
+
+**Rollback**
 
 To perform an interactive rollback by selecting options from prompts:
 

@@ -97,7 +97,7 @@ Use the following query structure to filter content types. Replace placeholders 
 
 > **Additional Resource:** Refer to the [Content Delivery API Queries](/docs/developers/apis/content-delivery-api/queries) for the full list of operators.
 
-**Examples**
+## Examples
 
 - To export content types by title:
 

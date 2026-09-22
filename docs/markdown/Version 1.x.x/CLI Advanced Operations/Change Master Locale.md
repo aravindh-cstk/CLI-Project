@@ -45,36 +45,6 @@ As a solution, you can change the master locale of the data exported from the CL
 
 4. [Import the data](/docs/headless-cms/import-content-using-the-cli) to the target stack using the `cm:stacks:import` command.
 
-## Troubleshooting
-
-If you are facing a **Migration Unsuccessful** or **Module cannot be found** error, please try one of the following troubleshooting methods:
-
-- **Troubleshoot in your current terminal session**:
-  1. **Windows (CMD)**:
-
-     ```
-     FOR /F "usebackq tokens=*" %i IN (`npm root -g @contentstack/cli`) DO SET NODE_PATH=%i/@contentstack/cli/node_modules
-     ```
-
-  2. **Windows (PowerShell)**:
-
-     ```
-     foreach ($i in $(npm root -g @contentstack/cli)) { $env:NODE_PATH = "$i/@contentstack/cli/node_modules" }
-     ```
-
-  3. **Mac/Unix**:
-
-     ```
-     export NODE_PATH="$(npm root -g @contentstack/cli)/@contentstack/cli/node_modules"
-     ```
-
 ## Limitations
 
 - This utility does not work for the clone command.
-
-## Next Steps
-
-- [Export Content Using the CLI](/docs/headless-cms/export-content-using-the-cli/v1): export stack content to disk before importing it elsewhere.
-- [Import Content Using the CLI](/docs/headless-cms/import-content-using-the-cli/v1): import exported content into a target stack.
-- [Migrate from Contentstack CLI V1 to V2](/docs/headless-cms/cli-v1-to-v2-migration-guide): what changed at 2.0.0, flag by flag, and how to upgrade.
-- [CLI Limitations](/docs/headless-cms/cli-limitations/v1): the coverage gaps and known constraints across CLI commands.

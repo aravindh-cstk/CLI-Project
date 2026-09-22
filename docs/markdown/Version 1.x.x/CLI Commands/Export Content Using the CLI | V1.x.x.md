@@ -587,10 +587,6 @@ csdx cm:stacks:export -a <alias> --data-dir ./export --module content-types
 csdx cm:stacks:export -a <alias> --data-dir ./export --branch develop
 ```
 
-## Troubleshooting
-
-For troubleshooting export issues, see the CLI Troubleshooting Guide.
-
 ## Limitations
 
 For comprehensive information about export limitations, see the [CLI Limitations Guide](/docs/headless-cms/cli-limitations/v1#export-module-limitations).

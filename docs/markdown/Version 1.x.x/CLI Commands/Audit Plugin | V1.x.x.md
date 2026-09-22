@@ -392,7 +392,7 @@ The following modules have no dependencies and can be audited independently:
 - Workflows
 - Custom Roles
 
-## Common Use Cases
+## Examples
 
 This section outlines complete workflows for common developer use cases with the Audit plugin.
 
@@ -664,19 +664,6 @@ csdx cm:stacks:audit \
   --report-path ./verify-reports
 ```
 
-## Troubleshooting
-
-### Common Issues
-
-- **Error:** `Path does not exist`
-  **Solution:** Ensure the `--data-dir` path points to the correct exported data directory. For branch-enabled stacks, include the full path to the branch folder.
-- **Error:** `No reports generated`
-  **Solution:** Verify that the `--report-path` directory is writable. Reports are only generated if issues are found.
-- **Error:** `Fix operation not working`
-  **Solution:** Ensure you are using the `--copy-dir` flag. The fix operation modifies files, and without a backup, you may lose the original data.
-- **Error:** `Select field values not being fixed`
-  **Solution:** Enable select field fixing by adding `{ "fixSelectField": true }` to your config file and passing it using the `--config` flag.
-
 ## Best Practices
 
 - Always use the `--copy-dir` flag when running `audit:fix` to preserve your original data.
@@ -699,9 +686,3 @@ csdx cm:stacks:audit \
     - [Select](/docs/headless-cms/select/), [title](/docs/headless-cms/title/), and mandatory fields of entries.
     - Multiple field type mismatches in entries.
     - Field rules of content types.
-
-## Next Steps
-
-- [Bulk Publish and Unpublish Content](/docs/headless-cms/cli-bulk-publish-and-unpublish-content/v1): publish or unpublish entries and assets in bulk.
-- [Migrate from Contentstack CLI V1 to V2](/docs/headless-cms/cli-v1-to-v2-migration-guide): what changed at 2.0.0, flag by flag, and how to upgrade.
-- [CLI Limitations](/docs/headless-cms/cli-limitations/v1): the coverage gaps and known constraints across CLI commands.

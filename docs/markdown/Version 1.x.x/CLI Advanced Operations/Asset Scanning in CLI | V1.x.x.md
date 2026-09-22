@@ -40,29 +40,6 @@ When this happens, assets are imported but remain unpublished, and a reminder is
 csdx cm:assets:publish --backup-dir <BACKUP_DIR> --stack-api-key <STACK_API_KEY>
 ```
 
-## Troubleshooting
-
-### Assets remain unpublished after `cm:assets:publish --backup-dir`
-
-**Root Cause**: Asset scanning found the asset still in the scan queue at the time the command ran. The retry mechanism for in-queue assets is disabled in this release, so the asset is skipped immediately instead of being retried.
-
-**Resolution**: Wait for the asset’s scan to complete, then run `cm:assets:publish --backup-dir <BACKUP_DIR>` again.
-
-### `csdx cm:assets:publish --data-dir ...` reports an unrecognized flag
-
-**Root Cause**: A message printed at the end of asset import (from `cm:stacks:import`) tells you to run `csdx cm:assets:publish --data-dir <BACKUP_DIR> ...` to publish assets after scanning. `cm:assets:publish` does not have a `--data-dir` flag.
-
-**Resolution**: Use `--backup-dir` instead: `csdx cm:assets:publish --backup-dir <BACKUP_DIR> --stack-api-key <STACK_API_KEY>`.
-
-### Import prints an asset-scanning message but the org does not have asset scanning enabled
-
-**Root Causes**:
-
-- The reminder is printed whenever assets were imported and `skipAssetsPublish` is set, whether it was set automatically by asset scanning or manually via `--skip-assets-publish`.
-- The message text does not distinguish between the two triggers.
-
-**Resolution**: Check whether `--skip-assets-publish` was passed explicitly. If it was, the message is unrelated to asset scanning and assets can be published normally with `csdx cm:assets:publish --backup-dir <BACKUP_DIR> --stack-api-key <STACK_API_KEY>` at any time.
-
 ## Limitations
 
 - `cm:assets:publish` does not retry assets that are still in the scan queue within a single run. See [Assets remain unpublished after cm:assets:publish --backup-dir](#assets-remain-unpublished-after) for the resolution.

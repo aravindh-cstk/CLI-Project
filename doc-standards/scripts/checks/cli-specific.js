@@ -2,7 +2,7 @@
 
 const { makeFinding } = require('../lib/report');
 
-const CLI_TYPES = ['cli-command-reference', 'cli-task-runbook', 'cli-module-reference'];
+const CLI_TYPES = ['cli-command-reference', 'cli-task-runbook', 'cli-module-reference', 'cli-plugin-guide'];
 
 // CLI-C2's mandated flag-table shape: C9's four columns plus the two the CLI
 // actually needs. 16 distinct column signatures are in use across the CLI corpus
@@ -214,7 +214,7 @@ function checkInstallPlacement(doc, docType) {
  * rendering platform rather than about a template, so it binds on any CLI doc,
  * including ones typed `migration-guide`, `feature-doc` or `setup-guide`.
  * `lint-doc.js` passes its own `isCliDoc()` result in as `isCli` so this check can
- * see those docs. The other checks stay scoped to the three CLI types, because
+ * see those docs. The other checks stay scoped to the four CLI types, because
  * each of them restates a rule from a CLI template.
  */
 function checkCliSpecific(doc, docType, isCli) {

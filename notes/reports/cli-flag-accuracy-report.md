@@ -49,7 +49,7 @@ It was found by diffing flag **descriptions** between the last 1.x manifest and 
 | `Version 2.x.x/CLI Commands V2/Compare and Merge Branches Using the CLI \| V2.x.x.md` | `documents 10 commands, not scoped` | - | - |
 | `Version 2.x.x/CLI Commands V2/Configure CLI Logging Preferences \| V2.x.x.md` | `config:set:log` | 3 | 3 |
 | `Version 2.x.x/CLI Commands V2/Configure Early Access in the CLI \| V2.x.x.md` | `documents 3 commands, not scoped` | - | - |
-| `Version 2.x.x/CLI Commands V2/Content Type Plugin \| V2.x.x.md` | `documents 10 commands, not scoped` | - | - |
+| `Version 2.x.x/CLI Commands V2/Content Type Plugin \| V2.x.x.md` | `documents 8 commands, not scoped` | - | - |
 | `Version 2.x.x/CLI Commands V2/Export Content Using the CLI \| V2.x.x.md` | `cm:stacks:export` | 10 | 11 |
 | `Version 2.x.x/CLI Commands V2/Import Content Using the CLI \| V2.x.x.md` | `cm:stacks:import` | 18 | 18 |
 | `Version 2.x.x/CLI Commands V2/Overwrite Existing Content using CLI Import \| V2.x.x.md` | `documents 2 commands, not scoped` | - | - |

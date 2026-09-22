@@ -305,50 +305,6 @@ The command uses the [`safe-regex`](https://github.com/davisjam/safe-regex) libr
 
 Results are displayed as a terminal table and saved to a CSV file for further review.
 
-## Troubleshooting
-
-### "Token not found. Add a token using csdx auth:tokens:add"
-
-**Root Cause**: The alias provided with `-a` does not match any stored management token.
-
-**Resolution**:
-
-1. List your saved tokens: `csdx auth:tokens`
-2. If the alias is missing, add the token as described in [Prerequisites](#prerequisites).
-3. Re-run the command with the correct alias. See [--alias / -a](#flag-details) for how the flag is used.
-
-### "Error in connecting to the stack. Please try again."
-
-**Root Cause(s)**: This message covers a range of underlying issues, including:
-
-- **A special character in `--filePath` prevented the CSV from being written.** This cause is easy to mistake for a network issue, since the message is the same either way.
-- Incorrect API key associated with the management token
-- Management token lacks read permissions for content types or global fields
-- Network connectivity issue
-- Wrong region configured
-
-**Resolution**:
-
-1. If saving to a custom path, verify the directory is writable and avoid special characters (`*`, `&`, `{`, `}`, `[`, `]`, `$`, `%`, `<`, `>`, `?`, `!`). Try an absolute path if unsure:
-
-   ```
-    csdx cm:stacks:validate-regex -a my-token-alias -c -f /tmp/regex-output
-   ```
-
-2. Verify the management token is valid and has `Content Type: Read` and `Global Field: Read` permissions on the stack.
-
-3. Confirm your region: `csdx config:get:region`. If on a non-North America region, set it: `csdx config:set:region`. See [Region configured](#mandatory) in Prerequisites.
-
-4. Test connectivity by running another CMA (Content Management API) command against the same stack.
-
-5. Retry. The connection error may be transient, a temporary condition such as a brief network interruption that clears up without further action, so retrying can succeed even without changing anything else.
-
-### No results printed (no table, no CSV)
-
-**Root Cause**: No invalid regexes were found in the scanned modules.
-
-**Resolution**: No action required. This is the expected outcome when all `format` fields in your stack contain safe regex patterns, matching the `There are no invalid regexes in your stack.` message described in [Output](#output).
-
 ## Limitations
 
 - The command only flags patterns the `safe-regex` library's AST-based check identifies as provably vulnerable. It does not test regexes against runtime input, and it does not guarantee that every catastrophic-backtracking pattern is caught.

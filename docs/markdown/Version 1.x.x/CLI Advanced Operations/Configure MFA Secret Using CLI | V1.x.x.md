@@ -50,3 +50,7 @@ csdx config:mfa:remove
   ```
   csdx config:mfa:remove -y
   ```
+
+## Limitations
+
+- The MFA secret must be a valid base32 string using only uppercase letters A-Z and digits 2-7, at least 16 characters before padding. A secret in any other format is rejected before a code is generated.

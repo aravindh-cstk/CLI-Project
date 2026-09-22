@@ -48,3 +48,7 @@ unset CONTENTSTACK_MFA_SECRET
 ```
 
 > **Note:** Because the secret now lives in the environment rather than the CLI config file, treat it like any other credential. Avoid committing it to source control, and prefer your CI provider's secret store over a plain environment variable in a pipeline definition.
+
+## Limitations
+
+- The MFA secret must be a valid base32 string using only uppercase letters A-Z and digits 2-7, at least 16 characters before padding. A secret in any other format is rejected before a code is generated.

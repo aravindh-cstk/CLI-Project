@@ -26,11 +26,13 @@ This step-by-step guides you on how to create, update, delete, compare, and merg
 
   > **Note:** Contact your organization administrator for more details.
 
-## Steps to List, Create, and Delete Branches
+## Steps for Execution
+
+### Steps to List, Create, and Delete Branches
 
 You can list the branches in a stack, create a new branch in a stack from a base branch, and delete an existing branch from a stack.
 
-### List Branches
+**List Branches**
 
 1. Open a terminal.
 
@@ -81,7 +83,7 @@ csdx cm:branches --stack-api-key <value>
 | `--stack-api-key` | `-k` | Stack API key. |
 | `--verbose` | - | Verbose display information in detailed format. |
 
-### Create a Branch
+**Create a Branch**
 
 1. Open a terminal.
 
@@ -132,7 +134,7 @@ csdx cm:branches:create --stack-api-key <value> --source <value> --uid <value>
 | `--source` | - | Source branch from which a new branch is to be created. |
 | `--stack-api-key` | `-k` | Stack API key. |
 
-### Delete a Branch
+**Delete a Branch**
 
 1. Open a terminal.
 
@@ -208,11 +210,11 @@ csdx cm:branches:delete --stack-api-key <value> --uid <value> --yes
   csdx cm:branches:delete --stack-api-key bltxxxxxxxx7 --uid test2
   ```
 
-## Steps to Configure Base Branches
+### Steps to Configure Base Branches
 
 You can set, get, or remove the default base branch for a stack. This will be used as the default base branch when performing a compare or merge command and will act as the target branch where the final changes will be merged during the merge operation.
 
-### Set
+**Set**
 
 1. Run the following command to set a base branch:
 
@@ -249,7 +251,7 @@ csdx config:set:base-branch --stack-api-key <value> --base-branch <value>
 | `--stack-api-key` | `-k` | Stack API key. |
 | `--base-branch` | - | Base branch (Target branch). |
 
-### Get
+**Get**
 
 1. Run the following command to get the base branch:
 
@@ -265,7 +267,7 @@ csdx config:set:base-branch --stack-api-key <value> --base-branch <value>
 csdx config:get:base-branch
 ```
 
-### Remove
+**Remove**
 
 1. Run the following command to remove a base branch:
 
@@ -328,7 +330,7 @@ csdx config:remove:base-branch --stack-api-key <value> --yes
   csdx config:remove:base-branch --stack-api-key bltxxxxxxxx7 --yes
   ```
 
-## Steps to Compare Branches
+### Steps to Compare Branches
 
 Follow the steps below to compare two branches:
 
@@ -428,7 +430,7 @@ csdx cm:branches:diff --stack-api-key <value> --base-branch <value> --compare-br
 
   > **Note**: When you use `--format "detailed-text"`, the command also generates a CSV file for easier analysis and reporting of branch differences. You can use the `--csv-path` flag to choose where the file is saved. If you select `--format "compact-text"`, the `--csv-path` flag is ignored.
 
-## Steps to Merge Branches
+### Steps to Merge Branches
 
 Follow the steps below to merge two branches:
 
@@ -573,7 +575,7 @@ csdx cm:branches:merge --stack-api-key <value> --base-branch <value> --compare-b
   csdx cm:branches:merge --export-summary-path "/file/path"
   ```
 
-## Steps to Check a Merge Status
+### Steps to Check a Merge Status
 
 A branch merge runs as a background job. Use `cm:branches:merge-status` to check the progress of a merge job without blocking on it, using the merge job UID returned when the merge started.
 
@@ -601,8 +603,3 @@ csdx cm:branches:merge-status --stack-api-key bltxxxxxxxx --merge-uid merge_abc1
 ```
 
 > **Note:** This command requires you to be logged in. Run `csdx auth:login` first. If no merge job matches the UID you pass, the command reports that no merge job was found.
-
-## Next Steps
-
-- [Entry Migration](/docs/headless-cms/cli-entry-migration): migrate entries between stacks with field-level control.
-- [CLI Limitations](/docs/headless-cms/cli-limitations): the coverage gaps and known constraints across CLI commands.

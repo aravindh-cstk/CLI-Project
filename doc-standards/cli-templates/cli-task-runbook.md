@@ -2,7 +2,7 @@
 
 A CLI task runbook walks a developer through one operation end to end, usually across more than one command and more than one plugin. The reader completes the operation from this page alone.
 
-Apply `sdk-templates/common-rules.md` (B1, B2, C1-C9) and `cli-common-rules.md` (CLI-C1 to CLI-C10) alongside this file.
+Apply `sdk-templates/common-rules.md` (B1, B2, C1-C9) and `cli-common-rules.md` (CLI-C1 to CLI-C14) alongside this file.
 
 ---
 
@@ -17,11 +17,12 @@ Apply `sdk-templates/common-rules.md` (B1, B2, C1-C9) and `cli-common-rules.md` 
 | 5 | Prerequisites | Required | CLI installed, authenticated, region configured, plus the token scope each step needs |
 | 6 | Steps for Execution | Required | The one procedure spine. Every step ends with an observable outcome |
 | 7 | Verification | Recommended | How the developer confirms the operation succeeded before moving on |
-| 8 | Troubleshooting | Required | Root cause and resolution for each failure this operation can produce |
-| 9 | Limitations | Required | What this path does not cover, per C9 |
-| 10 | Next Steps | Required | Links to what comes after, each with a description |
+| 8 | Limitations | Required | What this path does not cover, per C9 |
+| 9 | Next Steps | Recommended | Links to what comes after, each with a description, where at least two are genuinely specific to this page |
 
 **Governing rule:** The developer completes the whole operation from this page alone, in the order the page presents it, and can tell at each step whether it worked.
+
+**No Troubleshooting section on this type**, for the same reason stated in `cli-command-reference.md`: the corpus has a dedicated troubleshooting hub (CLI-C14), and every runbook that carried a page-level Troubleshooting section had it removed rather than kept as an exception. See RUN5 below. **Next Steps moved from Required to Recommended**, because forcing the section produced generic padding on pages with no doc-specific onward link to offer.
 
 ---
 
@@ -58,3 +59,11 @@ Apply `sdk-templates/common-rules.md` (B1, B2, C1-C9) and `cli-common-rules.md` 
 **Rule:** Include a `Limitations` section stating what this path does not cover.
 **Why:** C9 requires it generally, and it binds hardest on this type: these are the docs that overwrite and delete stack content, where a gap the reader assumed was covered becomes a production incident rather than a failed command.
 **Exception:** None for this type. A runbook with genuinely no known gaps should say so in one sentence rather than omit the section.
+
+---
+
+### RUN5: No Troubleshooting section
+
+**Rule:** Do not add a `Troubleshooting` H2 to this type. Link the CLI troubleshooting hub instead, per CLI-C14.
+**Why:** The hub is the one place a failure mode is written down, so it is the only copy that gets updated when the fix changes. A page-level section is a second copy nothing keeps in sync with the first.
+**Exception:** None. `checks/section-structure.js` reports `CLI-19` if one is added back.

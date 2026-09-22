@@ -692,10 +692,6 @@ csdx cm:stacks:import -a <alias> --data-dir ./export --module content-types
 csdx cm:stacks:import -a <alias> --data-dir ./export --branch develop
 ```
 
-## Troubleshooting
-
-For troubleshooting import issues, see the CLI Troubleshooting Guide.
-
 ## Limitations
 
 For comprehensive information about import limitations, see the [CLI Limitations Guide](/docs/headless-cms/cli-limitations/v1#import-module-limitations).

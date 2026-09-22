@@ -63,20 +63,6 @@ csdx config:set:ea-header
 - `--header=header`: (optional) Provide the Early Access header value.
 - `--header-alias=header-alias`: (optional) Provide the Early Access header alias name.
 
-**Examples**
-
-- To set an Early Access header by providing the header value:
-
-  ```
-  csdx config:set:early-access-header  --header 3.2
-  ```
-
-- To set an Early Access header by providing the header value and alias name:
-
-  ```
-  csdx config:set:early-access-header  --header-alias ta****my --header tx
-  ```
-
 ### Get Early Access Header
 
 The `config:get:early-access-header` command fetches a list of the Early Access headers that you have set in the CLI.
@@ -140,7 +126,23 @@ csdx config:remove:ea-header
 - `-y`,`--yes`: (optional) Force the removal of Early Access header configuration by skipping the confirmation.
 - `--header-alias=header-alias`: (optional) Provide the Early Access header alias name.
 
-**Examples**
+## Examples
+
+**Set Early Access Header**
+
+- To set an Early Access header by providing the header value:
+
+  ```
+  csdx config:set:early-access-header  --header 3.2
+  ```
+
+- To set an Early Access header by providing the header value and alias name:
+
+  ```
+  csdx config:set:early-access-header  --header-alias ta****my --header tx
+  ```
+
+**Remove Early Access Header**
 
 - To remove the configuration of an Early Access header by skipping the confirmation:
 

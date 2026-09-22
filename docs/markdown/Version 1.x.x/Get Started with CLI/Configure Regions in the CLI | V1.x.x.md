@@ -258,8 +258,7 @@ csdx config:get:region
 > - [Configure Rate Limits in the CLI](/docs/headless-cms/configure-rate-limits-in-the-cli/v1)
 > - [Contentstack Regions](/docs/administration/about-regions)
 
-## Next Steps
+## Limitations
 
-- [Configure Rate Limits in the CLI](/docs/headless-cms/configure-rate-limits-in-the-cli/v1): raise or lower the API rate limits the CLI applies.
-- [Migrate from Contentstack CLI V1 to V2](/docs/headless-cms/cli-v1-to-v2-migration-guide): what changed at 2.0.0, flag by flag, and how to upgrade.
-- [CLI Limitations](/docs/headless-cms/cli-limitations/v1): the coverage gaps and known constraints across CLI commands.
+- The region argument accepts only the predefined list: `NA`, `EU`, `AU`, `AWS-NA`, `AWS-EU`, `AWS-AU`, `AZURE-NA`, `AZURE-EU`, `GCP-NA`, `GCP-EU`. Any other value is rejected.
+- A custom region requires `--cda`, `--cma`, `--ui-host`, and `--name` together. None of the four can be set on its own.

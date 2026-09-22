@@ -168,3 +168,8 @@ Reset an organization back to the default rate limit.
 ```
 csdx config:set:rate-limit --org <ORG_UID> --default
 ```
+
+## Limitations
+
+- `--limit-name` accepts only `getLimit`, `limit`, and `bulkLimit`. No other API operation can be rate-limited individually through this command.
+- `--utilize` must be a number between 0 and 100.

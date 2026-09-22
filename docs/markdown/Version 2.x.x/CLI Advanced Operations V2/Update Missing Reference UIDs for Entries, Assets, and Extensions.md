@@ -58,31 +58,6 @@ Follow the steps below to update the missing reference UIDs:
    csdx cm:stacks:migration --file-path ./05-Update-reference-entry-from-mapper.js --config-file ./config.json -k <stack_ApiKey>
    ```
 
-## Troubleshooting
+## Limitations
 
-If you are facing a **Migration Unsuccessful** or **Module cannot be found** error, please try one of the following troubleshooting methods:
-
-- **Troubleshoot in your current terminal session**:
-  1. **Windows (CMD)**:
-
-     ```
-     FOR /F "usebackq tokens=*" %i IN (`npm root -g @contentstack/cli`) DO SET NODE_PATH=%i/@contentstack/cli/node_modules
-     ```
-
-  2. **Windows (PowerShell)**:
-
-     ```
-     foreach ($i in $(npm root -g @contentstack/cli)) { $env:NODE_PATH = "$i/@contentstack/cli/node_modules" }
-     ```
-
-  3. **Mac/Unix**:
-
-     ```
-     export NODE_PATH="$(npm root -g @contentstack/cli)/@contentstack/cli/node_modules"
-     ```
-
-## Next Steps
-
-- [Import Content Using the CLI](/docs/headless-cms/import-content-using-the-cli): import exported content into a target stack.
-- [Migrate your Content using the CLI Migration Command](/docs/headless-cms/migrate-your-content-using-the-cli-migration-command): run scripted content model changes with the migration command.
-- [CLI Limitations](/docs/headless-cms/cli-limitations): the coverage gaps and known constraints across CLI commands.
+- `--fix-only` repairs broken UIDs only in these field types: `reference`, `global_field`, `json:rte`, `json:extension`, `blocks`, `group`, and `content_types`. A broken reference in a field type outside this list is not fixed automatically.

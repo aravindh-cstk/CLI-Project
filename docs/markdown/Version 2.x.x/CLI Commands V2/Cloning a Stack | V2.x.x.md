@@ -151,9 +151,8 @@ Clone one branch into another, skipping the audit fix that otherwise runs during
 csdx cm:stacks:clone --source-stack-api-key <SOURCE_API_KEY> --destination-stack-api-key <DEST_API_KEY> --source-branch <SOURCE_BRANCH> --target-branch <TARGET_BRANCH> --skip-audit
 ```
 
-## Next Steps
+## Limitations
 
-- [Export Content Using the CLI](/docs/headless-cms/export-content-using-the-cli): export stack content to disk before importing it elsewhere.
-- [Import Content Using the CLI](/docs/headless-cms/import-content-using-the-cli): import exported content into a target stack.
-- [Audit Plugin](/docs/headless-cms/cli-audit-plugin): audit exported data for reference and field problems before importing it.
-- [CLI-Supported Features for Export, Import, and Clone Operations](/docs/headless-cms/cli-supported-features-for-export-import-and-clone-operations): which modules export, import and clone cover, module by module.
+- `--type a` clones structure only. Entries and assets are not cloned unless `--type b` is used.
+- `--source-branch` and `--source-branch-alias` are mutually exclusive, as are `--target-branch` and `--target-branch-alias`.
+- The import webhook in the cloned stack is disabled by default (`--import-webhook-status` defaults to `disable`). Pass `--import-webhook-status current` to carry over the source webhook's status instead.

@@ -74,14 +74,6 @@ csdx widget:list --stack-api-key <STACK_API_KEY>
 csdx widget:delete --uid <WIDGET_UID> --yes
 ```
 
-## Troubleshooting
-
-### Command fails with "command not found"
-
-**Root Cause** The widget plugin is not installed, because it does not ship with the CLI.
-
-**Resolution** Run `csdx plugins:install @contentstack/cli-widget`, then retry.
-
 ## Limitations
 
 The plugin does not delete widgets referenced by a published entry. Unpublish the entry first.

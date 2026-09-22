@@ -67,30 +67,6 @@ csdx config:set:proxy
 - `--protocol`: (required) Proxy protocol - either `http` or `https`
 - `--username`: (optional) Proxy username for authentication
 
-**Examples**
-
-- To set a basic proxy configuration:
-
-  ```
-  csdx config:set:proxy --host 127.0.0.1 --port 3128
-  ```
-
-  When you omit the `--username` flag, the proxy is configured without authentication.
-
-- To set a proxy with HTTPS protocol:
-
-  ```
-  csdx config:set:proxy --host proxy.example.com --port 8080 --protocol https
-  ```
-
-- To set a proxy with authentication:
-
-  ```
-  csdx config:set:proxy --host proxy.example.com --port 8080 --username user
-  ```
-
-  When you include the `--username` flag, the CLI prompts you to enter the password securely.
-
 ### Get Proxy Configuration
 
 The `config:get:proxy` command fetches the proxy configuration that you have set in the global config.
@@ -143,18 +119,6 @@ The proxy configuration has been removed from the CLI global config, and the CLI
 csdx config:remove:proxy
 ```
 
-**Examples**
-
-```
-csdx config:remove:proxy
-```
-
-> **Note:**
->
-> - This command only removes the proxy configuration from the global config.
-> - Proxy settings from environment variables (`HTTPS_PROXY`, `HTTP_PROXY`) are used if present.
-> - If no proxy configuration exists in the global config, the command completes without error.
-
 ## Using Environment Variables for Proxy Configuration
 
 In addition to the global config, you can also configure proxy settings using environment variables. Environment variables take priority over global config settings.
@@ -205,3 +169,45 @@ The CLI determines which proxy configuration to use in the following order:
 2. Global configuration (set via `config:set:proxy`) - lower priority
 
 If both are configured, the CLI uses the proxy settings defined in the environment variables.
+
+## Examples
+
+**Set Proxy Configuration**
+
+- To set a basic proxy configuration:
+
+  ```
+  csdx config:set:proxy --host 127.0.0.1 --port 3128
+  ```
+
+  When you omit the `--username` flag, the proxy is configured without authentication.
+
+- To set a proxy with HTTPS protocol:
+
+  ```
+  csdx config:set:proxy --host proxy.example.com --port 8080 --protocol https
+  ```
+
+- To set a proxy with authentication:
+
+  ```
+  csdx config:set:proxy --host proxy.example.com --port 8080 --username user
+  ```
+
+  When you include the `--username` flag, the CLI prompts you to enter the password securely.
+
+**Remove Proxy Configuration**
+
+```
+csdx config:remove:proxy
+```
+
+> **Note:**
+>
+> - This command only removes the proxy configuration from the global config.
+> - Proxy settings from environment variables (`HTTPS_PROXY`, `HTTP_PROXY`) are used if present.
+> - If no proxy configuration exists in the global config, the command completes without error.
+
+## Limitations
+
+- `--protocol` accepts only `http` or `https`. SOCKS proxies are not supported.

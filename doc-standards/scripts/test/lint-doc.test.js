@@ -209,6 +209,60 @@ test('CLI checks stay silent on a non-CLI doc with a non-CLI type', () => {
   assert.deepEqual(checkCliSpecific(doc, 'how-to-guide', false), []);
 });
 
+test('CLI-19 fires on a Troubleshooting section in a CLI doc, whatever type it is checked against', () => {
+  // The fixture still carries a Troubleshooting H2 deliberately, so this is the one
+  // place it is meant to be caught rather than removed: the hub rule (CLI-C14) is
+  // enforced here, not by deleting the fixture's coverage of the old shape.
+  //
+  // The check keys off isCli (the third argument), not off docType, because three
+  // real CLI docs are typed under a product-wide template that still requires
+  // Troubleshooting: Install the CLI (setup-guide), CLI for CS Assets and Asset
+  // Scanning in CLI (feature-doc), and the V1-to-V2 migration guide
+  // (migration-guide). `feature-doc` stands in for that whole class here.
+  const doc = loadFixture('broken-cli-command-reference.md');
+  for (const docType of ['cli-command-reference', 'cli-task-runbook', 'feature-doc']) {
+    const findings = checkSectionStructure(doc, docType, true);
+    const found = ids(findings);
+    assert.ok(found.includes('CLI-19'), `expected CLI-19 for a Troubleshooting H2 on a CLI doc typed ${docType}`);
+    assert.ok(
+      !findings.some((f) => f.ruleId === 'C1-01' && f.message.includes('Troubleshooting')),
+      `Troubleshooting must not also be reported missing for a CLI doc typed ${docType}`
+    );
+  }
+});
+
+test('CLI-19 stays silent when the doc is not CLI, or carries no Troubleshooting section', () => {
+  const brokenDoc = loadFixture('broken-cli-command-reference.md');
+  const nonCliFindings = checkSectionStructure(brokenDoc, 'feature-doc', false);
+  assert.ok(
+    !ids(nonCliFindings).includes('CLI-19'),
+    'CLI-19 must not fire for a genuinely non-CLI feature-doc, Troubleshooting is normal there'
+  );
+  assert.ok(
+    !nonCliFindings.some((f) => f.ruleId === 'C1-01' && f.message.includes('Troubleshooting')),
+    'a non-CLI feature-doc with a Troubleshooting section must not be reported as missing one either'
+  );
+  const cleanDoc = loadFixture('clean-cli-command-reference.md');
+  assert.ok(
+    !ids(checkSectionStructure(cleanDoc, 'cli-command-reference', true)).includes('CLI-19'),
+    'CLI-19 must not fire on a doc with no Troubleshooting section'
+  );
+});
+
+test('a CLI doc typed under a product-wide template is not reported as missing Troubleshooting', () => {
+  // This is the case the isCli-keyed skip in `comparison.missing` exists for:
+  // Install the CLI, CLI for CS Assets, Asset Scanning in CLI, and the V1-to-V2
+  // migration guide are all real CLI docs typed setup-guide, feature-doc, or
+  // migration-guide, and those templates still require Troubleshooting for the
+  // non-CLI docs that use them. `feature-doc` stands in for that class here.
+  const cleanDoc = loadFixture('clean-cli-command-reference.md');
+  const messages = checkSectionStructure(cleanDoc, 'feature-doc', true).map((f) => f.message);
+  assert.ok(
+    !messages.some((m) => m.includes('Troubleshooting')),
+    'a CLI doc must not be told Troubleshooting is missing, whatever type it is checked against'
+  );
+});
+
 test('module reference is exempt from the Prerequisites requirement', () => {
   const doc = new DocModel('inline.md', [
     '---', 'title: "X"', 'description: "Y"', 'url: "/z"', '---', '',

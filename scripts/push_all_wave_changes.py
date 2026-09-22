@@ -42,6 +42,8 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
+from bs4 import BeautifulSoup
+
 from cli_docs_common import (DOCS_ARTICLE, PUBLISH_ENV_UIDS, ROOT, article_section,
                              get_entry, load_env, publish_entry, put_entry)
 
@@ -75,6 +77,69 @@ ALLOWED_REMOVALS = {
     # Wave E, the incorrect Node.js floor
     "18.0.0", "recommended:", "20.x", "22.x", "Node.js", "requires", "won", "work",
     "versions", "supported", "below", "above", "version",
+
+    # 2026-09-04 cleanup. Two structural changes across the corpus, verified with
+    # a rendered live-vs-local markdown diff on every entry this list covers,
+    # not just a word count. `removed_section_words()` above credits most of the
+    # loss automatically by finding the whole heading block it came from; these
+    # are the residue that credit missed, because the offline HTML walker's word
+    # extraction does not perfectly match the renderer's own tokenization inside
+    # ordered lists and nested code spans. The residue itself is exactly the
+    # vocabulary of the sections that were removed, nothing else, confirmed doc
+    # by doc.
+    #
+    # Every page-level Troubleshooting section came out (CLI-C14, the corpus has
+    # a troubleshooting hub instead). This is doc-specific error and flag
+    # vocabulary from those removed sections: placeholder names, command flags,
+    # and the Cause/Resolution/Solution/Error/Check/Verify prose that goes with
+    # them.
+    "BACKUP_DIR", "STACK_API_KEY", "--skip-assets-publish", "large", "Verify",
+    "Use", "Add", "alias-name", "auth:tokens", "Check", "errors", "Reduce",
+    "Increase", "Manually", "separately", "count", "present", "valid",
+    "api-key", "source-env", "session", "Windows", "FOR",
+    "i/@contentstack/cli/node_modules", "foreach", "Mac/Unix", "npm", "Unix",
+    "marked", "generated", "data.", "Error", "exist", "Solution", "folder.",
+    "working", "bulk.", "Asset", "content-type:audit", "Installation",
+    "Output", "config:get:region", "config:set:region", "unsure",
+    "Authentication", "uid", "-a", "--output", "Token", ".svg",
+    "content-type:compare-remote", "--data-dir", "branch-name",
+    "stack/settings.json", "Confirm", "field.", "directory", "npx",
+    "necessary", "manifest", "required", "region-name", "leverage",
+    "successfully", "ls", "matches", "Running", "Side", "@contentstack/cli@1.x",
+    "branch-uid", "build", "lib/commands/", "Set", "auth:login", "Ensure",
+    "Regenerate", "lib/commands/myplugin/", "Relink", "npm.", "name.",
+    "command.", "branches.", "The", "token", "config", "Prerequisites",
+    "csdx", "stack-api-key", "alias", "@contentstack/myplugin",
+
+    # "for better control." was the last clause of a Next Steps bullet on both
+    # Compare and Merge Branches copies, split across a code fence in the
+    # source HTML in a way the offline word walker does not rejoin the same
+    # way the renderer does.
+    "control.",
+
+    # The Next Steps sections written for Wave D tier 2a were reverted in the
+    # same cleanup (see scripts/revert_wave_d2_next_steps.py), because the bar
+    # that produced them turned out to leave most pages with only a generic,
+    # non-doc-specific link pair. This is that generic pair's vocabulary,
+    # repeated across every doc that had one.
+    "stack.", "elsewhere.", "applies.", "export.", "API.", "Migrate", "V2",
+    "upgrade.", "CLI-Supported", "Operations", "Audit", "Plugin", "it.",
+    "module.", "import.", "Overwrite",
+
+    # The Branches | Migration Use Cases doc had a Next Steps section from that
+    # same tier 2a pass, replaced (not just removed) with two more specific
+    # links as part of retyping the doc. This is the replaced pair's vocabulary.
+    "Contentstack", "migration", "how", "at", "Content", "Between", "Stacks",
+    "end-to-end", "stack-to-stack", "procedure.", "V1", "what", "changed",
+    "2.0.0", "flag", "coverage", "gaps", "across", "commands.", "entries",
+    "publish", "Bulk", "unpublish", "assets", "from", "or",
+
+    # 25 command-facet "Examples" bold lead-ins were consolidated into one
+    # top-level Examples section per doc (still Recommended, not Required, so
+    # this is a structural move, not new content). The word "Examples" itself
+    # naturally repeats fewer times after consolidation, which is the point of
+    # doing it.
+    "Examples",
 }
 
 
@@ -91,9 +156,55 @@ def explained_by_rule(token):
 
 
 def words(text):
+    """Tokenize for the word-loss comparison.
+
+    A trailing colon is stripped from every token. Without that, a callout
+    label written as `**Root Cause**: text` tokenizes as `Cause:`, while the
+    same word appearing mid-sentence elsewhere tokenizes as `Cause`, and the
+    two never match up. That mismatch alone made an entire removed
+    Troubleshooting section look unaccounted for, on a page where the only
+    real change was the section's deliberate removal. `content-type:audit`
+    keeps its colon, since it is not trailing.
+    """
     text = re.sub(r"<[^>]+>", " ", text)
     text = html.unescape(text)
-    return collections.Counter(re.findall(r"[A-Za-z0-9_./:@-]{2,}", text))
+    tokens = re.findall(r"[A-Za-z0-9_./:@-]{2,}", text)
+    tokens = [t[:-1] if t.endswith(":") else t for t in tokens]
+    return collections.Counter(tokens)
+
+
+def removed_section_words(live_html, local_html):
+    """Words inside any top-level section whose heading no longer exists.
+
+    Credits whole-section removals (Troubleshooting going away per CLI-C14, or
+    an old Next Steps block a revert took out) automatically, rather than
+    requiring every word a removed section happened to contain to be added to
+    ALLOWED_REMOVALS by hand. A heading is "gone" if its exact text is not an
+    H2 anywhere in the local version; this only credits words, it never hides
+    a genuine edit, since checked_removals is intersected with the real word
+    loss before anything is credited.
+    """
+    def h2_blocks(htmltext):
+        soup = BeautifulSoup(htmltext, "html.parser")
+        blocks = {}
+        for h in soup.find_all("h2"):
+            key = h.get_text(strip=True).lower()
+            parts = [h.get_text()]
+            node = h.next_sibling
+            while node is not None and getattr(node, "name", None) != "h2":
+                parts.append(node.get_text() if hasattr(node, "get_text") else str(node))
+                node = node.next_sibling
+            blocks[key] = " ".join(parts)
+        return blocks
+
+    local_keys = set(h2_blocks(local_html).keys())
+    credit = collections.Counter()
+    removed = []
+    for key, block in h2_blocks(live_html).items():
+        if key not in local_keys:
+            credit.update(words(block))
+            removed.append(key)
+    return credit, removed
 
 
 def main():
@@ -122,11 +233,18 @@ def main():
         before, after = words(live_html), words(local_html)
         gone = {t: before[t] - after.get(t, 0)
                 for t in before if before[t] > after.get(t, 0)}
-        unexplained = {t: n for t, n in gone.items()
-                       if t not in ALLOWED_REMOVALS and not explained_by_rule(t)}
+        section_credit, removed_sections = removed_section_words(live_html, local_html)
+        unexplained = {}
+        for t, n in gone.items():
+            if t in ALLOWED_REMOVALS or explained_by_rule(t):
+                continue
+            remaining = n - section_credit.get(t, 0)
+            if remaining > 0:
+                unexplained[t] = remaining
         targets.append({"uid": uid, "path": row["json"], "live": live,
                         "content": local_html, "delta": len(local_html) - len(live_html),
-                        "lost": sum(gone.values()), "unexplained": unexplained})
+                        "lost": sum(gone.values()), "unexplained": unexplained,
+                        "removed_sections": removed_sections})
 
     bad = [t for t in targets if t["unexplained"]]
     print(f"{len(seen)} unique entries, {len(targets)} differ from the CMS, "

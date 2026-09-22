@@ -35,6 +35,7 @@ const VALID_TYPES = [
   'cli-command-reference',
   'cli-task-runbook',
   'cli-module-reference',
+  'cli-plugin-guide',
 ];
 
 const CHECKS = [
@@ -99,8 +100,9 @@ function isCliDoc(doc, titleText) {
  * rather than `## Commands`, and it must still be linted as a command reference so
  * that the wrong heading shows up as a finding.
  *
- * Three of the six CLI archetypes reuse a product-wide type, so this returns those
- * names too rather than falling through, which keeps the mapping in one place.
+ * Several branches below return a product-wide type rather than one of the four
+ * CLI-specific archetypes, so this returns those names too rather than falling
+ * through, which keeps the mapping in one place.
  */
 function detectCliDocType(doc, titleText) {
   const h2 = doc.topLevelSections().map((s) => s.text.trim());
@@ -114,10 +116,35 @@ function detectCliDocType(doc, titleText) {
   if (/^install the cli\b/.test(titleText)) return 'setup-guide';
   if (/\basset scanning\b|\bcs assets\b/.test(titleText)) return 'feature-doc';
 
+  // `Branches | Migration Use Cases` is a named exception to the "migration use
+  // cases" -> cli-task-runbook rule two lines down, not a case that rule should be
+  // loosened to catch generally. Its three H2s (rename or remove a field, update
+  // content models, check merge status) are independent tasks a reader picks one
+  // of, not steps of one operation performed in order, so it has no single
+  // procedure spine and RUN1 cannot be satisfied by any heading arrangement.
+  // Every other doc in this nav folder (`Migrate Content Between Stacks`,
+  // `Migrate and Overwrite Content in the Same Stack`, and so on) is a genuine
+  // single-procedure runbook, which is why the general rule stays title-based
+  // rather than shape-based: this doc is the one title in the folder whose
+  // content does not match its own folder name.
+  if (/^branches \| migration use cases$/.test(titleText)) return 'feature-doc';
+
   // Lookup pages. Subject test only: these have no Commands section by definition,
   // and their Prerequisites, where one exists, is nested at H3 under another H2.
   if (/\blimitations\b|\bconfiguration reference\b|\bsupported features\b/.test(titleText)) {
     return 'cli-module-reference';
+  }
+
+  // `Create(ing) Custom CLI Plugins for Contentstack` teaches a developer to write
+  // and publish their own plugin, which is neither a procedure a reader performs
+  // with existing commands (cli-task-runbook) nor a flag reference for one
+  // (cli-command-reference). Matched before the imperative-title test below,
+  // which would otherwise catch it on "Create" or "Creating" and misroute it to a
+  // runbook, the type its title-only regex would have caught it as until this
+  // rule existed. `Create Custom CLI Commands`, a different, retiring page, is a
+  // near-identical title and is deliberately excluded by matching the full title.
+  if (/^creat(e|ing) custom cli plugins for contentstack$/.test(titleText)) {
+    return 'cli-plugin-guide';
   }
 
   // A title that opens with an imperative operation names a procedure, so it is a
@@ -137,9 +164,24 @@ function detectCliDocType(doc, titleText) {
   if (/\bplugin\b/.test(titleText)) return 'cli-command-reference';
 
   // Procedure spine, for the runbooks whose title gives nothing away.
+  //
+  // Two or more `Steps to <do X>` H2s is also a spine, distinct from the single
+  // `Step N:` and `Steps for execution` forms above. `Compare and Merge Branches
+  // Using the CLI` is the case this catches: five sibling H2s (list/create/delete,
+  // configure base branches, compare, merge, check status), each a `csdx branch`
+  // sub-operation, with no `Commands` or `Options` H2 anywhere on the page. That
+  // is a runbook with five procedures, not a command's flag reference.
+  //
+  // The `Commands`/`Options` exclusion is what keeps `Cloning a Stack` out of
+  // this branch. It also carries one `Steps to Clone a Stack` H2, but that H2 is
+  // a usage walkthrough for the single `cm:stacks:clone` command whose flags the
+  // page documents under `Commands` and `Options`, not a second procedure.
+  const stepsToCount = h2.filter((t) => /^steps to\b/i.test(t)).length;
+  const hasCommandsSection = h2.some((t) => /^commands$/i.test(t) || /^options$/i.test(t));
   const hasSpine =
     h2.some((t) => /^steps? for execution$/i.test(t)) ||
-    h2.filter((t) => /^step \d+\s*:/i.test(t)).length >= 2;
+    h2.filter((t) => /^step \d+\s*:/i.test(t)).length >= 2 ||
+    (stepsToCount >= 2 && !hasCommandsSection);
   if (hasSpine) return 'cli-task-runbook';
 
   return 'cli-command-reference';

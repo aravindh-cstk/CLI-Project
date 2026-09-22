@@ -2,7 +2,7 @@
 
 A CLI command reference documents the command surface of one plugin or one namespace: what each command does, its flags, and its output. The reader arrives knowing a command name and needs to find it without reading prose.
 
-Apply `sdk-templates/common-rules.md` (B1, B2, C1-C9) and `cli-common-rules.md` (CLI-C1 to CLI-C10) alongside this file.
+Apply `sdk-templates/common-rules.md` (B1, B2, C1-C9) and `cli-common-rules.md` (CLI-C1 to CLI-C14) alongside this file.
 
 ---
 
@@ -18,9 +18,10 @@ Apply `sdk-templates/common-rules.md` (B1, B2, C1-C9) and `cli-common-rules.md` 
 | 6 | Installation | If the plugin is not bundled | The `csdx plugins:install` line, present if and only if the plugin is absent from `oclif.plugins` |
 | 7 | Commands | Required | One H3 per command, or the fixed facet order in bold lead-ins for a single-command doc |
 | 8 | Examples | Required | Runnable scenarios that combine flags, kept out of the per-command H3s |
-| 9 | Troubleshooting | Required | Root cause and resolution for each known failure |
-| 10 | Limitations | Required | Known coverage gaps, per C9 |
-| 11 | Next Steps | Required | Links to what comes after, each with a description |
+| 9 | Limitations | Required | Known coverage gaps, per C9 |
+| 10 | Next Steps | Recommended | Links to what comes after, each with a description, where at least two are genuinely specific to this page |
+
+**No Troubleshooting section on this type.** See CMD3 below and CLI-C14: link the troubleshooting hub instead of carrying page-level failure modes.
 
 **Governing rule:** A reader arrives knowing a command name and must find it as an H3 in the right-hand navigation without reading prose.
 
@@ -28,11 +29,13 @@ Two rows are deliberately conditional rather than hard-required, because a Secti
 
 **Examples is Required rather than Recommended, deliberately.** Only a cell beginning with the word "Required" is machine-enforced, so a Recommended section is advisory and gets dropped under time pressure. 37 of the 43 existing command references have no `Examples` H2, which is the omission this change is meant to close.
 
+**Troubleshooting was removed outright, and Next Steps moved from Required to Recommended.** Troubleshooting is gone because the corpus has a dedicated troubleshooting hub (`troubleshooting/`), and duplicating failure modes onto every command page they can occur on is the thing CLI-C14 stops. The 22 pages that carried a page-level Troubleshooting section had it removed for the same reason, not left in place as an exception. Next Steps moved to Recommended because forcing the section produced padding rather than guidance: building it against a real bar (at least two sourced links, at least one specific to the page) left 42 of 67 candidate docs with nothing to say, because the only links available were the same generic upgrade-and-limitations pair every page could cite. A doc keeps or gains a Next Steps section only when it has something to say that is not true of every other page in the corpus.
+
 ---
 
 ## Type-Specific Rules
 
-Three rules that used to live here now sit in `cli-common-rules.md`, because they apply to all three CLI types rather than to this one:
+Three rules that used to live here now sit in `cli-common-rules.md`, because they apply to all four CLI types rather than to this one:
 
 - **Command headings stop at H3.** See CLI-C1.
 - **Flag tables use the six-column shape.** See CLI-C2.
@@ -59,3 +62,11 @@ The facets are bold lead-ins rather than headings because CLI-C1 stops headings 
 **Rule:** Include an `Installation` section with the `csdx plugins:install` command if and only if the plugin is absent from `oclif.plugins` in the CLI's `package.json` for the documented version.
 **Why:** A bundled plugin needs no install step, and telling a reader to install one wastes their time and implies the CLI is incomplete. An external plugin without the step produces a "command not found" error the reader cannot diagnose. The two lists differ by version: V2 dropped `cli-cm-migrate-rte` and `cli-launch` from the bundle and replaced `cli-cm-bulk-publish` with `cli-bulk-operations`, so a V1 doc and its V2 twin can legitimately disagree here.
 **Exception:** None. The bundled list is machine-readable, so this is always decidable.
+
+---
+
+### CMD3: No Troubleshooting section
+
+**Rule:** Do not add a `Troubleshooting` H2 to this type. Link the CLI troubleshooting hub instead, per CLI-C14.
+**Why:** The hub is the one place a failure mode is written down, so it is the only copy that gets updated when the fix changes. A page-level section is a second copy nothing keeps in sync with the first.
+**Exception:** None. `checks/section-structure.js` reports `CLI-19` if one is added back.

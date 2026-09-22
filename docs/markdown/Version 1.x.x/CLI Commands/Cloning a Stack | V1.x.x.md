@@ -142,10 +142,3 @@ csdx cm:stacks:clone -n "<>" --source-management-token-alias "<>" --destination-
 - The clone function supports the **same modules** as the CLI [export](/docs/headless-cms/export-content-using-the-cli/v1) and [import](/docs/headless-cms/import-content-using-the-cli/v1) commands.
 
 > **Additional Resources**: Learn more about the CLI-supported clone operations in the [CLI-Supported Features for Export, Import, and Clone Operations](/docs/headless-cms/cli-supported-features-for-export-import-and-clone-operations/v1) document.
-
-## Next Steps
-
-- [Export Content Using the CLI](/docs/headless-cms/export-content-using-the-cli/v1): export stack content to disk before importing it elsewhere.
-- [Import Content Using the CLI](/docs/headless-cms/import-content-using-the-cli/v1): import exported content into a target stack.
-- [Audit Plugin](/docs/headless-cms/cli-audit-plugin/v1): audit exported data for reference and field problems before importing it.
-- [CLI-Supported Features for Export, Import, and Clone Operations](/docs/headless-cms/cli-supported-features-for-export-import-and-clone-operations/v1): which modules export, import and clone cover, module by module.

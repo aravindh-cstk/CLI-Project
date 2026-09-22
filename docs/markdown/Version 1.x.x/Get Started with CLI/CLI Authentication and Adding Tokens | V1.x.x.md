@@ -50,28 +50,6 @@ csdx login
 
 > **Note:** To enable automatic OTP generation for MFA-enabled Contentstack accounts, set the `CONTENTSTACK_MFA_SECRET` environment variable using the [MFA secret key](/docs/administration/multi-factor-authentication) provided by Contentstack. This allows the Contentstack CLI to generate one-time passwords (OTPs) automatically, eliminating the need to enter them manually from an authenticator app.
 
-**Examples**
-
-```
-csdx auth:login -u youremail@contentstack.com
-```
-
-```
-csdx auth:login -u youremail@contentstack.com -p *****
-```
-
-```
-csdx auth:login --username youremail@contentstack.com --password *****
-```
-
-```
-csdx login -u youremail@contentstack.com
-```
-
-```
-csdx auth:login --oauth
-```
-
 ### Logout
 
 The `auth:logout` command lets you log out and clear the authentication from the local storage.
@@ -91,16 +69,6 @@ csdx logout
 **Options**
 
 - `-y`, `--yes`: Skips the confirmation prompt and forces the logout process.
-
-**Examples**
-
-```
-csdx auth:logout -y
-```
-
-```
-csdx logout -y
-```
 
 ### Display Username of the Logged in User
 
@@ -140,18 +108,6 @@ csdx auth:tokens:add --management
 - `--token=token`: Value of the token.
 - `-y`, `--yes`: Skips the confirmation and replaces any existing token with the same alias.
 
-**Examples**
-
-```
-csdx auth:tokens:add --management -a tokenname -k blt******** --token cs*********
-```
-
-```
-csdx auth:tokens:add --management -a tokenname -k blt******** --token cs********* -y
-```
-
-> **Note:** This command does not generate a new token in your stack. It only allows you to use an existing Management Token with the CLI.
-
 ### Add Delivery Token
 
 > **Note:** Ensure you have already [generated a Delivery Token](/docs/headless-cms/create-a-delivery-token) in your stack before running this command.
@@ -173,16 +129,6 @@ csdx auth:tokens:add --delivery
 - `--token=token`: Value of the token.
 - `-y`, `--yes`: Skips the confirmation and replaces any existing token with the same alias.
 
-**Examples**
-
-```
-csdx auth:tokens:add --delivery -a tokenname -k blt******** --token cs*********
-```
-
-```
-csdx auth:tokens:add --delivery -a tokenname -k blt******** --token cs********* -y
-```
-
 ### Delete Token
 
 > **Note:** This command will not delete the Management/Delivery token from the stack; it deletes the token from the local config.
@@ -197,16 +143,6 @@ csdx auth:tokens:remove
 
 - `-a`, `--alias=alias`: Alias (name) of the token to delete.
 - `-i`, `--ignore`: Ignores if the token is not present.
-
-**Examples**
-
-```
-csdx auth:tokens:remove -a mytoken
-```
-
-```
-csdx auth:tokens:remove --alias=mytoken
-```
 
 ### List All Tokens
 
@@ -227,6 +163,72 @@ csdx auth:tokens
 - `--no-truncate`: Prevents truncation of output to fit the screen.
 - `--output=csv|json|yaml`: Displays output in a particular format.
 - `--sort=sort`: Sorts the list; prefix with ‘-’ for descending order.
+
+## Examples
+
+**Login**
+
+```
+csdx auth:login -u youremail@contentstack.com
+```
+
+```
+csdx auth:login -u youremail@contentstack.com -p *****
+```
+
+```
+csdx auth:login --username youremail@contentstack.com --password *****
+```
+
+```
+csdx login -u youremail@contentstack.com
+```
+
+```
+csdx auth:login --oauth
+```
+
+**Logout**
+
+```
+csdx auth:logout -y
+```
+
+```
+csdx logout -y
+```
+
+**Add Management Token**
+
+```
+csdx auth:tokens:add --management -a tokenname -k blt******** --token cs*********
+```
+
+```
+csdx auth:tokens:add --management -a tokenname -k blt******** --token cs********* -y
+```
+
+> **Note:** This command does not generate a new token in your stack. It only allows you to use an existing Management Token with the CLI.
+
+**Add Delivery Token**
+
+```
+csdx auth:tokens:add --delivery -a tokenname -k blt******** --token cs*********
+```
+
+```
+csdx auth:tokens:add --delivery -a tokenname -k blt******** --token cs********* -y
+```
+
+**Delete Token**
+
+```
+csdx auth:tokens:remove -a mytoken
+```
+
+```
+csdx auth:tokens:remove --alias=mytoken
+```
 
 ## Next Steps
 
